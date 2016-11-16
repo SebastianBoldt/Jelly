@@ -1,0 +1,16 @@
+PODS:
+  - Jelly-Animators (0.1.0)
+
+DEPENDENCIES:
+  - Jelly-Animators (from `../`)
+
+EXTERNAL SOURCES:
+  Jelly-Animators:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Jelly-Animators: 3d745869c648f8d049419aea1da9e3d3c5a95202
+
+PODFILE CHECKSUM: 67461e52928a9d2af6a62def7b22186fde37260e
+
+COCOAPODS: 1.1.1

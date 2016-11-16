@@ -28,8 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08A06765A1A29F3697E682BC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		08A06765A1A29F3697E682BC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		0E1721EE310470AE7B453BC2 /* Pods-Jelly-Animators_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jelly-Animators_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jelly-Animators_Tests/Pods-Jelly-Animators_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		15E03EF51DDCE18500D5D98E /* travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = travis.yml; path = ../travis.yml; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1C5A0417812013A0D829C706 /* Pods-Jelly-Animators_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jelly-Animators_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jelly-Animators_Tests/Pods-Jelly-Animators_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Jelly-Animators_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jelly-Animators_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,10 +44,10 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7ABB9F32121E205F1978BCD2 /* Pods_Jelly_Animators_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jelly_Animators_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9713F5C5BBB86F9F9C9AA7F3 /* Pods-Jelly-Animators_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jelly-Animators_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jelly-Animators_Example/Pods-Jelly-Animators_Example.release.xcconfig"; sourceTree = "<group>"; };
-		99B69CA22928136350DB7FE4 /* Jelly-Animators.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = "Jelly-Animators.podspec"; path = "../Jelly-Animators.podspec"; sourceTree = "<group>"; };
+		99B69CA22928136350DB7FE4 /* Jelly-Animators.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "Jelly-Animators.podspec"; path = "../Jelly-Animators.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AAA59DF14A486A3DE018642C /* Pods_Jelly_Animators_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jelly_Animators_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFFAECAACBAAC17E2DC8759B /* Pods-Jelly-Animators_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jelly-Animators_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jelly-Animators_Example/Pods-Jelly-Animators_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		D68D23FDCB08508ADA6C74A5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		D68D23FDCB08508ADA6C74A5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +84,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				15E03EF51DDCE18500D5D98E /* travis.yml */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for Jelly-Animators */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -490,10 +492,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Jelly-Animators/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -503,10 +507,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Jelly-Animators/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};
@@ -526,6 +532,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -541,6 +548,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};

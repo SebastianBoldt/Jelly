@@ -5,10 +5,13 @@ target 'Jelly-Animators_Example' do
 
   target 'Jelly-Animators_Tests' do
     inherit! :search_paths
-
-    pod 'Quick', '~> 0.8'
-  pod 'Nimble', '~> 3.0'
-  pod 'FBSnapshotTestCase'
-  pod 'Nimble-Snapshots'
   end
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['SWIFT_VERSION'] = '3.0'
+        end
+    end
 end
