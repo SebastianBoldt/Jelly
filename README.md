@@ -1,4 +1,4 @@
-![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly-Animators/blob/develop/Example/JellyAnimators.png?raw=true)
+![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly-Animators/blob/develop/Github/JellyAnimators.png?raw=true)
 
 # Jelly-Animators
 
