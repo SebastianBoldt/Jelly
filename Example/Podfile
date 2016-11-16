@@ -1,0 +1,14 @@
+use_frameworks!
+
+target 'Jelly-Animators_Example' do
+  pod 'Jelly-Animators', :path => '../'
+
+  target 'Jelly-Animators_Tests' do
+    inherit! :search_paths
+
+    pod 'Quick', '~> 0.8'
+  pod 'Nimble', '~> 3.0'
+  pod 'FBSnapshotTestCase'
+  pod 'Nimble-Snapshots'
+  end
+end
