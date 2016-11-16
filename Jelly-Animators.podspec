@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   
                        DESC
 
-  s.homepage         = 'http://sebastianboldt.com'
+  s.homepage         = 'https://github.com/SebastianBoldt/Jelly-Animators'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Sebastian Boldt' => 'self.dealloc@googlemail.com' }
