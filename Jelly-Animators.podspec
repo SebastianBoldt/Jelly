@@ -20,13 +20,13 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
   Jelly Animators is a simple to use Animation-Library
   It helps you to add rich animations to your app with writing just a few lines of code
-  
                        DESC
 
   s.homepage         = 'https://github.com/SebastianBoldt/Jelly-Animators'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Sebastian Boldt' => 'self.dealloc@googlemail.com' }
+  s.social_media_url = 'http://twitter.com/sebastianboldt'
   s.source           = { :git => 'https://github.com/SebastianBoldt/Jelly-Animators.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/sebastianboldt'
 
