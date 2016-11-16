@@ -1,10 +1,10 @@
 # Jelly-Animators
 
 [![CI Status](https://travis-ci.org/SebastianBoldt/Jelly-Animators.svg?branch=master?style=flat)](https://travis-ci.org/SebastianBoldt/Jelly-Animators)
-[![Version](https://img.shields.io/cocoapods/v/Jelly-Animators.svg)](http://cocoapods.org/pods/Jelly-Animators)
-[![License](https://img.shields.io/cocoapods/l/Jelly-Animators.svg)](http://cocoapods.org/pods/Jelly-Animators)
-[![Platform](https://img.shields.io/cocoapods/p/Jelly-Animators.svg)](http://cocoapods.org/pods/Jelly-Animators)
-[![Twitter](https://img.shields.io/badge/twitter-@sebastianboldt-blue.svg)](http://twitter.com/sebastianboldt)
+[![Version](https://img.shields.io/cocoapods/v/Jelly-Animators.svg?style=flat)](http://cocoapods.org/pods/Jelly-Animators)
+[![License](https://img.shields.io/cocoapods/l/Jelly-Animators.svg?style=flat)](http://cocoapods.org/pods/Jelly-Animators)
+[![Platform](https://img.shields.io/cocoapods/p/Jelly-Animators.svg?style=flat)](http://cocoapods.org/pods/Jelly-Animators)
+[![Twitter](https://img.shields.io/badge/twitter-@sebastianboldt-blue.svg?style=flat)](http://twitter.com/sebastianboldt)
 
 ## Example
 
