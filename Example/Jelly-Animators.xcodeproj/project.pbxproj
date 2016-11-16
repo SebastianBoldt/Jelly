@@ -30,7 +30,6 @@
 /* Begin PBXFileReference section */
 		08A06765A1A29F3697E682BC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		0E1721EE310470AE7B453BC2 /* Pods-Jelly-Animators_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jelly-Animators_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jelly-Animators_Tests/Pods-Jelly-Animators_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		15E03EF51DDCE18500D5D98E /* travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = travis.yml; path = ../travis.yml; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1C5A0417812013A0D829C706 /* Pods-Jelly-Animators_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jelly-Animators_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jelly-Animators_Tests/Pods-Jelly-Animators_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Jelly-Animators_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jelly-Animators_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,7 +83,6 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				15E03EF51DDCE18500D5D98E /* travis.yml */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for Jelly-Animators */,
 				607FACE81AFB9204008FA782 /* Tests */,
