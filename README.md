@@ -8,15 +8,25 @@
 [![Twitter](https://img.shields.io/badge/twitter-@sebastianboldt-blue.svg?style=flat)](http://twitter.com/sebastianboldt)
 
 Jelly Animators provides custom view controller animations with just a few lines of code.
-You specify the style, jellyness, duration and the final size of the ViewController you want to present.
-A Jelly-Animator will do the rest for you. Presentation and Dismissal Eye Candy. 
-If you find some bugs, open an issue for that.
+You specify the style, jellyness, and duration of the animation and the final size of the presented ViewController.
+A Jelly-Animator will do the rest for you. If you find a bug, open an issue for that.
 
 ## How to use 
 
-Coming soon ..
+Jelly Animators is super easy to use. You just create a JellyPresentation Object,
+initialize a JellyAnimator using this presentation, prepare your vc using that JellyAnimator 
+and finally call the native UIViewController presentation function.
 
-## Example
+Thats it.
+
+```swift
+let presentation = JellyPresentation(jellyness: .jelly, duration: .medium, direction: .left, style: .slidein)
+let jellyAnimator = JellyAnimator(presentation:presentation)
+jellyAnimator.prepare(viewController: vc)
+self.present(vc, animated: true, completion: nil)
+```
+
+## Example App
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 

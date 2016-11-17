@@ -10,11 +10,13 @@ public struct JellyPresentation {
     private(set) var duration: JellyConstants.Duration
     private(set) var direction: JellyConstants.Direction
     private(set) var style: JellyConstants.Style
+    private(set) var sizeForPresentedVC: CGSize
     
-    public init(jellyness: JellyConstants.Jellyness, duration: JellyConstants.Duration, direction: JellyConstants.Direction, style: JellyConstants.Style) {
+    public init(jellyness: JellyConstants.Jellyness, duration: JellyConstants.Duration, direction: JellyConstants.Direction, style: JellyConstants.Style,sizeForViewController viewControllerSize: CGSize) {
         self.jellyness = jellyness
         self.duration = duration
         self.direction = direction
         self.style = style
+        self.sizeForPresentedVC = viewControllerSize
     }
 }
