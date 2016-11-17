@@ -27,11 +27,11 @@ That's it
 ```swift
 let finalSize = CGSize(width: 200, height: 500)
 let presentation = JellyPresentation(jellyness: .jelly,
-duration: .medium,
-direction: .left, style: .slidein,
-sizeForViewController: finalSize,
-showDimmingView: false,
-cornerRadius: 10)
+                                      duration: .medium,
+                                     direction: .left, style: .slidein,
+                         sizeForViewController: finalSize,
+                               showDimmingView: false,
+                                  cornerRadius: 10)
 
 self.jellyAnimator = JellyAnimator(presentation:presentation)
 self.jellyAnimator?.prepare(viewController: viewController)
