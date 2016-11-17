@@ -31,6 +31,9 @@
                                 <rect key="frame" x="148" y="374" width="78" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="present me"/>
+                                <connections>
+                                    <action selector="presentMeButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="j90-Ds-oDz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.43529411759999997" green="0.71372549019999998" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -39,6 +42,9 @@
                             <constraint firstItem="0ry-yj-fqV" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="wjT-YI-9tb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="presentMeButton" destination="G78-pI-vK1" id="dR9-Se-xH3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,6 +65,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGQ-x1-ihJ">
                                 <rect key="frame" x="148" y="318" width="79" height="30"/>
                                 <state key="normal" title="Dismiss Me"/>
+                                <connections>
+                                    <action selector="dismissMe:" destination="b4d-if-J0f" eventType="touchUpInside" id="TIG-aX-L34"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

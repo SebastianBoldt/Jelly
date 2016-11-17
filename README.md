@@ -17,7 +17,12 @@ Jelly Animators are super easy to use. You just create a JellyPresentation Objec
 initialize a JellyAnimator using this presentation, prepare your vc using that JellyAnimator 
 and finally call the native UIViewController presentation function.
 
-Thats it.
+***YOU NEED TO KEEP A STRONG REFERENCE***
+
+Because the transitioningDelegate of a ViewController is weak, you need to 
+hold a strong reference to the Animator
+
+That's it
 
 ```swift
 let finalSize = CGSize(width: 200, height: 200)

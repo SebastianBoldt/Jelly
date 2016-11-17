@@ -11,12 +11,24 @@ public struct JellyPresentation {
     private(set) var direction: JellyConstants.Direction
     private(set) var style: JellyConstants.Style
     private(set) var sizeForPresentedVC: CGSize
+    private(set) var isDimmingViewAnimationEnabled: Bool = false
+    private(set) var cornerRadius: Double = 0.0
     
-    public init(jellyness: JellyConstants.Jellyness, duration: JellyConstants.Duration, direction: JellyConstants.Direction, style: JellyConstants.Style,sizeForViewController viewControllerSize: CGSize) {
+    public init(jellyness: JellyConstants.Jellyness,
+                duration: JellyConstants.Duration,
+                direction: JellyConstants.Direction,
+                style: JellyConstants.Style,
+                sizeForViewController viewControllerSize: CGSize,
+                showDimmingView: Bool = false,
+                cornerRadius: Double = 0.0) {
+        
         self.jellyness = jellyness
         self.duration = duration
         self.direction = direction
         self.style = style
         self.sizeForPresentedVC = viewControllerSize
+        self.isDimmingViewAnimationEnabled = showDimmingView
+        self.cornerRadius = cornerRadius
+    
     }
 }

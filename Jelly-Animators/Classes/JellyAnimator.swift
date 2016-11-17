@@ -4,6 +4,7 @@
 import UIKit
 
 /**
+ 
  # JellyAnimator
  
  A JellyAnimator basically is an UIViewControllerTransitionsDelegate with some extra candy
@@ -12,22 +13,15 @@ import UIKit
 
 public class JellyAnimator : NSObject {
     
-    private var jellyness : JellyConstants.Jellyness = .jellier
-    private var duration : JellyConstants.Duration = .medium
-    private var direction : JellyConstants.Direction = .top
-    private var style : JellyConstants.Style = .slidein
-    
+    fileprivate var presentation: JellyPresentation
     private weak var viewController : UIViewController?
     
     public init(presentation: JellyPresentation) {
-        
-        self.jellyness = presentation.jellyness
-        self.duration = presentation.duration
-        self.direction = presentation.direction
-        self.style = presentation.style
+        self.presentation = presentation
         super.init()
     }
     
+    /// Call this function to prepare the viewController you want to present
     public func prepare(viewController: UIViewController) {
         viewController.modalPresentationStyle = .custom
         viewController.transitioningDelegate = self
@@ -38,5 +32,9 @@ public class JellyAnimator : NSObject {
  # UIViewControllerTransitioningDelegate Implementation
  */
 extension JellyAnimator: UIViewControllerTransitioningDelegate {
-    
+    public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        
+        let jellyPresentationController = JellyPresentationController(presentedViewController: presented, presentingViewController: presenting, presentation: presentation)
+        return jellyPresentationController
+    }
 }

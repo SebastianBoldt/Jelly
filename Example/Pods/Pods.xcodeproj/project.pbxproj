@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1564A1A21DDE438400211871 /* JellyPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1564A1A11DDE438400211871 /* JellyPresentationController.swift */; };
 		36784CCBFA06273600A3827780F276F5 /* JellyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DD3397FD265F15B2F191FCEB7343E5 /* JellyConstants.swift */; };
 		4895114E4164E02068B66A0D97D71937 /* Pods-Jelly-Animators_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D455FE91CFA9B206249FD627091CE289 /* Pods-Jelly-Animators_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5343C37404E9DDA0DB06D74C5471AF8D /* Pods-Jelly-Animators_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A802E24CE9D3B4FE9DE8B066B41FC50 /* Pods-Jelly-Animators_Tests-dummy.m */; };
@@ -36,9 +37,10 @@
 		0011ACAF31793512D05F1E8DEB7C7608 /* Pods-Jelly-Animators_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Jelly-Animators_Example-resources.sh"; sourceTree = "<group>"; };
 		0A9A52774CE92BE2E9593D2C0C308CCD /* JellyPresentation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JellyPresentation.swift; sourceTree = "<group>"; };
 		0D82AFBA7D028447FA339F236450DAA5 /* Pods-Jelly-Animators_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Jelly-Animators_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		1564A1A11DDE438400211871 /* JellyPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellyPresentationController.swift; sourceTree = "<group>"; };
 		16C6C2DE3DD1601307DB2D12354FCCD0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FF2FC6399478F92B7EDDD90D1512990 /* Pods-Jelly-Animators_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Jelly-Animators_Tests-resources.sh"; sourceTree = "<group>"; };
-		33587C51C50B43BD2D73A7325B62BCD6 /* Pods_Jelly_Animators_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Jelly_Animators_Example.framework; path = "Pods-Jelly-Animators_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33587C51C50B43BD2D73A7325B62BCD6 /* Pods_Jelly_Animators_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jelly_Animators_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		397086FF7ADB105DB41C78C3216C5D7A /* Pods-Jelly-Animators_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jelly-Animators_Example.release.xcconfig"; sourceTree = "<group>"; };
 		40E13B8AAE9B3FBEFD0B471FAD9E088F /* Pods-Jelly-Animators_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jelly-Animators_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5B236C1E880135712F5DD0FA92A7C057 /* Pods-Jelly-Animators_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Jelly-Animators_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -46,13 +48,13 @@
 		616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6A802E24CE9D3B4FE9DE8B066B41FC50 /* Pods-Jelly-Animators_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jelly-Animators_Tests-dummy.m"; sourceTree = "<group>"; };
 		749B72F6C233573A84882416DF9C59B3 /* Pods-Jelly-Animators_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jelly-Animators_Tests-umbrella.h"; sourceTree = "<group>"; };
-		7AED942F0FDC780A264182B29F292BA9 /* Pods_Jelly_Animators_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Jelly_Animators_Tests.framework; path = "Pods-Jelly-Animators_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E6034E75E1F99C1D5ED4A2C7FB1E1E8 /* Pods-Jelly-Animators_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Jelly-Animators_Tests.modulemap"; sourceTree = "<group>"; };
+		7AED942F0FDC780A264182B29F292BA9 /* Pods_Jelly_Animators_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jelly_Animators_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E6034E75E1F99C1D5ED4A2C7FB1E1E8 /* Pods-Jelly-Animators_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Jelly-Animators_Tests.modulemap"; sourceTree = "<group>"; };
 		7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		82BD37DB940B8C04D909311DE924F22B /* Pods-Jelly-Animators_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jelly-Animators_Example-dummy.m"; sourceTree = "<group>"; };
-		88DE681D631AB760E37ABABB5AD25E3A /* Jelly-Animators.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Jelly-Animators.modulemap"; sourceTree = "<group>"; };
+		88DE681D631AB760E37ABABB5AD25E3A /* Jelly-Animators.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Jelly-Animators.modulemap"; sourceTree = "<group>"; };
 		9303374DBC84B232DAB81DA2F6D5862F /* Pods-Jelly-Animators_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Jelly-Animators_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9865C521C0D3F97269CAB4E62C8367CD /* Pods-Jelly-Animators_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Jelly-Animators_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		A34D9500527545806B857C73FA45055A /* Jelly-Animators-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Jelly-Animators-prefix.pch"; sourceTree = "<group>"; };
 		A9DD3397FD265F15B2F191FCEB7343E5 /* JellyConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JellyConstants.swift; sourceTree = "<group>"; };
@@ -61,11 +63,11 @@
 		C4BD955946840CD5C91E8DB2FB3CAD27 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6E067A87916FB07C008BB33459C76E5 /* Pods-Jelly-Animators_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Jelly-Animators_Example-frameworks.sh"; sourceTree = "<group>"; };
 		D455FE91CFA9B206249FD627091CE289 /* Pods-Jelly-Animators_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jelly-Animators_Example-umbrella.h"; sourceTree = "<group>"; };
-		D9426D57154D87557B2D63AA928C0134 /* Pods-Jelly-Animators_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Jelly-Animators_Example.modulemap"; sourceTree = "<group>"; };
+		D9426D57154D87557B2D63AA928C0134 /* Pods-Jelly-Animators_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Jelly-Animators_Example.modulemap"; sourceTree = "<group>"; };
 		DD5DC526A7C5A19228600ED6B270ECA3 /* Jelly-Animators-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Jelly-Animators-dummy.m"; sourceTree = "<group>"; };
 		F6E38DF1B3CB6A453849D6CDA8E9EA8F /* JellyAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JellyAnimator.swift; sourceTree = "<group>"; };
 		FB7D11263A57788DA905A90BF047D966 /* Jelly-Animators.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Jelly-Animators.xcconfig"; sourceTree = "<group>"; };
-		FBF034E9F094C81BFBD08AECABDEC8EE /* Jelly_Animators.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Jelly_Animators.framework; path = "Jelly-Animators.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBF034E9F094C81BFBD08AECABDEC8EE /* Jelly_Animators.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Jelly_Animators.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE3DD8DA4603F0A34249EA16E875953 /* Jelly-Animators-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Jelly-Animators-umbrella.h"; sourceTree = "<group>"; };
 		FFE32FB2E44E004E265C98661E7FA9CB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,7 +150,6 @@
 			children = (
 				A67B4384468CCE0BF134C404DDFEA430 /* Classes */,
 			);
-			name = "Jelly-Animators";
 			path = "Jelly-Animators";
 			sourceTree = "<group>";
 		};
@@ -220,8 +221,8 @@
 				F6E38DF1B3CB6A453849D6CDA8E9EA8F /* JellyAnimator.swift */,
 				A9DD3397FD265F15B2F191FCEB7343E5 /* JellyConstants.swift */,
 				0A9A52774CE92BE2E9593D2C0C308CCD /* JellyPresentation.swift */,
+				1564A1A11DDE438400211871 /* JellyPresentationController.swift */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -349,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1564A1A21DDE438400211871 /* JellyPresentationController.swift in Sources */,
 				86133BB1E945F6287865EFD359F2FCE5 /* Jelly-Animators-dummy.m in Sources */,
 				D90CCB51F822C616A9CDBF726246ADE1 /* JellyAnimator.swift in Sources */,
 				36784CCBFA06273600A3827780F276F5 /* JellyConstants.swift in Sources */,
