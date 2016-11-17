@@ -8,8 +8,9 @@
 [![Twitter](https://img.shields.io/badge/twitter-@sebastianboldt-blue.svg?style=flat)](http://twitter.com/sebastianboldt)
 
 Jelly Animators provides custom view controller animations with just a few lines of code.
-You specify the style of the animation. The jellyness, duration and the final size of the ViewController.
-Jelly-Animators do the rest for you. If you find some bugs, open an issue for that.
+You specify the style, jellyness, duration and the final size of the ViewController you want to present.
+A Jelly-Animator will do the rest for you. Presentation and Dismissal Eye Candy. 
+If you find some bugs, open an issue for that.
 
 ## How to use 
 
