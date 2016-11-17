@@ -67,14 +67,20 @@ class JellyPresentationController : UIPresentationController {
         frame.size = size(forChildContentContainer: presentedViewController,
                           withParentContainerSize: containerView!.bounds.size)
         
-        switch presentation.direction {
-        case .right:
-            frame.origin.x = containerView!.frame.width*(1.0/3.0)
-        case .bottom:
-            frame.origin.y = containerView!.frame.height*(1.0/3.0)
-        default:
-            frame.origin = .zero
+        if (frame.size.height > (containerView?.frame.size.height)!) {
+            print("JELLY_ANIMATORS: Height for presentedViewController is to high")
+            frame.size.height = (containerView?.frame.size.height)!
+            print("JELLY_ANIMATORS: Resizing to \(frame.size.height)")
         }
+        
+        if (frame.size.width > (containerView?.frame.size.width)!) {
+            print("JELLY_ANIMATORS: Width for presentedViewController is to wide")
+            frame.size.width = (containerView?.frame.size.width)!
+            print("JELLY_ANIMATORS: Resizing to \(frame.size.width)")
+        }
+        
+        frame.origin.x = (containerView!.frame.size.width/2)-(frame.size.width/2)
+        frame.origin.y = (containerView!.frame.size.height/2)-(frame.size.height/2)
         return frame
     }
 }

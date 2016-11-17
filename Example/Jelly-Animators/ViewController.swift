@@ -18,19 +18,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func presentMeButtonPressed(_ sender: Any) {
-        if let vc = createVC() {
+        if let viewController = createVC() {
             
-            let finalSize = CGSize(width: 200, height: 200)
+            let finalSize = CGSize(width: 200, height: 500)
             let presentation = JellyPresentation(jellyness: .jelly,
                                                  duration: .medium,
                                                  direction: .left, style: .slidein,
                                                  sizeForViewController: finalSize,
-                                                 showDimmingView: true,
-                                                 cornerRadius: 40)
+                                                 showDimmingView: false,
+                                                 cornerRadius: 10)
             
             self.jellyAnimator = JellyAnimator(presentation:presentation)
-            self.jellyAnimator?.prepare(viewController: vc)
-            self.present(vc, animated: true, completion: nil)
+            self.jellyAnimator?.prepare(viewController: viewController)
+            self.present(viewController, animated: true, completion: nil)
         }
     }
     

@@ -25,11 +25,17 @@ hold a strong reference to the Animator
 That's it
 
 ```swift
-let finalSize = CGSize(width: 200, height: 200)
-let presentation = JellyPresentation(jellyness: .jelly, duration: .medium, direction: .left, style: .slidein, sizeForViewController: finalSize)
-let jellyAnimator = JellyAnimator(presentation:presentation)
-jellyAnimator.prepare(viewController: vc)
-self.present(vc, animated: true, completion: nil)
+let finalSize = CGSize(width: 200, height: 500)
+let presentation = JellyPresentation(jellyness: .jelly,
+duration: .medium,
+direction: .left, style: .slidein,
+sizeForViewController: finalSize,
+showDimmingView: false,
+cornerRadius: 10)
+
+self.jellyAnimator = JellyAnimator(presentation:presentation)
+self.jellyAnimator?.prepare(viewController: viewController)
+self.present(viewController, animated: true, completion: nil)
 ```
 
 ## Example App
