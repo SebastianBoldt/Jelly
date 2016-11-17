@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		07608321988ECD6D4761C100 /* Pods_Jelly_Animators_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABB9F32121E205F1978BCD2 /* Pods_Jelly_Animators_Example.framework */; };
+		1564A19E1DDE371200211871 /* Jelly-Animators.png in Resources */ = {isa = PBXBuildFile; fileRef = 1564A19D1DDE371200211871 /* Jelly-Animators.png */; };
+		1564A1A01DDE381C00211871 /* DismissMeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1564A19F1DDE381C00211871 /* DismissMeController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -30,6 +32,9 @@
 /* Begin PBXFileReference section */
 		08A06765A1A29F3697E682BC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		0E1721EE310470AE7B453BC2 /* Pods-Jelly-Animators_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jelly-Animators_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jelly-Animators_Tests/Pods-Jelly-Animators_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		1564A1961DDE2F5000211871 /* Developer-Documentation.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "Developer-Documentation.rtf"; path = "../Misc/Developer-Documentation.rtf"; sourceTree = "<group>"; };
+		1564A19D1DDE371200211871 /* Jelly-Animators.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jelly-Animators.png"; sourceTree = "<group>"; };
+		1564A19F1DDE381C00211871 /* DismissMeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissMeController.swift; sourceTree = "<group>"; };
 		1C5A0417812013A0D829C706 /* Pods-Jelly-Animators_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jelly-Animators_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jelly-Animators_Tests/Pods-Jelly-Animators_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Jelly-Animators_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jelly-Animators_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15E03EF71DDD03EA00D5D98E /* Github */ = {
+			isa = PBXGroup;
+			children = (
+				1564A19D1DDE371200211871 /* Jelly-Animators.png */,
+			);
+			name = Github;
+			sourceTree = "<group>";
+		};
 		42389BC5DF002A1C6444DDFC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +96,8 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				1564A1961DDE2F5000211871 /* Developer-Documentation.rtf */,
+				15E03EF71DDD03EA00D5D98E /* Github */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for Jelly-Animators */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -106,6 +121,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				1564A19F1DDE381C00211871 /* DismissMeController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -247,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				1564A19E1DDE371200211871 /* Jelly-Animators.png in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -359,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1564A1A01DDE381C00211871 /* DismissMeController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

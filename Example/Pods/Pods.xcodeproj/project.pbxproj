@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D9E0A88D201797CB010417B25FEB343 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */; };
-		40548FCA2BEC5CB7C54DC74872935E93 /* Jelly-Animators-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5DC526A7C5A19228600ED6B270ECA3 /* Jelly-Animators-dummy.m */; };
+		36784CCBFA06273600A3827780F276F5 /* JellyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DD3397FD265F15B2F191FCEB7343E5 /* JellyConstants.swift */; };
 		4895114E4164E02068B66A0D97D71937 /* Pods-Jelly-Animators_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D455FE91CFA9B206249FD627091CE289 /* Pods-Jelly-Animators_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5343C37404E9DDA0DB06D74C5471AF8D /* Pods-Jelly-Animators_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A802E24CE9D3B4FE9DE8B066B41FC50 /* Pods-Jelly-Animators_Tests-dummy.m */; };
-		8487F2BA2A004CECC7594C2A5F001077 /* Jelly-Animators-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FEE3DD8DA4603F0A34249EA16E875953 /* Jelly-Animators-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86133BB1E945F6287865EFD359F2FCE5 /* Jelly-Animators-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5DC526A7C5A19228600ED6B270ECA3 /* Jelly-Animators-dummy.m */; };
+		8676F31CF4F890064BA2ADBB8B41C6B9 /* Jelly-Animators-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FEE3DD8DA4603F0A34249EA16E875953 /* Jelly-Animators-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9838753F253F285BE42DCAD66B63E470 /* JellyPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A52774CE92BE2E9593D2C0C308CCD /* JellyPresentation.swift */; };
 		9AAAD4246D43233243427B348BBBF5E0 /* Pods-Jelly-Animators_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 749B72F6C233573A84882416DF9C59B3 /* Pods-Jelly-Animators_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0BFBFF2DC60404184EAB5942092D35C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
 		B3A369EBEFA37FF89CE229D8F0720F62 /* Pods-Jelly-Animators_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BD37DB940B8C04D909311DE924F22B /* Pods-Jelly-Animators_Example-dummy.m */; };
-		C471DA26E0B75A8A9305949966302F49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		D5D6F1F15876BD300D568D4DA3F5B63E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */; };
+		D90CCB51F822C616A9CDBF726246ADE1 /* JellyAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E38DF1B3CB6A453849D6CDA8E9EA8F /* JellyAnimator.swift */; };
 		F342659619DE12069666BC84C1E2B21E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
-		F8810CA95AC09AEA039BA658A8987119 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71EAE60DA5E3DCF3E9EAA4FBDFCE02 /* ReplaceMe.swift */; };
 		FF14FC24C08AC45F3144797EEFABC548 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,13 +27,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 52D953C0F3A75051F2012E26F5EDADB1;
+			remoteGlobalIDString = AC7499D3E343B21596FED0F1D3B72803;
 			remoteInfo = "Jelly-Animators";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0011ACAF31793512D05F1E8DEB7C7608 /* Pods-Jelly-Animators_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Jelly-Animators_Example-resources.sh"; sourceTree = "<group>"; };
+		0A9A52774CE92BE2E9593D2C0C308CCD /* JellyPresentation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JellyPresentation.swift; sourceTree = "<group>"; };
 		0D82AFBA7D028447FA339F236450DAA5 /* Pods-Jelly-Animators_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Jelly-Animators_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		16C6C2DE3DD1601307DB2D12354FCCD0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FF2FC6399478F92B7EDDD90D1512990 /* Pods-Jelly-Animators_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Jelly-Animators_Tests-resources.sh"; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9865C521C0D3F97269CAB4E62C8367CD /* Pods-Jelly-Animators_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Jelly-Animators_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		A34D9500527545806B857C73FA45055A /* Jelly-Animators-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Jelly-Animators-prefix.pch"; sourceTree = "<group>"; };
+		A9DD3397FD265F15B2F191FCEB7343E5 /* JellyConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JellyConstants.swift; sourceTree = "<group>"; };
 		BCB7FD4222C4A3F2A794F9BD1C6CC013 /* Pods-Jelly-Animators_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jelly-Animators_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		BE02496AB1017487B601C64660607083 /* Pods-Jelly-Animators_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jelly-Animators_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4BD955946840CD5C91E8DB2FB3CAD27 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,7 +63,7 @@
 		D455FE91CFA9B206249FD627091CE289 /* Pods-Jelly-Animators_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jelly-Animators_Example-umbrella.h"; sourceTree = "<group>"; };
 		D9426D57154D87557B2D63AA928C0134 /* Pods-Jelly-Animators_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Jelly-Animators_Example.modulemap"; sourceTree = "<group>"; };
 		DD5DC526A7C5A19228600ED6B270ECA3 /* Jelly-Animators-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Jelly-Animators-dummy.m"; sourceTree = "<group>"; };
-		EB71EAE60DA5E3DCF3E9EAA4FBDFCE02 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
+		F6E38DF1B3CB6A453849D6CDA8E9EA8F /* JellyAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JellyAnimator.swift; sourceTree = "<group>"; };
 		FB7D11263A57788DA905A90BF047D966 /* Jelly-Animators.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Jelly-Animators.xcconfig"; sourceTree = "<group>"; };
 		FBF034E9F094C81BFBD08AECABDEC8EE /* Jelly_Animators.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Jelly_Animators.framework; path = "Jelly-Animators.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE3DD8DA4603F0A34249EA16E875953 /* Jelly-Animators-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Jelly-Animators-umbrella.h"; sourceTree = "<group>"; };
@@ -75,20 +79,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5A11F5BDA682A937347D662AFC418B99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0BFBFF2DC60404184EAB5942092D35C /* Foundation.framework in Frameworks */,
+				D5D6F1F15876BD300D568D4DA3F5B63E /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		83387BE052B39F059C55D9451E67DBA1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F342659619DE12069666BC84C1E2B21E /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F23B72DF2E56EADD4DDF1CE349C940BB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C471DA26E0B75A8A9305949966302F49 /* Foundation.framework in Frameworks */,
-				0D9E0A88D201797CB010417B25FEB343 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +102,7 @@
 		07FF7CB08A44A9E2C652A06A6A507CD6 /* Jelly-Animators */ = {
 			isa = PBXGroup;
 			children = (
-				5D15BA455D61721FFCE94D8288118F23 /* Jelly-Animators */,
+				47F9A42F1EAC384D1BE457430C5ABEFD /* Jelly-Animators */,
 				4FE516F1B3887C4834B36A7E32314A9F /* Support Files */,
 			);
 			name = "Jelly-Animators";
@@ -137,6 +141,15 @@
 				E6EE98446B568159EE277B68FD442AF0 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		47F9A42F1EAC384D1BE457430C5ABEFD /* Jelly-Animators */ = {
+			isa = PBXGroup;
+			children = (
+				A67B4384468CCE0BF134C404DDFEA430 /* Classes */,
+			);
+			name = "Jelly-Animators";
+			path = "Jelly-Animators";
 			sourceTree = "<group>";
 		};
 		4FE516F1B3887C4834B36A7E32314A9F /* Support Files */ = {
@@ -180,15 +193,6 @@
 			path = "Target Support Files/Pods-Jelly-Animators_Tests";
 			sourceTree = "<group>";
 		};
-		5D15BA455D61721FFCE94D8288118F23 /* Jelly-Animators */ = {
-			isa = PBXGroup;
-			children = (
-				D6E33CE0165202FFD4B7E1C651D9A6CA /* Classes */,
-			);
-			name = "Jelly-Animators";
-			path = "Jelly-Animators";
-			sourceTree = "<group>";
-		};
 		709290647645A7563C50B769E07FB3C0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,10 +214,12 @@
 			);
 			sourceTree = "<group>";
 		};
-		D6E33CE0165202FFD4B7E1C651D9A6CA /* Classes */ = {
+		A67B4384468CCE0BF134C404DDFEA430 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				EB71EAE60DA5E3DCF3E9EAA4FBDFCE02 /* ReplaceMe.swift */,
+				F6E38DF1B3CB6A453849D6CDA8E9EA8F /* JellyAnimator.swift */,
+				A9DD3397FD265F15B2F191FCEB7343E5 /* JellyConstants.swift */,
+				0A9A52774CE92BE2E9593D2C0C308CCD /* JellyPresentation.swift */,
 			);
 			name = Classes;
 			path = Classes;
@@ -247,34 +253,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A48A17E3353505A2B13607274A3FE142 /* Headers */ = {
+		FC2C5CCF24F92D43086A53D1A058A139 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8487F2BA2A004CECC7594C2A5F001077 /* Jelly-Animators-umbrella.h in Headers */,
+				8676F31CF4F890064BA2ADBB8B41C6B9 /* Jelly-Animators-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		52D953C0F3A75051F2012E26F5EDADB1 /* Jelly-Animators */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 729913D7788D825151641036DACE0793 /* Build configuration list for PBXNativeTarget "Jelly-Animators" */;
-			buildPhases = (
-				4F9898919879BC89249CD2D030E88398 /* Sources */,
-				F23B72DF2E56EADD4DDF1CE349C940BB /* Frameworks */,
-				A48A17E3353505A2B13607274A3FE142 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Jelly-Animators";
-			productName = "Jelly-Animators";
-			productReference = FBF034E9F094C81BFBD08AECABDEC8EE /* Jelly_Animators.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		9DCDBD442299F310FC1CD8403D7ABEF6 /* Pods-Jelly-Animators_Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0B1BF7CFB54A3D6FB2EC9D89A9DA00A /* Build configuration list for PBXNativeTarget "Pods-Jelly-Animators_Tests" */;
@@ -310,6 +299,23 @@
 			productReference = 33587C51C50B43BD2D73A7325B62BCD6 /* Pods_Jelly_Animators_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		AC7499D3E343B21596FED0F1D3B72803 /* Jelly-Animators */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2345AA526DCA6F2DA43F708EB5A91DBE /* Build configuration list for PBXNativeTarget "Jelly-Animators" */;
+			buildPhases = (
+				5917511406CE5A5029DFF55F8AF6DE5C /* Sources */,
+				5A11F5BDA682A937347D662AFC418B99 /* Frameworks */,
+				FC2C5CCF24F92D43086A53D1A058A139 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Jelly-Animators";
+			productName = "Jelly-Animators";
+			productReference = FBF034E9F094C81BFBD08AECABDEC8EE /* Jelly_Animators.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -331,7 +337,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				52D953C0F3A75051F2012E26F5EDADB1 /* Jelly-Animators */,
+				AC7499D3E343B21596FED0F1D3B72803 /* Jelly-Animators */,
 				A24587F25FFB8D95C050D217CED2C620 /* Pods-Jelly-Animators_Example */,
 				9DCDBD442299F310FC1CD8403D7ABEF6 /* Pods-Jelly-Animators_Tests */,
 			);
@@ -339,12 +345,14 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4F9898919879BC89249CD2D030E88398 /* Sources */ = {
+		5917511406CE5A5029DFF55F8AF6DE5C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40548FCA2BEC5CB7C54DC74872935E93 /* Jelly-Animators-dummy.m in Sources */,
-				F8810CA95AC09AEA039BA658A8987119 /* ReplaceMe.swift in Sources */,
+				86133BB1E945F6287865EFD359F2FCE5 /* Jelly-Animators-dummy.m in Sources */,
+				D90CCB51F822C616A9CDBF726246ADE1 /* JellyAnimator.swift in Sources */,
+				36784CCBFA06273600A3827780F276F5 /* JellyConstants.swift in Sources */,
+				9838753F253F285BE42DCAD66B63E470 /* JellyPresentation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,159 +378,13 @@
 		F81FE7307D8080F4A23E5F6EABA269C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Jelly-Animators";
-			target = 52D953C0F3A75051F2012E26F5EDADB1 /* Jelly-Animators */;
+			target = AC7499D3E343B21596FED0F1D3B72803 /* Jelly-Animators */;
 			targetProxy = 947435BFC8477F3BA58C618A9F5ABF65 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		174FCF9E3C00E93DA4670192CDEE778D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCB7FD4222C4A3F2A794F9BD1C6CC013 /* Pods-Jelly-Animators_Example.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Jelly-Animators_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Jelly-Animators_Example/Pods-Jelly-Animators_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Jelly_Animators_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		262183B345FDE66E46BBA210F68045C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE02496AB1017487B601C64660607083 /* Pods-Jelly-Animators_Tests.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Jelly-Animators_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Jelly-Animators_Tests/Pods-Jelly-Animators_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Jelly_Animators_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		8DED8AD26D381A6ACFF202E5217EC498 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		9D204A0ABC7E3E481A03C38528C7206C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB7D11263A57788DA905A90BF047D966 /* Jelly-Animators.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Jelly-Animators/Jelly-Animators-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Jelly-Animators/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Jelly-Animators/Jelly-Animators.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Jelly_Animators;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		9E1E4E48AF2EAB23169E611BF694090A /* Debug */ = {
+		12914D756594D15C6F2CA12FE5F89F1B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -558,7 +420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -566,7 +428,76 @@
 			};
 			name = Debug;
 		};
-		A013BD325E4930F7ECDAB9EADA1C77C1 /* Release */ = {
+		1AC1D4E5992525163994E1755DF85A80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 397086FF7ADB105DB41C78C3216C5D7A /* Pods-Jelly-Animators_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Jelly-Animators_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Jelly-Animators_Example/Pods-Jelly-Animators_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Jelly_Animators_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3BF97D5D6B1375A794430AD014979E63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB7D11263A57788DA905A90BF047D966 /* Jelly-Animators.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Jelly-Animators/Jelly-Animators-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Jelly-Animators/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Jelly-Animators/Jelly-Animators.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Jelly_Animators;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8D29B02015DAFA0C6E87FBA883B900D3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 40E13B8AAE9B3FBEFD0B471FAD9E088F /* Pods-Jelly-Animators_Tests.release.xcconfig */;
 			buildSettings = {
@@ -583,7 +514,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-Jelly-Animators_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Jelly-Animators_Tests/Pods-Jelly-Animators_Tests.modulemap";
@@ -602,7 +533,47 @@
 			};
 			name = Release;
 		};
-		B20C16F5CC0F37CF39FBB8746FCA6202 /* Release */ = {
+		E72E7977875C2D251FC62736BBDDC389 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ED4ADAD489B4D755207EF5E71F9ACE34 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FB7D11263A57788DA905A90BF047D966 /* Jelly-Animators.xcconfig */;
 			buildSettings = {
@@ -634,15 +605,15 @@
 			};
 			name = Release;
 		};
-		F888DA4CB760A6C88CFE821DE4F9B383 /* Release */ = {
+		FC91BC0F8EA34FC6F7B83FBF6B857679 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 397086FF7ADB105DB41C78C3216C5D7A /* Pods-Jelly-Animators_Example.release.xcconfig */;
+			baseConfigurationReference = BCB7FD4222C4A3F2A794F9BD1C6CC013 /* Pods-Jelly-Animators_Example.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -651,11 +622,11 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-Jelly-Animators_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Jelly-Animators_Example/Pods-Jelly-Animators_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -663,30 +634,67 @@
 				PRODUCT_NAME = Pods_Jelly_Animators_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
+		};
+		FFF723D57B2D8E432791E110B757D51A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE02496AB1017487B601C64660607083 /* Pods-Jelly-Animators_Tests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Jelly-Animators_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Jelly-Animators_Tests/Pods-Jelly-Animators_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Jelly_Animators_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+		2345AA526DCA6F2DA43F708EB5A91DBE /* Build configuration list for PBXNativeTarget "Jelly-Animators" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9E1E4E48AF2EAB23169E611BF694090A /* Debug */,
-				8DED8AD26D381A6ACFF202E5217EC498 /* Release */,
+				3BF97D5D6B1375A794430AD014979E63 /* Debug */,
+				ED4ADAD489B4D755207EF5E71F9ACE34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		729913D7788D825151641036DACE0793 /* Build configuration list for PBXNativeTarget "Jelly-Animators" */ = {
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9D204A0ABC7E3E481A03C38528C7206C /* Debug */,
-				B20C16F5CC0F37CF39FBB8746FCA6202 /* Release */,
+				12914D756594D15C6F2CA12FE5F89F1B /* Debug */,
+				E72E7977875C2D251FC62736BBDDC389 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -694,8 +702,8 @@
 		8DDCEA10935795DEE8D4EB051D5CF527 /* Build configuration list for PBXNativeTarget "Pods-Jelly-Animators_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				174FCF9E3C00E93DA4670192CDEE778D /* Debug */,
-				F888DA4CB760A6C88CFE821DE4F9B383 /* Release */,
+				FC91BC0F8EA34FC6F7B83FBF6B857679 /* Debug */,
+				1AC1D4E5992525163994E1755DF85A80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -703,8 +711,8 @@
 		D0B1BF7CFB54A3D6FB2EC9D89A9DA00A /* Build configuration list for PBXNativeTarget "Pods-Jelly-Animators_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				262183B345FDE66E46BBA210F68045C7 /* Debug */,
-				A013BD325E4930F7ECDAB9EADA1C77C1 /* Release */,
+				FFF723D57B2D8E432791E110B757D51A /* Debug */,
+				8D29B02015DAFA0C6E87FBA883B900D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
