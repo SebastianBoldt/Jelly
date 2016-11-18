@@ -41,11 +41,21 @@ extension JellyAnimator: UIViewControllerTransitioningDelegate {
     public func animationController(forPresented presented: UIViewController,
                              presenting: UIViewController,
                              source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return SlideInPresentationAnimator(direction: presentation.directionShow, presentationType: .show, presentation: presentation)
+        switch self.presentation.style {
+        case .slidein:
+            return SlideInPresentationAnimator(direction: presentation.directionShow, presentationType: .show, presentation: presentation)
+        case .shift:
+            
+        }
     }
     
     public func animationController(forDismissed dismissed: UIViewController)
         -> UIViewControllerAnimatedTransitioning? {
-            return SlideInPresentationAnimator(direction: presentation.directionDismiss, presentationType: .dismiss, presentation: presentation)
+            switch self.presentation.style {
+            case .slidein:
+                return SlideInPresentationAnimator(direction: presentation.directionDismiss, presentationType: .dismiss, presentation: presentation)
+            case .shift:
+                
+            }
     }
 }
