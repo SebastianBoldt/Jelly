@@ -37,4 +37,15 @@ extension JellyAnimator: UIViewControllerTransitioningDelegate {
         let jellyPresentationController = JellyPresentationController(presentedViewController: presented, presentingViewController: presenting, presentation: presentation)
         return jellyPresentationController
     }
+    
+    public func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return SlideInPresentationAnimator(direction: presentation.directionShow, presentationType: .show, presentation: presentation)
+    }
+    
+    public func animationController(forDismissed dismissed: UIViewController)
+        -> UIViewControllerAnimatedTransitioning? {
+            return SlideInPresentationAnimator(direction: presentation.directionDismiss, presentationType: .dismiss, presentation: presentation)
+    }
 }

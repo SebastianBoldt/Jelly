@@ -6,6 +6,11 @@ import Foundation
 
 public struct JellyConstants {
     
+    public enum PresentationType {
+        case show
+        case dismiss
+    }
+    
     public enum Style {
        case slidein
     }
@@ -30,6 +35,27 @@ public struct JellyConstants {
         case medium = 0.5
         case fast = 0.2
         case reallyFast = 0.1
+    }
+    
+    public enum JellyCurve {
+        
+        case EaseInEaseOut
+        case EaseIn
+        case EaseOut
+        case Linear
+        
+        public func getAnimationOptionForJellyCurve() -> UIViewAnimationOptions {
+            switch self {
+                case .EaseInEaseOut:
+                    return .curveEaseInOut
+                case .EaseIn:
+                    return .curveEaseIn
+                case .EaseOut:
+                    return .curveEaseOut
+                case .Linear:
+                    return .curveLinear
+            }
+        }
     }
 
 }

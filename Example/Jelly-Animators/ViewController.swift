@@ -22,8 +22,11 @@ class ViewController: UIViewController {
             
             let finalSize = CGSize(width: 200, height: 500)
             let presentation = JellyPresentation(jellyness: .jelly,
-                                                 duration: .medium,
-                                                 direction: .left, style: .slidein,
+                                                 duration: .ultraSlow,
+                                                 directionShow: .left,
+                                                 directionDismiss: .top,
+                                                 style: .slidein,
+                                                 curve: .EaseInEaseOut,
                                                  sizeForViewController: finalSize,
                                                  showDimmingView: false,
                                                  cornerRadius: 10)
