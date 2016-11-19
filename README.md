@@ -10,36 +10,51 @@
 
 Jelly Animators provide custom view controller animations with just a few lines of code. 
 No need to create your own PresentationController or Animator-Objects.
-You specify the style, jellyness, and duration of the animation. You also need to set the final size of the presented ViewController.
 A Jelly-Animator will do the heavy lifting for you.
 
 ## How to use 
 
-Jelly Animators are super easy to use. You just create a JellyPresentation Object,
-initialize a JellyAnimator using the presentation object you created earlier, 
-prepare your ViewController using that JellyAnimator 
-and finally call the native UIViewController presentation function.
-
-***YOU NEED TO KEEP A STRONG REFERENCE***
-
-Because the transitioningDelegate of a ViewController is weak, you need to 
-hold a strong reference to the JellyAnimator inside the ViewController you are presenting from
-
-That's it
+Jelly Animators are super easy to use. 
+1.Create a JellyPresentation Object
+2.Initialize a JellyAnimator using the JellyPresentation Object create in Step 1.
+3.Call the prepare Function
+4.Finally call the native UIViewController presentation function.
 
 ```swift
 let finalSize = CGSize(width: 200, height: 500)
 let presentation = JellyPresentation(jellyness: .jelly,
-                                      duration: .medium,
-                                     direction: .left, style: .slidein,
+                                      duration: .ultraSlow,
+                                 directionShow: .left,
+                              directionDismiss: .top,
+                                         style: .slidein,
+                                         curve: .EaseInEaseOut,
                          sizeForViewController: finalSize,
                                showDimmingView: false,
                                   cornerRadius: 10)
-
+            
 self.jellyAnimator = JellyAnimator(presentation:presentation)
 self.jellyAnimator?.prepare(viewController: viewController)
 self.present(viewController, animated: true, completion: nil)
 ```
+
+***YOU NEED TO KEEP A STRONG REFERENCE***
+
+```swift 
+class CustomVC : UIViewController {
+  var jellyAnimator: JellyAnimator?
+  override func viewDidLoad() {
+        super.viewDidLoad()
+        // Setup your Animator here 
+        // ....
+        // And assign it
+        self.jellyAnimator = createdAnimator.
+  }
+}
+```
+Because the transitioningDelegate of a ViewController is weak, you need to 
+hold a strong reference to the JellyAnimator inside the ViewController you are presenting from
+
+That's it
 
 ## Example App
 
