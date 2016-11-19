@@ -69,13 +69,13 @@ extension SlideInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         var dismissedFrame: CGRect = presentedFrame
         switch direction {
         case .left:
-            dismissedFrame.origin.x = -presentedFrame.width
+            dismissedFrame.origin.x = -(presentedFrame.width*2)
         case .right:
-            dismissedFrame.origin.x = transitionContext.containerView.frame.size.width
+            dismissedFrame.origin.x = transitionContext.containerView.frame.size.width * 2
         case .top:
-            dismissedFrame.origin.y = -presentedFrame.height
+            dismissedFrame.origin.y = -(presentedFrame.height * 2)
         case .bottom:
-            dismissedFrame.origin.y = transitionContext.containerView.frame.size.height
+            dismissedFrame.origin.y = transitionContext.containerView.frame.size.height * 2
         }
         return dismissedFrame
     }

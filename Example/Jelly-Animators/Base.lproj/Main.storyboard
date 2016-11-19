@@ -24,31 +24,32 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jelly Animators" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ry-yj-fqV">
                                 <rect key="frame" x="62.5" y="313" width="250" height="41"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="34"/>
-                                <color key="textColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Jelly-Logo" translatesAutoresizingMaskIntoConstraints="NO" id="gtN-XK-Uj6">
+                                <rect key="frame" x="20" y="67" width="334" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="L07-tD-XUZ"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G78-pI-vK1">
-                                <rect key="frame" x="166" y="374" width="43" height="30"/>
+                                <rect key="frame" x="133" y="374" width="109" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="modal">
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="show">
                                     <color key="titleColor" red="0.9624577165" green="0.32361188530000001" blue="0.60793572659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="presentMeButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="j90-Ds-oDz"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Jelly-Logo" translatesAutoresizingMaskIntoConstraints="NO" id="gtN-XK-Uj6">
-                                <rect key="frame" x="20.5" y="177" width="334" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="L07-tD-XUZ"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gtN-XK-Uj6" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="HsL-fY-lNS"/>
                             <constraint firstItem="0ry-yj-fqV" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="u1T-xf-xXs"/>
-                            <constraint firstItem="0ry-yj-fqV" firstAttribute="top" secondItem="gtN-XK-Uj6" secondAttribute="bottom" constant="8" id="uOz-8R-Fq6"/>
+                            <constraint firstItem="0ry-yj-fqV" firstAttribute="top" secondItem="gtN-XK-Uj6" secondAttribute="bottom" constant="118" id="uOz-8R-Fq6"/>
                             <constraint firstItem="0ry-yj-fqV" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="wjT-YI-9tb"/>
                         </constraints>
                     </view>
@@ -106,28 +107,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6S-nW-2Tq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jelly Animators" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXq-ab-ct1">
-                                        <rect key="frame" x="77" y="35" width="221" height="44"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Jelly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXq-ab-ct1">
+                                        <rect key="frame" x="114.5" y="102.5" width="146.5" height="36"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Jelly-Logo" translatesAutoresizingMaskIntoConstraints="NO" id="OeV-mc-69t">
-                                        <rect key="frame" x="129" y="99" width="117" height="100"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="lIz-AJ-ib2"/>
-                                        </constraints>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.33130019900000002" green="0.31154066320000001" blue="0.73626536129999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="OeV-mc-69t" secondAttribute="bottom" constant="42" id="TZ4-Cb-sWt"/>
-                                    <constraint firstAttribute="trailing" secondItem="OeV-mc-69t" secondAttribute="trailing" constant="129" id="UEV-We-jSP"/>
-                                    <constraint firstItem="OeV-mc-69t" firstAttribute="top" secondItem="QXq-ab-ct1" secondAttribute="bottom" constant="20" id="c8F-Ra-WkI"/>
+                                    <constraint firstItem="QXq-ab-ct1" firstAttribute="centerY" secondItem="L6S-nW-2Tq" secondAttribute="centerY" id="KAU-Gx-oPV"/>
                                     <constraint firstItem="QXq-ab-ct1" firstAttribute="centerX" secondItem="L6S-nW-2Tq" secondAttribute="centerX" id="gDc-Ay-XhA"/>
-                                    <constraint firstItem="OeV-mc-69t" firstAttribute="leading" secondItem="L6S-nW-2Tq" secondAttribute="leading" constant="129" id="rss-qQ-4wy"/>
-                                    <constraint firstItem="QXq-ab-ct1" firstAttribute="top" secondItem="L6S-nW-2Tq" secondAttribute="top" constant="35" id="tRL-Uq-dLV"/>
-                                    <constraint firstItem="OeV-mc-69t" firstAttribute="top" secondItem="QXq-ab-ct1" secondAttribute="bottom" constant="20" id="xZM-hw-ZPN"/>
                                 </constraints>
                             </view>
                         </subviews>

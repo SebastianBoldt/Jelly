@@ -6,6 +6,12 @@ import Foundation
 
 public struct JellyConstants {
     
+    public enum BackgroundStyle {
+        case dimmed
+        case blur(effectStyle: UIBlurEffectStyle)
+        case none
+    }
+    
     public enum PresentationType {
         case show
         case dismiss
@@ -13,6 +19,7 @@ public struct JellyConstants {
     
     public enum Style {
        case slidein
+       case fade
     }
     
     public enum Direction {

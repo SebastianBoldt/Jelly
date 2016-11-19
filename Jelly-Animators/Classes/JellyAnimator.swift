@@ -44,6 +44,8 @@ extension JellyAnimator: UIViewControllerTransitioningDelegate {
         switch self.presentation.style {
         case .slidein:
             return SlideInPresentationAnimator(direction: presentation.directionShow, presentationType: .show, presentation: presentation)
+        case .fade:
+            return FadeInPresentationAnimator(presentationType: .show, presentation: presentation)
         }
     }
     
@@ -52,12 +54,17 @@ extension JellyAnimator: UIViewControllerTransitioningDelegate {
             switch self.presentation.style {
             case .slidein:
                 return SlideInPresentationAnimator(direction: presentation.directionDismiss, presentationType: .dismiss, presentation: presentation)
+            case .fade:
+                return FadeInPresentationAnimator(presentationType: .dismiss, presentation: presentation)
             }
     }
 }
 
 extension JellyAnimator: UINavigationControllerDelegate {
     public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        return nil
+        /*
         switch  operation {
         case .push:
             switch self.presentation.style {
@@ -71,6 +78,6 @@ extension JellyAnimator: UINavigationControllerDelegate {
             }
         default:
             return nil
-        }
+        }*/
     }
 }

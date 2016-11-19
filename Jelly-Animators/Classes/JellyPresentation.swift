@@ -15,6 +15,7 @@ public struct JellyPresentation {
     private(set) var isDimmingViewAnimationEnabled: Bool = false
     private(set) var cornerRadius: Double = 0.0
     private(set) var curve : JellyConstants.JellyCurve = .EaseInEaseOut
+    private(set) var backgroundStyle : JellyConstants.BackgroundStyle
     
     public init(jellyness: JellyConstants.Jellyness,
                 duration: JellyConstants.Duration,
@@ -23,8 +24,8 @@ public struct JellyPresentation {
                 style: JellyConstants.Style,
                 curve: JellyConstants.JellyCurve,
                 sizeForViewController viewControllerSize: CGSize,
-                showDimmingView: Bool = false,
-                cornerRadius: Double = 0.0 ) {
+                cornerRadius: Double = 0.0,
+                backgroundStyle: JellyConstants.BackgroundStyle = .dimmed) {
         
         self.jellyness = jellyness
         self.duration = duration
@@ -33,8 +34,7 @@ public struct JellyPresentation {
         self.style = style
         self.curve = curve
         self.sizeForPresentedVC = viewControllerSize
-        self.isDimmingViewAnimationEnabled = showDimmingView
+        self.backgroundStyle = backgroundStyle
         self.cornerRadius = cornerRadius
-    
     }
 }

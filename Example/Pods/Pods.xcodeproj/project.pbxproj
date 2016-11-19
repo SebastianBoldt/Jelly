@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1564A1A21DDE438400211871 /* JellyPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1564A1A11DDE438400211871 /* JellyPresentationController.swift */; };
+		15B3AD001DE0D056003FF7B8 /* FadeInPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3ACFF1DE0D056003FF7B8 /* FadeInPresentationAnimator.swift */; };
 		15D904B51DDF70BE00317922 /* SlideInPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D904B41DDF70BE00317922 /* SlideInPresentationAnimator.swift */; };
 		15D904BA1DDF74CE00317922 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D904B91DDF74CE00317922 /* Helper.swift */; };
 		15D904BC1DDF74DB00317922 /* Jelly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D904BB1DDF74DB00317922 /* Jelly.swift */; };
@@ -43,6 +44,7 @@
 		0A9A52774CE92BE2E9593D2C0C308CCD /* JellyPresentation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JellyPresentation.swift; sourceTree = "<group>"; };
 		0D82AFBA7D028447FA339F236450DAA5 /* Pods-Jelly-Animators_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Jelly-Animators_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		1564A1A11DDE438400211871 /* JellyPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellyPresentationController.swift; sourceTree = "<group>"; };
+		15B3ACFF1DE0D056003FF7B8 /* FadeInPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInPresentationAnimator.swift; sourceTree = "<group>"; };
 		15D904B41DDF70BE00317922 /* SlideInPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInPresentationAnimator.swift; sourceTree = "<group>"; };
 		15D904B91DDF74CE00317922 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		15D904BB1DDF74DB00317922 /* Jelly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Jelly.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				15D904B41DDF70BE00317922 /* SlideInPresentationAnimator.swift */,
+				15B3ACFF1DE0D056003FF7B8 /* FadeInPresentationAnimator.swift */,
 			);
 			name = Animators;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				15D904BA1DDF74CE00317922 /* Helper.swift in Sources */,
 				D90CCB51F822C616A9CDBF726246ADE1 /* JellyAnimator.swift in Sources */,
 				36784CCBFA06273600A3827780F276F5 /* JellyConstants.swift in Sources */,
+				15B3AD001DE0D056003FF7B8 /* FadeInPresentationAnimator.swift in Sources */,
 				9838753F253F285BE42DCAD66B63E470 /* JellyPresentation.swift in Sources */,
 				15ECA6D51DE03B94000C5A15 /* JellySegue.swift in Sources */,
 			);

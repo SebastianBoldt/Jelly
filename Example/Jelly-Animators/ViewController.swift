@@ -27,16 +27,16 @@ class ViewController: UIViewController {
     @IBAction func presentMeButtonPressed(_ sender: Any) {
         if let viewController = createVC() {
             
-            let finalSize = CGSize(width: 300, height: 500)
+            let finalSize = CGSize(width: 300, height: 300)
             let presentation = JellyPresentation(jellyness: .jellier,
-                                                 duration: .medium,
+                                                 duration: .fast,
                                                  directionShow: .left,
                                                  directionDismiss: .left,
-                                                 style: .slidein,
+                                                 style: .fade,
                                                  curve: .EaseIn,
                                                  sizeForViewController: finalSize,
-                                                 showDimmingView: false,
-                                                 cornerRadius: 10)
+                                                 cornerRadius: 10,
+                                                 backgroundStyle: .dimmed)
             
             self.jellyAnimator = JellyAnimator(presentation:presentation)
             self.jellyAnimator?.prepare(viewController: viewController)
