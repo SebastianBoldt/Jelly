@@ -16,10 +16,10 @@ A Jelly-Animator will do the heavy lifting for you.
 
 Jelly Animators are super easy to use. 
 
-1. Create a JellyPresentation Object
-2. Initialize a JellyAnimator using the JellyPresentation Object created in Step 1.
-3. Call the prepare Function
-4. Finally call the native UIViewController presentation function.
+1. Create a *JellyPresentation* Object
+2. Initialize a *JellyAnimator* using the *JellyPresentation* Object created in Step 1.
+3. Call the *prepare(viewController:UIViewController)* Function
+4. Finally call the native *UIViewController* presentation function.
 
 ```swift
 // 1.
@@ -55,8 +55,8 @@ class CustomVC : UIViewController {
   }
 }
 ```
-Because the transitioningDelegate of a ViewController is weak, you need to 
-hold a strong reference to the JellyAnimator inside the ViewController you are presenting from
+Because the *transitioningDelegate* of a *UIViewController* is weak, you need to 
+hold a strong reference to the *JellyAnimator* inside the *UIViewController* you are presenting from
 
 That's it
 
