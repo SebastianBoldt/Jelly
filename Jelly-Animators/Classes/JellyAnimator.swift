@@ -44,8 +44,6 @@ extension JellyAnimator: UIViewControllerTransitioningDelegate {
         switch self.presentation.style {
         case .slidein:
             return SlideInPresentationAnimator(direction: presentation.directionShow, presentationType: .show, presentation: presentation)
-        case .shift:
-                            return SlideInPresentationAnimator(direction: presentation.directionDismiss, presentationType: .dismiss, presentation: presentation)
         }
     }
     
@@ -54,8 +52,25 @@ extension JellyAnimator: UIViewControllerTransitioningDelegate {
             switch self.presentation.style {
             case .slidein:
                 return SlideInPresentationAnimator(direction: presentation.directionDismiss, presentationType: .dismiss, presentation: presentation)
-            case .shift:
-                                return SlideInPresentationAnimator(direction: presentation.directionDismiss, presentationType: .dismiss, presentation: presentation)
             }
+    }
+}
+
+extension JellyAnimator: UINavigationControllerDelegate {
+    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        switch  operation {
+        case .push:
+            switch self.presentation.style {
+            case .slidein:
+                 return SlideInPresentationAnimator(direction: presentation.directionShow, presentationType: .show, presentation: presentation)
+            }
+        case .pop:
+            switch self.presentation.style {
+            case .slidein:
+                 return SlideInPresentationAnimator(direction: presentation.directionDismiss, presentationType: .dismiss, presentation: presentation)
+            }
+        default:
+            return nil
+        }
     }
 }

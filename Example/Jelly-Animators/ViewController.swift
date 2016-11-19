@@ -17,6 +17,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func presentMeNavButtonPressed(_ sender: Any) {
+        self.navigationController?.delegate = jellyAnimator
+        if let viewController = createVC() {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
     @IBAction func presentMeButtonPressed(_ sender: Any) {
         if let viewController = createVC() {
             

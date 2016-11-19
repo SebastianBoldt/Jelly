@@ -13,7 +13,6 @@ public struct JellyConstants {
     
     public enum Style {
        case slidein
-       case shift
     }
     
     public enum Direction {
