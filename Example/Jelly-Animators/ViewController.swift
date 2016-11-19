@@ -27,11 +27,11 @@ class ViewController: UIViewController {
     @IBAction func presentMeButtonPressed(_ sender: Any) {
         if let viewController = createVC() {
             
-            let finalSize = CGSize(width: 300, height: 300)
+            let finalSize = CGSize(width: 300, height: 500)
             let presentation = JellyPresentation(jellyness: .jellier,
                                                  duration: .medium,
-                                                 directionShow: .top,
-                                                 directionDismiss: .bottom,
+                                                 directionShow: .left,
+                                                 directionDismiss: .left,
                                                  style: .slidein,
                                                  curve: .EaseIn,
                                                  sizeForViewController: finalSize,
