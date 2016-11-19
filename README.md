@@ -15,6 +15,7 @@ A Jelly-Animator will do the heavy lifting for you.
 ## How to use 
 
 Jelly Animators are super easy to use. 
+
 1. Create a JellyPresentation Object
 2. Initialize a JellyAnimator using the JellyPresentation Object create in Step 1.
 3. Call the prepare Function
