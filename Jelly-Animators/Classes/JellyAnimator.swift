@@ -45,7 +45,7 @@ extension JellyAnimator: UIViewControllerTransitioningDelegate {
         case .slidein:
             return SlideInPresentationAnimator(direction: presentation.directionShow, presentationType: .show, presentation: presentation)
         case .shift:
-            
+                            return SlideInPresentationAnimator(direction: presentation.directionDismiss, presentationType: .dismiss, presentation: presentation)
         }
     }
     
@@ -55,7 +55,7 @@ extension JellyAnimator: UIViewControllerTransitioningDelegate {
             case .slidein:
                 return SlideInPresentationAnimator(direction: presentation.directionDismiss, presentationType: .dismiss, presentation: presentation)
             case .shift:
-                
+                                return SlideInPresentationAnimator(direction: presentation.directionDismiss, presentationType: .dismiss, presentation: presentation)
             }
     }
 }
