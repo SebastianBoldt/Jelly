@@ -15,12 +15,13 @@ A Jelly-Animator will do the heavy lifting for you.
 ## How to use 
 
 Jelly Animators are super easy to use. 
-1.Create a JellyPresentation Object
-2.Initialize a JellyAnimator using the JellyPresentation Object create in Step 1.
-3.Call the prepare Function
-4.Finally call the native UIViewController presentation function.
+1. Create a JellyPresentation Object
+2. Initialize a JellyAnimator using the JellyPresentation Object create in Step 1.
+3. Call the prepare Function
+4. Finally call the native UIViewController presentation function.
 
 ```swift
+// 1.
 let finalSize = CGSize(width: 200, height: 500)
 let presentation = JellyPresentation(jellyness: .jelly,
                                       duration: .ultraSlow,
@@ -31,9 +32,11 @@ let presentation = JellyPresentation(jellyness: .jelly,
                          sizeForViewController: finalSize,
                                showDimmingView: false,
                                   cornerRadius: 10)
-            
+// 2.          
 self.jellyAnimator = JellyAnimator(presentation:presentation)
+// 3.
 self.jellyAnimator?.prepare(viewController: viewController)
+// 4.
 self.present(viewController, animated: true, completion: nil)
 ```
 
