@@ -11,7 +11,7 @@ import Jelly_Animators
 class ViewController: UIViewController {
 
     @IBOutlet var presentMeButton: UIButton!
-    private var jellyAnimator: JellyAnimator? // We need to keep a string reference to the Animator because the transitiong delegate is weak
+    private var jellyAnimator: JellyAnimator? // We need to keep a strong reference to the Animator because the transitiong delegate is weak
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +27,13 @@ class ViewController: UIViewController {
     @IBAction func presentMeButtonPressed(_ sender: Any) {
         if let viewController = createVC() {
             
-            let finalSize = CGSize(width: 200, height: 500)
-            let presentation = JellyPresentation(jellyness: .jelly,
-                                                 duration: .ultraSlow,
-                                                 directionShow: .left,
-                                                 directionDismiss: .top,
+            let finalSize = CGSize(width: 300, height: 300)
+            let presentation = JellyPresentation(jellyness: .jellier,
+                                                 duration: .medium,
+                                                 directionShow: .top,
+                                                 directionDismiss: .bottom,
                                                  style: .slidein,
-                                                 curve: .EaseInEaseOut,
+                                                 curve: .EaseIn,
                                                  sizeForViewController: finalSize,
                                                  showDimmingView: false,
                                                  cornerRadius: 10)
