@@ -1,6 +1,7 @@
-![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://raw.githubusercontent.com/SebastianBoldt/Jelly-Animators/develop/Github/Jelly-Animators.png)
-
 # Jelly-Animators (Under Construction)
+
+![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly-Animators/blob/master/Github/Jellyfish.png)
+
 [![CI Status](https://travis-ci.org/SebastianBoldt/Jelly-Animators.svg?style=flat)](https://travis-ci.org/SebastianBoldt/Jelly-Animators)
 [![Version](https://img.shields.io/cocoapods/v/Jelly-Animators.svg?style=flat)](http://cocoapods.org/pods/Jelly-Animators)
 [![License](https://img.shields.io/cocoapods/l/Jelly-Animators.svg?style=flat)](http://cocoapods.org/pods/Jelly-Animators)
