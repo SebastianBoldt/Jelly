@@ -60,7 +60,11 @@ hold a strong reference to the *JellyAnimator* inside the *UIViewController* you
 
 That's it
 
-## Example App
+## Example
+
+You can use Jelly-Animators to build you own Alert-Views using ViewControllers designed by yourself.
+
+![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly-Animators/blob/master/Github/Example.gif?raw=true)
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
