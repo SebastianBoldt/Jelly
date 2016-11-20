@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		155B7B851DE1E5820093DF2A /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B7B841DE1E5820093DF2A /* CustomNavController.swift */; };
 		15B3AD2D1DE1C5CB003FF7B8 /* DismissMeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		155B7B841DE1E5820093DF2A /* CustomNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
 		15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissMeController.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Jelly_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jelly_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */,
+				155B7B841DE1E5820093DF2A /* CustomNavController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -222,6 +225,7 @@
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = JY9STJR6M4;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -363,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				155B7B851DE1E5820093DF2A /* CustomNavController.swift in Sources */,
 				15B3AD2D1DE1C5CB003FF7B8 /* DismissMeController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
@@ -525,6 +530,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C61DBA24224C9AE29B62761C /* Pods-Jelly_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = JY9STJR6M4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -545,6 +551,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7D2A6F270568299AA6D317E2 /* Pods-Jelly_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = JY9STJR6M4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

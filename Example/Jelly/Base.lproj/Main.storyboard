@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Jelly Demo Application-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Jelly_Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,41 +20,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jelly Animators" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ry-yj-fqV">
-                                <rect key="frame" x="62.5" y="313" width="250" height="41"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="34"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Jelly-Logo" translatesAutoresizingMaskIntoConstraints="NO" id="gtN-XK-Uj6">
-                                <rect key="frame" x="20" y="67" width="334" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="L07-tD-XUZ"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G78-pI-vK1">
-                                <rect key="frame" x="133" y="374" width="109" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="show">
-                                    <color key="titleColor" red="0.9624577165" green="0.32361188530000001" blue="0.60793572659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ACL-jb-PQ2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="dtH-aq-Zam" detailTextLabel="LnH-dr-Zgs" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="Srh-vg-JjY">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Srh-vg-JjY" id="AAb-S9-hf6">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dtH-aq-Zam">
+                                                    <rect key="frame" x="15" y="21" width="41.5" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                    <color key="textColor" red="0.9624577165" green="0.32361188530000001" blue="0.60793572659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LnH-dr-Zgs">
+                                                    <rect key="frame" x="15" y="45" width="33" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <action selector="presentMeButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="j90-Ds-oDz"/>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="idA-Ys-ebm"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="C9O-oP-zR3"/>
                                 </connections>
-                            </button>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gtN-XK-Uj6" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="HsL-fY-lNS"/>
-                            <constraint firstItem="0ry-yj-fqV" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="u1T-xf-xXs"/>
-                            <constraint firstItem="0ry-yj-fqV" firstAttribute="top" secondItem="gtN-XK-Uj6" secondAttribute="bottom" constant="118" id="uOz-8R-Fq6"/>
-                            <constraint firstItem="0ry-yj-fqV" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="wjT-YI-9tb"/>
+                            <constraint firstItem="ACL-jb-PQ2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="83g-Zx-gJM"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ACL-jb-PQ2" secondAttribute="bottom" id="BFC-tj-zvd"/>
+                            <constraint firstItem="ACL-jb-PQ2" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Pow-p5-Uub"/>
+                            <constraint firstAttribute="trailing" secondItem="ACL-jb-PQ2" secondAttribute="trailing" id="YtY-y8-Vfg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="GXb-vg-W7d"/>
+                    <navigationItem key="navigationItem" title="Jelly Demo Application" id="GXb-vg-W7d"/>
                     <connections>
-                        <outlet property="presentMeButton" destination="G78-pI-vK1" id="dR9-Se-xH3"/>
+                        <outlet property="tableView" destination="ACL-jb-PQ2" id="vgo-Tx-u62"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -138,14 +149,20 @@
             </objects>
             <point key="canvasLocation" x="1677.5999999999999" y="172.71364317841082"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Custom Nav Controller-->
         <scene sceneID="bQQ-if-G2Q">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="3pu-JC-BCx" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3pu-JC-BCx" customClass="CustomNavController" customModule="Jelly_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XRx-UC-SKA">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XRx-UC-SKA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.33130019900000002" green="0.31154066320000001" blue="0.73626536129999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -157,7 +174,4 @@
             <point key="canvasLocation" x="-34.399999999999999" y="158.77061469265368"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Jelly-Logo" width="334" height="381"/>
-    </resources>
 </document>
