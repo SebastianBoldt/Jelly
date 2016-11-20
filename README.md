@@ -122,7 +122,7 @@ self.present(viewController, animated: true, completion: nil)
 
 You can use Jelly to build your own Alert-Views using ViewControllers designed by yourself.
 
-![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/blurredslidein.gif?raw=true)![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/jellyslidein.gif?raw=true)
+![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/blurredslidein.gif?raw=true)  ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/jellyslidein.gif?raw=true)
 
 
 To run the example project, clone  the repo, and run `pod install` from the Example directory first.
