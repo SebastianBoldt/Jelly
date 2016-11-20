@@ -22,37 +22,28 @@ Jelly is super easy to use.
 4. Finally call the native *UIViewController* presentation function.
 
 ```swift
-// 1.
-let finalSize = CGSize(width: 200, height: 500)
-let presentation = JellyPresentation(jellyness: .jelly,
-duration: .ultraSlow,
-directionShow: .left,
-directionDismiss: .top,
-style: .slidein,
-curve: .EaseInEaseOut,
-sizeForViewController: finalSize,
-showDimmingView: false,
-cornerRadius: 10)
-// 2.          
-self.jellyAnimator = JellyAnimator(presentation:presentation)
-// 3.
-self.jellyAnimator?.prepare(viewController: viewController)
-// 4.
-self.present(viewController, animated: true, completion: nil)
+override func viewDidLoad() {
+    super.viewDidLoad()
+    let presentation = JellySlideInPresentation()
+    self.jellyAnimator = JellyAnimator(presentation:presentation)
+    self.jellyAnimator?.prepare(viewController: viewController)
+    self.present(viewController, animated: true, completion: nil)
+}
+
 ```
 
-***YOU NEED TO KEEP A STRONG REFERENCE***
+***DO NOT FORGET TO KEEP A STRONG REFERENCE***
 
 ```swift 
 class CustomVC : UIViewController {
-var jellyAnimator: JellyAnimator?
-override func viewDidLoad() {
-super.viewDidLoad()
-// Setup your Animator here 
-// ....
-// And assign it
-self.jellyAnimator = createdAnimator.
-}
+    var jellyAnimator: JellyAnimator?
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Setup your Animator here 
+        // ....
+        // And assign it
+        self.jellyAnimator = createdAnimator.
+    }
 }
 ```
 Because the *transitioningDelegate* of a *UIViewController* is weak, you need to 
@@ -62,9 +53,7 @@ That's it
 
 ## Example
 
-You can use Jelly-
-
-to build you own Alert-Views using ViewControllers designed by yourself.
+You can use Jelly to build your own Alert-Views using ViewControllers designed by yourself.
 
 TODO: ADD GIFS OVER HERE 
 
