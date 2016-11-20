@@ -34,6 +34,7 @@ public struct JellyConstants {
     public enum Duration : TimeInterval {
         case ultraSlow = 2.0
         case slow = 1.0
+        case medium = 0.5
         case normal = 0.35
         case fast = 0.2
         case reallyFast = 0.1

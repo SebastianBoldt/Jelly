@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         
         let customBlurSlideIn = DataObject(presentation: JellySlideInPresentation(backgroundStyle: .blur(effectStyle: .dark)), titleDescription: "Blurred Slide in", detailDescription: "blurred background .dark")
         
-        let customCornerDirectionSlideIn = DataObject(presentation: JellySlideInPresentation(cornerRadius: 15,backgroundStyle: .blur(effectStyle: .dark), directionShow: .left, directionDismiss: .right), titleDescription: "Blurred Slide in Custom Direction", detailDescription: "custom corner radius and directions")
+        let customCornerDirectionSlideIn = DataObject(presentation: JellySlideInPresentation(cornerRadius: 15,backgroundStyle: .blur(effectStyle: .dark), jellyness: .jellier, duration: .medium, directionShow: .left, directionDismiss: .right), titleDescription: "Blurred Slide in Custom Direction", detailDescription: "custom corner radius, directions and jelliness")
         
         data.append(defaultFadeInPresentation)
         data.append(defaultSlideInPresentation)
