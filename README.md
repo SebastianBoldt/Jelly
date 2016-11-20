@@ -57,25 +57,25 @@ Jelly Supports two types of Presentations.
 * **JellySlideInPresentation**
 * **JellyFadeInPresentation**
 
-Both share some propertys
-* duration: JellyConstants.Duration
+Both share some propertys and each Property has a default value 
+* duration: JellyConstants.Duration (default: normal)
     * ultraSlow = 2.0
     * slow = 1.0
     * normal = 0.35
     * fast = 0.2
     * reallyFast = 0.1
-* sizeForViewController: CGSize
-* backgroundStyle : JellyConstants.BackgroundStyle
+* sizeForViewController: CGSize (default: width: 300, height: 300)
+* backgroundStyle : JellyConstants.BackgroundStyle (default: dimmed)
     * dimmed
     * blur(effectStyle)
     * none
-* cornerRadius: Double
-* presentationCurve : JellyConstants.JellyCurve
+* cornerRadius: Double (default: 0)
+* presentationCurve : JellyConstants.JellyCurve (default: linear)
     * easeIn
     * easeOut
     * easeInEaseOut
     * linear
-* dismissCurve : JellyConstants.JellyCurve
+* dismissCurve : JellyConstants.JellyCurve (default: linear)
     * easeIn
     * easeOut
     * easeInEaseOut
@@ -83,22 +83,37 @@ Both share some propertys
 
 **JellyFadeInAnimation provides 3 extra Properties**
 
-* directionShow: JellyConstants.Direction 
+* directionShow: JellyConstants.Direction (default: top)
     * left
     * top
     * bottom
     * right
-* directionDismiss: JellyConstants.Direction
+* directionDismiss: JellyConstants.Direction (default: top)
     * left
     * top
     * bottom
     * right
-* Jellyness
+* Jellyness (default: none)
     * none (damping = 1.0, velocity = 0.0)
     * jelly (damping = 0.7, velocity = 2)
     * jellier (damping = 0.5 , velocity = 3)
     * jelliest (damping = 0.2, velocity = 4)
 
+```swift
+let customPresentation = JellySlideInPresentation(dismissCurve: .linear, 
+                                             presentationCurve: .linear, 
+                                                  cornerRadius: 15, 
+                                               backgroundStyle: .blur(effectStyle:.dark), 
+                                                     jellyness: .jelly, 
+                                                      duration: .normal, 
+                                         sizeForViewController: CGSize(width:300, height: 300), 
+                                                 directionShow: .left, 
+                                              directionDismiss: .right)
+
+self.jellyAnimator = JellyAnimator(presentation:presentation)
+self.jellyAnimator?.prepare(viewController: viewController)
+self.present(viewController, animated: true, completion: nil)
+```
 
 ## Example
 
