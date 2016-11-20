@@ -54,8 +54,8 @@ That's it. That's lit.
 
 ## Customize
 Jelly Supports two types of Presentations.
-* *JellySlideInPresentation*
-* *JellyFadeInPresentation*
+* **JellySlideInPresentation**
+* **JellyFadeInPresentation**
 
 Both share some propertys
 * duration: JellyConstants.Duration
@@ -81,6 +81,23 @@ Both share some propertys
     * easeInEaseOut
     * linear
 
+**JellyFadeInAnimation provides 3 extra Properties**
+
+* directionShow: JellyConstants.Direction 
+    * left
+    * top
+    * bottom
+    * right
+* directionDismiss: JellyConstants.Direction
+    * left
+    * top
+    * bottom
+    * right
+* Jellyness
+    * none (damping = 1.0, velocity = 0.0)
+    * jelly (damping = 0.7, velocity = 2)
+    * jellier (damping = 0.5 , velocity = 3)
+    * jelliest (damping = 0.2, velocity = 4)
 
 
 ## Example
