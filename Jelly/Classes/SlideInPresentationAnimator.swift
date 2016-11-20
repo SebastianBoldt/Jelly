@@ -36,7 +36,7 @@ extension SlideInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         }
         
         let presentedFrame = transitionContext.finalFrame(for: controllerToAnimate) // Frame the ViewController will have after animation completes
-        var dismissedFrame = calculateDismissedFrame(from: presentedFrame, andContext: transitionContext) // Frame the ViewController will have when he is dismissed
+        let dismissedFrame = calculateDismissedFrame(from: presentedFrame, andContext: transitionContext) // Frame the ViewController will have when he is dismissed
         print(dismissedFrame)
         
         let initialFrame = isPresentation ? dismissedFrame : presentedFrame
@@ -53,7 +53,7 @@ extension SlideInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         }
         
         let animationCurve = isPresentation ? presentation.presentationCurve : presentation.dismissCurve
-        UIView.animate(withDuration: presentation.duration.rawValue,
+        UIView.animate(withDuration: animationDuration,
                        delay: 0.0,
                        usingSpringWithDamping: jellyness.damping,
                        initialSpringVelocity: jellyness.velocity,
