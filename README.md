@@ -1,4 +1,4 @@
-# Jelly-Animators (Under Construction)
+# Jelly
 
 ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/Jellyfish.png)
 
@@ -14,7 +14,7 @@ A Jelly-Animator will do the heavy lifting for you.
 
 ## How to use 
 
-Jelly Animators are super easy to use. 
+Jelly is super easy to use. 
 
 1. Create a *JellyPresentation* Object
 2. Initialize a *JellyAnimator* using the *JellyPresentation* Object created in Step 1.
