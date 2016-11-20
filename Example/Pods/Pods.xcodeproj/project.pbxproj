@@ -25,9 +25,9 @@
 		15B3AD261DE1C3F2003FF7B8 /* JellyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3AD1C1DE1C3F2003FF7B8 /* JellyConstants.swift */; };
 		15B3AD271DE1C3F2003FF7B8 /* JellyPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3AD1D1DE1C3F2003FF7B8 /* JellyPresentation.swift */; };
 		15B3AD281DE1C3F2003FF7B8 /* JellyPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3AD1E1DE1C3F2003FF7B8 /* JellyPresentationController.swift */; };
-		15B3AD291DE1C3F2003FF7B8 /* JellySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3AD1F1DE1C3F2003FF7B8 /* JellySegue.swift */; };
-		15B3AD2A1DE1C3F2003FF7B8 /* JellySlideInSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3AD201DE1C3F2003FF7B8 /* JellySlideInSegue.swift */; };
 		15B3AD2B1DE1C3F2003FF7B8 /* SlideInPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3AD211DE1C3F2003FF7B8 /* SlideInPresentationAnimator.swift */; };
+		15B3AD301DE1DD07003FF7B8 /* JellySlideInPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3AD2F1DE1DD07003FF7B8 /* JellySlideInPresentation.swift */; };
+		15B3AD321DE1DD17003FF7B8 /* JellyFadeInPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3AD311DE1DD17003FF7B8 /* JellyFadeInPresentation.swift */; };
 		17261E344C2027602431A636759AC7F2 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627AA9D56F221212717BC6C0D69D5091 /* DSL.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		173F5E863AB4E7555B815982F9D3DB8D /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BDE47B2FE86C887FC8019C041BBB1FE /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C50F54510D5C2B2AD84D7B74A6EDEBB /* BeGreaterThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9265D9D90339F897C0C6F78088E7BEB /* BeGreaterThanOrEqualTo.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -169,9 +169,9 @@
 		15B3AD1C1DE1C3F2003FF7B8 /* JellyConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellyConstants.swift; sourceTree = "<group>"; };
 		15B3AD1D1DE1C3F2003FF7B8 /* JellyPresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellyPresentation.swift; sourceTree = "<group>"; };
 		15B3AD1E1DE1C3F2003FF7B8 /* JellyPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellyPresentationController.swift; sourceTree = "<group>"; };
-		15B3AD1F1DE1C3F2003FF7B8 /* JellySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellySegue.swift; sourceTree = "<group>"; };
-		15B3AD201DE1C3F2003FF7B8 /* JellySlideInSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellySlideInSegue.swift; sourceTree = "<group>"; };
 		15B3AD211DE1C3F2003FF7B8 /* SlideInPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInPresentationAnimator.swift; sourceTree = "<group>"; };
+		15B3AD2F1DE1DD07003FF7B8 /* JellySlideInPresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellySlideInPresentation.swift; sourceTree = "<group>"; };
+		15B3AD311DE1DD17003FF7B8 /* JellyFadeInPresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellyFadeInPresentation.swift; sourceTree = "<group>"; };
 		18CEB9B86795A0FDAA385DB81A49672B /* FailureMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FailureMessage.swift; path = Sources/Nimble/FailureMessage.swift; sourceTree = "<group>"; };
 		1994804C15E018526C78E3AA0DEFF054 /* QuickConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QuickConfiguration.h; path = Sources/QuickObjectiveC/Configuration/QuickConfiguration.h; sourceTree = "<group>"; };
 		1BBE788E6EBEE817760AE46FEE7B932D /* Quick.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Quick.modulemap; sourceTree = "<group>"; };
@@ -363,6 +363,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		15B3AD2E1DE1DCE9003FF7B8 /* Presentations */ = {
+			isa = PBXGroup;
+			children = (
+				15B3AD1D1DE1C3F2003FF7B8 /* JellyPresentation.swift */,
+				15B3AD2F1DE1DD07003FF7B8 /* JellySlideInPresentation.swift */,
+				15B3AD311DE1DD17003FF7B8 /* JellyFadeInPresentation.swift */,
+			);
+			name = Presentations;
+			sourceTree = "<group>";
+		};
+		15B3AD331DE1DD7F003FF7B8 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				15B3AD211DE1C3F2003FF7B8 /* SlideInPresentationAnimator.swift */,
+				15B3AD181DE1C3F2003FF7B8 /* FadeInPresentationAnimator.swift */,
+			);
+			name = Animators;
+			sourceTree = "<group>";
+		};
 		2D50F98B9187FADAE9D8011C10296E2A /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,16 +410,13 @@
 		4139CA237419CF6D934BBA7D5716AEB4 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				15B3AD181DE1C3F2003FF7B8 /* FadeInPresentationAnimator.swift */,
-				15B3AD191DE1C3F2003FF7B8 /* Helper.swift */,
-				15B3AD1A1DE1C3F2003FF7B8 /* Jelly.swift */,
 				15B3AD1B1DE1C3F2003FF7B8 /* JellyAnimator.swift */,
-				15B3AD1C1DE1C3F2003FF7B8 /* JellyConstants.swift */,
-				15B3AD1D1DE1C3F2003FF7B8 /* JellyPresentation.swift */,
 				15B3AD1E1DE1C3F2003FF7B8 /* JellyPresentationController.swift */,
-				15B3AD1F1DE1C3F2003FF7B8 /* JellySegue.swift */,
-				15B3AD201DE1C3F2003FF7B8 /* JellySlideInSegue.swift */,
-				15B3AD211DE1C3F2003FF7B8 /* SlideInPresentationAnimator.swift */,
+				15B3AD1C1DE1C3F2003FF7B8 /* JellyConstants.swift */,
+				15B3AD191DE1C3F2003FF7B8 /* Helper.swift */,
+				15B3AD2E1DE1DCE9003FF7B8 /* Presentations */,
+				15B3AD331DE1DD7F003FF7B8 /* Animators */,
+				15B3AD1A1DE1C3F2003FF7B8 /* Jelly.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -934,7 +950,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				15B3AD221DE1C3F2003FF7B8 /* FadeInPresentationAnimator.swift in Sources */,
-				15B3AD2A1DE1C3F2003FF7B8 /* JellySlideInSegue.swift in Sources */,
 				15B3AD251DE1C3F2003FF7B8 /* JellyAnimator.swift in Sources */,
 				E2C0623E9E9128B3A39558EEC5F302D1 /* Jelly-dummy.m in Sources */,
 				15B3AD241DE1C3F2003FF7B8 /* Jelly.swift in Sources */,
@@ -942,8 +957,9 @@
 				15B3AD281DE1C3F2003FF7B8 /* JellyPresentationController.swift in Sources */,
 				15B3AD261DE1C3F2003FF7B8 /* JellyConstants.swift in Sources */,
 				15B3AD231DE1C3F2003FF7B8 /* Helper.swift in Sources */,
+				15B3AD301DE1DD07003FF7B8 /* JellySlideInPresentation.swift in Sources */,
+				15B3AD321DE1DD17003FF7B8 /* JellyFadeInPresentation.swift in Sources */,
 				15B3AD271DE1C3F2003FF7B8 /* JellyPresentation.swift in Sources */,
-				15B3AD291DE1C3F2003FF7B8 /* JellySegue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
