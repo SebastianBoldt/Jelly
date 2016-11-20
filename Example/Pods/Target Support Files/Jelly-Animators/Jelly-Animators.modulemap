@@ -1,6 +1,0 @@
-framework module Jelly_Animators {
-  umbrella header "Jelly-Animators-umbrella.h"
-
-  export *
-  module * { export * }
-}
