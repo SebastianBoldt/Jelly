@@ -52,6 +52,37 @@ class CustomVC : UIViewController {
 
 That's it. That's lit.
 
+## Customize
+Jelly Supports two types of Presentations.
+* *JellySlideInPresentation*
+* *JellyFadeInPresentation*
+
+Both share some propertys
+* duration: JellyConstants.Duration
+    * ultraSlow = 2.0
+    * slow = 1.0
+    * normal = 0.35
+    * fast = 0.2
+    * reallyFast = 0.1
+* sizeForViewController: CGSize
+* backgroundStyle : JellyConstants.BackgroundStyle
+    * dimmed
+    * blur(effectStyle)
+    * none
+* cornerRadius: Double
+* presentationCurve : JellyConstants.JellyCurve
+    * easeIn
+    * easeOut
+    * easeInEaseOut
+    * linear
+* dismissCurve : JellyConstants.JellyCurve
+    * easeIn
+    * easeOut
+    * easeInEaseOut
+    * linear
+
+
+
 ## Example
 
 You can use Jelly to build your own Alert-Views using ViewControllers designed by yourself.
