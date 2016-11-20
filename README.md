@@ -1,5 +1,4 @@
-# Jelly
-Jelly provides custom view controller animations with just a few lines of code
+# Jelly - Customize your Viewcontroller Transitions
 
 ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/Jellyfish.png)
 
