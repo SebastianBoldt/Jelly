@@ -61,6 +61,7 @@ Both share some propertys and each Property has a default value
 * duration: JellyConstants.Duration (default: normal)
     * ultraSlow = 2.0
     * slow = 1.0
+    * medium = 0.5
     * normal = 0.35
     * fast = 0.2
     * reallyFast = 0.1
