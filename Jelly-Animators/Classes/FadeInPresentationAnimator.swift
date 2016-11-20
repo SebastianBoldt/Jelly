@@ -7,9 +7,9 @@ import Foundation
 final class FadeInPresentationAnimator: NSObject {
     
     let presentationType : JellyConstants.PresentationType
-    let presentation : JellyPresentation
+    let presentation : JellyFadeInPresentation
     
-    init(presentationType: JellyConstants.PresentationType, presentation: JellyPresentation) {
+    init(presentationType: JellyConstants.PresentationType, presentation: JellyFadeInPresentation) {
         self.presentationType = presentationType
         self.presentation = presentation
         super.init()
@@ -44,9 +44,11 @@ extension FadeInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         
         var jellyness = Jelly()
         
+        let animationCurve = isPresentation ? presentation.presentationCurve : presentation.dismissCurve
+
         UIView.animate(withDuration: presentation.duration.rawValue,
                        delay: 0.0,
-                       options: presentation.curve.getAnimationOptionForJellyCurve(),
+                       options: animationCurve.getAnimationOptionForJellyCurve(),
                        animations: {
                         controllerToAnimate.view.alpha = CGFloat(finalAlpha)
         }, completion:{ finished in

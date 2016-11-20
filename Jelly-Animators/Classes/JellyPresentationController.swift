@@ -93,7 +93,7 @@ class JellyPresentationController : UIPresentationController {
     
     override func size(forChildContentContainer container: UIContentContainer,
                        withParentContainerSize parentSize: CGSize) -> CGSize {
-        return self.presentation.sizeForPresentedVC
+        return self.presentation.sizeForViewController
     }
     
     override var frameOfPresentedViewInContainerView: CGRect {

@@ -7,25 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1564A1A21DDE438400211871 /* JellyPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1564A1A11DDE438400211871 /* JellyPresentationController.swift */; };
-		15B3AD001DE0D056003FF7B8 /* FadeInPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3ACFF1DE0D056003FF7B8 /* FadeInPresentationAnimator.swift */; };
-		15D904B51DDF70BE00317922 /* SlideInPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D904B41DDF70BE00317922 /* SlideInPresentationAnimator.swift */; };
-		15D904BA1DDF74CE00317922 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D904B91DDF74CE00317922 /* Helper.swift */; };
-		15D904BC1DDF74DB00317922 /* Jelly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D904BB1DDF74DB00317922 /* Jelly.swift */; };
-		15ECA6D51DE03B94000C5A15 /* JellySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ECA6D41DE03B94000C5A15 /* JellySegue.swift */; };
-		15ECA6D81DE03C03000C5A15 /* JellySlideInSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ECA6D71DE03C03000C5A15 /* JellySlideInSegue.swift */; };
-		36784CCBFA06273600A3827780F276F5 /* JellyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DD3397FD265F15B2F191FCEB7343E5 /* JellyConstants.swift */; };
+		0D55C5055CF764945ED1E7016DA1E507 /* Jelly-Animators-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FEE3DD8DA4603F0A34249EA16E875953 /* Jelly-Animators-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1351C152FA183A054AE10B60797A0EE9 /* SlideInPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035E8274A3505DCC902129871E62E380 /* SlideInPresentationAnimator.swift */; };
+		1E6A6675A9C8BA1543830B51005C8655 /* JellyAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B73AC9F3692B4F47E61075884870AB /* JellyAnimator.swift */; };
+		443937A4389F69F2D0B6F4516C0CA46C /* FadeInPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C86E8CCB50D2D7AE98F618124BAEAA /* FadeInPresentationAnimator.swift */; };
 		4895114E4164E02068B66A0D97D71937 /* Pods-Jelly-Animators_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D455FE91CFA9B206249FD627091CE289 /* Pods-Jelly-Animators_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5343C37404E9DDA0DB06D74C5471AF8D /* Pods-Jelly-Animators_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A802E24CE9D3B4FE9DE8B066B41FC50 /* Pods-Jelly-Animators_Tests-dummy.m */; };
-		86133BB1E945F6287865EFD359F2FCE5 /* Jelly-Animators-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5DC526A7C5A19228600ED6B270ECA3 /* Jelly-Animators-dummy.m */; };
-		8676F31CF4F890064BA2ADBB8B41C6B9 /* Jelly-Animators-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FEE3DD8DA4603F0A34249EA16E875953 /* Jelly-Animators-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9838753F253F285BE42DCAD66B63E470 /* JellyPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A52774CE92BE2E9593D2C0C308CCD /* JellyPresentation.swift */; };
+		54CC34185BEF5F689B91704D10909BFD /* JellySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BE9F68C49BEB1ED22CB907897941DE /* JellySegue.swift */; };
+		5BB5F0879399E8901999DDE858EDA2BA /* JellySlideInSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D25B1811C535F18B9C84A690EB7EB7E /* JellySlideInSegue.swift */; };
+		946CB46AA51D421A02F9F3C732740063 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */; };
+		98942EB31C1B3194724F8A016F513B0D /* JellyPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514E3DE60584D5A617739A3621F6B0A3 /* JellyPresentation.swift */; };
 		9AAAD4246D43233243427B348BBBF5E0 /* Pods-Jelly-Animators_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 749B72F6C233573A84882416DF9C59B3 /* Pods-Jelly-Animators_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A0BFBFF2DC60404184EAB5942092D35C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		A161B40D7B811A86BD56722E2ADD7765 /* JellyPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0577E8FE2E4A603E7F37E8FB0F2ED9 /* JellyPresentationController.swift */; };
 		B3A369EBEFA37FF89CE229D8F0720F62 /* Pods-Jelly-Animators_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BD37DB940B8C04D909311DE924F22B /* Pods-Jelly-Animators_Example-dummy.m */; };
-		D5D6F1F15876BD300D568D4DA3F5B63E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */; };
-		D90CCB51F822C616A9CDBF726246ADE1 /* JellyAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E38DF1B3CB6A453849D6CDA8E9EA8F /* JellyAnimator.swift */; };
+		B77D15456783B0441353BFD58D1B56D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		C6DD11F1CE35747C75743A7CC877FB74 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FCD6EBC2A691DA336A76812A0D0038 /* Helper.swift */; };
+		DB78F335C6A73C7820CD45E233D5AE34 /* Jelly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099F8DBF3676C3C69BEC39619E09CB00 /* Jelly.swift */; };
 		F342659619DE12069666BC84C1E2B21E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		F7B9D0071A45B6463494EA855246A149 /* JellyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D451933CA6B492A4394CE51DCD7DA27D /* JellyConstants.swift */; };
+		FCED733F22F1E90B1F459944CCF5D09B /* Jelly-Animators-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5DC526A7C5A19228600ED6B270ECA3 /* Jelly-Animators-dummy.m */; };
 		FF14FC24C08AC45F3144797EEFABC548 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,27 +34,24 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AC7499D3E343B21596FED0F1D3B72803;
+			remoteGlobalIDString = 532B437AD9FC746A4DCAB1774133A500;
 			remoteInfo = "Jelly-Animators";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0011ACAF31793512D05F1E8DEB7C7608 /* Pods-Jelly-Animators_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Jelly-Animators_Example-resources.sh"; sourceTree = "<group>"; };
-		0A9A52774CE92BE2E9593D2C0C308CCD /* JellyPresentation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JellyPresentation.swift; sourceTree = "<group>"; };
+		035E8274A3505DCC902129871E62E380 /* SlideInPresentationAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SlideInPresentationAnimator.swift; sourceTree = "<group>"; };
+		099F8DBF3676C3C69BEC39619E09CB00 /* Jelly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Jelly.swift; sourceTree = "<group>"; };
 		0D82AFBA7D028447FA339F236450DAA5 /* Pods-Jelly-Animators_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Jelly-Animators_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		1564A1A11DDE438400211871 /* JellyPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellyPresentationController.swift; sourceTree = "<group>"; };
-		15B3ACFF1DE0D056003FF7B8 /* FadeInPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInPresentationAnimator.swift; sourceTree = "<group>"; };
-		15D904B41DDF70BE00317922 /* SlideInPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInPresentationAnimator.swift; sourceTree = "<group>"; };
-		15D904B91DDF74CE00317922 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		15D904BB1DDF74DB00317922 /* Jelly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Jelly.swift; sourceTree = "<group>"; };
-		15ECA6D41DE03B94000C5A15 /* JellySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellySegue.swift; sourceTree = "<group>"; };
-		15ECA6D71DE03C03000C5A15 /* JellySlideInSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellySlideInSegue.swift; sourceTree = "<group>"; };
 		16C6C2DE3DD1601307DB2D12354FCCD0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FF2FC6399478F92B7EDDD90D1512990 /* Pods-Jelly-Animators_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Jelly-Animators_Tests-resources.sh"; sourceTree = "<group>"; };
 		33587C51C50B43BD2D73A7325B62BCD6 /* Pods_Jelly_Animators_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jelly_Animators_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		397086FF7ADB105DB41C78C3216C5D7A /* Pods-Jelly-Animators_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jelly-Animators_Example.release.xcconfig"; sourceTree = "<group>"; };
 		40E13B8AAE9B3FBEFD0B471FAD9E088F /* Pods-Jelly-Animators_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jelly-Animators_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		4D25B1811C535F18B9C84A690EB7EB7E /* JellySlideInSegue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JellySlideInSegue.swift; sourceTree = "<group>"; };
+		514E3DE60584D5A617739A3621F6B0A3 /* JellyPresentation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JellyPresentation.swift; sourceTree = "<group>"; };
+		56FCD6EBC2A691DA336A76812A0D0038 /* Helper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		5B236C1E880135712F5DD0FA92A7C057 /* Pods-Jelly-Animators_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Jelly-Animators_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5EB342546E1DA7E01A0A6235535C4C9B /* Pods-Jelly-Animators_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Jelly-Animators_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -65,19 +62,22 @@
 		7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		82BD37DB940B8C04D909311DE924F22B /* Pods-Jelly-Animators_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Jelly-Animators_Example-dummy.m"; sourceTree = "<group>"; };
 		88DE681D631AB760E37ABABB5AD25E3A /* Jelly-Animators.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Jelly-Animators.modulemap"; sourceTree = "<group>"; };
+		8F0577E8FE2E4A603E7F37E8FB0F2ED9 /* JellyPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JellyPresentationController.swift; sourceTree = "<group>"; };
 		9303374DBC84B232DAB81DA2F6D5862F /* Pods-Jelly-Animators_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Jelly-Animators_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9865C521C0D3F97269CAB4E62C8367CD /* Pods-Jelly-Animators_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Jelly-Animators_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		A34D9500527545806B857C73FA45055A /* Jelly-Animators-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Jelly-Animators-prefix.pch"; sourceTree = "<group>"; };
-		A9DD3397FD265F15B2F191FCEB7343E5 /* JellyConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JellyConstants.swift; sourceTree = "<group>"; };
+		A5B73AC9F3692B4F47E61075884870AB /* JellyAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JellyAnimator.swift; sourceTree = "<group>"; };
 		BCB7FD4222C4A3F2A794F9BD1C6CC013 /* Pods-Jelly-Animators_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jelly-Animators_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		BE02496AB1017487B601C64660607083 /* Pods-Jelly-Animators_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Jelly-Animators_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4BD955946840CD5C91E8DB2FB3CAD27 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6E067A87916FB07C008BB33459C76E5 /* Pods-Jelly-Animators_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Jelly-Animators_Example-frameworks.sh"; sourceTree = "<group>"; };
+		D451933CA6B492A4394CE51DCD7DA27D /* JellyConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JellyConstants.swift; sourceTree = "<group>"; };
 		D455FE91CFA9B206249FD627091CE289 /* Pods-Jelly-Animators_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jelly-Animators_Example-umbrella.h"; sourceTree = "<group>"; };
+		D4BE9F68C49BEB1ED22CB907897941DE /* JellySegue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JellySegue.swift; sourceTree = "<group>"; };
 		D9426D57154D87557B2D63AA928C0134 /* Pods-Jelly-Animators_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Jelly-Animators_Example.modulemap"; sourceTree = "<group>"; };
 		DD5DC526A7C5A19228600ED6B270ECA3 /* Jelly-Animators-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Jelly-Animators-dummy.m"; sourceTree = "<group>"; };
-		F6E38DF1B3CB6A453849D6CDA8E9EA8F /* JellyAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JellyAnimator.swift; sourceTree = "<group>"; };
+		F7C86E8CCB50D2D7AE98F618124BAEAA /* FadeInPresentationAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FadeInPresentationAnimator.swift; sourceTree = "<group>"; };
 		FB7D11263A57788DA905A90BF047D966 /* Jelly-Animators.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Jelly-Animators.xcconfig"; sourceTree = "<group>"; };
 		FBF034E9F094C81BFBD08AECABDEC8EE /* Jelly_Animators.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Jelly_Animators.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE3DD8DA4603F0A34249EA16E875953 /* Jelly-Animators-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Jelly-Animators-umbrella.h"; sourceTree = "<group>"; };
@@ -85,20 +85,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		23C5E619380A076083EBC84F95D656E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B77D15456783B0441353BFD58D1B56D4 /* Foundation.framework in Frameworks */,
+				946CB46AA51D421A02F9F3C732740063 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F93039F0A2CA29A2F39529A66D97A92 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FF14FC24C08AC45F3144797EEFABC548 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5A11F5BDA682A937347D662AFC418B99 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A0BFBFF2DC60404184EAB5942092D35C /* Foundation.framework in Frameworks */,
-				D5D6F1F15876BD300D568D4DA3F5B63E /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,46 +116,11 @@
 		07FF7CB08A44A9E2C652A06A6A507CD6 /* Jelly-Animators */ = {
 			isa = PBXGroup;
 			children = (
-				47F9A42F1EAC384D1BE457430C5ABEFD /* Jelly-Animators */,
+				61990BEA82A768819299CFF4265EF62E /* Jelly-Animators */,
 				4FE516F1B3887C4834B36A7E32314A9F /* Support Files */,
 			);
 			name = "Jelly-Animators";
 			path = ../..;
-			sourceTree = "<group>";
-		};
-		15D904B61DDF70C200317922 /* Animators */ = {
-			isa = PBXGroup;
-			children = (
-				15D904B41DDF70BE00317922 /* SlideInPresentationAnimator.swift */,
-				15B3ACFF1DE0D056003FF7B8 /* FadeInPresentationAnimator.swift */,
-			);
-			name = Animators;
-			sourceTree = "<group>";
-		};
-		15D904B71DDF70CF00317922 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				0A9A52774CE92BE2E9593D2C0C308CCD /* JellyPresentation.swift */,
-				15D904BB1DDF74DB00317922 /* Jelly.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		15D904B81DDF747200317922 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				15D904B91DDF74CE00317922 /* Helper.swift */,
-			);
-			name = Helper;
-			sourceTree = "<group>";
-		};
-		15ECA6D61DE03BED000C5A15 /* Segues */ = {
-			isa = PBXGroup;
-			children = (
-				15ECA6D41DE03B94000C5A15 /* JellySegue.swift */,
-				15ECA6D71DE03C03000C5A15 /* JellySlideInSegue.swift */,
-			);
-			name = Segues;
 			sourceTree = "<group>";
 		};
 		26522A2C6734D65CD590F681E129CA7D /* Development Pods */ = {
@@ -192,14 +157,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		47F9A42F1EAC384D1BE457430C5ABEFD /* Jelly-Animators */ = {
-			isa = PBXGroup;
-			children = (
-				A67B4384468CCE0BF134C404DDFEA430 /* Classes */,
-			);
-			path = "Jelly-Animators";
-			sourceTree = "<group>";
-		};
 		4FE516F1B3887C4834B36A7E32314A9F /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +169,23 @@
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/Jelly-Animators";
+			sourceTree = "<group>";
+		};
+		507210544D028D8D1CB7FE0DF56D6D59 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				099F8DBF3676C3C69BEC39619E09CB00 /* Jelly.swift */,
+				56FCD6EBC2A691DA336A76812A0D0038 /* Helper.swift */,
+				A5B73AC9F3692B4F47E61075884870AB /* JellyAnimator.swift */,
+				D451933CA6B492A4394CE51DCD7DA27D /* JellyConstants.swift */,
+				514E3DE60584D5A617739A3621F6B0A3 /* JellyPresentation.swift */,
+				8F0577E8FE2E4A603E7F37E8FB0F2ED9 /* JellyPresentationController.swift */,
+				D4BE9F68C49BEB1ED22CB907897941DE /* JellySegue.swift */,
+				4D25B1811C535F18B9C84A690EB7EB7E /* JellySlideInSegue.swift */,
+				035E8274A3505DCC902129871E62E380 /* SlideInPresentationAnimator.swift */,
+				F7C86E8CCB50D2D7AE98F618124BAEAA /* FadeInPresentationAnimator.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		538B2170341F555CD3A1A65C1CC9F7E5 /* Targets Support Files */ = {
@@ -241,6 +215,14 @@
 			path = "Target Support Files/Pods-Jelly-Animators_Tests";
 			sourceTree = "<group>";
 		};
+		61990BEA82A768819299CFF4265EF62E /* Jelly-Animators */ = {
+			isa = PBXGroup;
+			children = (
+				507210544D028D8D1CB7FE0DF56D6D59 /* Classes */,
+			);
+			path = "Jelly-Animators";
+			sourceTree = "<group>";
+		};
 		709290647645A7563C50B769E07FB3C0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,20 +242,6 @@
 				709290647645A7563C50B769E07FB3C0 /* Products */,
 				538B2170341F555CD3A1A65C1CC9F7E5 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		A67B4384468CCE0BF134C404DDFEA430 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				F6E38DF1B3CB6A453849D6CDA8E9EA8F /* JellyAnimator.swift */,
-				A9DD3397FD265F15B2F191FCEB7343E5 /* JellyConstants.swift */,
-				15D904B71DDF70CF00317922 /* Model */,
-				15ECA6D61DE03BED000C5A15 /* Segues */,
-				15D904B61DDF70C200317922 /* Animators */,
-				15D904B81DDF747200317922 /* Helper */,
-				1564A1A11DDE438400211871 /* JellyPresentationController.swift */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		E6EE98446B568159EE277B68FD442AF0 /* iOS */ = {
@@ -304,17 +272,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FC2C5CCF24F92D43086A53D1A058A139 /* Headers */ = {
+		F787255A547B677FE8C465A1F8E6BD6A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8676F31CF4F890064BA2ADBB8B41C6B9 /* Jelly-Animators-umbrella.h in Headers */,
+				0D55C5055CF764945ED1E7016DA1E507 /* Jelly-Animators-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		532B437AD9FC746A4DCAB1774133A500 /* Jelly-Animators */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 443FB8235ACE2113EC308AC02AA7F7BA /* Build configuration list for PBXNativeTarget "Jelly-Animators" */;
+			buildPhases = (
+				FE204C57809850176E477C98C90E8CD3 /* Sources */,
+				23C5E619380A076083EBC84F95D656E1 /* Frameworks */,
+				F787255A547B677FE8C465A1F8E6BD6A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Jelly-Animators";
+			productName = "Jelly-Animators";
+			productReference = FBF034E9F094C81BFBD08AECABDEC8EE /* Jelly_Animators.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		9DCDBD442299F310FC1CD8403D7ABEF6 /* Pods-Jelly-Animators_Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0B1BF7CFB54A3D6FB2EC9D89A9DA00A /* Build configuration list for PBXNativeTarget "Pods-Jelly-Animators_Tests" */;
@@ -350,23 +335,6 @@
 			productReference = 33587C51C50B43BD2D73A7325B62BCD6 /* Pods_Jelly_Animators_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		AC7499D3E343B21596FED0F1D3B72803 /* Jelly-Animators */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2345AA526DCA6F2DA43F708EB5A91DBE /* Build configuration list for PBXNativeTarget "Jelly-Animators" */;
-			buildPhases = (
-				5917511406CE5A5029DFF55F8AF6DE5C /* Sources */,
-				5A11F5BDA682A937347D662AFC418B99 /* Frameworks */,
-				FC2C5CCF24F92D43086A53D1A058A139 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Jelly-Animators";
-			productName = "Jelly-Animators";
-			productReference = FBF034E9F094C81BFBD08AECABDEC8EE /* Jelly_Animators.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -388,7 +356,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AC7499D3E343B21596FED0F1D3B72803 /* Jelly-Animators */,
+				532B437AD9FC746A4DCAB1774133A500 /* Jelly-Animators */,
 				A24587F25FFB8D95C050D217CED2C620 /* Pods-Jelly-Animators_Example */,
 				9DCDBD442299F310FC1CD8403D7ABEF6 /* Pods-Jelly-Animators_Tests */,
 			);
@@ -396,24 +364,6 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5917511406CE5A5029DFF55F8AF6DE5C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1564A1A21DDE438400211871 /* JellyPresentationController.swift in Sources */,
-				15ECA6D81DE03C03000C5A15 /* JellySlideInSegue.swift in Sources */,
-				15D904B51DDF70BE00317922 /* SlideInPresentationAnimator.swift in Sources */,
-				86133BB1E945F6287865EFD359F2FCE5 /* Jelly-Animators-dummy.m in Sources */,
-				15D904BC1DDF74DB00317922 /* Jelly.swift in Sources */,
-				15D904BA1DDF74CE00317922 /* Helper.swift in Sources */,
-				D90CCB51F822C616A9CDBF726246ADE1 /* JellyAnimator.swift in Sources */,
-				36784CCBFA06273600A3827780F276F5 /* JellyConstants.swift in Sources */,
-				15B3AD001DE0D056003FF7B8 /* FadeInPresentationAnimator.swift in Sources */,
-				9838753F253F285BE42DCAD66B63E470 /* JellyPresentation.swift in Sources */,
-				15ECA6D51DE03B94000C5A15 /* JellySegue.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		66961155AE1AAA45D50ED0949E2A4E9C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -430,13 +380,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FE204C57809850176E477C98C90E8CD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				443937A4389F69F2D0B6F4516C0CA46C /* FadeInPresentationAnimator.swift in Sources */,
+				C6DD11F1CE35747C75743A7CC877FB74 /* Helper.swift in Sources */,
+				FCED733F22F1E90B1F459944CCF5D09B /* Jelly-Animators-dummy.m in Sources */,
+				DB78F335C6A73C7820CD45E233D5AE34 /* Jelly.swift in Sources */,
+				1E6A6675A9C8BA1543830B51005C8655 /* JellyAnimator.swift in Sources */,
+				F7B9D0071A45B6463494EA855246A149 /* JellyConstants.swift in Sources */,
+				98942EB31C1B3194724F8A016F513B0D /* JellyPresentation.swift in Sources */,
+				A161B40D7B811A86BD56722E2ADD7765 /* JellyPresentationController.swift in Sources */,
+				54CC34185BEF5F689B91704D10909BFD /* JellySegue.swift in Sources */,
+				5BB5F0879399E8901999DDE858EDA2BA /* JellySlideInSegue.swift in Sources */,
+				1351C152FA183A054AE10B60797A0EE9 /* SlideInPresentationAnimator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		F81FE7307D8080F4A23E5F6EABA269C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Jelly-Animators";
-			target = AC7499D3E343B21596FED0F1D3B72803 /* Jelly-Animators */;
+			target = 532B437AD9FC746A4DCAB1774133A500 /* Jelly-Animators */;
 			targetProxy = 947435BFC8477F3BA58C618A9F5ABF65 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -522,7 +490,7 @@
 			};
 			name = Release;
 		};
-		3BF97D5D6B1375A794430AD014979E63 /* Debug */ = {
+		8618F4CD492F68AB98ED6A668C5BD3E1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FB7D11263A57788DA905A90BF047D966 /* Jelly-Animators.xcconfig */;
 			buildSettings = {
@@ -530,7 +498,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -543,17 +511,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Jelly-Animators/Jelly-Animators.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = Jelly_Animators;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		8D29B02015DAFA0C6E87FBA883B900D3 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -590,6 +557,39 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		BE69A014CF507C4320942E35624DA447 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB7D11263A57788DA905A90BF047D966 /* Jelly-Animators.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Jelly-Animators/Jelly-Animators-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Jelly-Animators/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Jelly-Animators/Jelly-Animators.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Jelly_Animators;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		E72E7977875C2D251FC62736BBDDC389 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -628,38 +628,6 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		ED4ADAD489B4D755207EF5E71F9ACE34 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB7D11263A57788DA905A90BF047D966 /* Jelly-Animators.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Jelly-Animators/Jelly-Animators-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Jelly-Animators/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Jelly-Animators/Jelly-Animators.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Jelly_Animators;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -739,20 +707,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2345AA526DCA6F2DA43F708EB5A91DBE /* Build configuration list for PBXNativeTarget "Jelly-Animators" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3BF97D5D6B1375A794430AD014979E63 /* Debug */,
-				ED4ADAD489B4D755207EF5E71F9ACE34 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				12914D756594D15C6F2CA12FE5F89F1B /* Debug */,
 				E72E7977875C2D251FC62736BBDDC389 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		443FB8235ACE2113EC308AC02AA7F7BA /* Build configuration list for PBXNativeTarget "Jelly-Animators" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE69A014CF507C4320942E35624DA447 /* Debug */,
+				8618F4CD492F68AB98ED6A668C5BD3E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

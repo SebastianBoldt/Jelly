@@ -8,9 +8,9 @@ final class SlideInPresentationAnimator: NSObject {
     
     let direction: JellyConstants.Direction
     let presentationType : JellyConstants.PresentationType
-    let presentation : JellyPresentation
+    let presentation : JellySlideInPresentation
     
-    init(direction: JellyConstants.Direction, presentationType: JellyConstants.PresentationType, presentation: JellyPresentation) {
+    init(direction: JellyConstants.Direction, presentationType: JellyConstants.PresentationType, presentation: JellySlideInPresentation) {
         self.direction = direction
         self.presentationType = presentationType
         self.presentation = presentation
@@ -52,11 +52,12 @@ extension SlideInPresentationAnimator : UIViewControllerAnimatedTransitioning {
             jellyness = Helper.convertJellyness(jellyness: presentation.jellyness)
         }
         
+        let animationCurve = isPresentation ? presentation.presentationCurve : presentation.dismissCurve
         UIView.animate(withDuration: presentation.duration.rawValue,
                        delay: 0.0,
                        usingSpringWithDamping: jellyness.damping,
                        initialSpringVelocity: jellyness.velocity,
-                       options: presentation.curve.getAnimationOptionForJellyCurve(),
+                       options: animationCurve.getAnimationOptionForJellyCurve(),
         animations: {
             controllerToAnimate.view.frame = finalFrame
         }, completion:{ finished in

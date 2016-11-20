@@ -4,37 +4,76 @@
 
 import Foundation
 
-public struct JellyPresentation {
+public protocol JellyPresentation {
+    var duration: JellyConstants.Duration { get }
+    var sizeForViewController: CGSize { get  }
+    var backgroundStyle : JellyConstants.BackgroundStyle { get }
+    var cornerRadius: Double { get }
+    var presentationCurve : JellyConstants.JellyCurve { get }
+    var dismissCurve : JellyConstants.JellyCurve { get }
+}
+
+
+public struct JellySlideInPresentation: JellyPresentation {
     
-    private(set) var jellyness: JellyConstants.Jellyness
-    private(set) var duration: JellyConstants.Duration
-    private(set) var directionShow: JellyConstants.Direction
-    private(set) var directionDismiss: JellyConstants.Direction
-    private(set) var style: JellyConstants.Style
-    private(set) var sizeForPresentedVC: CGSize
-    private(set) var isDimmingViewAnimationEnabled: Bool = false
-    private(set) var cornerRadius: Double = 0.0
-    private(set) var curve : JellyConstants.JellyCurve = .EaseInEaseOut
-    private(set) var backgroundStyle : JellyConstants.BackgroundStyle
+    // JellyPresentation Protocol conformance
+    public private(set) var dismissCurve: JellyConstants.JellyCurve = .linear
+    public private(set) var presentationCurve: JellyConstants.JellyCurve = .linear
+    public private(set) var cornerRadius: Double = 0.0
+    public private(set) var backgroundStyle: JellyConstants.BackgroundStyle = .none
+    public private(set) var jellyness: JellyConstants.Jellyness
+    public private(set) var duration : JellyConstants.Duration = .normal // Duration the ViewController needs to kick in
+    public private(set) var sizeForViewController: CGSize = CGSize(width: 300, height: 600) // Size for the presented ViewController
     
-    public init(jellyness: JellyConstants.Jellyness,
-                duration: JellyConstants.Duration,
-                directionShow: JellyConstants.Direction,
-                directionDismiss: JellyConstants.Direction,
-                style: JellyConstants.Style,
-                curve: JellyConstants.JellyCurve,
-                sizeForViewController viewControllerSize: CGSize,
+    // Unique
+    public private(set) var directionShow: JellyConstants.Direction = .left // Direction the ViewController slides in from
+    public private(set) var directionDismiss: JellyConstants.Direction = .left // Direction the ViewController slides out to
+    
+    public init(dismissCurve: JellyConstants.JellyCurve = .linear,
+                presentationCurve: JellyConstants.JellyCurve = .linear,
                 cornerRadius: Double = 0.0,
-                backgroundStyle: JellyConstants.BackgroundStyle = .dimmed) {
+                backgroundStyle: JellyConstants.BackgroundStyle = .dimmed,
+                jellyness: JellyConstants.Jellyness = .none,
+                duration: JellyConstants.Duration = .normal,
+                sizeForViewController: CGSize = CGSize(width:300,height:600),
+                directionShow: JellyConstants.Direction = .top,
+                directionDismiss: JellyConstants.Direction = .top) {
         
+        self.dismissCurve = dismissCurve
+        self.presentationCurve = presentationCurve
+        self.cornerRadius = cornerRadius
+        self.backgroundStyle = backgroundStyle
         self.jellyness = jellyness
         self.duration = duration
+        self.sizeForViewController = sizeForViewController
         self.directionShow = directionShow
         self.directionDismiss = directionDismiss
-        self.style = style
-        self.curve = curve
-        self.sizeForPresentedVC = viewControllerSize
-        self.backgroundStyle = backgroundStyle
-        self.cornerRadius = cornerRadius
     }
+}
+
+public struct JellyFadeInPresentation: JellyPresentation {
+    
+    // Jelly Presentation Protocol conformance
+    public private(set) var dismissCurve: JellyConstants.JellyCurve = .linear
+    public private(set) var presentationCurve: JellyConstants.JellyCurve = .linear
+    public private(set) var cornerRadius: Double = 0.0
+    public private(set) var backgroundStyle: JellyConstants.BackgroundStyle = .dimmed
+    public private(set) var duration : JellyConstants.Duration = .normal // Duration the ViewController needs to kick in
+    public private(set) var sizeForViewController: CGSize = CGSize(width: 300, height: 300) // Size for the presented ViewController
+    
+    public init(dismissCurve: JellyConstants.JellyCurve = .linear,
+                presentationCurve: JellyConstants.JellyCurve = .linear,
+                cornerRadius: Double = 0.0,
+                backgroundStyle: JellyConstants.BackgroundStyle = .none,
+                duration: JellyConstants.Duration = .normal,
+                sizeForViewController: CGSize = CGSize(width:300,height:300)) {
+        
+        self.dismissCurve = dismissCurve
+        self.presentationCurve = presentationCurve
+        self.cornerRadius = cornerRadius
+        self.backgroundStyle = backgroundStyle
+        self.duration = duration
+        self.sizeForViewController = sizeForViewController
+    }
+    
 }

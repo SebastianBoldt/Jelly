@@ -12,7 +12,7 @@ public struct Helper {
     static func convertJellyness(jellyness: JellyConstants.Jellyness) -> Jelly {
         
         var damping = 1.0
-        var velocity = 1
+        var velocity = 0
         
         switch jellyness {
         case .none:

@@ -6,6 +6,7 @@
 import Foundation
 
 public struct Jelly {
+    
     public var damping: CGFloat
     public var velocity: CGFloat
     

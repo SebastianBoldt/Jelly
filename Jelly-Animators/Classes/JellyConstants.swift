@@ -16,12 +16,7 @@ public struct JellyConstants {
         case show
         case dismiss
     }
-    
-    public enum Style {
-       case slidein
-       case fade
-    }
-    
+        
     public enum Direction {
         case top
         case bottom
@@ -36,30 +31,30 @@ public struct JellyConstants {
         case jelliest
     }
     
-    public enum Duration : Double {
+    public enum Duration : TimeInterval {
         case ultraSlow = 2.0
         case slow = 1.0
-        case medium = 0.5
+        case normal = 0.35
         case fast = 0.2
         case reallyFast = 0.1
     }
     
     public enum JellyCurve {
         
-        case EaseInEaseOut
-        case EaseIn
-        case EaseOut
-        case Linear
+        case easeInEaseOut
+        case easeIn
+        case easeOut
+        case linear
         
         public func getAnimationOptionForJellyCurve() -> UIViewAnimationOptions {
             switch self {
-                case .EaseInEaseOut:
+                case .easeInEaseOut:
                     return .curveEaseInOut
-                case .EaseIn:
+                case .easeIn:
                     return .curveEaseIn
-                case .EaseOut:
+                case .easeOut:
                     return .curveEaseOut
-                case .Linear:
+                case .linear:
                     return .curveLinear
             }
         }
