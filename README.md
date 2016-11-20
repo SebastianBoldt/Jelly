@@ -12,7 +12,7 @@ Jelly provides custom view controller animations with just a few lines of code.
 No need to create your own PresentationController or Animator-Objects.
 A Jelly-Animator will do the heavy lifting for you.
 
-## How to use 
+## How to use 🔧
 
 Jelly is super easy to use. 
 
@@ -32,7 +32,7 @@ override func viewDidLoad() {
 
 ```
 
-***DO NOT FORGET TO KEEP A STRONG REFERENCE***
+***DO NOT FORGET TO KEEP A STRONG 💪 REFERENCE***
 
 Because the *transitioningDelegate* of a *UIViewController* is weak, you need to 
 hold a strong reference to the *JellyAnimator* inside the *UIViewController* you are presenting from
@@ -52,7 +52,7 @@ class CustomVC : UIViewController {
 
 That's it. That's lit.
 
-## Customize
+## Customize 🖌
 Jelly Supports two types of Presentations.
 * **JellySlideInPresentation**
 * **JellyFadeInPresentation**
@@ -65,6 +65,8 @@ Both share some propertys and each Property has a default value
     * fast = 0.2
     * reallyFast = 0.1
 * sizeForViewController: CGSize (default: width: 300, height: 300)
+    * If the screen is smaller than the provided width or height it will automatically resize the affected dimension to the screen size
+    * TODO: Margin Parameter would be great 😀
 * backgroundStyle : JellyConstants.BackgroundStyle (default: dimmed)
     * dimmed
     * blur(effectStyle)
@@ -124,6 +126,8 @@ TODO: ADD GIFS OVER HERE
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+Your Project at least needs a deployment target that is > iOS 9.0
 
 ## Installation
 
