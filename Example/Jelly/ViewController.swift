@@ -7,6 +7,7 @@
 //
 import UIKit
 import Jelly
+
 struct DataObject {
     var presentation : JellyPresentation
     var titleDescription : String
