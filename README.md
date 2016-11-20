@@ -66,7 +66,7 @@ Both share some propertys and each Property has a default value
     * reallyFast = 0.1
 * sizeForViewController: CGSize (default: width: 300, height: 300)
     * If the screen is smaller than the provided width or height it will automatically resize the affected dimension to the screen size
-    * TODO: Margin Parameter would be great 😀
+    * TODO: Margin Parameter would be great 😀
 * backgroundStyle : JellyConstants.BackgroundStyle (default: dimmed)
     * dimmed
     * blur(effectStyle)
@@ -117,13 +117,13 @@ self.jellyAnimator?.prepare(viewController: viewController)
 self.present(viewController, animated: true, completion: nil)
 ```
 
-## Example
+## Example 📱
 
 You can use Jelly to build your own Alert-Views using ViewControllers designed by yourself.
 
 TODO: ADD GIFS OVER HERE 
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, clone  the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
 
