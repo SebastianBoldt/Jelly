@@ -28,7 +28,6 @@ class ViewController: UIViewController {
         if let viewController = createVC() {
             
             let presentation = JellySlideInPresentation()
-            
             self.jellyAnimator = JellyAnimator(presentation:presentation)
             self.jellyAnimator?.prepare(viewController: viewController)
             self.present(viewController, animated: true, completion: nil)

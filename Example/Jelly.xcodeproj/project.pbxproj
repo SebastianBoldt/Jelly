@@ -48,7 +48,7 @@
 		AFC328A4317DF517CA68D06D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		BABAA34872E633F4B994ABEC /* Pods-Jelly_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jelly_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jelly_Example/Pods-Jelly_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C61DBA24224C9AE29B62761C /* Pods-Jelly_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jelly_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jelly_Tests/Pods-Jelly_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		E9A844FC3F84D189C8ED57C9 /* Jelly.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Jelly.podspec; path = ../Jelly.podspec; sourceTree = "<group>"; };
+		E9A844FC3F84D189C8ED57C9 /* Jelly.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Jelly.podspec; path = ../Jelly.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
