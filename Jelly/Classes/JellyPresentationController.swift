@@ -50,9 +50,10 @@ class JellyPresentationController : UIPresentationController {
             return
         }
         
-        coordinator.animate(alongsideTransition: { _ in
+        UIView.animate(withDuration: presentation.duration.rawValue, animations: {
             let effect = UIBlurEffect(style: effectStyle)
             self.blurView.effect = effect
+
         })
     }
     
@@ -83,6 +84,9 @@ class JellyPresentationController : UIPresentationController {
         
         coordinator.animate(alongsideTransition: { _ in
             self.dimmingView.alpha = 0.0
+        })
+        
+        UIView.animate(withDuration: presentation.duration.rawValue, animations: {
             self.blurView.effect = nil
         })
     }

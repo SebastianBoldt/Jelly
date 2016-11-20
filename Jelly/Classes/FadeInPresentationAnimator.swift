@@ -41,12 +41,10 @@ extension FadeInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         let animationDuration = transitionDuration(using: transitionContext)
         controllerToAnimate.view.frame = presentedFrame
         controllerToAnimate.view.alpha = CGFloat(initialAlpha)
-        
-        var jellyness = Jelly()
-        
+                
         let animationCurve = isPresentation ? presentation.presentationCurve : presentation.dismissCurve
 
-        UIView.animate(withDuration: presentation.duration.rawValue,
+        UIView.animate(withDuration: animationDuration,
                        delay: 0.0,
                        options: animationCurve.getAnimationOptionForJellyCurve(),
                        animations: {
