@@ -3,9 +3,9 @@
 ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/Jellyfish.png)
 
 [![CI Status](https://travis-ci.org/SebastianBoldt/Jelly.svg?style=flat)](https://travis-ci.org/SebastianBoldt/Jelly)
-[![Version](https://img.shields.io/cocoapods/v/Jelly-Animators.svg?style=flat)](http://cocoapods.org/pods/Jelly)
-[![License](https://img.shields.io/cocoapods/l/Jelly-Animators.svg?style=flat)](http://cocoapods.org/pods/Jelly)
-[![Platform](https://img.shields.io/cocoapods/p/Jelly-Animators.svg?style=flat)](http://cocoapods.org/pods/Jelly)
+[![Version](https://img.shields.io/cocoapods/v/Jelly.svg?style=flat)](http://cocoapods.org/pods/Jelly)
+[![License](https://img.shields.io/cocoapods/l/Jelly.svg?style=flat)](http://cocoapods.org/pods/Jelly)
+[![Platform](https://img.shields.io/cocoapods/p/Jelly.svg?style=flat)](http://cocoapods.org/pods/Jelly)
 [![Twitter](https://img.shields.io/badge/twitter-@sebastianboldt-blue.svg?style=flat)](http://twitter.com/sebastianboldt)
 
 Jelly provides custom view controller animations with just a few lines of code. 
@@ -62,11 +62,11 @@ That's it
 
 ## Example
 
-You can use Jelly-Animators to build you own Alert-Views using ViewControllers designed by yourself.
+You can use Jelly-
 
-![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly-Animators/blob/master/Github/Example.gif?raw=true)
-![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly-Animators/blob/master/Github/Example2.gif?raw=true)
+to build you own Alert-Views using ViewControllers designed by yourself.
 
+TODO: ADD GIFS OVER HERE 
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
@@ -74,11 +74,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-Jelly-Animators is available through [CocoaPods](http://cocoapods.org). To install
+Jelly is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "Jelly-Animators"
+pod "Jelly"
 ```
 
 ## Author
@@ -87,4 +87,4 @@ Sebastian Boldt, self.dealloc@googlemail.com
 
 ## License
 
-Jelly-Animators is available under the MIT license. See the LICENSE file for more info.
+Jelly is available under the MIT license. See the LICENSE file for more info.
