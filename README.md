@@ -34,6 +34,9 @@ override func viewDidLoad() {
 
 ***DO NOT FORGET TO KEEP A STRONG REFERENCE***
 
+Because the *transitioningDelegate* of a *UIViewController* is weak, you need to 
+hold a strong reference to the *JellyAnimator* inside the *UIViewController* you are presenting from
+
 ```swift 
 class CustomVC : UIViewController {
     var jellyAnimator: JellyAnimator?
@@ -46,10 +49,8 @@ class CustomVC : UIViewController {
     }
 }
 ```
-Because the *transitioningDelegate* of a *UIViewController* is weak, you need to 
-hold a strong reference to the *JellyAnimator* inside the *UIViewController* you are presenting from
 
-That's it
+That's it. That's lit.
 
 ## Example
 
