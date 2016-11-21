@@ -45,7 +45,7 @@ class CustomVC : UIViewController {
         // Setup your Animator here 
         // ....
         // And assign it
-        self.jellyAnimator = createdAnimator.
+        self.jellyAnimator = createAnimator()
     }
 }
 ```
