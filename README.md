@@ -24,6 +24,7 @@ Jelly is super easy to use.
 ```swift
 override func viewDidLoad() {
     super.viewDidLoad()
+    let viewController = self.storyboard.instantiateViewController(withIdentifier: "someViewController")
     let presentation = JellySlideInPresentation()
     self.jellyAnimator = JellyAnimator(presentation:presentation)
     self.jellyAnimator?.prepare(viewController: viewController)
