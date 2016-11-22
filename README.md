@@ -1,4 +1,4 @@
-# Jelly 1.0
+# Jelly 1.0.1
 
 ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/Jellyfish.png)
 
