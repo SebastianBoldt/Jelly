@@ -114,7 +114,7 @@ let customPresentation = JellySlideInPresentation(dismissCurve: .linear,
                                                  directionShow: .left, 
                                               directionDismiss: .right)
 
-self.jellyAnimator = JellyAnimator(presentation:presentation)
+self.jellyAnimator = JellyAnimator(presentation:customPresentation)
 self.jellyAnimator?.prepare(viewController: viewController)
 self.present(viewController, animated: true, completion: nil)
 ```
