@@ -19,20 +19,24 @@ class ViewController: UIViewController {
     fileprivate lazy var model : [DataObject] = {
         var data : [DataObject] = [DataObject]()
         
-        let defaultSlideInPresentation = DataObject(presentation: JellySlideInPresentation(), titleDescription: "Default Slide in Animation", detailDescription: "default values")
-        let defaultFadeInPresentation = DataObject(presentation: JellyFadeInPresentation(), titleDescription: "Default Fade in Animation", detailDescription: "default values")
+        let defaultSlideInPresentation = DataObject(presentation: JellySlideInPresentation(widthForViewController: .halfscreen, heightForViewController: .halfscreen), titleDescription: "Default Slide in Animation", detailDescription: "default values")
+        let defaultFadeInPresentation = DataObject(presentation: JellyFadeInPresentation(widthForViewController: .halfscreen, heightForViewController: .halfscreen), titleDescription: "Default Fade in Animation", detailDescription: "default values")
         
-        let customBlurFadeIn = DataObject(presentation: JellyFadeInPresentation(backgroundStyle: .blur(effectStyle: .light)), titleDescription: "Blurred Fade in", detailDescription: "blurred  background .light")
+        let customBlurFadeIn = DataObject(presentation: JellyFadeInPresentation(backgroundStyle: .blur(effectStyle: .light),widthForViewController: .halfscreen, heightForViewController: .halfscreen), titleDescription: "Blurred Fade in", detailDescription: "blurred  background .light")
         
-        let customBlurSlideIn = DataObject(presentation: JellySlideInPresentation(backgroundStyle: .blur(effectStyle: .dark)), titleDescription: "Blurred Slide in", detailDescription: "blurred background .dark")
+        let customBlurSlideIn = DataObject(presentation: JellySlideInPresentation(backgroundStyle: .blur(effectStyle: .dark),widthForViewController: .halfscreen, heightForViewController: .halfscreen), titleDescription: "Blurred Slide in", detailDescription: "blurred background .dark")
         
-        let customCornerDirectionSlideIn = DataObject(presentation: JellySlideInPresentation(cornerRadius: 15,backgroundStyle: .blur(effectStyle: .dark), jellyness: .jellier, duration: .medium, directionShow: .left, directionDismiss: .right), titleDescription: "Blurred Slide in Custom Direction", detailDescription: "custom corner radius, directions and jelliness")
+        let customCornerDirectionSlideIn = DataObject(presentation: JellySlideInPresentation(cornerRadius: 15,backgroundStyle: .blur(effectStyle: .dark), jellyness: .jellier, duration: .medium, directionShow: .left, directionDismiss: .right,widthForViewController: .halfscreen, heightForViewController: .halfscreen), titleDescription: "Blurred Slide in Custom Direction", detailDescription: "custom corner radius, directions and jelliness")
+        
+        let present = JellySlideInPresentation(dismissCurve: .linear, presentationCurve: .linear, cornerRadius: 0, backgroundStyle: .dimmed, jellyness: .none, duration: .normal, directionShow: .left, directionDismiss: .left, widthForViewController: .halfscreen, heightForViewController: .fullscreen, horizontalAlignment: .left, verticalAlignment: .top)
+        let slideOver = DataObject(presentation: present, titleDescription: "SlideOver", detailDescription: "Yes")
         
         data.append(defaultFadeInPresentation)
         data.append(defaultSlideInPresentation)
         data.append(customBlurFadeIn)
         data.append(customBlurSlideIn)
         data.append(customCornerDirectionSlideIn)
+        data.append(slideOver)
         
         return data
     }()

@@ -127,6 +127,9 @@ class JellyPresentationController : UIPresentationController {
         frame.size = size(forChildContentContainer: presentedViewController,
                           withParentContainerSize: containerView!.bounds.size)
         
+        
+        // Limiting width and height
+        // TODO: Swap this to function
         if (frame.size.height > (containerView?.frame.size.height)!) {
             print("JELLY_ANIMATORS: Height for presentedViewController is to high")
             frame.size.height = (containerView?.frame.size.height)!
@@ -139,8 +142,32 @@ class JellyPresentationController : UIPresentationController {
             print("JELLY_ANIMATORS: Resizing to \(frame.size.width)")
         }
         
-        frame.origin.x = (containerView!.frame.size.width/2)-(frame.size.width/2)
-        frame.origin.y = (containerView!.frame.size.height/2)-(frame.size.height/2)
+        // Check if presentation is alignable 
+        
+        if let alignablePresentation = presentation as? AlignablePresentation {
+            // Prepare Horizontal Alignment
+            switch alignablePresentation.horizontalAlignment {
+            case .center:
+                frame.origin.x = (containerView!.frame.size.width/2)-(frame.size.width/2)
+            case .left:
+                frame.origin.x = 0
+            case .right:
+                frame.origin.x = (containerView?.frame.size.width)! - frame.size.width
+            }
+            // Prepare Vertical Alignment
+            switch alignablePresentation.verticalAlignemt {
+            case .center:
+                frame.origin.y = (containerView!.frame.size.height/2)-(frame.size.height/2)
+            case .top:
+                frame.origin.y = 0
+            case .bottom:
+                frame.origin.y = (containerView?.frame.size.height)! - frame.size.height
+            }
+        } else {
+            frame.origin.x = (containerView!.frame.size.width/2)-(frame.size.width/2)
+            frame.origin.y = (containerView!.frame.size.height/2)-(frame.size.height/2)
+        }
+
         return frame
     }
 }

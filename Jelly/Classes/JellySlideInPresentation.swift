@@ -3,7 +3,7 @@
 //  Created by Sebastian Boldt on 20.11.16.
 //
 
-public struct JellySlideInPresentation: JellyPresentation {
+public struct JellySlideInPresentation: JellyPresentation, AlignablePresentation {
     
     // JellyPresentation Protocol conformance
     public private(set) var dismissCurve: JellyConstants.JellyCurve = .linear
@@ -19,6 +19,10 @@ public struct JellySlideInPresentation: JellyPresentation {
     public private(set) var directionShow: JellyConstants.Direction = .left // Direction the ViewController slides in from
     public private(set) var directionDismiss: JellyConstants.Direction = .left // Direction the ViewController slides out to
     
+    // Alginable
+    public private(set) var horizontalAlignment: JellyConstants.HorizontalAlignment = .center
+    public private(set) var verticalAlignemt: JellyConstants.VerticalAlignment = .center
+    
     public init(dismissCurve: JellyConstants.JellyCurve = .linear,
                 presentationCurve: JellyConstants.JellyCurve = .linear,
                 cornerRadius: Double = 0.0,
@@ -28,7 +32,9 @@ public struct JellySlideInPresentation: JellyPresentation {
                 directionShow: JellyConstants.Direction = .top,
                 directionDismiss: JellyConstants.Direction = .top,
                 widthForViewController: JellyConstants.Size = .fullscreen,
-                heightForViewController: JellyConstants.Size = .fullscreen) {
+                heightForViewController: JellyConstants.Size = .fullscreen,
+                horizontalAlignment: JellyConstants.HorizontalAlignment = .center,
+                verticalAlignment: JellyConstants.VerticalAlignment = .center) {
         
         self.dismissCurve = dismissCurve
         self.presentationCurve = presentationCurve
@@ -40,5 +46,7 @@ public struct JellySlideInPresentation: JellyPresentation {
         self.directionDismiss = directionDismiss
         self.widthForViewController = widthForViewController
         self.heightForViewController = heightForViewController
+        self.verticalAlignemt = verticalAlignment
+        self.horizontalAlignment = horizontalAlignment
     }
 }

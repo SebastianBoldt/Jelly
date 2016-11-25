@@ -14,3 +14,8 @@ public protocol JellyPresentation {
     var presentationCurve : JellyConstants.JellyCurve { get }
     var dismissCurve : JellyConstants.JellyCurve { get }
 }
+
+public protocol AlignablePresentation {
+    var verticalAlignemt : JellyConstants.VerticalAlignment { get }
+    var horizontalAlignment : JellyConstants.HorizontalAlignment { get }
+}
