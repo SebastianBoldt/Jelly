@@ -6,6 +6,12 @@ import Foundation
 
 public struct JellyConstants {
     
+    public enum Size {
+        case fullscreen
+        case halfscreen
+        case custom(value: CGFloat)
+    }
+    
     public enum BackgroundStyle {
         case dimmed
         case blur(effectStyle: UIBlurEffectStyle)

@@ -97,7 +97,28 @@ class JellyPresentationController : UIPresentationController {
     
     override func size(forChildContentContainer container: UIContentContainer,
                        withParentContainerSize parentSize: CGSize) -> CGSize {
-        return self.presentation.sizeForViewController
+        
+        var width : CGFloat = 0.0
+        switch self.presentation.widthForViewController {
+        case .fullscreen:
+            width = parentSize.width
+        case .halfscreen:
+            width = parentSize.width / 2
+        case .custom(let value):
+            width = value
+        }
+        
+        var height : CGFloat = 0.0
+        switch self.presentation.heightForViewController {
+        case .fullscreen:
+            height = parentSize.height
+        case .halfscreen:
+            height = parentSize.height / 2
+        case .custom(let value):
+            height = value
+        }
+        
+        return CGSize(width: width, height: height)
     }
     
     override var frameOfPresentedViewInContainerView: CGRect {

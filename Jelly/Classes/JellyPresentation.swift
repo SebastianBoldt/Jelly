@@ -7,7 +7,8 @@ import Foundation
 
 public protocol JellyPresentation {
     var duration: JellyConstants.Duration { get }
-    var sizeForViewController: CGSize { get  }
+    var widthForViewController: JellyConstants.Size { get  }
+    var heightForViewController: JellyConstants.Size { get }
     var backgroundStyle : JellyConstants.BackgroundStyle { get }
     var cornerRadius: Double { get }
     var presentationCurve : JellyConstants.JellyCurve { get }

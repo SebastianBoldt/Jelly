@@ -16,6 +16,7 @@ public class JellyAnimator : NSObject {
     fileprivate var presentation: JellyPresentation
     private weak var viewController : UIViewController?
     
+    
     public init(presentation: JellyPresentation) {
         self.presentation = presentation
         super.init()
@@ -59,27 +60,5 @@ extension JellyAnimator: UIViewControllerTransitioningDelegate {
             } else {
                 return nil
             }
-    }
-}
-
-extension JellyAnimator: UINavigationControllerDelegate {
-    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        return nil
-        /*
-        switch  operation {
-        case .push:
-            switch self.presentation.style {
-            case .slidein:
-                 return SlideInPresentationAnimator(direction: presentation.directionShow, presentationType: .show, presentation: presentation)
-            }
-        case .pop:
-            switch self.presentation.style {
-            case .slidein:
-                 return SlideInPresentationAnimator(direction: presentation.directionDismiss, presentationType: .dismiss, presentation: presentation)
-            }
-        default:
-            return nil
-        }*/
     }
 }
