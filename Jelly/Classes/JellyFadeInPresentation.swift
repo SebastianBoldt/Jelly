@@ -13,21 +13,24 @@ public struct JellyFadeInPresentation: JellyPresentation {
     public private(set) var cornerRadius: Double = 0.0
     public private(set) var backgroundStyle: JellyConstants.BackgroundStyle = .dimmed
     public private(set) var duration : JellyConstants.Duration = .normal // Duration the ViewController needs to kick in
-    public private(set) var sizeForViewController: CGSize = CGSize(width: 300, height: 300) // Size for the presented ViewController
+    public private(set) var widthForViewController: JellyConstants.Size = .halfscreen
+    public private(set) var heightForViewController: JellyConstants.Size = .halfscreen
     
     public init(dismissCurve: JellyConstants.JellyCurve = .linear,
                 presentationCurve: JellyConstants.JellyCurve = .linear,
                 cornerRadius: Double = 0.0,
                 backgroundStyle: JellyConstants.BackgroundStyle = .dimmed,
                 duration: JellyConstants.Duration = .normal,
-                sizeForViewController: CGSize = CGSize(width:300,height:300)) {
+                widthForViewController: JellyConstants.Size = .fullscreen,
+                heightForViewController: JellyConstants.Size = .fullscreen) {
         
         self.dismissCurve = dismissCurve
         self.presentationCurve = presentationCurve
         self.cornerRadius = cornerRadius
         self.backgroundStyle = backgroundStyle
         self.duration = duration
-        self.sizeForViewController = sizeForViewController
+        self.widthForViewController = widthForViewController
+        self.heightForViewController = heightForViewController
     }
     
 }
