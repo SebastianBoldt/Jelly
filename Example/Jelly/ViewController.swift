@@ -31,12 +31,18 @@ class ViewController: UIViewController {
         let present = JellySlideInPresentation(dismissCurve: .linear, presentationCurve: .linear, cornerRadius: 0, backgroundStyle: .dimmed, jellyness: .none, duration: .normal, directionShow: .left, directionDismiss: .left, widthForViewController: .halfscreen, heightForViewController: .fullscreen, horizontalAlignment: .left, verticalAlignment: .top)
         let slideOver = DataObject(presentation: present, titleDescription: "SlideOver", detailDescription: "Yes")
         
+        // Custom Alert 
+        
+        let alertPresentation = JellySlideInPresentation(dismissCurve: .linear, presentationCurve: .linear, cornerRadius: 15, backgroundStyle: .blur(effectStyle: .light), jellyness: .jellier, duration: .normal, directionShow: .top, directionDismiss: .top, widthForViewController: .custom(value: 300), heightForViewController: .custom(value: 200), horizontalAlignment: .center, verticalAlignment: .top)
+        let alert = DataObject(presentation: alertPresentation, titleDescription: "Custom Alert", detailDescription: "Custom Alert")
+        
         data.append(defaultFadeInPresentation)
         data.append(defaultSlideInPresentation)
         data.append(customBlurFadeIn)
         data.append(customBlurSlideIn)
         data.append(customCornerDirectionSlideIn)
         data.append(slideOver)
+        data.append(alert)
         
         return data
     }()

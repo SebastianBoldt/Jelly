@@ -122,29 +122,30 @@ class JellyPresentationController : UIPresentationController {
     }
     
     override var frameOfPresentedViewInContainerView: CGRect {
-        
         var frame: CGRect = .zero
-        frame.size = size(forChildContentContainer: presentedViewController,
-                          withParentContainerSize: containerView!.bounds.size)
-        
-        
-        // Limiting width and height
-        // TODO: Swap this to function
-        if (frame.size.height > (containerView?.frame.size.height)!) {
-            print("JELLY_ANIMATORS: Height for presentedViewController is to high")
-            frame.size.height = (containerView?.frame.size.height)!
-            print("JELLY_ANIMATORS: Resizing to \(frame.size.height)")
+        frame.size = size(forChildContentContainer: presentedViewController, withParentContainerSize: containerView!.bounds.size)
+        frame = limit(frame: frame, withSize: frame.size)
+        frame = align(frame: frame, withPresentation: self.presentation)
+        return frame
+    }
+    
+    fileprivate func limit(frame frameToLimit: CGRect, withSize size: CGSize) -> CGRect {
+        var frame = frameToLimit
+        if (frame.size.height > size.height) {
+            frame.size.height = size.height
         }
         
-        if (frame.size.width > (containerView?.frame.size.width)!) {
-            print("JELLY_ANIMATORS: Width for presentedViewController is to wide")
-            frame.size.width = (containerView?.frame.size.width)!
-            print("JELLY_ANIMATORS: Resizing to \(frame.size.width)")
+        if (frame.size.width > size.width) {
+            frame.size.width = size.width
         }
+        return frame
+    }
+    
+    fileprivate func align(frame frameToAlign: CGRect, withPresentation presentation: JellyPresentation) -> CGRect {
         
-        // Check if presentation is alignable 
-        
+        var frame = frameToAlign
         if let alignablePresentation = presentation as? AlignablePresentation {
+            
             // Prepare Horizontal Alignment
             switch alignablePresentation.horizontalAlignment {
             case .center:
@@ -154,6 +155,7 @@ class JellyPresentationController : UIPresentationController {
             case .right:
                 frame.origin.x = (containerView?.frame.size.width)! - frame.size.width
             }
+            
             // Prepare Vertical Alignment
             switch alignablePresentation.verticalAlignemt {
             case .center:
@@ -167,10 +169,11 @@ class JellyPresentationController : UIPresentationController {
             frame.origin.x = (containerView!.frame.size.width/2)-(frame.size.width/2)
             frame.origin.y = (containerView!.frame.size.height/2)-(frame.size.height/2)
         }
-
+        
         return frame
     }
 }
+
 
 fileprivate extension JellyPresentationController {
     func setupBlurView () {
