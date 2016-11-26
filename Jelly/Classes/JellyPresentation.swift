@@ -13,6 +13,7 @@ public protocol JellyPresentation {
     var cornerRadius: Double { get }
     var presentationCurve : JellyConstants.JellyCurve { get }
     var dismissCurve : JellyConstants.JellyCurve { get }
+    var margins: UIEdgeInsets { get }
 }
 
 public protocol AlignablePresentation {
