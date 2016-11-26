@@ -124,13 +124,41 @@ class JellyPresentationController : UIPresentationController {
     override var frameOfPresentedViewInContainerView: CGRect {
         var frame: CGRect = .zero
         frame.size = size(forChildContentContainer: presentedViewController, withParentContainerSize: containerView!.bounds.size)
-        frame = limit(frame: frame, withSize: frame.size)
-        frame = align(frame: frame, withPresentation: self.presentation)
+        limit(frame: &frame, withSize: frame.size)
+        align(frame: &frame, withPresentation: self.presentation)
+        applymarginGuards(toFrame: &frame, marginGuards: presentation.marginGuards, container: containerView!.bounds.size)
         return frame
     }
     
-    fileprivate func limit(frame frameToLimit: CGRect, withSize size: CGSize) -> CGRect {
-        var frame = frameToLimit
+    private func applymarginGuards(toFrame frame: inout CGRect, marginGuards: UIEdgeInsets, container: CGSize){
+        // Apply horizontal marginGuards
+        print("Incoming Frame \(frame)")
+        /// If size is bigger or equal container we need to apply marginGuards
+        if (frame.origin.x <= 0) {
+            frame.origin.x = marginGuards.left
+        }
+        
+        if((frame.origin.x + frame.width) >= container.width) {
+            frame.size = CGSize(width: frame.width - marginGuards.right, height: frame.height)
+            frame.size = CGSize(width: frame.width - marginGuards.left  , height: frame.height)
+        }
+        
+        // Apply vertical marginGuards
+        
+        if (frame.origin.y <= 0) {
+            frame.origin.y = marginGuards.top
+
+        }
+        
+        if((frame.origin.y + frame.height) >= container.height) {
+            frame.size = CGSize(width: frame.width , height: frame.height - marginGuards.bottom)
+            frame.size = CGSize(width: frame.width, height: frame.height - marginGuards.top)
+        }
+        
+        print("Outgoing Frame \(frame)")
+    }
+    
+    private func limit(frame: inout CGRect, withSize size: CGSize) {
         if (frame.size.height > size.height) {
             frame.size.height = size.height
         }
@@ -138,12 +166,10 @@ class JellyPresentationController : UIPresentationController {
         if (frame.size.width > size.width) {
             frame.size.width = size.width
         }
-        return frame
     }
     
-    fileprivate func align(frame frameToAlign: CGRect, withPresentation presentation: JellyPresentation) -> CGRect {
+    private func align(frame: inout CGRect, withPresentation presentation: JellyPresentation) {
         
-        var frame = frameToAlign
         if let alignablePresentation = presentation as? AlignablePresentation {
             
             // Prepare Horizontal Alignment
@@ -169,8 +195,6 @@ class JellyPresentationController : UIPresentationController {
             frame.origin.x = (containerView!.frame.size.width/2)-(frame.size.width/2)
             frame.origin.y = (containerView!.frame.size.height/2)-(frame.size.height/2)
         }
-        
-        return frame
     }
 }
 
