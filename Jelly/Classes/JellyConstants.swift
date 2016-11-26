@@ -6,6 +6,18 @@ import Foundation
 
 public struct JellyConstants {
     
+    public enum HorizontalAlignment {
+        case left
+        case right
+        case center
+    }
+    
+    public enum VerticalAlignment {
+        case top
+        case bottom
+        case center
+    }
+    
     public enum Size {
         case fullscreen
         case halfscreen

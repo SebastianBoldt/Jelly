@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct JellyFadeInPresentation: JellyPresentation {
+public struct JellyFadeInPresentation: JellyPresentation, AlignablePresentation {
     
     // Jelly Presentation Protocol conformance
     public private(set) var dismissCurve: JellyConstants.JellyCurve = .linear
@@ -15,6 +15,10 @@ public struct JellyFadeInPresentation: JellyPresentation {
     public private(set) var duration : JellyConstants.Duration = .normal // Duration the ViewController needs to kick in
     public private(set) var widthForViewController: JellyConstants.Size = .halfscreen
     public private(set) var heightForViewController: JellyConstants.Size = .halfscreen
+    
+    // Alginable 
+    public private(set) var horizontalAlignment: JellyConstants.HorizontalAlignment = .center
+    public private(set) var verticalAlignemt: JellyConstants.VerticalAlignment = .center
     
     public init(dismissCurve: JellyConstants.JellyCurve = .linear,
                 presentationCurve: JellyConstants.JellyCurve = .linear,
