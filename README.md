@@ -14,7 +14,7 @@ A Jelly-Animator will do the heavy lifting for you.
 
 ## Example 📱
 
-You can use Jelly to build your own Alert-Views using ViewControllers designed by yourself.
+You can use Jelly to build your own Alert-Views, Slidein Menus or Notifications using ViewControllers designed by yourself.
 
 ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/blurredslidein.gif?raw=true)  ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/jellyslidein.gif?raw=true)
 
