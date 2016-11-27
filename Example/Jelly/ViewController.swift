@@ -8,51 +8,20 @@
 import UIKit
 import Jelly
 
-struct DataObject {
-    var presentation : JellyPresentation
-    var titleDescription : String
-    var detailDescription : String
-}
-
 class ViewController: UIViewController {
 
     fileprivate lazy var model : [DataObject] = {
-        var data : [DataObject] = [DataObject]()
-        
-        let defaultSlideInPresentation = DataObject(presentation: JellySlideInPresentation(), titleDescription: "Default Slide in Animation", detailDescription: "default values")
-        let defaultFadeInPresentation = DataObject(presentation: JellyFadeInPresentation(), titleDescription: "Default Fade in Animation", detailDescription: "default values")
-        
-        let customBlurFadeIn = DataObject(presentation: JellyFadeInPresentation(backgroundStyle: .blur(effectStyle: .light)), titleDescription: "Blurred Fade in", detailDescription: "blurred  background .light")
-        
-        let customBlurSlideIn = DataObject(presentation: JellySlideInPresentation(backgroundStyle: .blur(effectStyle: .dark)), titleDescription: "Blurred Slide in", detailDescription: "blurred background .dark")
-        
-        let customCornerDirectionSlideIn = DataObject(presentation: JellySlideInPresentation(cornerRadius: 15,backgroundStyle: .blur(effectStyle: .dark), jellyness: .jellier, duration: .medium, directionShow: .left, directionDismiss: .right), titleDescription: "Blurred Slide in Custom Direction", detailDescription: "custom corner radius, directions and jelliness")
-        
-        data.append(defaultFadeInPresentation)
-        data.append(defaultSlideInPresentation)
-        data.append(customBlurFadeIn)
-        data.append(customBlurSlideIn)
-        data.append(customCornerDirectionSlideIn)
-        
-        return data
+        return ExampleDataProvider().data
     }()
     
     @IBOutlet var presentMeButton: UIButton!
     @IBOutlet var tableView: UITableView!
     
-    fileprivate var jellyAnimator: JellyAnimator? // We need to keep a strong reference to the Animator because the transitiong delegate is weak
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    /// We need to keep a strong reference to the Animator because the transitiong delegate is weak
+    fileprivate var jellyAnimator: JellyAnimator?
     
     fileprivate func createVC() -> UIViewController? {
         return self.storyboard?.instantiateViewController(withIdentifier: "PresentMe")
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -63,20 +32,23 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let viewController = self.createVC() {
-            let presentation = self.model[indexPath.row].presentation
+        let presentation = self.model[indexPath.row].presentation
+        if (indexPath.row == self.model.count - 1) { // last
+            let customAlert = (self.storyboard?.instantiateViewController(withIdentifier: "customNotification"))!
+            self.jellyAnimator = JellyAnimator(presentation:presentation)
+            self.jellyAnimator?.prepare(viewController: customAlert)
+            self.present(customAlert, animated: true, completion: nil)
+
+        } else if let viewController = self.createVC() {
             self.jellyAnimator = JellyAnimator(presentation:presentation)
             self.jellyAnimator?.prepare(viewController: viewController)
             self.present(viewController, animated: true, completion: nil)
+
         }
     }
 }
 
 extension ViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.count
     }

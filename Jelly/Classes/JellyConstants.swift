@@ -4,7 +4,26 @@
 
 import Foundation
 
+/// Datamodel Types which will be used to create a JellyPresentationObject
 public struct JellyConstants {
+    
+    public enum HorizontalAlignment {
+        case left
+        case right
+        case center
+    }
+    
+    public enum VerticalAlignment {
+        case top
+        case bottom
+        case center
+    }
+    
+    public enum Size {
+        case fullscreen
+        case halfscreen
+        case custom(value: CGFloat)
+    }
     
     public enum BackgroundStyle {
         case dimmed
@@ -12,11 +31,13 @@ public struct JellyConstants {
         case none
     }
     
+    /// Will the ViewController be shown or dismissed?
     public enum PresentationType {
         case show
         case dismiss
     }
-        
+    
+    /// Direction the Viewcontroller should fly out or come in from
     public enum Direction {
         case top
         case bottom
@@ -29,6 +50,28 @@ public struct JellyConstants {
         case jelly
         case jellier
         case jelliest
+        
+        func convertJellyness() -> Jelly {
+            
+            var damping = 1.0
+            var velocity = 0
+            
+            switch self {
+            case .none:
+                ()
+            case .jelly:
+                damping = 0.7
+                velocity = 2
+            case .jellier:
+                damping = 0.5
+                velocity = 3
+            case .jelliest:
+                damping = 0.2
+                velocity = 4
+            }
+            
+            return Jelly(damping:CGFloat(damping),velocity:CGFloat(velocity))
+        }
     }
     
     public enum Duration : TimeInterval {

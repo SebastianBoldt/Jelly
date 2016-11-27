@@ -4,6 +4,10 @@
 
 import UIKit
 
+
+/// A JellyPresentationControllers tells UIKit what exactly to do with the View that should be presented
+/// It also react to Transtion states etc.
+/// We basically use this controller to setup dimmingView, blurView, positioning the presented ViewController etc.
 class JellyPresentationController : UIPresentationController {
     
     private var presentation: JellyPresentation
@@ -21,7 +25,6 @@ class JellyPresentationController : UIPresentationController {
         
         self.setupDimmingView()
         self.setupBlurView()
-        
     }
     
     /// Presentation and Dismissal stuff
@@ -97,32 +100,115 @@ class JellyPresentationController : UIPresentationController {
     
     override func size(forChildContentContainer container: UIContentContainer,
                        withParentContainerSize parentSize: CGSize) -> CGSize {
-        return self.presentation.sizeForViewController
+        
+        var width : CGFloat = 0.0
+        switch self.presentation.widthForViewController {
+        case .fullscreen:
+            width = parentSize.width
+        case .halfscreen:
+            width = parentSize.width / 2
+        case .custom(let value):
+            width = value
+        }
+        
+        var height : CGFloat = 0.0
+        switch self.presentation.heightForViewController {
+        case .fullscreen:
+            height = parentSize.height
+        case .halfscreen:
+            height = parentSize.height / 2
+        case .custom(let value):
+            height = value
+        }
+        
+        return CGSize(width: width, height: height)
     }
     
     override var frameOfPresentedViewInContainerView: CGRect {
         
         var frame: CGRect = .zero
-        frame.size = size(forChildContentContainer: presentedViewController,
-                          withParentContainerSize: containerView!.bounds.size)
+        frame.size = size(forChildContentContainer: presentedViewController, withParentContainerSize: containerView!.bounds.size)
+        limit(frame: &frame, withSize: frame.size)
+        align(frame: &frame, withPresentation: self.presentation)
+        applymarginGuards(toFrame: &frame, marginGuards: presentation.marginGuards, container: containerView!.bounds.size)
         
-        if (frame.size.height > (containerView?.frame.size.height)!) {
-            print("JELLY_ANIMATORS: Height for presentedViewController is to high")
-            frame.size.height = (containerView?.frame.size.height)!
-            print("JELLY_ANIMATORS: Resizing to \(frame.size.height)")
-        }
-        
-        if (frame.size.width > (containerView?.frame.size.width)!) {
-            print("JELLY_ANIMATORS: Width for presentedViewController is to wide")
-            frame.size.width = (containerView?.frame.size.width)!
-            print("JELLY_ANIMATORS: Resizing to \(frame.size.width)")
-        }
-        
-        frame.origin.x = (containerView!.frame.size.width/2)-(frame.size.width/2)
-        frame.origin.y = (containerView!.frame.size.height/2)-(frame.size.height/2)
         return frame
     }
+    
+    private func applymarginGuards(toFrame frame: inout CGRect, marginGuards: UIEdgeInsets, container: CGSize){
+        // Apply horizontal marginGuards
+        if (frame.origin.x <= 0) {
+            frame.origin.x = marginGuards.left
+        }
+        
+        if((frame.origin.x + frame.width) >= (container.width - marginGuards.right)) {
+            let delta =  (frame.origin.x + frame.width) - container.width
+            frame.size = CGSize(width: frame.width - delta - marginGuards.right , height: frame.height)
+        }
+        
+        // Apply vertical marginGuards
+        if (frame.origin.y <= marginGuards.top) {
+            frame.origin.y = marginGuards.top
+        }
+        
+        if((frame.origin.y + frame.height) >= (container.height - marginGuards.bottom)) {
+            let delta =  (frame.origin.y + frame.height) - container.height
+            frame.size = CGSize(width: frame.width , height: frame.height - delta - marginGuards.bottom)
+        }
+    }
+    
+    /// If the Frame is to big, limit resizes it to the size passed in
+    ///
+    /// - Parameters:
+    ///   - frame: frame to limit
+    ///   - size: size to apply
+    
+    private func limit(frame: inout CGRect, withSize size: CGSize) {
+        if (frame.size.height > size.height) {
+            frame.size.height = size.height
+        }
+        
+        if (frame.size.width > size.width) {
+            frame.size.width = size.width
+        }
+    }
+    
+    
+    /// Align alignes the Frame using the alignment options specified inside the presentation object
+    ///
+    /// - Parameters:
+    ///   - frame: frame to align
+    ///   - presentation: presentation which will be used to provide the alignment options
+    private func align(frame: inout CGRect, withPresentation presentation: JellyPresentation) {
+        
+        if let alignablePresentation = presentation as? AlignablePresentation {
+            
+            // Prepare Horizontal Alignment
+            switch alignablePresentation.horizontalAlignment {
+            case .center:
+                frame.origin.x = (containerView!.frame.size.width/2)-(frame.size.width/2)
+            case .left:
+                frame.origin.x = 0
+            case .right:
+                frame.origin.x = (containerView?.frame.size.width)! - frame.size.width
+            }
+            
+            // Prepare Vertical Alignment
+            switch alignablePresentation.verticalAlignemt {
+            case .center:
+                frame.origin.y = (containerView!.frame.size.height/2)-(frame.size.height/2)
+            case .top:
+                frame.origin.y = 0
+            case .bottom:
+                frame.origin.y = (containerView?.frame.size.height)! - frame.size.height
+            }
+        } else {
+            frame.origin.x = (containerView!.frame.size.width/2)-(frame.size.width/2)
+            frame.origin.y = (containerView!.frame.size.height/2)-(frame.size.height/2)
+        }
+    }
 }
+
 
 fileprivate extension JellyPresentationController {
     func setupBlurView () {

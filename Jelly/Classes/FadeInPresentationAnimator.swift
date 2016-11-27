@@ -18,6 +18,7 @@ final class FadeInPresentationAnimator: NSObject {
 }
 
 extension FadeInPresentationAnimator : UIViewControllerAnimatedTransitioning {
+    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return presentation.duration.rawValue
     }

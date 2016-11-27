@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,18 +29,18 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Srh-vg-JjY" id="AAb-S9-hf6">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dtH-aq-Zam">
-                                                    <rect key="frame" x="15" y="21" width="41.5" height="24"/>
+                                                    <rect key="frame" x="15" y="20" width="42" height="24"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.9624577165" green="0.32361188530000001" blue="0.60793572659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LnH-dr-Zgs">
-                                                    <rect key="frame" x="15" y="45" width="33" height="14.5"/>
+                                                    <rect key="frame" x="15" y="44" width="33" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -88,7 +89,7 @@
                                 <rect key="frame" x="0.0" y="240" width="375" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnX-Mn-18d">
-                                        <rect key="frame" x="0.0" y="0.0" width="187" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                         <color key="backgroundColor" red="0.9624577165" green="0.32361188530000001" blue="0.60793572659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
                                         <state key="normal" title="Ok ">
@@ -96,17 +97,6 @@
                                         </state>
                                         <connections>
                                             <action selector="dismissMe:" destination="b4d-if-J0f" eventType="touchUpInside" id="XgF-Ib-GXH"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Nc-pp-NPp">
-                                        <rect key="frame" x="188" y="0.0" width="187" height="60"/>
-                                        <color key="backgroundColor" red="0.9624577165" green="0.32361188530000001" blue="0.60793572659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
-                                        <state key="normal" title="Cancel">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="dismissMe:" destination="b4d-if-J0f" eventType="touchUpInside" id="iFH-JO-FeT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -117,8 +107,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6S-nW-2Tq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Jelly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXq-ab-ct1">
-                                        <rect key="frame" x="114.5" y="102.5" width="146.5" height="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jelly" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXq-ab-ct1">
+                                        <rect key="frame" x="155" y="102.5" width="65.5" height="36"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -149,13 +139,49 @@
             </objects>
             <point key="canvasLocation" x="1677.5999999999999" y="172.71364317841082"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="QHg-Kv-0lS">
+            <objects>
+                <viewController storyboardIdentifier="customNotification" id="eD0-PA-e8D" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dgW-ku-X2p"/>
+                        <viewControllerLayoutGuide type="bottom" id="N6V-Z2-5Kc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SDI-aB-oZz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7J-TO-VQz">
+                                <rect key="frame" x="35" y="82" width="305" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="tXA-J5-Ucc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.33130019900000002" green="0.31154066320000001" blue="0.73626536129999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="a7J-TO-VQz" firstAttribute="centerX" secondItem="SDI-aB-oZz" secondAttribute="centerX" id="Ec7-Cp-4Pe"/>
+                            <constraint firstItem="a7J-TO-VQz" firstAttribute="trailing" secondItem="SDI-aB-oZz" secondAttribute="trailingMargin" constant="-19" id="fg7-pV-K8i"/>
+                            <constraint firstItem="a7J-TO-VQz" firstAttribute="centerY" secondItem="SDI-aB-oZz" secondAttribute="centerY" id="h3P-68-ZxB"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="200"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BtJ-g6-0Do" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2418.4000000000001" y="195.20239880059972"/>
+        </scene>
         <!--Custom Nav Controller-->
         <scene sceneID="bQQ-if-G2Q">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3pu-JC-BCx" customClass="CustomNavController" customModule="Jelly_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XRx-UC-SKA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XRx-UC-SKA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
