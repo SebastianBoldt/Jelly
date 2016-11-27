@@ -36,7 +36,7 @@ extension SlideInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         }
         
         let presentedFrame = transitionContext.finalFrame(for: controllerToAnimate) // Frame the ViewController will have after animation completes
-        let dismissedFrame = calculateDismissedFrame(from: presentedFrame, andContext: transitionContext) // Frame the ViewController will have when he is dismissed
+        let dismissedFrame = calculateDismissedFrame(from: presentedFrame, usingDirection: self.direction, andContext: transitionContext) // Frame the ViewController will have when he is dismissed
         print(dismissedFrame)
         
         let initialFrame = isPresentation ? dismissedFrame : presentedFrame
@@ -49,7 +49,7 @@ extension SlideInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         var jellyness = Jelly()
         
         if isPresentation {
-            jellyness = Helper.convertJellyness(jellyness: presentation.jellyness)
+            jellyness = presentation.jellyness.convertJellyness()
         }
         
         let animationCurve = isPresentation ? presentation.presentationCurve : presentation.dismissCurve
@@ -66,7 +66,14 @@ extension SlideInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         
     }
     
-    private func calculateDismissedFrame(from presentedFrame: CGRect, andContext transitionContext: UIViewControllerContextTransitioning) -> CGRect {
+    
+    /// Return dismissed frame depending on provides direction
+    ///
+    /// - Parameters:
+    ///   - presentedFrame: frame the viewController will have if he is fully presented
+    ///   - transitionContext: nothing to say here
+    /// - Returns: the frame the view should have afer dismissing it
+    private func calculateDismissedFrame(from presentedFrame: CGRect, usingDirection direction: JellyConstants.Direction , andContext transitionContext: UIViewControllerContextTransitioning) -> CGRect {
         var dismissedFrame: CGRect = presentedFrame
         switch direction {
         case .left:
