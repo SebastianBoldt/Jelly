@@ -12,6 +12,15 @@ Jelly provides custom view controller transitions with just a few lines of code.
 No need to create your own PresentationController or Animator-Objects.
 A Jelly-Animator will do the heavy lifting for you.
 
+## Example 📱
+
+You can use Jelly to build your own Alert-Views using ViewControllers designed by yourself.
+
+![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/blurredslidein.gif?raw=true)  ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/jellyslidein.gif?raw=true)
+
+
+To run the example project, clone  the repo, and run `pod install` from the Example directory first.
+
 ## How to use 🔧
 
 Jelly is super easy to use. 
@@ -117,15 +126,6 @@ self.jellyAnimator = JellyAnimator(presentation:customPresentation)
 self.jellyAnimator?.prepare(viewController: viewController)
 self.present(viewController, animated: true, completion: nil)
 ```
-
-## Example 📱
-
-You can use Jelly to build your own Alert-Views using ViewControllers designed by yourself.
-
-![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/blurredslidein.gif?raw=true)  ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/jellyslidein.gif?raw=true)
-
-
-To run the example project, clone  the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
 
