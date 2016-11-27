@@ -68,10 +68,10 @@ Both share some propertys and each Property has a default value
     * reallyFast = 0.1
 * **widthForViewController:** JellyConstants.Size (default: fullscreen)
     * If the container is smaller than the provided width Jelly will automatically resize to the containers width
-    * if Margin Guards are specified they also will be applied 
+    * if Margin Guards are specified they also will be applied if width is to wide for the container
 * **heightForViewController:** JellyConstants.Size (default: fullscreen)
     * If the container is smaller than the provided height Jelly will automatically resize to the containers width
-    * if Margin Guards are specified they also will be applied 
+    * if Margin Guards are specified they also will be applied when height is to high for the container
 * **horizontalAlignment:** JellyConstants.HorizontalAlignment (default: .center)
     * center, left or right
 * **verticalAlignemt:** JellyConstants.VerticalAlignment (default:center)
