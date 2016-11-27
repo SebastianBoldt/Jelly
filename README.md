@@ -72,7 +72,6 @@ Both share some propertys and each Property has a default value
 * **heightForViewController:** JellyConstants.Size (default: fullscreen)
     * If the container is smaller than the provided height Jelly will automatically resize to the containers width
     * if Margin Guards are specified they also will be applied 
-
 * **horizontalAlignment:** JellyConstants.HorizontalAlignment (default: .center)
     * center, left or right
 * **verticalAlignemt:** JellyConstants.VerticalAlignment (default:center)
