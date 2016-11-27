@@ -30,7 +30,7 @@ struct ExampleDataProvider {
         
         let defaultSlideInObject = DataObject(presentation: defaultSlideInPresentation ,
                                           titleDescription: "Default Slide in Animation",
-                                         detailDescription: "default values")
+                                         detailDescription: "Default slide in wth .halfscreen width and height")
         
         
         /// Fade in with blur and custom size
@@ -40,7 +40,7 @@ struct ExampleDataProvider {
         
         let customBlurFadeInObject = DataObject(presentation: customBlurFadeInPresentation ,
                                             titleDescription: "Blurred Fade in",
-                                           detailDescription: "blurred  background .light")
+                                           detailDescription: "Fade in Viewcontroller blurred  background .light")
         
         /// Custom slide in presentation with blur
         let customSlideInPresentation = JellySlideInPresentation(backgroundStyle: .blur(effectStyle: .dark),
@@ -49,7 +49,7 @@ struct ExampleDataProvider {
         
         let customBlurSlideInObject = DataObject(presentation: customSlideInPresentation,
                                              titleDescription: "Blurred Slide in",
-                                            detailDescription: "blurred background .dark")
+                                            detailDescription: "Slide in Viewcontroller with blurred background .dark")
         
         /// Corner Radius and Jellyness
         let customCornerSlideInPresentation = JellySlideInPresentation(cornerRadius: 15,
@@ -63,7 +63,7 @@ struct ExampleDataProvider {
         
         let customCornerDirectionSlideInObject = DataObject(presentation:customCornerSlideInPresentation ,
                                                   titleDescription: "Blurred Slide in Custom Direction",
-                                                 detailDescription: "custom corner radius, directions and jelliness")
+                                                 detailDescription: "Slide in Viewcontroller with custom corner radius, directions and jelliness")
         
         // Custom SlideOver
         let slideOverPresentation = JellySlideInPresentation(dismissCurve: .linear,
@@ -81,7 +81,7 @@ struct ExampleDataProvider {
         
         let slideOver = DataObject(presentation: slideOverPresentation,
                                titleDescription: "SlideOver",
-                              detailDescription: "Yes")
+                              detailDescription: "halfscreen left side slide in menu")
         
         // Custom Alert
         let alertPresentation = JellySlideInPresentation(dismissCurve: .linear,
@@ -92,15 +92,15 @@ struct ExampleDataProvider {
                                                              duration: .normal,
                                                         directionShow: .top,
                                                      directionDismiss: .top,
-                                               widthForViewController: .custom(value:10000), // Lets use 10000 to see if marginGuards kick in
+                                               widthForViewController: .fullscreen, // Lets use 10000 to see if marginGuards kick in
                                               heightForViewController: .custom(value:200) ,
                                                   horizontalAlignment: .center,
                                                     verticalAlignment: .top,
                                                          marginGuards: UIEdgeInsets(top: 30, left: 10, bottom: 30, right: 10))
         
         let alertObject = DataObject(presentation: alertPresentation,
-                                 titleDescription: "Custom Alert",
-                                detailDescription: "Custom Alert")
+                                 titleDescription: "Custom Notification",
+                                detailDescription: "custom alert that comes from the top with blurred transition background")
         
         let data = [defaultFadeInObject,defaultSlideInObject,customBlurFadeInObject,customBlurSlideInObject,customCornerDirectionSlideInObject,slideOver,alertObject]
         

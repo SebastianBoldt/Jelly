@@ -12,8 +12,8 @@ public struct JellySlideInPresentation: JellyPresentation, AlignablePresentation
     public private(set) var backgroundStyle: JellyConstants.BackgroundStyle = .none
     public private(set) var jellyness: JellyConstants.Jellyness
     public private(set) var duration : JellyConstants.Duration = .normal // Duration the ViewController needs to kick in
-    public private(set) var widthForViewController: JellyConstants.Size = .halfscreen
-    public private(set) var heightForViewController: JellyConstants.Size = .halfscreen
+    public private(set) var widthForViewController: JellyConstants.Size = .fullscreen
+    public private(set) var heightForViewController: JellyConstants.Size = .fullscreen
     public private(set) var marginGuards: UIEdgeInsets = .zero
     
     // Unique
