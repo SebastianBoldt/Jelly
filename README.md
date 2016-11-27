@@ -99,17 +99,21 @@ Both share some propertys and each Property has a default value
     * jelliest (damping = 0.2, velocity = 4)
 
 ```swift
-let customPresentation = JellySlideInPresentation(dismissCurve: .linear, 
-                                             presentationCurve: .linear, 
-                                                  cornerRadius: 15, 
-                                               backgroundStyle: .blur(effectStyle:.dark), 
-                                                     jellyness: .jelly, 
-                                                      duration: .normal, 
-                                         sizeForViewController: CGSize(width:300, height: 300), 
-                                                 directionShow: .left, 
-                                              directionDismiss: .right)
+let customPresentation = JellySlideInPresentation(dismissCurve: .linear,
+                                                    presentationCurve: .linear,
+                                                         cornerRadius: 15,
+                                                      backgroundStyle: .blur(effectStyle: .light),
+                                                            jellyness: .jellier,
+                                                             duration: .normal,
+                                                        directionShow: .top,
+                                                     directionDismiss: .top,
+                                               widthForViewController: .fullscreen, 
+                                              heightForViewController: .custom(value:200) ,
+                                                  horizontalAlignment: .center,
+                                                    verticalAlignment: .top,
+                                                         marginGuards: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
 
-self.jellyAnimator = JellyAnimator(presentation:presentation)
+self.jellyAnimator = JellyAnimator(presentation:customPresentation)
 self.jellyAnimator?.prepare(viewController: viewController)
 self.present(viewController, animated: true, completion: nil)
 ```
