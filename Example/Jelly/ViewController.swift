@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         
         // Custom Alert 
         
-        let alertPresentation = JellySlideInPresentation(dismissCurve: .linear, presentationCurve: .linear, cornerRadius: 15, backgroundStyle: .blur(effectStyle: .light), jellyness: .jellier, duration: .normal, directionShow: .top, directionDismiss: .top, widthForViewController: .fullscreen, heightForViewController: .custom(value: 100) , horizontalAlignment: .center, verticalAlignment: .top, marginGuards: UIEdgeInsets(top: 30, left: 10, bottom: 30, right: 10))
+        let alertPresentation = JellySlideInPresentation(dismissCurve: .linear, presentationCurve: .linear, cornerRadius: 15, backgroundStyle: .blur(effectStyle: .light), jellyness: .jellier, duration: .normal, directionShow: .top, directionDismiss: .top, widthForViewController: .fullscreen, heightForViewController: .fullscreen , horizontalAlignment: .center, verticalAlignment: .top, marginGuards: UIEdgeInsets(top: 30, left: 10, bottom: 30, right: 40))
         let alert = DataObject(presentation: alertPresentation, titleDescription: "Custom Alert", detailDescription: "Custom Alert")
         
         data.append(defaultFadeInPresentation)
