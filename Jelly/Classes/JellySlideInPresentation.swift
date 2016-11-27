@@ -14,6 +14,7 @@ public struct JellySlideInPresentation: JellyPresentation, AlignablePresentation
     public private(set) var duration : JellyConstants.Duration = .normal // Duration the ViewController needs to kick in
     public private(set) var widthForViewController: JellyConstants.Size = .halfscreen
     public private(set) var heightForViewController: JellyConstants.Size = .halfscreen
+    public private(set) var marginGuards: UIEdgeInsets = .zero
     
     // Unique
     public private(set) var directionShow: JellyConstants.Direction = .left // Direction the ViewController slides in from
@@ -34,7 +35,8 @@ public struct JellySlideInPresentation: JellyPresentation, AlignablePresentation
                 widthForViewController: JellyConstants.Size = .fullscreen,
                 heightForViewController: JellyConstants.Size = .fullscreen,
                 horizontalAlignment: JellyConstants.HorizontalAlignment = .center,
-                verticalAlignment: JellyConstants.VerticalAlignment = .center) {
+                verticalAlignment: JellyConstants.VerticalAlignment = .center,
+                marginGuards: UIEdgeInsets = .zero) {
         
         self.dismissCurve = dismissCurve
         self.presentationCurve = presentationCurve
@@ -48,5 +50,6 @@ public struct JellySlideInPresentation: JellyPresentation, AlignablePresentation
         self.heightForViewController = heightForViewController
         self.verticalAlignemt = verticalAlignment
         self.horizontalAlignment = horizontalAlignment
+        self.marginGuards = marginGuards
     }
 }
