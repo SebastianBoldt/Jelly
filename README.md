@@ -146,6 +146,10 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "Jelly"
 ```
+## Mentions
+
+* Mentioned in This Week in Swift by Dave Verver - <a href="http://iosdevweekly.com/issues/279"> Issue NO. 112 </a>
+* Mentioned in iOS Dev Weekly by Natasha the Robot - <a href="https://swiftnews.curated.co/issues/112#start"> Issue No. 279 </a>
 
 ## Author
 
