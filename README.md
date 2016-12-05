@@ -8,7 +8,7 @@
 [![License](https://img.shields.io/cocoapods/l/Jelly.svg?style=flat)](http://cocoapods.org/pods/Jelly)
 [![Platform](https://img.shields.io/cocoapods/p/Jelly.svg?style=flat)](http://cocoapods.org/pods/Jelly)
 [![Twitter](https://img.shields.io/badge/twitter-@sebastianboldt-blue.svg?style=flat)](http://twitter.com/sebastianboldt)
-
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift3-compatible-orange.svg?style=flat" alt="Swift 3 compatible" /></a>
 Jelly provides custom view controller transitions with just a few lines of code. 
 No need to create your own PresentationController or Animator-Objects.
 A Jelly-Animator will do the heavy lifting for you.
