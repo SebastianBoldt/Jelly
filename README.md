@@ -100,7 +100,7 @@ Both share some propertys and each Property has a default value
 * **dismissCurve:** JellyConstants.JellyCurve (default: linear)
     * easeIn, easeOut, easeInEaseOut, linear
 
-**JellyFadeInAnimation provides 3 extra Properties**
+**JellySlideInAnimation provides 3 extra Properties**
 
 * **directionShow:** JellyConstants.Direction (default: top)
     * left, top, bottom, right
