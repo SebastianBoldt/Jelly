@@ -15,7 +15,7 @@ Jelly provides custom view controller transitions with just a few lines of code.
 No need to create your own PresentationController or Animator-Objects.
 A Jelly-Animator will do the heavy lifting for you.
 
-## Example 📱
+## 📱 Example 
 
 You can use Jelly to build your own Alert-Views or Slidein-Menus using ViewControllers designed by yourself.
 
@@ -27,7 +27,7 @@ You can use Jelly to build your own Alert-Views or Slidein-Menus using ViewContr
 
 To run the example project, clone  the repo, and run `pod install` from the Example directory first.
 
-## How to use 🔧
+## 🔧How to use 
 
 Jelly is super easy to use. 
 
@@ -68,7 +68,7 @@ class CustomVC : UIViewController {
 
 That's it. That's lit.
 
-## Customize 🖌
+## 🖌 Customize
 Jelly Supports two types of Presentations.
 * **JellySlideInPresentation**
 * **JellyFadeInPresentation**
@@ -135,11 +135,11 @@ self.jellyAnimator?.prepare(viewController: viewController)
 self.present(viewController, animated: true, completion: nil)
 ```
 
-## Requirements
+## ✅ Requirements
 
 Your Project at least needs a deployment target that is > iOS 9.0
 
-## Installation
+## 📲 Installation
 
 Jelly is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
@@ -147,15 +147,15 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "Jelly"
 ```
-## Mentions
+## 🗣 Mentions
 
 * Mentioned in <i>iOS Dev Weekly</i> by <a href="https://twitter.com/daveverwer">@Dave Verwer</a> - <a href="http://iosdevweekly.com/issues/279"> Issue NO. 112 </a>
 * Mentioned in <i>This Week in Swift</i> by <a href="https://twitter.com/NatashaTheRobot">@Natasha the Robot</a> - <a href="https://swiftnews.curated.co/issues/112#start"> Issue No. 279 </a>
 
-## Author
+## 🤖 Author
 
 Sebastian Boldt, self.dealloc@googlemail.com
 
-## License
+## 📄 License
 
 Jelly is available under the MIT license. See the LICENSE file for more info.
