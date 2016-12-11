@@ -1,5 +1,5 @@
 # Jelly
-#### Custom Viewcontroller animations with just a few lines of code
+#### Provides lighweight Viewcontroller animations with just a few lines of code
 
 ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/Jellyfish.png)
 
