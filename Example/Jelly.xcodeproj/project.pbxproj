@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1545094A1DF6084C0096C822 /* JellyAnimatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154509491DF6084C0096C822 /* JellyAnimatorSpec.swift */; };
 		155B7B851DE1E5820093DF2A /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B7B841DE1E5820093DF2A /* CustomNavController.swift */; };
 		15B1CF981DEB5827003B4107 /* ExampleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B1CF971DEB5827003B4107 /* ExampleDataProvider.swift */; };
 		15B3AD2D1DE1C5CB003FF7B8 /* DismissMeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		154509481DF6084B0096C822 /* Jelly_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jelly_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		154509491DF6084C0096C822 /* JellyAnimatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellyAnimatorSpec.swift; sourceTree = "<group>"; };
 		155B7B841DE1E5820093DF2A /* CustomNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
 		15B1CF971DEB5827003B4107 /* ExampleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleDataProvider.swift; sourceTree = "<group>"; };
 		15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissMeController.swift; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				154509491DF6084C0096C822 /* JellyAnimatorSpec.swift */,
+				154509481DF6084B0096C822 /* Jelly_Tests-Bridging-Header.h */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = JY9STJR6M4;
+						LastSwiftMigration = 0810;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -379,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1545094A1DF6084C0096C822 /* JellyAnimatorSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +537,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C61DBA24224C9AE29B62761C /* Pods-Jelly_Tests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = JY9STJR6M4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -543,7 +551,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Jelly_Tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0.1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jelly_Example.app/Jelly_Example";
 			};
 			name = Debug;
 		};
@@ -551,6 +562,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7D2A6F270568299AA6D317E2 /* Pods-Jelly_Tests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = JY9STJR6M4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -560,7 +572,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Jelly_Tests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0.1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jelly_Example.app/Jelly_Example";
 			};
 			name = Release;
 		};

@@ -10,7 +10,7 @@ import UIKit
 /// We basically use this controller to setup dimmingView, blurView, positioning the presented ViewController etc.
 class JellyPresentationController : UIPresentationController {
     
-    private var presentation: JellyPresentation
+    fileprivate var presentation: JellyPresentation
     fileprivate var dimmingView: UIView! // The PresentationController manages the dimmingView
     fileprivate var blurView: UIVisualEffectView!
     
@@ -29,7 +29,7 @@ class JellyPresentationController : UIPresentationController {
     
     /// Presentation and Dismissal stuff
     override func presentationTransitionWillBegin() {
-        switch presentation.backgroundStyle {
+        switch self.presentation.backgroundStyle {
         case .blur(let effectStyle):
             animateBlurView(effectStyle: effectStyle)
         case .dimmed:
@@ -101,8 +101,12 @@ class JellyPresentationController : UIPresentationController {
     override func size(forChildContentContainer container: UIContentContainer,
                        withParentContainerSize parentSize: CGSize) -> CGSize {
         
+        guard let nonFullScreenPresentation = self.presentation as? DynamicPresentation else {
+            return parentSize
+        }
+        
         var width : CGFloat = 0.0
-        switch self.presentation.widthForViewController {
+        switch nonFullScreenPresentation.widthForViewController {
         case .fullscreen:
             width = parentSize.width
         case .halfscreen:
@@ -112,7 +116,7 @@ class JellyPresentationController : UIPresentationController {
         }
         
         var height : CGFloat = 0.0
-        switch self.presentation.heightForViewController {
+        switch nonFullScreenPresentation.heightForViewController {
         case .fullscreen:
             height = parentSize.height
         case .halfscreen:
@@ -124,13 +128,34 @@ class JellyPresentationController : UIPresentationController {
         return CGSize(width: width, height: height)
     }
     
+    // Refactor this crap please
     override var frameOfPresentedViewInContainerView: CGRect {
+        
+        if let shiftIn = self.presentation as? JellyShiftInPresentation {
+            // Refactor this crap 😡
+            switch shiftIn.direction {
+            case .left:
+                return CGRect(x: 0, y: 0, width: containerView!.bounds.size.width * shiftIn.ratio, height: containerView!.bounds.size.height)
+            case .right:
+                let width = containerView!.bounds.size.width * shiftIn.ratio
+                return CGRect(x: containerView!.bounds.size.width - width, y: 0, width: containerView!.bounds.size.width * shiftIn.ratio, height: containerView!.bounds.size.height)
+            case .top:
+                return CGRect(x: 0, y: 0, width: containerView!.bounds.size.width, height: containerView!.bounds.size.height * shiftIn.ratio)
+            case .bottom:
+                let height = containerView!.bounds.size.height * shiftIn.ratio
+                return CGRect(x: 0, y: containerView!.bounds.size.height - height , width: containerView!.bounds.size.width, height: containerView!.bounds.size.height * shiftIn.ratio)
+            }
+        }
+        
+        guard let dynamicPresentation = self.presentation as? DynamicPresentation else {
+            return CGRect(x:0,y:0,width: containerView!.bounds.size.width, height: containerView!.bounds.size.height)
+        }
         
         var frame: CGRect = .zero
         frame.size = size(forChildContentContainer: presentedViewController, withParentContainerSize: containerView!.bounds.size)
         limit(frame: &frame, withSize: frame.size)
         align(frame: &frame, withPresentation: self.presentation)
-        applymarginGuards(toFrame: &frame, marginGuards: presentation.marginGuards, container: containerView!.bounds.size)
+        applymarginGuards(toFrame: &frame, marginGuards: dynamicPresentation.marginGuards, container: containerView!.bounds.size)
         
         return frame
     }
@@ -223,7 +248,7 @@ fileprivate extension JellyPresentationController {
         dimmingView.translatesAutoresizingMaskIntoConstraints = false
         dimmingView.alpha = 0.0
         dimmingView.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
-        
+
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
         dimmingView.addGestureRecognizer(recognizer)
     }

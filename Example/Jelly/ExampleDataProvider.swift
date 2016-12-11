@@ -19,10 +19,10 @@ struct ExampleDataProvider {
     var data : [DataObject] = {
         
         /// Default Fade in with custom size
-        let defaultFadeInPresentation = JellyFadeInPresentation(widthForViewController: .halfscreen,
+        var defaultFadeInPresentation = JellyFadeInPresentation(widthForViewController: .halfscreen,
                                                                heightForViewController: .halfscreen)
-        
-        let defaultFadeInObject = DataObject(presentation: defaultFadeInPresentation, titleDescription: "Default Fade in Animation", detailDescription: "default values")
+        defaultFadeInPresentation.isTapBackgroundToDismissEnabled = false
+        let defaultFadeInObject = DataObject(presentation: defaultFadeInPresentation, titleDescription: "Default Fade in Animation", detailDescription: "default values, disabled tap to dismiss")
         
         /// Default slide in with custom size
         let defaultSlideInPresentation = JellySlideInPresentation(widthForViewController: .halfscreen,
@@ -102,7 +102,12 @@ struct ExampleDataProvider {
                                  titleDescription: "Custom Alert",
                                 detailDescription: "Custom Alert")
         
-        let data = [defaultFadeInObject,defaultSlideInObject,customBlurFadeInObject,customBlurSlideInObject,customCornerDirectionSlideInObject,slideOver,alertObject]
+        // ShiftInPresentation
+        
+        let shiftInPresentation = JellyShiftInPresentation()
+        let shiftInObject = DataObject(presentation: shiftInPresentation, titleDescription: "Shift in", detailDescription: "default shift in presentation")
+        
+        let data = [shiftInObject, defaultFadeInObject,defaultSlideInObject,customBlurFadeInObject,customBlurSlideInObject,customCornerDirectionSlideInObject,slideOver,alertObject]
         
         return data
     }()
