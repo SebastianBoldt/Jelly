@@ -55,6 +55,8 @@ extension JellyAnimator: UIViewControllerTransitioningDelegate {
                 return SlideInPresentationAnimator(direction: presentation.directionShow, presentationType: .show, presentation: presentation)
             } else if let presentation = self.presentation as? JellyFadeInPresentation {
                 return FadeInPresentationAnimator(presentationType: .show, presentation: presentation)
+            } else if let presentation = self.presentation as? JellyShiftInPresentation {
+                return ShiftInPresentationAnimator(direction: presentation.direction, presentationType: .show, presentation: presentation)
             } else {
                 return nil
             }
@@ -66,6 +68,8 @@ extension JellyAnimator: UIViewControllerTransitioningDelegate {
                 return SlideInPresentationAnimator(direction: presentation.directionDismiss, presentationType: .dismiss, presentation: presentation)
             } else if let presentation = self.presentation as? JellyFadeInPresentation {
                 return FadeInPresentationAnimator(presentationType: .dismiss, presentation: presentation)
+            } else if let presentation = self.presentation as? JellyShiftInPresentation {
+                return ShiftInPresentationAnimator(direction: presentation.direction, presentationType: .dismiss, presentation: presentation)
             } else {
                 return nil
             }
