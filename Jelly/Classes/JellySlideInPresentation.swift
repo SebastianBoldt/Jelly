@@ -3,7 +3,7 @@
 //  Created by Sebastian Boldt on 20.11.16.
 //
 
-public struct JellySlideInPresentation: JellyPresentation, AlignablePresentation, JellyNonFullScreenPresentation {
+public struct JellySlideInPresentation: JellyPresentation, AlignablePresentation, DynamicPresentation {
     
     // JellyPresentation Protocol conformance
     public   var dismissCurve: JellyConstants.JellyCurve = .linear

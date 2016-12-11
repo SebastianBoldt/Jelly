@@ -13,6 +13,7 @@ public protocol JellyPresentation {
     var presentationCurve : JellyConstants.JellyCurve { get set }
     var dismissCurve : JellyConstants.JellyCurve { get set }
     var backgroundStyle : JellyConstants.BackgroundStyle { get set }
+    var isTapBackgroundToDismissEnabled : Bool { get set }
 }
 
 /// If a presentation is Alginable it provides vertical and horizontal alignment options
@@ -21,10 +22,9 @@ public protocol AlignablePresentation {
     var horizontalAlignment : JellyConstants.HorizontalAlignment { get set }
 }
 
-public protocol JellyNonFullScreenPresentation {
+public protocol DynamicPresentation {
     var widthForViewController: JellyConstants.Size { get set  }
     var heightForViewController: JellyConstants.Size { get set }
-    var isTapBackgroundToDismissEnabled : Bool { get set }
     /// If the width or height is bigger than the container we are working in, marginGuards will kick in and limit the size the specified margins
     var marginGuards: UIEdgeInsets { get set }
 }

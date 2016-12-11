@@ -101,7 +101,7 @@ class JellyPresentationController : UIPresentationController {
     override func size(forChildContentContainer container: UIContentContainer,
                        withParentContainerSize parentSize: CGSize) -> CGSize {
         
-        guard let nonFullScreenPresentation = self.presentation as? JellyNonFullScreenPresentation else {
+        guard let nonFullScreenPresentation = self.presentation as? DynamicPresentation else {
             return parentSize
         }
         
@@ -147,7 +147,7 @@ class JellyPresentationController : UIPresentationController {
             }
         }
         
-        guard let nonFullScreenPresentation = self.presentation as? JellyNonFullScreenPresentation else {
+        guard let dynamicPresentation = self.presentation as? DynamicPresentation else {
             return CGRect(x:0,y:0,width: containerView!.bounds.size.width, height: containerView!.bounds.size.height)
         }
         
@@ -155,7 +155,7 @@ class JellyPresentationController : UIPresentationController {
         frame.size = size(forChildContentContainer: presentedViewController, withParentContainerSize: containerView!.bounds.size)
         limit(frame: &frame, withSize: frame.size)
         align(frame: &frame, withPresentation: self.presentation)
-        applymarginGuards(toFrame: &frame, marginGuards: nonFullScreenPresentation.marginGuards, container: containerView!.bounds.size)
+        applymarginGuards(toFrame: &frame, marginGuards: dynamicPresentation.marginGuards, container: containerView!.bounds.size)
         
         return frame
     }
@@ -239,11 +239,8 @@ fileprivate extension JellyPresentationController {
     func setupBlurView () {
         blurView = UIVisualEffectView()
         blurView.translatesAutoresizingMaskIntoConstraints = false
-
-        if let noneFullscreenPresentation = self.presentation as? JellyNonFullScreenPresentation, noneFullscreenPresentation.isTapBackgroundToDismissEnabled == true {
-            let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
-            blurView.addGestureRecognizer(recognizer)
-        }
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
+        blurView.addGestureRecognizer(recognizer)
     }
     
     func setupDimmingView() {
@@ -251,10 +248,9 @@ fileprivate extension JellyPresentationController {
         dimmingView.translatesAutoresizingMaskIntoConstraints = false
         dimmingView.alpha = 0.0
         dimmingView.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
-        if let noneFullscreenPresentation = self.presentation as? JellyNonFullScreenPresentation, noneFullscreenPresentation.isTapBackgroundToDismissEnabled == true {
-            let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
-            dimmingView.addGestureRecognizer(recognizer)
-        }
+
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
+        dimmingView.addGestureRecognizer(recognizer)
     }
     
     dynamic func handleTap(recognizer: UITapGestureRecognizer) {

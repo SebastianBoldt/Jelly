@@ -6,8 +6,9 @@ import UIKit
 /// # JellyAnimator
 /// A JellyAnimator is an UIViewControllerTransitionsDelegate with some extra candy.
 /// Basically the JellyAnimator is the main class to use when working with Jelly.
-/// You need to create a JellyAnimator and assign it as a transitionDelegatae to your ViewController.
+/// You need to create a JellyAnimator and assign it as a transitionDelegate to your ViewController.
 /// After you did this you need to set the presentation style to custom so the VC asks its custom delegate.
+/// You can use the prepare function for that
 
 public class JellyAnimator : NSObject {
     

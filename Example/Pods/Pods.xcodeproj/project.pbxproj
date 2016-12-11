@@ -365,7 +365,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		15B3AD2E1DE1DCE9003FF7B8 /* Presentations */ = {
+		1563AF721DFDB7510069542A /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
 				15B3AD1D1DE1C3F2003FF7B8 /* JellyPresentation.swift */,
@@ -374,6 +374,23 @@
 				15B3AD311DE1DD17003FF7B8 /* JellyFadeInPresentation.swift */,
 			);
 			name = Presentations;
+			sourceTree = "<group>";
+		};
+		1563AF731DFDB7650069542A /* PresentationControllers */ = {
+			isa = PBXGroup;
+			children = (
+				15B3AD1E1DE1C3F2003FF7B8 /* JellyPresentationController.swift */,
+			);
+			name = PresentationControllers;
+			sourceTree = "<group>";
+		};
+		15B3AD2E1DE1DCE9003FF7B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				15B3AD1A1DE1C3F2003FF7B8 /* Jelly.swift */,
+				1563AF721DFDB7510069542A /* Presentations */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		15B3AD331DE1DD7F003FF7B8 /* Animators */ = {
@@ -415,11 +432,10 @@
 			isa = PBXGroup;
 			children = (
 				15B3AD1B1DE1C3F2003FF7B8 /* JellyAnimator.swift */,
-				15B3AD1E1DE1C3F2003FF7B8 /* JellyPresentationController.swift */,
 				15B3AD1C1DE1C3F2003FF7B8 /* JellyConstants.swift */,
-				15B3AD2E1DE1DCE9003FF7B8 /* Presentations */,
+				1563AF731DFDB7650069542A /* PresentationControllers */,
+				15B3AD2E1DE1DCE9003FF7B8 /* Model */,
 				15B3AD331DE1DD7F003FF7B8 /* Animators */,
-				15B3AD1A1DE1C3F2003FF7B8 /* Jelly.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
