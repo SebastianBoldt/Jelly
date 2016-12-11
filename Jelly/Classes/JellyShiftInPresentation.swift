@@ -16,7 +16,7 @@ public struct JellyShiftInPresentation: JellyPresentation {
     public  var jellyness: JellyConstants.Jellyness
     public  var duration : JellyConstants.Duration = .normal // Duration the ViewController needs to kick in
     public  var isTapBackgroundToDismissEnabled: Bool = true
-    public  var direction : JellyConstants.Direction = .left
+    public  var direction : JellyConstants.Direction = .bottom
     public  var ratio: CGFloat = 1/3
     
     public init(dismissCurve: JellyConstants.JellyCurve = .linear,
@@ -25,7 +25,7 @@ public struct JellyShiftInPresentation: JellyPresentation {
                 backgroundStyle: JellyConstants.BackgroundStyle = .dimmed,
                 jellyness: JellyConstants.Jellyness = .none,
                 duration: JellyConstants.Duration = .normal,
-                direction: JellyConstants.Direction = .left,
+                direction: JellyConstants.Direction = .bottom,
                 ratio: CGFloat = 1/3) {
         
         self.dismissCurve = dismissCurve

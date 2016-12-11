@@ -24,6 +24,7 @@ extension ShiftInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         return presentation.duration.rawValue
     }
     
+    // Refactor this please .... 😡
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         let presentedKey: UITransitionContextViewControllerKey = getPresentedViewControllerKeyForPresentationType(type: self.presentationType)
@@ -42,8 +43,19 @@ extension ShiftInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         let presentedFrameForPresented = transitionContext.finalFrame(for: presentedViewController) // Frame the ViewController will have after animation completes
         let dismissedFrameForPresented = calculateDismissedFrame(from: presentedFrameForPresented, usingDirection: self.direction, andContext: transitionContext) // Frame the ViewController will have when he is dismissed
         
-        var presentedFrameForUnderlying = presentedFrameForPresented
-        presentedFrameForUnderlying.origin.x = presentedFrameForPresented.origin.x + presentedFrameForPresented.size.width
+        var presentedFrameForUnderlying = transitionContext.containerView.frame
+        
+        switch self.presentation.direction {
+        case .left:
+            presentedFrameForUnderlying.origin.x = presentedFrameForPresented.origin.x + presentedFrameForPresented.size.width
+        case .right:
+            presentedFrameForUnderlying.origin.x = presentedFrameForPresented.origin.x - presentedFrameForPresented.size.width
+        case .top:
+            presentedFrameForUnderlying.origin.y = presentedFrameForPresented.origin.y + presentedFrameForPresented.size.height
+        case .bottom:
+            presentedFrameForUnderlying.origin.y = presentedFrameForUnderlying.origin.y - presentedFrameForPresented.size.height
+        }
+        
         let dismissedFrameForUnderLying = transitionContext.containerView.frame
         
         // Depending on which kind of presentation we are currently doing we swift frames
