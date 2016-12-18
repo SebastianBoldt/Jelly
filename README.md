@@ -72,12 +72,13 @@ class CustomVC : UIViewController {
 That's it. That's lit.
 
 ## 🖌 Customize
-Jelly Supports two types of Presentations.
+Jelly offers 3 types of Presentations for you:
 * **JellySlideInPresentation**
 * **JellyShiftInPresentation**
 * **JellyFadeInPresentation**
 
-Not every property is available for each animation
+Not every property is available for each animation. 
+Check outh the interfaces of each class to learn more about it.
 
 * **duration:** JellyConstants.Duration (default: normal)
     * ultraSlow = 2.0
