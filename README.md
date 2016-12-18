@@ -77,51 +77,35 @@ Jelly Supports two types of Presentations.
 * **JellyShiftInPresentation**
 * **JellyFadeInPresentation**
 
-They all share some properties and each property has a default value 
-* duration: JellyConstants.Duration (default: normal)
+Some Properties are just available for special presentations
+
+* **duration:** JellyConstants.Duration (default: normal)
     * ultraSlow = 2.0
     * slow = 1.0
     * medium = 0.5
     * normal = 0.35
     * fast = 0.2
     * reallyFast = 0.1
-* sizeForViewController: CGSize (default: width: 300, height: 300) (Just available on Fade and Slide, Shift just provides size for one dimension)
-    * If the screen is smaller than the provided width or height it will automatically resize the affected dimension to the screen size
-    * TODO: Margin Parameter would be great 😀
-* backgroundStyle : JellyConstants.BackgroundStyle (default: dimmed)
+* **backgroundStyle:** JellyConstants.BackgroundStyle (default: dimmed)
     * dimmed
     * blur(effectStyle)
     * none
-* cornerRadius: Double (default: 0)
-* rectCorner : UIRectCorner (default: .allCorners)
-    * define to which corners the radius should be applied
-* presentationCurve : JellyConstants.JellyCurve (default: linear)
+* **cornerRadius:** Double (default: 0)
+* **rectCorner:** UIRectCorner (default: .allCorners)
+    * define which corners the radius should be applied to
+* **presentationCurve:** JellyConstants.JellyCurve (default: linear)
     * easeIn
     * easeOut
     * easeInEaseOut
     * linear
-* dismissCurve : JellyConstants.JellyCurve (default: linear)
+* **dismissCurve:** JellyConstants.JellyCurve (default: linear)
     * easeIn
     * easeOut
     * easeInEaseOut
     * linear
-* isTapBackgroundToDismissEnabled (default: true)
+* **isTapBackgroundToDismissEnabled** (default: true)
     * tappind the background dismisses the vc by default
-    * set it to false to prevent this behavior 
-    
-**JellyFadeInAnimation provides 3 extra Properties**
-
-* directionShow: JellyConstants.Direction (default: top)
-    * left
-    * top
-    * bottom
-    * right
-* directionDismiss: JellyConstants.Direction (default: top)
-    * left
-    * top
-    * bottom
-    * right
-* Jellyness (default: none)
+    * set it to false to prevent this behavior
 * **widthForViewController:** JellyConstants.Size (default: fullscreen)
     * If the container is smaller than the provided width Jelly will automatically resize to the containers width
     * if Margin Guards are specified they also will be applied if width is to wide for the container
@@ -134,16 +118,6 @@ They all share some properties and each property has a default value
     * top, bottom, center
 * **marginGuards:** default(UIEdgeInsets.zero)
     * If the width or height is bigger than the container we are working with, marginGuards will kick in and limit the size using the specified margins
-* **backgroundStyle:** JellyConstants.BackgroundStyle (default: dimmed)
-    * dimmed, blur(effectStyle), none
-* **cornerRadius:** Double (default: 0)
-* **presentationCurve:** JellyConstants.JellyCurve (default: linear)
-    * easeIn, easeOut, easeInEaseOut, linear
-* **dismissCurve:** JellyConstants.JellyCurve (default: linear)
-    * easeIn, easeOut, easeInEaseOut, linear
-
-**JellySlideInAnimation provides 3 extra Properties**
-
 * **directionShow:** JellyConstants.Direction (default: top)
     * left, top, bottom, right
 * **directionDismiss:** JellyConstants.Direction (default: top)
