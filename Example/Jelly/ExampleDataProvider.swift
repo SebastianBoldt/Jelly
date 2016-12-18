@@ -106,9 +106,19 @@ struct ExampleDataProvider {
         
         var shiftInPresentation = JellyShiftInPresentation()
         shiftInPresentation.direction = .right
-        let shiftInObject = DataObject(presentation: shiftInPresentation, titleDescription: "Shift in", detailDescription: "default shift in presentation")
+        shiftInPresentation.size = .custom(value: 300)
+
+        let shiftInObject = DataObject(presentation: shiftInPresentation, titleDescription: "Shift in Dimmed", detailDescription: "dimmed, right")
         
-        let data = [shiftInObject, defaultFadeInObject,defaultSlideInObject,customBlurFadeInObject,customBlurSlideInObject,customCornerDirectionSlideInObject,slideOver,alertObject]
+        var shiftInBlurred = JellyShiftInPresentation()
+        shiftInBlurred.direction = .bottom
+        shiftInBlurred.backgroundStyle = .blur(effectStyle: .light)
+        shiftInBlurred.size = .custom(value: 300)
+        
+        let shiftInBlurredObject = DataObject(presentation: shiftInBlurred, titleDescription: "Shift in Blurred", detailDescription: "blurred, bottom")
+
+        
+        let data = [defaultFadeInObject,defaultSlideInObject,customBlurFadeInObject,customBlurSlideInObject,customCornerDirectionSlideInObject,slideOver,alertObject, shiftInObject,shiftInBlurredObject]
         
         return data
     }()

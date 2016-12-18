@@ -33,13 +33,7 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let presentation = self.model[indexPath.row].presentation
-        if (indexPath.row == self.model.count - 1) { // last
-            let customAlert = (self.storyboard?.instantiateViewController(withIdentifier: "customNotification"))!
-            self.jellyAnimator = JellyAnimator(presentation:presentation)
-            self.jellyAnimator?.prepare(viewController: customAlert)
-            self.present(customAlert, animated: true, completion: nil)
-
-        } else if let viewController = self.createVC() {
+        if let viewController = self.createVC() {
             self.jellyAnimator = JellyAnimator(presentation:presentation)
             self.jellyAnimator?.prepare(viewController: viewController)
             self.present(viewController, animated: true, completion: nil)

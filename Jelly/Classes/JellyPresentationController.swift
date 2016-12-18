@@ -133,19 +133,22 @@ class JellyPresentationController : UIPresentationController {
     override var frameOfPresentedViewInContainerView: CGRect {
         
         if let shiftIn = self.presentation as? JellyShiftInPresentation {
+            var shiftFrame : CGRect = .zero
             // Refactor this crap 😡
             let size = getSizeValue(fromPresentation: shiftIn)
             switch shiftIn.direction {
             case .left:
-                return CGRect(x: 0, y: 0, width: size, height: containerView!.bounds.size.height)
+                shiftFrame = CGRect(x: 0, y: 0, width: size, height: containerView!.bounds.size.height)
             case .right:
-                let rect = CGRect(x: containerView!.bounds.size.width - size, y: 0, width: size, height: containerView!.bounds.size.height)
-                return rect
+                shiftFrame = CGRect(x: containerView!.bounds.size.width - size, y: 0, width: size, height: containerView!.bounds.size.height)
             case .top:
-                return CGRect(x: 0, y: 0, width: containerView!.bounds.size.width, height: size)
+                shiftFrame =  CGRect(x: 0, y: 0, width: containerView!.bounds.size.width, height: size)
             case .bottom:
-                return CGRect(x: 0, y: containerView!.bounds.size.height - size , width: containerView!.bounds.size.width, height: size)
+                shiftFrame = CGRect(x: 0, y: containerView!.bounds.size.height - size , width: containerView!.bounds.size.width, height: size)
             }
+            limit(frame: &shiftFrame, withSize: containerView!.bounds.size)
+            return shiftFrame
+
         }
         
         guard let dynamicPresentation = self.presentation as? DynamicPresentation else {
@@ -210,10 +213,12 @@ class JellyPresentationController : UIPresentationController {
     
     private func limit(frame: inout CGRect, withSize size: CGSize) {
         if (frame.size.height > size.height) {
+            frame.origin.y = 0
             frame.size.height = size.height
         }
         
         if (frame.size.width > size.width) {
+            frame.origin.x = 0
             frame.size.width = size.width
         }
     }
