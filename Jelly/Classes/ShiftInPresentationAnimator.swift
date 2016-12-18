@@ -49,7 +49,7 @@ extension ShiftInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         case .left:
             presentedFrameForUnderlying.origin.x = presentedFrameForPresented.origin.x + presentedFrameForPresented.size.width
         case .right:
-            presentedFrameForUnderlying.origin.x = presentedFrameForPresented.origin.x - presentedFrameForPresented.size.width
+            presentedFrameForUnderlying.origin.x = presentedFrameForUnderlying.origin.x - presentedFrameForPresented.size.width
         case .top:
             presentedFrameForUnderlying.origin.y = presentedFrameForPresented.origin.y + presentedFrameForPresented.size.height
         case .bottom:

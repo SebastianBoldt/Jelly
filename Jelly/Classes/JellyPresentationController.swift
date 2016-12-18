@@ -133,17 +133,17 @@ class JellyPresentationController : UIPresentationController {
         
         if let shiftIn = self.presentation as? JellyShiftInPresentation {
             // Refactor this crap 😡
+            let size = getSizeValue(fromPresentation: shiftIn)
             switch shiftIn.direction {
             case .left:
-                return CGRect(x: 0, y: 0, width: containerView!.bounds.size.width * shiftIn.ratio, height: containerView!.bounds.size.height)
+                return CGRect(x: 0, y: 0, width: size, height: containerView!.bounds.size.height)
             case .right:
-                let width = containerView!.bounds.size.width * shiftIn.ratio
-                return CGRect(x: containerView!.bounds.size.width - width, y: 0, width: containerView!.bounds.size.width * shiftIn.ratio, height: containerView!.bounds.size.height)
+                let rect = CGRect(x: containerView!.bounds.size.width - size, y: 0, width: size, height: containerView!.bounds.size.height)
+                return rect
             case .top:
-                return CGRect(x: 0, y: 0, width: containerView!.bounds.size.width, height: containerView!.bounds.size.height * shiftIn.ratio)
+                return CGRect(x: 0, y: 0, width: containerView!.bounds.size.width, height: size)
             case .bottom:
-                let height = containerView!.bounds.size.height * shiftIn.ratio
-                return CGRect(x: 0, y: containerView!.bounds.size.height - height , width: containerView!.bounds.size.width, height: containerView!.bounds.size.height * shiftIn.ratio)
+                return CGRect(x: 0, y: containerView!.bounds.size.height - size , width: containerView!.bounds.size.width, height: size)
             }
         }
         
@@ -158,6 +158,25 @@ class JellyPresentationController : UIPresentationController {
         applymarginGuards(toFrame: &frame, marginGuards: dynamicPresentation.marginGuards, container: containerView!.bounds.size)
         
         return frame
+    }
+    
+    private func getSizeValue(fromPresentation presentation: JellyShiftInPresentation) -> CGFloat{
+        switch  presentation.size {
+        case .custom(let value):
+            return value
+        case .halfscreen:
+            if presentation.direction.orientation() == .horizontal {
+                return (self.containerView?.frame.size.width)! / 2
+            } else {
+                return (self.containerView?.frame.size.height)! / 2
+            }
+        case .fullscreen:
+            if presentation.direction.orientation() == .horizontal {
+                return (self.containerView?.frame.size.width)!
+            } else {
+                return (self.containerView?.frame.size.height)!
+            }
+        }
     }
     
     private func applymarginGuards(toFrame frame: inout CGRect, marginGuards: UIEdgeInsets, container: CGSize){

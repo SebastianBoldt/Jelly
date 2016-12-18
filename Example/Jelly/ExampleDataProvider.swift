@@ -104,7 +104,8 @@ struct ExampleDataProvider {
         
         // ShiftInPresentation
         
-        let shiftInPresentation = JellyShiftInPresentation()
+        var shiftInPresentation = JellyShiftInPresentation()
+        shiftInPresentation.direction = .right
         let shiftInObject = DataObject(presentation: shiftInPresentation, titleDescription: "Shift in", detailDescription: "default shift in presentation")
         
         let data = [shiftInObject, defaultFadeInObject,defaultSlideInObject,customBlurFadeInObject,customBlurSlideInObject,customCornerDirectionSlideInObject,slideOver,alertObject]

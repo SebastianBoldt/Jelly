@@ -13,20 +13,20 @@ public struct JellyShiftInPresentation: JellyPresentation {
     public  var presentationCurve: JellyConstants.JellyCurve = .linear
     public  var cornerRadius: Double = 0.0
     public  var backgroundStyle: JellyConstants.BackgroundStyle = .none
-    public  var jellyness: JellyConstants.Jellyness = .jelly
+    public  var jellyness: JellyConstants.Jellyness = .none
     public  var duration : JellyConstants.Duration = .medium // Duration the ViewController needs to kick in
     public  var isTapBackgroundToDismissEnabled: Bool = true
     public  var direction : JellyConstants.Direction = .bottom
-    public  var ratio: CGFloat = 1/3
+    public  var size: JellyConstants.Size = .halfscreen
     
     public init(dismissCurve: JellyConstants.JellyCurve = .linear,
                 presentationCurve: JellyConstants.JellyCurve = .linear,
                 cornerRadius: Double = 0.0,
                 backgroundStyle: JellyConstants.BackgroundStyle = .dimmed,
-                jellyness: JellyConstants.Jellyness = .jelly,
+                jellyness: JellyConstants.Jellyness = .none,
                 duration: JellyConstants.Duration = .normal,
                 direction: JellyConstants.Direction = .bottom,
-                ratio: CGFloat = 1/3) {
+                size: JellyConstants.Size = .halfscreen) {
         
         self.dismissCurve = dismissCurve
         self.presentationCurve = presentationCurve
@@ -35,6 +35,6 @@ public struct JellyShiftInPresentation: JellyPresentation {
         self.jellyness = jellyness
         self.duration = duration
         self.direction = direction
-        self.ratio = ratio
+        self.size = size
     }
 }
