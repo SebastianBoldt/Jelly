@@ -1,5 +1,5 @@
 PODS:
-  - Jelly (0.1.0)
+  - Jelly (1.0.2)
   - Nimble (5.1.1)
   - Quick (0.10.0)
 
@@ -13,10 +13,10 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Jelly: c20e935b4cd2cebf9a82e08a04de14c32ce385e3
+  Jelly: 6b8ee5a13408f091d4073fda829c9406c36fc5f1
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
 
-PODFILE CHECKSUM: 4d8068805178865f7ec8097f523d0ffb814c051d
+PODFILE CHECKSUM: f864a8ab8b8995c73b2e6db409fadb4e39a46023
 
 COCOAPODS: 1.1.1
