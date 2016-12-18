@@ -14,6 +14,7 @@ public protocol JellyPresentation {
     var dismissCurve : JellyConstants.JellyCurve { get set }
     var backgroundStyle : JellyConstants.BackgroundStyle { get set }
     var isTapBackgroundToDismissEnabled : Bool { get set }
+    var rectCorner: UIRectCorner { get set }
 }
 
 /// If a presentation is Alginable it provides vertical and horizontal alignment options

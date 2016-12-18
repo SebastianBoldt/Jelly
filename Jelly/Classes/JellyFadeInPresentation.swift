@@ -17,6 +17,7 @@ public struct JellyFadeInPresentation: JellyPresentation, AlignablePresentation,
     public var heightForViewController: JellyConstants.Size = .halfscreen
     public var marginGuards: UIEdgeInsets = .zero
     public var isTapBackgroundToDismissEnabled: Bool = true
+    public var rectCorner: UIRectCorner = .allCorners
     
     // Alginable
     public var horizontalAlignment: JellyConstants.HorizontalAlignment = .center
