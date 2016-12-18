@@ -143,7 +143,8 @@ let customPresentation = JellySlideInPresentation(dismissCurve: .linear,
                                               heightForViewController: .custom(value:200) ,
                                                   horizontalAlignment: .center,
                                                     verticalAlignment: .top,
-                                                         marginGuards: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
+                                                         marginGuards: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10),
+                                                              corners: [.topLeft,.bottomRight])
 
 
 self.jellyAnimator = JellyAnimator(presentation:customPresentation)
