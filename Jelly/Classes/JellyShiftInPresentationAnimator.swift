@@ -4,7 +4,7 @@
 
 import Foundation
 
-final class ShiftInPresentationAnimator: NSObject {
+final class JellyShiftInPresentationAnimator: NSObject {
     
     let direction: JellyConstants.Direction
     let presentationType : JellyConstants.PresentationType
@@ -19,7 +19,7 @@ final class ShiftInPresentationAnimator: NSObject {
     
 }
 
-extension ShiftInPresentationAnimator : UIViewControllerAnimatedTransitioning {
+extension JellyShiftInPresentationAnimator : UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return presentation.duration.rawValue
     }

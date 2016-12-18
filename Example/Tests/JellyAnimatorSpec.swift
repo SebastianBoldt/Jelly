@@ -24,7 +24,7 @@ class JellyAnimatorSpec: QuickSpec {
                 it("UIViewControllerTransitioningDelegate should return right animationController for presenting") {
                     let animator = JellyAnimator(presentation: self.defaultSlideIn)
                     let animationController = animator.animationController(forPresented: self.presentedViewController, presenting: self.presentingViewController, source: self.presentedViewController)
-                    expect(animationController is SlideInPresentationAnimator).to(equal(true))
+                    expect(animationController is JellySlideInPresentationAnimator).to(equal(true))
                 }
             }
             
@@ -32,7 +32,7 @@ class JellyAnimatorSpec: QuickSpec {
                 it("UIViewControllerTransitioningDelegate should return right animationController for presenting") {
                     let animator = JellyAnimator(presentation: self.defaultFadeIn)
                     let animationController = animator.animationController(forPresented: self.presentedViewController, presenting: self.presentingViewController, source: self.presentedViewController)
-                    expect(animationController is FadeInPresentationAnimator).to(equal(true))
+                    expect(animationController is JellyFadeInPresentationAnimator).to(equal(true))
                 }
             }
         }
