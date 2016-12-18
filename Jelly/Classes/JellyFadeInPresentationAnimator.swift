@@ -4,7 +4,7 @@
 
 import Foundation
 
-final class FadeInPresentationAnimator: NSObject {
+final class JellyFadeInPresentationAnimator: NSObject {
     
     let presentationType : JellyConstants.PresentationType
     let presentation : JellyFadeInPresentation
@@ -17,7 +17,7 @@ final class FadeInPresentationAnimator: NSObject {
     
 }
 
-extension FadeInPresentationAnimator : UIViewControllerAnimatedTransitioning {
+extension JellyFadeInPresentationAnimator : UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return presentation.duration.rawValue

@@ -19,10 +19,10 @@ struct ExampleDataProvider {
     var data : [DataObject] = {
         
         /// Default Fade in with custom size
-        let defaultFadeInPresentation = JellyFadeInPresentation(widthForViewController: .halfscreen,
+        var defaultFadeInPresentation = JellyFadeInPresentation(widthForViewController: .halfscreen,
                                                                heightForViewController: .halfscreen)
-        
-        let defaultFadeInObject = DataObject(presentation: defaultFadeInPresentation, titleDescription: "Default Fade in Animation", detailDescription: "default values")
+        defaultFadeInPresentation.isTapBackgroundToDismissEnabled = false
+        let defaultFadeInObject = DataObject(presentation: defaultFadeInPresentation, titleDescription: "Default Fade in Animation", detailDescription: "default values, disabled tap to dismiss")
         
         /// Default slide in with custom size
         let defaultSlideInPresentation = JellySlideInPresentation(widthForViewController: .halfscreen,
@@ -102,7 +102,23 @@ struct ExampleDataProvider {
                                  titleDescription: "Custom Notification",
                                 detailDescription: "custom alert that comes from the top with blurred transition background")
         
-        let data = [defaultFadeInObject,defaultSlideInObject,customBlurFadeInObject,customBlurSlideInObject,customCornerDirectionSlideInObject,slideOver,alertObject]
+        // ShiftInPresentation
+        
+        var shiftInPresentation = JellyShiftInPresentation()
+        shiftInPresentation.direction = .right
+        shiftInPresentation.size = .custom(value: 300)
+
+        let shiftInObject = DataObject(presentation: shiftInPresentation, titleDescription: "Shift in Dimmed", detailDescription: "dimmed, right")
+        
+        var shiftInBlurred = JellyShiftInPresentation()
+        shiftInBlurred.direction = .bottom
+        shiftInBlurred.backgroundStyle = .blur(effectStyle: .light)
+        shiftInBlurred.size = .custom(value: 300)
+        
+        let shiftInBlurredObject = DataObject(presentation: shiftInBlurred, titleDescription: "Shift in Blurred", detailDescription: "blurred, bottom")
+
+        
+        let data = [defaultFadeInObject,defaultSlideInObject,customBlurFadeInObject,customBlurSlideInObject,customCornerDirectionSlideInObject,slideOver,alertObject, shiftInObject,shiftInBlurredObject]
         
         return data
     }()

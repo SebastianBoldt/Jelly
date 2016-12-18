@@ -6,8 +6,9 @@ import UIKit
 /// # JellyAnimator
 /// A JellyAnimator is an UIViewControllerTransitionsDelegate with some extra candy.
 /// Basically the JellyAnimator is the main class to use when working with Jelly.
-/// You need to create a JellyAnimator and assign it as a transitionDelegatae to your ViewController.
+/// You need to create a JellyAnimator and assign it as a transitionDelegate to your ViewController.
 /// After you did this you need to set the presentation style to custom so the VC asks its custom delegate.
+/// You can use the prepare function for that
 
 public class JellyAnimator : NSObject {
     
@@ -52,9 +53,11 @@ extension JellyAnimator: UIViewControllerTransitioningDelegate {
                              presenting: UIViewController,
                              source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
             if let presentation = self.presentation as? JellySlideInPresentation {
-                return SlideInPresentationAnimator(direction: presentation.directionShow, presentationType: .show, presentation: presentation)
+                return JellySlideInPresentationAnimator(direction: presentation.directionShow, presentationType: .show, presentation: presentation)
             } else if let presentation = self.presentation as? JellyFadeInPresentation {
-                return FadeInPresentationAnimator(presentationType: .show, presentation: presentation)
+                return JellyFadeInPresentationAnimator(presentationType: .show, presentation: presentation)
+            } else if let presentation = self.presentation as? JellyShiftInPresentation {
+                return JellyShiftInPresentationAnimator(direction: presentation.direction, presentationType: .show, presentation: presentation)
             } else {
                 return nil
             }
@@ -63,9 +66,11 @@ extension JellyAnimator: UIViewControllerTransitioningDelegate {
     public func animationController(forDismissed dismissed: UIViewController)
         -> UIViewControllerAnimatedTransitioning? {
             if let presentation = self.presentation as? JellySlideInPresentation {
-                return SlideInPresentationAnimator(direction: presentation.directionDismiss, presentationType: .dismiss, presentation: presentation)
+                return JellySlideInPresentationAnimator(direction: presentation.directionDismiss, presentationType: .dismiss, presentation: presentation)
             } else if let presentation = self.presentation as? JellyFadeInPresentation {
-                return FadeInPresentationAnimator(presentationType: .dismiss, presentation: presentation)
+                return JellyFadeInPresentationAnimator(presentationType: .dismiss, presentation: presentation)
+            } else if let presentation = self.presentation as? JellyShiftInPresentation {
+                return JellyShiftInPresentationAnimator(direction: presentation.direction, presentationType: .dismiss, presentation: presentation)
             } else {
                 return nil
             }

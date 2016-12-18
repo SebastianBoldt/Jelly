@@ -1,9 +1,9 @@
 {
   "name": "Jelly",
-  "version": "0.1.0",
-  "summary": "A short description of Jelly.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/Jelly",
+  "version": "1.0.2",
+  "summary": "Jelly provides custom view controller animations with just a few lines of code",
+  "description": "Jelly is a simple to use Animation-Library\nIt helps you to add rich animations to your app without writing boiler code over and over",
+  "homepage": "https://github.com/SebastianBoldt/Jelly",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -11,12 +11,14 @@
   "authors": {
     "Sebastian Boldt": "self.dealloc@googlemail.com"
   },
+  "social_media_url": "https://twitter.com/sebastianboldt",
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/Jelly.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/SebastianBoldt/Jelly.git",
+    "tag": "1.0.2"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
-  "source_files": "Jelly/Classes/**/*"
+  "source_files": "Jelly/Classes/**/*",
+  "frameworks": "UIKit"
 }

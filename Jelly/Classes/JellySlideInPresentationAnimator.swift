@@ -4,7 +4,7 @@
 
 import Foundation
 
-final class SlideInPresentationAnimator: NSObject {
+final class JellySlideInPresentationAnimator: NSObject {
     
     let direction: JellyConstants.Direction
     let presentationType : JellyConstants.PresentationType
@@ -19,7 +19,7 @@ final class SlideInPresentationAnimator: NSObject {
     
 }
 
-extension SlideInPresentationAnimator : UIViewControllerAnimatedTransitioning {
+extension JellySlideInPresentationAnimator : UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return presentation.duration.rawValue
     }

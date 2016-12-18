@@ -5,21 +5,23 @@
 
 import Foundation
 
-public struct JellyFadeInPresentation: JellyPresentation, AlignablePresentation {
+public struct JellyFadeInPresentation: JellyPresentation, AlignablePresentation, DynamicPresentation {
     
     // Jelly Presentation Protocol conformance
-    public private(set) var dismissCurve: JellyConstants.JellyCurve = .linear
-    public private(set) var presentationCurve: JellyConstants.JellyCurve = .linear
-    public private(set) var cornerRadius: Double = 0.0
-    public private(set) var backgroundStyle: JellyConstants.BackgroundStyle = .dimmed
-    public private(set) var duration : JellyConstants.Duration = .normal // Duration the ViewController needs to kick in
-    public private(set) var widthForViewController: JellyConstants.Size = .fullscreen
-    public private(set) var heightForViewController: JellyConstants.Size = .fullscreen
-    public private(set) var marginGuards: UIEdgeInsets = .zero
-
+    public var dismissCurve: JellyConstants.JellyCurve = .linear
+    public var presentationCurve: JellyConstants.JellyCurve = .linear
+    public var cornerRadius: Double = 0.0
+    public var backgroundStyle: JellyConstants.BackgroundStyle = .dimmed
+    public var duration : JellyConstants.Duration = .normal // Duration the ViewController needs to kick in
+    public var widthForViewController: JellyConstants.Size = .halfscreen
+    public var heightForViewController: JellyConstants.Size = .halfscreen
+    public var marginGuards: UIEdgeInsets = .zero
+    public var isTapBackgroundToDismissEnabled: Bool = true
+    public var corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]
+    
     // Alginable
-    public private(set) var horizontalAlignment: JellyConstants.HorizontalAlignment = .center
-    public private(set) var verticalAlignemt: JellyConstants.VerticalAlignment = .center
+    public var horizontalAlignment: JellyConstants.HorizontalAlignment = .center
+    public var verticalAlignemt: JellyConstants.VerticalAlignment = .center
     
     public init(dismissCurve: JellyConstants.JellyCurve = .linear,
                 presentationCurve: JellyConstants.JellyCurve = .linear,
@@ -28,7 +30,8 @@ public struct JellyFadeInPresentation: JellyPresentation, AlignablePresentation 
                 duration: JellyConstants.Duration = .normal,
                 widthForViewController: JellyConstants.Size = .fullscreen,
                 heightForViewController: JellyConstants.Size = .fullscreen,
-                marginGuards: UIEdgeInsets = .zero) {
+                marginGuards: UIEdgeInsets = .zero,
+                corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]) {
         
         self.dismissCurve = dismissCurve
         self.presentationCurve = presentationCurve
@@ -38,6 +41,7 @@ public struct JellyFadeInPresentation: JellyPresentation, AlignablePresentation 
         self.widthForViewController = widthForViewController
         self.heightForViewController = heightForViewController
         self.marginGuards = marginGuards
+        self.corners = corners
     }
     
 }

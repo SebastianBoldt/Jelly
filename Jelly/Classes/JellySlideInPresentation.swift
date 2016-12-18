@@ -3,26 +3,28 @@
 //  Created by Sebastian Boldt on 20.11.16.
 //
 
-public struct JellySlideInPresentation: JellyPresentation, AlignablePresentation {
+public struct JellySlideInPresentation: JellyPresentation, AlignablePresentation, DynamicPresentation {
     
     // JellyPresentation Protocol conformance
-    public private(set) var dismissCurve: JellyConstants.JellyCurve = .linear
-    public private(set) var presentationCurve: JellyConstants.JellyCurve = .linear
-    public private(set) var cornerRadius: Double = 0.0
-    public private(set) var backgroundStyle: JellyConstants.BackgroundStyle = .none
-    public private(set) var jellyness: JellyConstants.Jellyness
-    public private(set) var duration : JellyConstants.Duration = .normal // Duration the ViewController needs to kick in
-    public private(set) var widthForViewController: JellyConstants.Size = .fullscreen
-    public private(set) var heightForViewController: JellyConstants.Size = .fullscreen
-    public private(set) var marginGuards: UIEdgeInsets = .zero
-    
+    public   var dismissCurve: JellyConstants.JellyCurve = .linear
+    public   var presentationCurve: JellyConstants.JellyCurve = .linear
+    public   var cornerRadius: Double = 0.0
+    public   var backgroundStyle: JellyConstants.BackgroundStyle = .none
+    public   var jellyness: JellyConstants.Jellyness
+    public   var duration : JellyConstants.Duration = .normal // Duration the ViewController needs to kick in
+    public   var widthForViewController: JellyConstants.Size = .halfscreen
+    public   var heightForViewController: JellyConstants.Size = .halfscreen
+    public   var isTapBackgroundToDismissEnabled: Bool = true
+    public   var marginGuards: UIEdgeInsets = .zero
+    public   var corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]
+
     // Unique
-    public private(set) var directionShow: JellyConstants.Direction = .left // Direction the ViewController slides in from
-    public private(set) var directionDismiss: JellyConstants.Direction = .left // Direction the ViewController slides out to
+    public   var directionShow: JellyConstants.Direction = .left // Direction the ViewController slides in from
+    public   var directionDismiss: JellyConstants.Direction = .left // Direction the ViewController slides out to
     
     // Alginable
-    public private(set) var horizontalAlignment: JellyConstants.HorizontalAlignment = .center
-    public private(set) var verticalAlignemt: JellyConstants.VerticalAlignment = .center
+    public   var horizontalAlignment: JellyConstants.HorizontalAlignment = .center
+    public   var verticalAlignemt: JellyConstants.VerticalAlignment = .center
     
     public init(dismissCurve: JellyConstants.JellyCurve = .linear,
                 presentationCurve: JellyConstants.JellyCurve = .linear,
@@ -36,7 +38,8 @@ public struct JellySlideInPresentation: JellyPresentation, AlignablePresentation
                 heightForViewController: JellyConstants.Size = .fullscreen,
                 horizontalAlignment: JellyConstants.HorizontalAlignment = .center,
                 verticalAlignment: JellyConstants.VerticalAlignment = .center,
-                marginGuards: UIEdgeInsets = .zero) {
+                marginGuards: UIEdgeInsets = .zero,
+                corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]) {
         
         self.dismissCurve = dismissCurve
         self.presentationCurve = presentationCurve
@@ -51,5 +54,6 @@ public struct JellySlideInPresentation: JellyPresentation, AlignablePresentation
         self.verticalAlignemt = verticalAlignment
         self.horizontalAlignment = horizontalAlignment
         self.marginGuards = marginGuards
+        self.corners = corners
     }
 }
