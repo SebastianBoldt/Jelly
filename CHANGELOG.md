@@ -1,3 +1,11 @@
+## 1.2.0 (2016-12-18)
+- There is a new cool animation style called shiftIn Animation. Check out the README to find out more
+- Rounding Corners can now be specified unsing the corners property (e.g. presentation.corners = [.leftBottom,rightTop])
+- You can disable tap to dismiss by setting isTapBackgroundToDismissEnabled to false
+- You can now set properties without using the basic initaliziers
+- Code clean up 
+- Startet with integrating Unit-Tests
+
 ## 1.0.2 (unspecified)
 
   - New size options (fullscreen, halfscreen and custom) for width and height instead of plain CGSize
