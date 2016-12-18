@@ -16,7 +16,7 @@ public struct JellySlideInPresentation: JellyPresentation, AlignablePresentation
     public   var heightForViewController: JellyConstants.Size = .halfscreen
     public   var isTapBackgroundToDismissEnabled: Bool = true
     public   var marginGuards: UIEdgeInsets = .zero
-    public var rectCorner: UIRectCorner = .allCorners
+    public   var corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]
 
     // Unique
     public   var directionShow: JellyConstants.Direction = .left // Direction the ViewController slides in from
@@ -38,7 +38,8 @@ public struct JellySlideInPresentation: JellyPresentation, AlignablePresentation
                 heightForViewController: JellyConstants.Size = .fullscreen,
                 horizontalAlignment: JellyConstants.HorizontalAlignment = .center,
                 verticalAlignment: JellyConstants.VerticalAlignment = .center,
-                marginGuards: UIEdgeInsets = .zero) {
+                marginGuards: UIEdgeInsets = .zero,
+                corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]) {
         
         self.dismissCurve = dismissCurve
         self.presentationCurve = presentationCurve
@@ -53,5 +54,6 @@ public struct JellySlideInPresentation: JellyPresentation, AlignablePresentation
         self.verticalAlignemt = verticalAlignment
         self.horizontalAlignment = horizontalAlignment
         self.marginGuards = marginGuards
+        self.corners = corners
     }
 }

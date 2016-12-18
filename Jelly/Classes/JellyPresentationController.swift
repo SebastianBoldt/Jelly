@@ -16,12 +16,12 @@ class JellyPresentationController : UIPresentationController {
     
     init(presentedViewController: UIViewController, presentingViewController: UIViewController?, presentation: JellyPresentation) {
         
-        presentedViewController.view.layer.masksToBounds = true
-        presentedViewController.view.layer.cornerRadius = CGFloat(presentation.cornerRadius)
-        
         self.presentation = presentation
         super.init(presentedViewController: presentedViewController,
                    presenting: presentingViewController)
+        
+        presentedViewController.view.layer.masksToBounds = true
+        presentedViewController.view.roundCorners(corners: self.presentation.corners, radius: presentation.cornerRadius)
         
         self.setupDimmingView()
         self.setupBlurView()
@@ -96,6 +96,7 @@ class JellyPresentationController : UIPresentationController {
     
     override func containerViewWillLayoutSubviews() {
         presentedView?.frame = frameOfPresentedViewInContainerView
+        presentedView?.roundCorners(corners: self.presentation.corners, radius: self.presentation.cornerRadius)
     }
     
     override func size(forChildContentContainer container: UIContentContainer,

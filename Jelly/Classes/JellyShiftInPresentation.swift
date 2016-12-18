@@ -18,7 +18,7 @@ public struct JellyShiftInPresentation: JellyPresentation {
     public  var isTapBackgroundToDismissEnabled: Bool = true
     public  var direction : JellyConstants.Direction = .bottom
     public  var size: JellyConstants.Size = .halfscreen
-    public var rectCorner: UIRectCorner = .allCorners
+    public  var corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]
 
     public init(dismissCurve: JellyConstants.JellyCurve = .linear,
                 presentationCurve: JellyConstants.JellyCurve = .linear,
@@ -27,7 +27,8 @@ public struct JellyShiftInPresentation: JellyPresentation {
                 jellyness: JellyConstants.Jellyness = .none,
                 duration: JellyConstants.Duration = .normal,
                 direction: JellyConstants.Direction = .bottom,
-                size: JellyConstants.Size = .halfscreen) {
+                size: JellyConstants.Size = .halfscreen,
+                corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]) {
         
         self.dismissCurve = dismissCurve
         self.presentationCurve = presentationCurve
@@ -37,5 +38,6 @@ public struct JellyShiftInPresentation: JellyPresentation {
         self.duration = duration
         self.direction = direction
         self.size = size
+        self.corners = corners
     }
 }

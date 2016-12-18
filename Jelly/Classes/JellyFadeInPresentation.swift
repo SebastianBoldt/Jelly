@@ -17,7 +17,7 @@ public struct JellyFadeInPresentation: JellyPresentation, AlignablePresentation,
     public var heightForViewController: JellyConstants.Size = .halfscreen
     public var marginGuards: UIEdgeInsets = .zero
     public var isTapBackgroundToDismissEnabled: Bool = true
-    public var rectCorner: UIRectCorner = .allCorners
+    public var corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]
     
     // Alginable
     public var horizontalAlignment: JellyConstants.HorizontalAlignment = .center
@@ -30,7 +30,8 @@ public struct JellyFadeInPresentation: JellyPresentation, AlignablePresentation,
                 duration: JellyConstants.Duration = .normal,
                 widthForViewController: JellyConstants.Size = .fullscreen,
                 heightForViewController: JellyConstants.Size = .fullscreen,
-                marginGuards: UIEdgeInsets = .zero) {
+                marginGuards: UIEdgeInsets = .zero,
+                corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]) {
         
         self.dismissCurve = dismissCurve
         self.presentationCurve = presentationCurve
@@ -40,6 +41,7 @@ public struct JellyFadeInPresentation: JellyPresentation, AlignablePresentation,
         self.widthForViewController = widthForViewController
         self.heightForViewController = heightForViewController
         self.marginGuards = marginGuards
+        self.corners = corners
     }
     
 }
