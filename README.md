@@ -44,9 +44,11 @@ class CustomVC : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Setup your Animator here 
-        // ....
-        // And assign it
-        self.jellyAnimator = createAnimator()
+        var shiftInPresentation = JellyShiftInPresentation()
+        shiftInPresentation.direction = .left
+        let animator = JellyAnnimator(presentation:presentation)
+        // Assign it
+        self.jellyAnimator = animator
     }
 }
 ```
@@ -56,9 +58,10 @@ That's it. That's lit.
 ## Customize 🖌
 Jelly Supports two types of Presentations.
 * **JellySlideInPresentation**
+* **JellyShiftInPresentation**
 * **JellyFadeInPresentation**
 
-Both share some propertys and each Property has a default value 
+They all share some properties and each property has a default value 
 * duration: JellyConstants.Duration (default: normal)
     * ultraSlow = 2.0
     * slow = 1.0
@@ -66,7 +69,7 @@ Both share some propertys and each Property has a default value
     * normal = 0.35
     * fast = 0.2
     * reallyFast = 0.1
-* sizeForViewController: CGSize (default: width: 300, height: 300)
+* sizeForViewController: CGSize (default: width: 300, height: 300) (Just available on Fade and Slide, Shift just provides size for one dimension)
     * If the screen is smaller than the provided width or height it will automatically resize the affected dimension to the screen size
     * TODO: Margin Parameter would be great 😀
 * backgroundStyle : JellyConstants.BackgroundStyle (default: dimmed)
@@ -74,6 +77,8 @@ Both share some propertys and each Property has a default value
     * blur(effectStyle)
     * none
 * cornerRadius: Double (default: 0)
+* rectCorner : UIRectCorner (default: .allCorners)
+    * define to which corners the radius should be applied
 * presentationCurve : JellyConstants.JellyCurve (default: linear)
     * easeIn
     * easeOut
@@ -83,8 +88,11 @@ Both share some propertys and each Property has a default value
     * easeIn
     * easeOut
     * easeInEaseOut
-    * linear
-
+    * linear
+* isTapBackgroundToDismissEnabled (default: true)
+    * tappind the background dismisses the vc by default
+    * set it to false to prevent this behavior 
+    
 **JellyFadeInAnimation provides 3 extra Properties**
 
 * directionShow: JellyConstants.Direction (default: top)
