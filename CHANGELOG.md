@@ -6,7 +6,8 @@
 - Code clean up 
 - Startet with integrating Unit-Tests
 
-## 1.0.2 (unspecified)
+
+## 1.0.2 (2016-11-27)
 
   - New size options (fullscreen, halfscreen and custom) for width and height instead of plain CGSize
   - New alignment options for NonFullscreen Presentations

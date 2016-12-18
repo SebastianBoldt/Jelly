@@ -1,18 +1,34 @@
-# Jelly 1.2.0
+
+# Jelly
+#### Lighweight Viewcontroller animations with just a few lines of code
 
 ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/Jellyfish.png)
 
-[![CI Status](https://travis-ci.org/SebastianBoldt/Jelly.svg?style=flat)](https://travis-ci.org/SebastianBoldt/Jelly)
+[![CI Status](https://travis-ci.org/SebastianBoldt/Jelly.svg?branch=master)](https://travis-ci.org/SebastianBoldt/Jelly)
 [![Version](https://img.shields.io/cocoapods/v/Jelly.svg?style=flat)](http://cocoapods.org/pods/Jelly)
 [![License](https://img.shields.io/cocoapods/l/Jelly.svg?style=flat)](http://cocoapods.org/pods/Jelly)
 [![Platform](https://img.shields.io/cocoapods/p/Jelly.svg?style=flat)](http://cocoapods.org/pods/Jelly)
 [![Twitter](https://img.shields.io/badge/twitter-@sebastianboldt-blue.svg?style=flat)](http://twitter.com/sebastianboldt)
+[![codebeat badge](https://codebeat.co/badges/dae39b83-80b4-44a2-9400-3edc331ced70)](https://codebeat.co/projects/github-com-sebastianboldt-jelly)
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift3-compatible-orange.svg?style=flat" alt="Swift 3 compatible" /></a>
 
 Jelly provides custom view controller transitions with just a few lines of code. 
 No need to create your own PresentationController or Animator-Objects.
 A Jelly-Animator will do the heavy lifting for you.
 
-## How to use 🔧
+## 📱 Example 
+
+You can use Jelly to build your own Alert-Views or Slidein-Menus using ViewControllers designed by yourself.
+
+![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/notification.gif?raw=true)   ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/slideover.gif?raw=true) 
+
+
+![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/fadin.gif?raw=true)  ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/blurredslidein.gif?raw=true)
+
+
+To run the example project, clone  the repo, and run `pod install` from the Example directory first.
+
+## 🔧How to use 
 
 Jelly is super easy to use. 
 
@@ -55,7 +71,7 @@ class CustomVC : UIViewController {
 
 That's it. That's lit.
 
-## Customize 🖌
+## 🖌 Customize
 Jelly Supports two types of Presentations.
 * **JellySlideInPresentation**
 * **JellyShiftInPresentation**
@@ -106,41 +122,65 @@ They all share some properties and each property has a default value
     * bottom
     * right
 * Jellyness (default: none)
+* **widthForViewController:** JellyConstants.Size (default: fullscreen)
+    * If the container is smaller than the provided width Jelly will automatically resize to the containers width
+    * if Margin Guards are specified they also will be applied if width is to wide for the container
+* **heightForViewController:** JellyConstants.Size (default: fullscreen)
+    * If the container is smaller than the provided height Jelly will automatically resize to the containers width
+    * if Margin Guards are specified they also will be applied when height is to high for the container
+* **horizontalAlignment:** JellyConstants.HorizontalAlignment (default: .center)
+    * center, left or right
+* **verticalAlignemt:** JellyConstants.VerticalAlignment (default:center)
+    * top, bottom, center
+* **marginGuards:** default(UIEdgeInsets.zero)
+    * If the width or height is bigger than the container we are working with, marginGuards will kick in and limit the size using the specified margins
+* **backgroundStyle:** JellyConstants.BackgroundStyle (default: dimmed)
+    * dimmed, blur(effectStyle), none
+* **cornerRadius:** Double (default: 0)
+* **presentationCurve:** JellyConstants.JellyCurve (default: linear)
+    * easeIn, easeOut, easeInEaseOut, linear
+* **dismissCurve:** JellyConstants.JellyCurve (default: linear)
+    * easeIn, easeOut, easeInEaseOut, linear
+
+**JellySlideInAnimation provides 3 extra Properties**
+
+* **directionShow:** JellyConstants.Direction (default: top)
+    * left, top, bottom, right
+* **directionDismiss:** JellyConstants.Direction (default: top)
+    * left, top, bottom, right
+* **jellyness:** (default: none)
     * none (damping = 1.0, velocity = 0.0)
     * jelly (damping = 0.7, velocity = 2)
     * jellier (damping = 0.5 , velocity = 3)
     * jelliest (damping = 0.2, velocity = 4)
 
 ```swift
-let customPresentation = JellySlideInPresentation(dismissCurve: .linear, 
-                                             presentationCurve: .linear, 
-                                                  cornerRadius: 15, 
-                                               backgroundStyle: .blur(effectStyle:.dark), 
-                                                     jellyness: .jelly, 
-                                                      duration: .normal, 
-                                         sizeForViewController: CGSize(width:300, height: 300), 
-                                                 directionShow: .left, 
-                                              directionDismiss: .right)
 
-self.jellyAnimator = JellyAnimator(presentation:presentation)
+let customPresentation = JellySlideInPresentation(dismissCurve: .linear,
+                                                    presentationCurve: .linear,
+                                                         cornerRadius: 15,
+                                                      backgroundStyle: .blur(effectStyle: .light),
+                                                            jellyness: .jellier,
+                                                             duration: .normal,
+                                                        directionShow: .top,
+                                                     directionDismiss: .top,
+                                               widthForViewController: .fullscreen, 
+                                              heightForViewController: .custom(value:200) ,
+                                                  horizontalAlignment: .center,
+                                                    verticalAlignment: .top,
+                                                         marginGuards: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
+
+
+self.jellyAnimator = JellyAnimator(presentation:customPresentation)
 self.jellyAnimator?.prepare(viewController: viewController)
 self.present(viewController, animated: true, completion: nil)
 ```
 
-## Example 📱
-
-You can use Jelly to build your own Alert-Views using ViewControllers designed by yourself.
-
-![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/blurredslidein.gif?raw=true)  ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/jellyslidein.gif?raw=true)
-
-
-To run the example project, clone  the repo, and run `pod install` from the Example directory first.
-
-## Requirements
+## ✅ Requirements
 
 Your Project at least needs a deployment target that is > iOS 9.0
 
-## Installation
+## 📲 Installation
 
 Jelly is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
@@ -148,11 +188,15 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "Jelly"
 ```
+## 🗣 Mentions
 
-## Author
+* Mentioned in <i>iOS Dev Weekly</i> by <a href="https://twitter.com/daveverwer">@Dave Verwer</a> - <a href="http://iosdevweekly.com/issues/279"> Issue NO. 112 </a>
+* Mentioned in <i>This Week in Swift</i> by <a href="https://twitter.com/NatashaTheRobot">@Natasha the Robot</a> - <a href="https://swiftnews.curated.co/issues/112#start"> Issue No. 279 </a>
+
+## 🤖 Author
 
 Sebastian Boldt, self.dealloc@googlemail.com
 
-## License
+## 📄 License
 
 Jelly is available under the MIT license. See the LICENSE file for more info.

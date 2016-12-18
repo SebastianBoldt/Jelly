@@ -35,6 +35,7 @@
 		154509491DF6084C0096C822 /* JellyAnimatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellyAnimatorSpec.swift; sourceTree = "<group>"; };
 		155B7B841DE1E5820093DF2A /* CustomNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
 		15B1CF971DEB5827003B4107 /* ExampleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleDataProvider.swift; sourceTree = "<group>"; };
+		15B1CF991DEB7299003B4107 /* Github */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Github; path = ../Github; sourceTree = "<group>"; };
 		15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissMeController.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Jelly_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jelly_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				15B1CF991DEB7299003B4107 /* Github */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for Jelly */,
 				607FACE81AFB9204008FA782 /* Tests */,
