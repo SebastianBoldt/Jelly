@@ -92,7 +92,7 @@ Check outh the interfaces of each class to learn more about it.
     * blur(effectStyle)
     * none
 * **cornerRadius:** Double (default: 0)
-* **rectCorner:** UIRectCorner (default: .allCorners)
+* **corners:** UIRectCorner (default: .allCorners)
     * define which corners the radius should be applied to
 * **presentationCurve:** JellyConstants.JellyCurve (default: linear)
     * easeIn
@@ -105,13 +105,13 @@ Check outh the interfaces of each class to learn more about it.
     * easeInEaseOut
     * linear
 * **isTapBackgroundToDismissEnabled** (default: true)
-    * tappind the background dismisses the vc by default
+    * tapping the background dismisses the ViewController by default
     * set it to false to prevent this behavior
 * **widthForViewController:** JellyConstants.Size (default: fullscreen)
-    * If the container is smaller than the provided width Jelly will automatically resize to the containers width
+    * If the container is smaller than the provided width, Jelly will automatically resize to the containers width
     * if Margin Guards are specified they also will be applied if width is to wide for the container
 * **heightForViewController:** JellyConstants.Size (default: fullscreen)
-    * If the container is smaller than the provided height Jelly will automatically resize to the containers width
+    * If the container is smaller than the provided height, Jelly will automatically resize to the containers width
     * if Margin Guards are specified they also will be applied when height is to high for the container
 * **horizontalAlignment:** JellyConstants.HorizontalAlignment (default: .center)
     * center, left or right
@@ -143,7 +143,8 @@ let customPresentation = JellySlideInPresentation(dismissCurve: .linear,
                                               heightForViewController: .custom(value:200) ,
                                                   horizontalAlignment: .center,
                                                     verticalAlignment: .top,
-                                                         marginGuards: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
+                                                         marginGuards: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10),
+                                                              corners: [.topLeft,.bottomRight])
 
 
 self.jellyAnimator = JellyAnimator(presentation:customPresentation)
@@ -153,7 +154,7 @@ self.present(viewController, animated: true, completion: nil)
 
 ## ✅ Requirements
 
-Your Project at least needs a deployment target that is > iOS 9.0
+Your Project at least needs a deployment target that is >= iOS 9.0
 
 ## 📲 Installation
 
