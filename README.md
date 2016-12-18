@@ -77,7 +77,7 @@ Jelly Supports two types of Presentations.
 * **JellyShiftInPresentation**
 * **JellyFadeInPresentation**
 
-Some Properties are just available for special presentations
+Not every property is available for each animation
 
 * **duration:** JellyConstants.Duration (default: normal)
     * ultraSlow = 2.0
