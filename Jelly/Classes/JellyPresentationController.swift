@@ -279,6 +279,8 @@ fileprivate extension JellyPresentationController {
     }
     
     dynamic func handleTap(recognizer: UITapGestureRecognizer) {
-        presentingViewController.dismiss(animated: true)
+        if self.presentation.isTapBackgroundToDismissEnabled {
+            presentingViewController.dismiss(animated: true)
+        }
     }
 }

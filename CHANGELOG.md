@@ -1,3 +1,6 @@
+## 1.2.1 (2017-01-11)
+- Fixed issue with background tap dismissal options
+
 ## 1.2.0 (2016-12-18)
 - There is a new cool animation style called shiftIn Animation. Check out the README to find out more
 - Rounding Corners can now be specified unsing the corners property (e.g. presentation.corners = [.leftBottom,rightTop])
