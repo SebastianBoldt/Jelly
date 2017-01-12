@@ -32,7 +32,8 @@ class JellyPresentationController : UIPresentationController {
         switch self.presentation.backgroundStyle {
         case .blur(let effectStyle):
             animateBlurView(effectStyle: effectStyle)
-        case .dimmed:
+        case .dimmed(let alpha):
+            dimmingView.backgroundColor = UIColor(white: 0.0, alpha: alpha)
             animateDimmingView()
         case .none:
             ()

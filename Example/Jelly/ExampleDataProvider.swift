@@ -69,7 +69,7 @@ struct ExampleDataProvider {
         let slideOverPresentation = JellySlideInPresentation(dismissCurve: .linear,
                                                         presentationCurve: .linear,
                                                              cornerRadius: 0,
-                                                          backgroundStyle: .dimmed,
+                                                             backgroundStyle: .dimmed(alpha: 0.5),
                                                                 jellyness: .none,
                                                                  duration: .normal,
                                                             directionShow: .left,
