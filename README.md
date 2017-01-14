@@ -33,7 +33,7 @@ To run the example project, clone  the repo, and run `pod install` from the Exam
 
 Jelly is super easy to use. 
 
-1. Create a *JellyPresentation* Object
+1. Create a *JellyPresentation* Object (SlideIn, FadeIn or ShiftIn)
 2. Initialize a *JellyAnimator* using the *JellyPresentation* Object created in Step 1.
 3. Call the *prepare(viewController:UIViewController)* Function
 4. Finally call the native *UIViewController* presentation function.
@@ -42,9 +42,13 @@ Jelly is super easy to use.
 override func viewDidLoad() {
     super.viewDidLoad()
     let viewController = self.storyboard.instantiateViewController(withIdentifier: "someViewController")
+    //1.
     let presentation = JellySlideInPresentation()
+    //2.
     self.jellyAnimator = JellyAnimator(presentation:presentation)
+    //3.
     self.jellyAnimator?.prepare(viewController: viewController)
+    //4.
     self.present(viewController, animated: true, completion: nil)
 }
 
