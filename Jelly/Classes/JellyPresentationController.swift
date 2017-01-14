@@ -23,8 +23,14 @@ class JellyPresentationController : UIPresentationController {
         presentedViewController.view.layer.masksToBounds = true
         presentedViewController.view.roundCorners(corners: self.presentation.corners, radius: presentation.cornerRadius)
         
+      
+      if case .dimmed(let alpha) = presentation.backgroundStyle {
+        self.setupDimmingView(withAlpha: alpha)
+      } else {
         self.setupDimmingView()
-        self.setupBlurView()
+      }
+      
+      self.setupBlurView()
     }
     
     /// Presentation and Dismissal stuff
@@ -32,7 +38,7 @@ class JellyPresentationController : UIPresentationController {
         switch self.presentation.backgroundStyle {
         case .blur(let effectStyle):
             animateBlurView(effectStyle: effectStyle)
-        case .dimmed:
+        case .dimmed(_):
             animateDimmingView()
         case .none:
             ()
@@ -268,11 +274,11 @@ fileprivate extension JellyPresentationController {
         blurView.addGestureRecognizer(recognizer)
     }
     
-    func setupDimmingView() {
+  func setupDimmingView(withAlpha alpha: CGFloat = 0.5) {
         dimmingView = UIView()
         dimmingView.translatesAutoresizingMaskIntoConstraints = false
         dimmingView.alpha = 0.0
-        dimmingView.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
+        dimmingView.backgroundColor = UIColor(white: 0.0, alpha: alpha)
 
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
         dimmingView.addGestureRecognizer(recognizer)

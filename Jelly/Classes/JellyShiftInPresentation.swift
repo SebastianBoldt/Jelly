@@ -23,7 +23,7 @@ public struct JellyShiftInPresentation: JellyPresentation {
     public init(dismissCurve: JellyConstants.JellyCurve = .linear,
                 presentationCurve: JellyConstants.JellyCurve = .linear,
                 cornerRadius: Double = 0.0,
-                backgroundStyle: JellyConstants.BackgroundStyle = .dimmed,
+                backgroundStyle: JellyConstants.BackgroundStyle = .dimmed(alpha: 0.5),
                 jellyness: JellyConstants.Jellyness = .none,
                 duration: JellyConstants.Duration = .normal,
                 direction: JellyConstants.Direction = .bottom,
