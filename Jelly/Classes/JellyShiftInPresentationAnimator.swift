@@ -87,7 +87,7 @@ extension JellyShiftInPresentationAnimator : UIViewControllerAnimatedTransitioni
                         underlyingViewController.view.frame = finalFrameForUnderlying
                         
         }, completion:{ finished in
-            transitionContext.completeTransition(finished)
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
         
     }

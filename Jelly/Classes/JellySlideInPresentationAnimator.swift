@@ -61,7 +61,7 @@ extension JellySlideInPresentationAnimator : UIViewControllerAnimatedTransitioni
         animations: {
             controllerToAnimate.view.frame = finalFrame
         }, completion:{ finished in
-            transitionContext.completeTransition(finished)
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
         
     }

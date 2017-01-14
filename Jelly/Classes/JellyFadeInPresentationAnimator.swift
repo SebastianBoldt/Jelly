@@ -51,7 +51,7 @@ extension JellyFadeInPresentationAnimator : UIViewControllerAnimatedTransitionin
                        animations: {
                         controllerToAnimate.view.alpha = CGFloat(finalAlpha)
         }, completion:{ finished in
-            transitionContext.completeTransition(finished)
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
         
     }
