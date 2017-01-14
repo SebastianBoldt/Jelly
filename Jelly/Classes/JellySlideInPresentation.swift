@@ -9,7 +9,7 @@ public struct JellySlideInPresentation: JellyPresentation, AlignablePresentation
     public   var dismissCurve: JellyConstants.JellyCurve = .linear
     public   var presentationCurve: JellyConstants.JellyCurve = .linear
     public   var cornerRadius: Double = 0.0
-    public   var backgroundStyle: JellyConstants.BackgroundStyle = .none
+    public   var backgroundStyle: JellyConstants.BackgroundStyle = .dimmed(alpha: 0.5)
     public   var jellyness: JellyConstants.Jellyness
     public   var duration : JellyConstants.Duration = .normal // Duration the ViewController needs to kick in
     public   var widthForViewController: JellyConstants.Size = .halfscreen
