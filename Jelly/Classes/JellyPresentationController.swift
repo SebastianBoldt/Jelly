@@ -11,8 +11,8 @@ import UIKit
 class JellyPresentationController : UIPresentationController {
     
     fileprivate var presentation: JellyPresentation
-    fileprivate var dimmingView: UIView! // The PresentationController manages the dimmingView
-    fileprivate var blurView: UIVisualEffectView!
+    fileprivate var dimmingView: UIView?
+    fileprivate var blurView: UIVisualEffectView?
     
     init(presentedViewController: UIViewController, presentingViewController: UIViewController?, presentation: JellyPresentation) {
         
@@ -23,8 +23,7 @@ class JellyPresentationController : UIPresentationController {
         presentedViewController.view.layer.masksToBounds = true
         presentedViewController.view.roundCorners(corners: self.presentation.corners, radius: presentation.cornerRadius)
         
-        self.setupDimmingView()
-        self.setupBlurView()
+        self.setupBackgroundViews(forBackGroundStyle: presentation.backgroundStyle)
     }
     
     /// Presentation and Dismissal stuff
@@ -32,14 +31,16 @@ class JellyPresentationController : UIPresentationController {
         switch self.presentation.backgroundStyle {
         case .blur(let effectStyle):
             animateBlurView(effectStyle: effectStyle)
-        case .dimmed:
+        case .dimmed(_):
             animateDimmingView()
-        case .none:
-            ()
         }
     }
     
     private func animateBlurView(effectStyle: UIBlurEffectStyle) {
+        guard let blurView = self.blurView else {
+            return
+        }
+        
         containerView?.insertSubview(blurView, at: 0)
         NSLayoutConstraint.activate(
             NSLayoutConstraint.constraints(withVisualFormat: "V:|[blurView]|",
@@ -55,12 +56,16 @@ class JellyPresentationController : UIPresentationController {
         
         UIView.animate(withDuration: presentation.duration.rawValue, animations: {
             let effect = UIBlurEffect(style: effectStyle)
-            self.blurView.effect = effect
+            blurView.effect = effect
 
         })
     }
     
     private func animateDimmingView() {
+        guard let dimmingView = self.dimmingView else {
+            return
+        }
+        
         containerView?.insertSubview(dimmingView, at: 0)
         NSLayoutConstraint.activate(
             NSLayoutConstraint.constraints(withVisualFormat: "V:|[dimmingView]|",
@@ -75,22 +80,22 @@ class JellyPresentationController : UIPresentationController {
         }
         
         coordinator.animate(alongsideTransition: { _ in
-            self.dimmingView.alpha = 1.0
+            dimmingView.alpha = 1.0
         })
     }
     
     override func dismissalTransitionWillBegin() {
         guard let coordinator = presentedViewController.transitionCoordinator else {
-            dimmingView.alpha = 0.0
+            dimmingView?.alpha = 0.0
             return
         }
         
         coordinator.animate(alongsideTransition: { _ in
-            self.dimmingView.alpha = 0.0
+            self.dimmingView?.alpha = 0.0
         })
         
         UIView.animate(withDuration: presentation.duration.rawValue, animations: {
-            self.blurView.effect = nil
+            self.blurView?.effect = nil
         })
     }
     
@@ -261,24 +266,36 @@ class JellyPresentationController : UIPresentationController {
 
 
 fileprivate extension JellyPresentationController {
-    func setupBlurView () {
-        blurView = UIVisualEffectView()
-        blurView.translatesAutoresizingMaskIntoConstraints = false
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
-        blurView.addGestureRecognizer(recognizer)
+    fileprivate func setupBackgroundViews(forBackGroundStyle backGroundStyle: JellyConstants.BackgroundStyle) {
+        switch backGroundStyle {
+        case .dimmed(let alpha):
+            self.setupDimmingView(withAlpha: alpha)
+        case .blur(let effectStyle):
+            self.setupBlurView()
+        }
     }
     
-    func setupDimmingView() {
+    // We are not setting the Blur style over here because we need to animate it later
+    func setupBlurView () {
+        blurView = UIVisualEffectView()
+        blurView?.translatesAutoresizingMaskIntoConstraints = false
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
+        blurView?.addGestureRecognizer(recognizer)
+    }
+    
+    func setupDimmingView(withAlpha alpha: CGFloat = 0.5) {
         dimmingView = UIView()
-        dimmingView.translatesAutoresizingMaskIntoConstraints = false
-        dimmingView.alpha = 0.0
-        dimmingView.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
+        dimmingView?.translatesAutoresizingMaskIntoConstraints = false
+        dimmingView?.alpha = 0.0
+        dimmingView?.backgroundColor = UIColor(white: 0.0, alpha: alpha)
 
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
-        dimmingView.addGestureRecognizer(recognizer)
+        dimmingView?.addGestureRecognizer(recognizer)
     }
     
     dynamic func handleTap(recognizer: UITapGestureRecognizer) {
-        presentingViewController.dismiss(animated: true)
+        if self.presentation.isTapBackgroundToDismissEnabled {
+            presentingViewController.dismiss(animated: true)
+        }
     }
 }

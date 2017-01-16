@@ -26,9 +26,8 @@ public struct JellyConstants {
     }
     
     public enum BackgroundStyle {
-        case dimmed
+        case dimmed(alpha: CGFloat)
         case blur(effectStyle: UIBlurEffectStyle)
-        case none
     }
     
     /// Will the ViewController be shown or dismissed?
