@@ -18,14 +18,13 @@ final class JellyFadeInPresentationAnimator: NSObject {
 }
 
 extension JellyFadeInPresentationAnimator : UIViewControllerAnimatedTransitioning {
-    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return presentation.duration.rawValue
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        let key: UITransitionContextViewControllerKey = getViewControllerKeyForPresentationType(type: self.presentationType)
+        let key = getViewControllerKeyForPresentationType(type: self.presentationType)
         let isPresentation = key == .to
         let controllerToAnimate = transitionContext.viewController(forKey: key)!
         
@@ -59,9 +58,9 @@ extension JellyFadeInPresentationAnimator : UIViewControllerAnimatedTransitionin
     private func getViewControllerKeyForPresentationType(type: JellyConstants.PresentationType) -> UITransitionContextViewControllerKey {
         switch type {
         case .show:
-            return UITransitionContextViewControllerKey.to
+            return .to
         case .dismiss:
-            return UITransitionContextViewControllerKey.from
+            return .from
         }
     }
 }
