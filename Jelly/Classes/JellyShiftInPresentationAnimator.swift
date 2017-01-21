@@ -27,8 +27,8 @@ extension JellyShiftInPresentationAnimator : UIViewControllerAnimatedTransitioni
     // Refactor this please .... 😡
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        let presentedKey: UITransitionContextViewControllerKey = getPresentedViewControllerKeyForPresentationType(type: self.presentationType)
-        let underlyingKey: UITransitionContextViewControllerKey = getUnderlyingViewControllerKeyForPresentationType(type: self.presentationType)
+        let presentedKey = getPresentedViewControllerKeyForPresentationType(type: self.presentationType)
+        let underlyingKey = getUnderlyingViewControllerKeyForPresentationType(type: self.presentationType)
         
         let isPresentation = (presentedKey == .to) // Are we presenting or dismissing
         let presentedViewController = transitionContext.viewController(forKey: presentedKey)! // ViewController that will be presented and removed on dismissal
@@ -87,7 +87,7 @@ extension JellyShiftInPresentationAnimator : UIViewControllerAnimatedTransitioni
                         underlyingViewController.view.frame = finalFrameForUnderlying
                         
         }, completion:{ finished in
-            transitionContext.completeTransition(finished)
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
         
     }
@@ -117,18 +117,18 @@ extension JellyShiftInPresentationAnimator : UIViewControllerAnimatedTransitioni
     private func getPresentedViewControllerKeyForPresentationType(type: JellyConstants.PresentationType) -> UITransitionContextViewControllerKey {
         switch type {
         case .show:
-            return UITransitionContextViewControllerKey.to
+            return .to
         case .dismiss:
-            return UITransitionContextViewControllerKey.from
+            return .from
         }
     }
     
     private func getUnderlyingViewControllerKeyForPresentationType(type: JellyConstants.PresentationType) -> UITransitionContextViewControllerKey {
         switch type {
         case .show:
-            return UITransitionContextViewControllerKey.from
+            return .from
         case .dismiss:
-            return UITransitionContextViewControllerKey.to
+            return .to
         }
     }
 }

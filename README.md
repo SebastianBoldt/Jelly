@@ -90,10 +90,10 @@ Check outh the interfaces of each class to learn more about them.
     * normal = 0.35
     * fast = 0.2
     * reallyFast = 0.1
-* **backgroundStyle:** JellyConstants.BackgroundStyle (default: dimmed)
-    * dimmed
-    * blur(effectStyle)
-    * none
+* **backgroundStyle:** JellyConstants.BackgroundStyle (default: .dimmed(0.5))
+    * dimmed(alpha: CGFloat)
+    * blur(effectStyle: UIBlurEffectStyle)
+    * if you want a transparent background use .dimmed(alpha:0.0)
 * **cornerRadius:** Double (default: 0)
 * **corners:** UIRectCorner (default: .allCorners)
     * define which corners the radius should be applied to

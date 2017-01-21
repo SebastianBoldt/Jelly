@@ -1,3 +1,7 @@
+## 1.2.2 (2017-01-21)
+- Removed .none as backgroundStyle and replaced it with .dimmed and an associated value: .dimmed(alpha: CGFloat)
+- Code cleanup 
+
 ## 1.2.1 (2017-01-11)
 - Fixed issue with background tap dismissal options
 

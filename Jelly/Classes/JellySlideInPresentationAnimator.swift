@@ -26,7 +26,7 @@ extension JellySlideInPresentationAnimator : UIViewControllerAnimatedTransitioni
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        let key: UITransitionContextViewControllerKey = getViewControllerKeyForPresentationType(type: self.presentationType)
+        let key = getViewControllerKeyForPresentationType(type: self.presentationType)
         let isPresentation = key == .to
         let controllerToAnimate = transitionContext.viewController(forKey: key)!
         
@@ -61,7 +61,7 @@ extension JellySlideInPresentationAnimator : UIViewControllerAnimatedTransitioni
         animations: {
             controllerToAnimate.view.frame = finalFrame
         }, completion:{ finished in
-            transitionContext.completeTransition(finished)
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
         
     }
@@ -91,9 +91,9 @@ extension JellySlideInPresentationAnimator : UIViewControllerAnimatedTransitioni
     private func getViewControllerKeyForPresentationType(type: JellyConstants.PresentationType) -> UITransitionContextViewControllerKey {
         switch type {
         case .show:
-            return UITransitionContextViewControllerKey.to
+            return .to
         case .dismiss:
-            return UITransitionContextViewControllerKey.from
+            return .from
         }
     }
 }
