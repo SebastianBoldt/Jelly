@@ -32,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		152009C91E26C6EA00537CD5 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
+		154175841E337E4F00503A99 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		154509481DF6084B0096C822 /* Jelly_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jelly_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		154509491DF6084C0096C822 /* JellyAnimatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellyAnimatorSpec.swift; sourceTree = "<group>"; };
 		155B7B841DE1E5820093DF2A /* CustomNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				154175841E337E4F00503A99 /* README.md */,
 				152009C91E26C6EA00537CD5 /* CHANGELOG.md */,
 				15B1CF991DEB7299003B4107 /* Github */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,

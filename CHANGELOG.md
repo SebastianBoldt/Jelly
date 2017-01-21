@@ -1,4 +1,4 @@
-## 1.2.2 (Soon)
+## 1.2.2 (2017-01-21)
 - Removed .none as backgroundStyle and replaced it with .dimmed and an associated value: .dimmed(alpha: CGFloat)
 - Code cleanup 
 
