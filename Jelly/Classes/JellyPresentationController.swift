@@ -6,8 +6,8 @@ import UIKit
 
 
 /// A JellyPresentationControllers tells UIKit what exactly to do with the View that should be presented
-/// It also react to Transtion states etc.
-/// We basically use this controller to setup dimmingView, blurView, positioning the presented ViewController etc.
+/// It also reacts to transtion state changes etc.
+/// We  use this controller to setup dimmingView, blurView, positioning the presented ViewController etc.
 class JellyPresentationController : UIPresentationController {
     
     fileprivate var presentation: JellyPresentation
