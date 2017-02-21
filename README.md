@@ -81,7 +81,7 @@ Jelly offers 3 types of Presentations for you:
 * **JellyFadeInPresentation**
 
 Not every property is available for each animation. 
-Check outh the interfaces of each class to learn more about them.
+Check out the interfaces of each class to learn more about them.
 
 * **duration:** JellyConstants.Duration (default: normal)
     * ultraSlow = 2.0
