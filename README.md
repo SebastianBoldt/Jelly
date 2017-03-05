@@ -1,26 +1,27 @@
 
 # Jelly
-#### Lighweight Viewcontroller animations with just a few lines of code
+#### Create rich viewcontroller transition animations with just a few lines of code
 
 ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/Jellyfish.png)
 
 [![CI Status](https://travis-ci.org/SebastianBoldt/Jelly.svg?branch=master)](https://travis-ci.org/SebastianBoldt/Jelly)
 [![Version](https://img.shields.io/cocoapods/v/Jelly.svg?style=flat)](http://cocoapods.org/pods/Jelly)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/Jelly.svg?style=flat)](http://cocoapods.org/pods/Jelly)
 [![Platform](https://img.shields.io/cocoapods/p/Jelly.svg?style=flat)](http://cocoapods.org/pods/Jelly)
 [![Twitter](https://img.shields.io/badge/twitter-@sebastianboldt-blue.svg?style=flat)](http://twitter.com/sebastianboldt)
 [![codebeat badge](https://codebeat.co/badges/dae39b83-80b4-44a2-9400-3edc331ced70)](https://codebeat.co/projects/github-com-sebastianboldt-jelly)
 <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift3-compatible-orange.svg?style=flat" alt="Swift 3 compatible" /></a>
 
-Jelly provides custom view controller transitions with just a few lines of code. 
+Jelly provides custom view controller transitions with just a few lines of code.
 No need to create your own Presentation-Controller or Animator objects.
 A Jelly-Animator will do the heavy lifting for you.
 
-## 📱 Example 
+## 📱 Example
 
 You can use Jelly to build your own Alertviews or Slidein-Menus using ViewControllers designed by yourself.
 
-![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/notification.gif?raw=true)   ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/slideover.gif?raw=true) 
+![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/notification.gif?raw=true)   ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/slideover.gif?raw=true)
 
 ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/shiftindimmed.gif?raw=true)  ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/shiftinblurred.gif?raw=true)
 
@@ -29,11 +30,11 @@ You can use Jelly to build your own Alertviews or Slidein-Menus using ViewContro
 
 To run the example project, clone  the repo, and run `pod install` from the Example directory first.
 
-## 🔧How to use 
+## 🔧How to use
 
-Jelly is super easy to use. 
+Jelly is super easy to use.
 
-1. Create a *JellyPresentation* Object
+1. Create a *JellyPresentation* Object (SlideIn, FadeIn or ShiftIn)
 2. Initialize a *JellyAnimator* using the *JellyPresentation* Object created in Step 1.
 3. Call the *prepare(viewController:UIViewController)* Function
 4. Finally call the native *UIViewController* presentation function.
@@ -42,9 +43,13 @@ Jelly is super easy to use.
 override func viewDidLoad() {
     super.viewDidLoad()
     let viewController = self.storyboard.instantiateViewController(withIdentifier: "someViewController")
+    //1.
     let presentation = JellySlideInPresentation()
+    //2.
     self.jellyAnimator = JellyAnimator(presentation:presentation)
+    //3.
     self.jellyAnimator?.prepare(viewController: viewController)
+    //4.
     self.present(viewController, animated: true, completion: nil)
 }
 
@@ -52,10 +57,10 @@ override func viewDidLoad() {
 
 ***DO NOT FORGET TO KEEP A STRONG 💪 REFERENCE***
 
-Because the *transitioningDelegate* of a *UIViewController* is weak, you need to 
+Because the *transitioningDelegate* of a *UIViewController* is weak, you need to
 hold a strong reference to the *JellyAnimator* inside the *UIViewController* you are presenting from or the central object that maintains your presentations.
 
-```swift 
+```swift
 class CustomVC : UIViewController {
     var jellyAnimator: JellyAnimator?
     override func viewDidLoad() {
@@ -76,8 +81,8 @@ Jelly offers 3 types of Presentations for you:
 * **JellyShiftInPresentation**
 * **JellyFadeInPresentation**
 
-Not every property is available for each animation. 
-Check outh the interfaces of each class to learn more about them.
+Not every property is available for each animation.
+Check out the interfaces of each class to learn more about them.
 
 * **duration:** JellyConstants.Duration (default: normal)
     * ultraSlow = 2.0
@@ -138,7 +143,7 @@ let customPresentation = JellySlideInPresentation(dismissCurve: .linear,
                                                              duration: .normal,
                                                         directionShow: .top,
                                                      directionDismiss: .top,
-                                               widthForViewController: .fullscreen, 
+                                               widthForViewController: .fullscreen,
                                               heightForViewController: .custom(value:200) ,
                                                   horizontalAlignment: .center,
                                                     verticalAlignment: .top,

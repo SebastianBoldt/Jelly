@@ -232,7 +232,6 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = JY9STJR6M4;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -512,7 +511,7 @@
 			baseConfigurationReference = BABAA34872E633F4B994ABEC /* Pods-Jelly_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JY9STJR6M4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Jelly/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -528,7 +527,7 @@
 			baseConfigurationReference = 892F430A239ED6F02F960085 /* Pods-Jelly_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JY9STJR6M4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Jelly/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
