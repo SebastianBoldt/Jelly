@@ -36,7 +36,6 @@ extension ViewController: UITableViewDelegate {
             self.jellyAnimator = JellyAnimator(presentation:presentation)
             self.jellyAnimator?.prepare(viewController: viewController)
             self.present(viewController, animated: true, completion: nil)
-
         }
     }
 }

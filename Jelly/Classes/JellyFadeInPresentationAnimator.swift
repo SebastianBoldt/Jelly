@@ -24,7 +24,7 @@ extension JellyFadeInPresentationAnimator : UIViewControllerAnimatedTransitionin
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        let key = getViewControllerKeyForPresentationType(type: self.presentationType)
+        let key = getPresentedViewControllerKeyForPresentationType(type: self.presentationType)
         let isPresentation = key == .to
         let controllerToAnimate = transitionContext.viewController(forKey: key)!
         
@@ -53,14 +53,5 @@ extension JellyFadeInPresentationAnimator : UIViewControllerAnimatedTransitionin
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
         
-    }
-    
-    private func getViewControllerKeyForPresentationType(type: JellyConstants.PresentationType) -> UITransitionContextViewControllerKey {
-        switch type {
-        case .show:
-            return .to
-        case .dismiss:
-            return .from
-        }
     }
 }

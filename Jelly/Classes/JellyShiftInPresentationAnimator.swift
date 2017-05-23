@@ -24,7 +24,6 @@ extension JellyShiftInPresentationAnimator : UIViewControllerAnimatedTransitioni
         return presentation.duration.rawValue
     }
     
-    // Refactor this please .... 😡
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         let presentedKey = getPresentedViewControllerKeyForPresentationType(type: self.presentationType)
@@ -46,14 +45,14 @@ extension JellyShiftInPresentationAnimator : UIViewControllerAnimatedTransitioni
         var presentedFrameForUnderlying = transitionContext.containerView.frame
         
         switch self.presentation.direction {
-        case .left:
-            presentedFrameForUnderlying.origin.x = presentedFrameForPresented.origin.x + presentedFrameForPresented.size.width
-        case .right:
-            presentedFrameForUnderlying.origin.x = presentedFrameForUnderlying.origin.x - presentedFrameForPresented.size.width
-        case .top:
-            presentedFrameForUnderlying.origin.y = presentedFrameForPresented.origin.y + presentedFrameForPresented.size.height
-        case .bottom:
-            presentedFrameForUnderlying.origin.y = presentedFrameForUnderlying.origin.y - presentedFrameForPresented.size.height
+            case .left:
+                presentedFrameForUnderlying.origin.x = presentedFrameForPresented.origin.x + presentedFrameForPresented.size.width
+            case .right:
+                presentedFrameForUnderlying.origin.x = presentedFrameForUnderlying.origin.x - presentedFrameForPresented.size.width
+            case .top:
+                presentedFrameForUnderlying.origin.y = presentedFrameForPresented.origin.y + presentedFrameForPresented.size.height
+            case .bottom:
+                presentedFrameForUnderlying.origin.y = presentedFrameForUnderlying.origin.y - presentedFrameForPresented.size.height
         }
         
         let dismissedFrameForUnderLying = transitionContext.containerView.frame
@@ -102,34 +101,16 @@ extension JellyShiftInPresentationAnimator : UIViewControllerAnimatedTransitioni
     private func calculateDismissedFrame(from presentedFrame: CGRect, usingDirection direction: JellyConstants.Direction , andContext transitionContext: UIViewControllerContextTransitioning) -> CGRect {
         var dismissedFrame: CGRect = presentedFrame
         switch direction {
-        case .left:
-            dismissedFrame.origin.x = -presentedFrame.width
-        case .right:
-            dismissedFrame.origin.x = transitionContext.containerView.frame.size.width
-        case .top:
-            dismissedFrame.origin.y = -presentedFrame.height
-        case .bottom:
-            dismissedFrame.origin.y = transitionContext.containerView.frame.size.height
+            case .left:
+                dismissedFrame.origin.x = -presentedFrame.width
+            case .right:
+                dismissedFrame.origin.x = transitionContext.containerView.frame.size.width
+            case .top:
+                dismissedFrame.origin.y = -presentedFrame.height
+            case .bottom:
+                dismissedFrame.origin.y = transitionContext.containerView.frame.size.height
         }
         return dismissedFrame
-    }
-    
-    private func getPresentedViewControllerKeyForPresentationType(type: JellyConstants.PresentationType) -> UITransitionContextViewControllerKey {
-        switch type {
-        case .show:
-            return .to
-        case .dismiss:
-            return .from
-        }
-    }
-    
-    private func getUnderlyingViewControllerKeyForPresentationType(type: JellyConstants.PresentationType) -> UITransitionContextViewControllerKey {
-        switch type {
-        case .show:
-            return .from
-        case .dismiss:
-            return .to
-        }
     }
 }
 

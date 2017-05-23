@@ -17,7 +17,6 @@ public struct JellySlideInPresentation: JellyPresentation, AlignablePresentation
     public   var isTapBackgroundToDismissEnabled: Bool = true
     public   var marginGuards: UIEdgeInsets = .zero
     public   var corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]
-
     // Unique
     public   var directionShow: JellyConstants.Direction = .left // Direction the ViewController slides in from
     public   var directionDismiss: JellyConstants.Direction = .left // Direction the ViewController slides out to
