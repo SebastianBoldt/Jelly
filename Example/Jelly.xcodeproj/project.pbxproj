@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1545094A1DF6084C0096C822 /* JellyAnimatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154509491DF6084C0096C822 /* JellyAnimatorSpec.swift */; };
 		155B7B851DE1E5820093DF2A /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B7B841DE1E5820093DF2A /* CustomNavController.swift */; };
-		15B1CF981DEB5827003B4107 /* ExampleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B1CF971DEB5827003B4107 /* ExampleDataProvider.swift */; };
+		15B1CF981DEB5827003B4107 /* ExampleDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B1CF971DEB5827003B4107 /* ExampleDataFactory.swift */; };
 		15B3AD2D1DE1C5CB003FF7B8 /* DismissMeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -36,7 +36,7 @@
 		154509481DF6084B0096C822 /* Jelly_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jelly_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		154509491DF6084C0096C822 /* JellyAnimatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellyAnimatorSpec.swift; sourceTree = "<group>"; };
 		155B7B841DE1E5820093DF2A /* CustomNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
-		15B1CF971DEB5827003B4107 /* ExampleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleDataProvider.swift; sourceTree = "<group>"; };
+		15B1CF971DEB5827003B4107 /* ExampleDataFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleDataFactory.swift; sourceTree = "<group>"; };
 		15B1CF991DEB7299003B4107 /* Github */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Github; path = ../Github; sourceTree = "<group>"; };
 		15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissMeController.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Jelly_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jelly_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +117,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				15B1CF971DEB5827003B4107 /* ExampleDataProvider.swift */,
+				15B1CF971DEB5827003B4107 /* ExampleDataFactory.swift */,
 				15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */,
 				155B7B841DE1E5820093DF2A /* CustomNavController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -382,7 +382,7 @@
 				15B3AD2D1DE1C5CB003FF7B8 /* DismissMeController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				15B1CF981DEB5827003B4107 /* ExampleDataProvider.swift in Sources */,
+				15B1CF981DEB5827003B4107 /* ExampleDataFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
