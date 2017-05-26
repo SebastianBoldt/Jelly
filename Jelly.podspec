@@ -6,7 +6,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'Jelly'
-s.version          = '1.2.2'
+s.version          = '1.2.3'
 s.summary          = 'Jelly provides custom view controller animations with just a few lines of code'
 
 s.description      = <<-DESC

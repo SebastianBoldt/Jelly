@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1545094A1DF6084C0096C822 /* JellyAnimatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154509491DF6084C0096C822 /* JellyAnimatorSpec.swift */; };
 		155B7B851DE1E5820093DF2A /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B7B841DE1E5820093DF2A /* CustomNavController.swift */; };
-		15B1CF981DEB5827003B4107 /* ExampleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B1CF971DEB5827003B4107 /* ExampleDataProvider.swift */; };
+		15B1CF981DEB5827003B4107 /* ExampleDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B1CF971DEB5827003B4107 /* ExampleDataFactory.swift */; };
 		15B3AD2D1DE1C5CB003FF7B8 /* DismissMeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -36,7 +36,7 @@
 		154509481DF6084B0096C822 /* Jelly_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jelly_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		154509491DF6084C0096C822 /* JellyAnimatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellyAnimatorSpec.swift; sourceTree = "<group>"; };
 		155B7B841DE1E5820093DF2A /* CustomNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
-		15B1CF971DEB5827003B4107 /* ExampleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleDataProvider.swift; sourceTree = "<group>"; };
+		15B1CF971DEB5827003B4107 /* ExampleDataFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleDataFactory.swift; sourceTree = "<group>"; };
 		15B1CF991DEB7299003B4107 /* Github */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Github; path = ../Github; sourceTree = "<group>"; };
 		15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissMeController.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Jelly_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jelly_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +117,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				15B1CF971DEB5827003B4107 /* ExampleDataProvider.swift */,
+				15B1CF971DEB5827003B4107 /* ExampleDataFactory.swift */,
 				15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */,
 				155B7B841DE1E5820093DF2A /* CustomNavController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -227,12 +227,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = JY9STJR6M4;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -383,7 +382,7 @@
 				15B3AD2D1DE1C5CB003FF7B8 /* DismissMeController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				15B1CF981DEB5827003B4107 /* ExampleDataProvider.swift in Sources */,
+				15B1CF981DEB5827003B4107 /* ExampleDataFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,8 +437,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -483,8 +484,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -503,6 +506,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -512,7 +516,7 @@
 			baseConfigurationReference = BABAA34872E633F4B994ABEC /* Pods-Jelly_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JY9STJR6M4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Jelly/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -528,7 +532,7 @@
 			baseConfigurationReference = 892F430A239ED6F02F960085 /* Pods-Jelly_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JY9STJR6M4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Jelly/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

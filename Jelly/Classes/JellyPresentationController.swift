@@ -11,8 +11,8 @@ import UIKit
 class JellyPresentationController : UIPresentationController {
     
     fileprivate var presentation: JellyPresentation
-    fileprivate var dimmingView: UIView?
-    fileprivate var blurView: UIVisualEffectView?
+    fileprivate var dimmingView: UIView = UIView()
+    fileprivate var blurView: UIVisualEffectView = UIVisualEffectView()
     
     init(presentedViewController: UIViewController, presentingViewController: UIViewController?, presentation: JellyPresentation) {
         
@@ -22,80 +22,52 @@ class JellyPresentationController : UIPresentationController {
         
         presentedViewController.view.layer.masksToBounds = true
         presentedViewController.view.roundCorners(corners: self.presentation.corners, radius: presentation.cornerRadius)
-        
-        self.setupBackgroundViews(forBackGroundStyle: presentation.backgroundStyle)
     }
     
-    /// Presentation and Dismissal stuff
     override func presentationTransitionWillBegin() {
         switch self.presentation.backgroundStyle {
-        case .blur(let effectStyle):
-            animateBlurView(effectStyle: effectStyle)
-        case .dimmed(_):
-            animateDimmingView()
+            case .blur(let effectStyle):
+                self.setupBlurView()
+                animateBlurView(effectStyle: effectStyle)
+            case .dimmed(_):
+                self.setupDimmingView()
+                animateDimmingView()
         }
     }
     
     private func animateBlurView(effectStyle: UIBlurEffectStyle) {
-        guard let blurView = self.blurView else {
-            return
-        }
-        
-        containerView?.insertSubview(blurView, at: 0)
-        NSLayoutConstraint.activate(
-            NSLayoutConstraint.constraints(withVisualFormat: "V:|[blurView]|",
-                                           options: [], metrics: nil, views: ["blurView": blurView]))
-        NSLayoutConstraint.activate(
-            NSLayoutConstraint.constraints(withVisualFormat: "H:|[blurView]|",
-                                           options: [], metrics: nil, views: ["blurView": blurView]))
-        
-        guard let coordinator = presentedViewController.transitionCoordinator else {
-            blurView.effect = nil
-            return
-        }
-        
-        UIView.animate(withDuration: presentation.duration.rawValue, animations: {
-            let effect = UIBlurEffect(style: effectStyle)
-            blurView.effect = effect
+        let effect = UIBlurEffect(style: effectStyle)
 
+        guard let coordinator = presentedViewController.transitionCoordinator else {
+            self.blurView.effect = effect
+            return
+        }
+        
+        coordinator.animate(alongsideTransition: { _ in
+            self.blurView.effect = effect
         })
     }
     
     private func animateDimmingView() {
-        guard let dimmingView = self.dimmingView else {
-            return
-        }
-        
-        containerView?.insertSubview(dimmingView, at: 0)
-        NSLayoutConstraint.activate(
-            NSLayoutConstraint.constraints(withVisualFormat: "V:|[dimmingView]|",
-                                           options: [], metrics: nil, views: ["dimmingView": dimmingView]))
-        NSLayoutConstraint.activate(
-            NSLayoutConstraint.constraints(withVisualFormat: "H:|[dimmingView]|",
-                                           options: [], metrics: nil, views: ["dimmingView": dimmingView]))
-        
         guard let coordinator = presentedViewController.transitionCoordinator else {
             dimmingView.alpha = 1.0
             return
         }
         
         coordinator.animate(alongsideTransition: { _ in
-            dimmingView.alpha = 1.0
+            self.dimmingView.alpha = 1.0
         })
     }
     
     override func dismissalTransitionWillBegin() {
         guard let coordinator = presentedViewController.transitionCoordinator else {
-            dimmingView?.alpha = 0.0
+            dimmingView.alpha = 0.0
             return
         }
         
         coordinator.animate(alongsideTransition: { _ in
-            self.dimmingView?.alpha = 0.0
-        })
-        
-        UIView.animate(withDuration: presentation.duration.rawValue, animations: {
-            self.blurView?.effect = nil
+            self.dimmingView.alpha = 0.0
+            self.blurView.effect = nil
         })
     }
     
@@ -113,47 +85,31 @@ class JellyPresentationController : UIPresentationController {
         
         var width : CGFloat = 0.0
         switch nonFullScreenPresentation.widthForViewController {
-        case .fullscreen:
-            width = parentSize.width
-        case .halfscreen:
-            width = parentSize.width / 2
-        case .custom(let value):
-            width = value
+            case .fullscreen:
+                width = parentSize.width
+            case .halfscreen:
+                width = parentSize.width / 2
+            case .custom(let value):
+                width = value
         }
         
         var height : CGFloat = 0.0
         switch nonFullScreenPresentation.heightForViewController {
-        case .fullscreen:
-            height = parentSize.height
-        case .halfscreen:
-            height = parentSize.height / 2
-        case .custom(let value):
-            height = value
+            case .fullscreen:
+                height = parentSize.height
+            case .halfscreen:
+                height = parentSize.height / 2
+            case .custom(let value):
+                height = value
         }
         
         return CGSize(width: width, height: height)
     }
     
-    // Refactor this crap please
     override var frameOfPresentedViewInContainerView: CGRect {
         
         if let shiftIn = self.presentation as? JellyShiftInPresentation {
-            var shiftFrame : CGRect = .zero
-            // Refactor this crap 😡
-            let size = getSizeValue(fromPresentation: shiftIn)
-            switch shiftIn.direction {
-            case .left:
-                shiftFrame = CGRect(x: 0, y: 0, width: size, height: containerView!.bounds.size.height)
-            case .right:
-                shiftFrame = CGRect(x: containerView!.bounds.size.width - size, y: 0, width: size, height: containerView!.bounds.size.height)
-            case .top:
-                shiftFrame =  CGRect(x: 0, y: 0, width: containerView!.bounds.size.width, height: size)
-            case .bottom:
-                shiftFrame = CGRect(x: 0, y: containerView!.bounds.size.height - size , width: containerView!.bounds.size.width, height: size)
-            }
-            limit(frame: &shiftFrame, withSize: containerView!.bounds.size)
-            return shiftFrame
-
+            return self.getFrameForShiftInPresentation(shiftIn: shiftIn)
         }
         
         guard let dynamicPresentation = self.presentation as? DynamicPresentation else {
@@ -169,22 +125,39 @@ class JellyPresentationController : UIPresentationController {
         return frame
     }
     
+    private func getFrameForShiftInPresentation(shiftIn: JellyShiftInPresentation) -> CGRect {
+        var shiftFrame : CGRect = .zero
+        let size = getSizeValue(fromPresentation: shiftIn)
+        switch shiftIn.direction {
+            case .left:
+                shiftFrame = CGRect(x: 0, y: 0, width: size, height: containerView!.bounds.size.height)
+            case .right:
+                shiftFrame = CGRect(x: containerView!.bounds.size.width - size, y: 0, width: size, height: containerView!.bounds.size.height)
+            case .top:
+                shiftFrame =  CGRect(x: 0, y: 0, width: containerView!.bounds.size.width, height: size)
+            case .bottom:
+                shiftFrame = CGRect(x: 0, y: containerView!.bounds.size.height - size , width: containerView!.bounds.size.width, height: size)
+        }
+        limit(frame: &shiftFrame, withSize: containerView!.bounds.size)
+        return shiftFrame
+    }
+    
     private func getSizeValue(fromPresentation presentation: JellyShiftInPresentation) -> CGFloat{
         switch  presentation.size {
-        case .custom(let value):
-            return value
-        case .halfscreen:
-            if presentation.direction.orientation() == .horizontal {
-                return (self.containerView?.frame.size.width)! / 2
-            } else {
-                return (self.containerView?.frame.size.height)! / 2
-            }
-        case .fullscreen:
-            if presentation.direction.orientation() == .horizontal {
-                return (self.containerView?.frame.size.width)!
-            } else {
-                return (self.containerView?.frame.size.height)!
-            }
+            case .custom(let value):
+                return value
+            case .halfscreen:
+                if presentation.direction.orientation() == .horizontal {
+                    return (self.containerView?.frame.size.width)! / 2
+                } else {
+                    return (self.containerView?.frame.size.height)! / 2
+                }
+            case .fullscreen:
+                if presentation.direction.orientation() == .horizontal {
+                    return (self.containerView?.frame.size.width)!
+                } else {
+                    return (self.containerView?.frame.size.height)!
+                }
         }
     }
     
@@ -240,57 +213,67 @@ class JellyPresentationController : UIPresentationController {
             
             // Prepare Horizontal Alignment
             switch alignablePresentation.horizontalAlignment {
-            case .center:
-                frame.origin.x = (containerView!.frame.size.width/2)-(frame.size.width/2)
-            case .left:
-                frame.origin.x = 0
-            case .right:
-                frame.origin.x = (containerView?.frame.size.width)! - frame.size.width
+                case .center:
+                    frame.origin.x = (containerView!.frame.size.width/2)-(frame.size.width/2)
+                case .left:
+                    frame.origin.x = 0
+                case .right:
+                    frame.origin.x = (containerView?.frame.size.width)! - frame.size.width
             }
             
             // Prepare Vertical Alignment
             switch alignablePresentation.verticalAlignemt {
-            case .center:
-                frame.origin.y = (containerView!.frame.size.height/2)-(frame.size.height/2)
-            case .top:
-                frame.origin.y = 0
-            case .bottom:
-                frame.origin.y = (containerView?.frame.size.height)! - frame.size.height
+                case .center:
+                    frame.origin.y = (containerView!.frame.size.height/2)-(frame.size.height/2)
+                case .top:
+                    frame.origin.y = 0
+                case .bottom:
+                    frame.origin.y = (containerView?.frame.size.height)! - frame.size.height
             }
         } else {
             frame.origin.x = (containerView!.frame.size.width/2)-(frame.size.width/2)
             frame.origin.y = (containerView!.frame.size.height/2)-(frame.size.height/2)
         }
     }
-}
-
-
-fileprivate extension JellyPresentationController {
-    fileprivate func setupBackgroundViews(forBackGroundStyle backGroundStyle: JellyConstants.BackgroundStyle) {
-        switch backGroundStyle {
-        case .dimmed(let alpha):
-            self.setupDimmingView(withAlpha: alpha)
-        case .blur(let effectStyle):
-            self.setupBlurView()
-        }
-    }
     
-    // We are not setting the Blur style over here because we need to animate it later
     func setupBlurView () {
-        blurView = UIVisualEffectView()
-        blurView?.translatesAutoresizingMaskIntoConstraints = false
+        
+        blurView.translatesAutoresizingMaskIntoConstraints = false
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
-        blurView?.addGestureRecognizer(recognizer)
+        blurView.addGestureRecognizer(recognizer)
+        
+        containerView?.insertSubview(blurView, at: 0)
+        
+        guard let containerView = containerView else {
+            return
+        }
+        
+        NSLayoutConstraint.activate([blurView.leftAnchor.constraint(equalTo: containerView.leftAnchor)])
+        NSLayoutConstraint.activate([blurView.rightAnchor.constraint(equalTo: containerView.rightAnchor)])
+        NSLayoutConstraint.activate([blurView.topAnchor.constraint(equalTo: containerView.topAnchor)])
+        NSLayoutConstraint.activate([blurView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)])
     }
     
     func setupDimmingView(withAlpha alpha: CGFloat = 0.5) {
-        dimmingView = UIView()
-        dimmingView?.translatesAutoresizingMaskIntoConstraints = false
-        dimmingView?.alpha = 0.0
-        dimmingView?.backgroundColor = UIColor(white: 0.0, alpha: alpha)
-
+        
+        dimmingView.translatesAutoresizingMaskIntoConstraints = false
+        dimmingView.alpha = 0.0
+        dimmingView.backgroundColor = UIColor(white: 0.0, alpha: alpha)
+        
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
-        dimmingView?.addGestureRecognizer(recognizer)
+        dimmingView.addGestureRecognizer(recognizer)
+        
+        containerView?.insertSubview(dimmingView, at: 0)
+        
+        guard let containerView = containerView else {
+            return
+        }
+        
+        NSLayoutConstraint.activate([dimmingView.leftAnchor.constraint(equalTo: containerView.leftAnchor)])
+        NSLayoutConstraint.activate([dimmingView.rightAnchor.constraint(equalTo: containerView.rightAnchor)])
+        NSLayoutConstraint.activate([dimmingView.topAnchor.constraint(equalTo: containerView.topAnchor)])
+        NSLayoutConstraint.activate([dimmingView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)])
+        
     }
     
     dynamic func handleTap(recognizer: UITapGestureRecognizer) {

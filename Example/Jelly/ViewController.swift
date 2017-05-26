@@ -27,7 +27,6 @@ class ViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
 }
 
 extension ViewController: UITableViewDelegate {
@@ -37,7 +36,6 @@ extension ViewController: UITableViewDelegate {
             self.jellyAnimator = JellyAnimator(presentation:presentation)
             self.jellyAnimator?.prepare(viewController: viewController)
             self.present(viewController, animated: true, completion: nil)
-
         }
     }
 }
@@ -59,6 +57,4 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-    
 }
-

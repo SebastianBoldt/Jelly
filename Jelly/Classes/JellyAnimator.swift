@@ -13,9 +13,7 @@ import UIKit
 public class JellyAnimator : NSObject {
     
     fileprivate var presentation: JellyPresentation
-    private weak var viewController : UIViewController?
-    
-    
+        
     /// ## designated initializer
     /// - Parameter presentation: a custom Presentation Object
     public init(presentation: JellyPresentation) {

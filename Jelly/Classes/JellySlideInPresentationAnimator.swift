@@ -26,7 +26,7 @@ extension JellySlideInPresentationAnimator : UIViewControllerAnimatedTransitioni
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        let key = getViewControllerKeyForPresentationType(type: self.presentationType)
+        let key = getPresentedViewControllerKeyForPresentationType(type: self.presentationType)
         let isPresentation = key == .to
         let controllerToAnimate = transitionContext.viewController(forKey: key)!
         
@@ -76,24 +76,15 @@ extension JellySlideInPresentationAnimator : UIViewControllerAnimatedTransitioni
     private func calculateDismissedFrame(from presentedFrame: CGRect, usingDirection direction: JellyConstants.Direction , andContext transitionContext: UIViewControllerContextTransitioning) -> CGRect {
         var dismissedFrame: CGRect = presentedFrame
         switch direction {
-        case .left:
-            dismissedFrame.origin.x = -presentedFrame.width
-        case .right:
-            dismissedFrame.origin.x = transitionContext.containerView.frame.size.width
-        case .top:
-            dismissedFrame.origin.y = -presentedFrame.height
-        case .bottom:
-            dismissedFrame.origin.y = transitionContext.containerView.frame.size.height
+            case .left:
+                dismissedFrame.origin.x = -presentedFrame.width
+            case .right:
+                dismissedFrame.origin.x = transitionContext.containerView.frame.size.width
+            case .top:
+                dismissedFrame.origin.y = -presentedFrame.height
+            case .bottom:
+                dismissedFrame.origin.y = transitionContext.containerView.frame.size.height
         }
         return dismissedFrame
-    }
-    
-    private func getViewControllerKeyForPresentationType(type: JellyConstants.PresentationType) -> UITransitionContextViewControllerKey {
-        switch type {
-        case .show:
-            return .to
-        case .dismiss:
-            return .from
-        }
     }
 }

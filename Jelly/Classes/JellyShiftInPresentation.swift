@@ -19,7 +19,7 @@ public struct JellyShiftInPresentation: JellyPresentation {
     public  var direction : JellyConstants.Direction = .bottom
     public  var size: JellyConstants.Size = .halfscreen
     public  var corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]
-
+    
     public init(dismissCurve: JellyConstants.JellyCurve = .linear,
                 presentationCurve: JellyConstants.JellyCurve = .linear,
                 cornerRadius: Double = 0.0,
