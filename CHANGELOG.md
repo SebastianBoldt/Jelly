@@ -1,3 +1,7 @@
+## 1.2.3 (2017-05-26)
+- Code cleanup 
+- Removed visual format language based code and replaced it using layout anchors
+
 ## 1.2.2 (2017-01-21)
 - Removed .none as backgroundStyle and replaced it with .dimmed and an associated value: .dimmed(alpha: CGFloat)
 - Code cleanup 
