@@ -22,7 +22,7 @@ s.social_media_url = 'http://twitter.com/sebastianboldt'
 s.source           = { :git => 'https://github.com/SebastianBoldt/Jelly.git', :tag => s.version.to_s }
 s.social_media_url = 'https://twitter.com/sebastianboldt'
 
-s.ios.deployment_target = '9.0'
+s.ios.deployment_target = '8.0'
 s.source_files = 'Jelly/Classes/**/*'
 s.frameworks = 'UIKit'
 
