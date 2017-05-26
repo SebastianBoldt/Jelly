@@ -248,10 +248,21 @@ class JellyPresentationController : UIPresentationController {
             return
         }
         
-        NSLayoutConstraint.activate([blurView.leftAnchor.constraint(equalTo: containerView.leftAnchor)])
-        NSLayoutConstraint.activate([blurView.rightAnchor.constraint(equalTo: containerView.rightAnchor)])
-        NSLayoutConstraint.activate([blurView.topAnchor.constraint(equalTo: containerView.topAnchor)])
-        NSLayoutConstraint.activate([blurView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)])
+        if #available(iOS 9.0, *) {
+            NSLayoutConstraint.activate([blurView.leftAnchor.constraint(equalTo: containerView.leftAnchor)])
+            NSLayoutConstraint.activate([blurView.rightAnchor.constraint(equalTo: containerView.rightAnchor)])
+            NSLayoutConstraint.activate([blurView.topAnchor.constraint(equalTo: containerView.topAnchor)])
+            NSLayoutConstraint.activate([blurView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)])
+        } else {
+            // Fallback on earlier versions
+            NSLayoutConstraint.activate(
+                NSLayoutConstraint.constraints(withVisualFormat: "V:|[blurView]|",
+                                               options: [], metrics: nil, views: ["blurView": blurView]))
+            NSLayoutConstraint.activate(
+                NSLayoutConstraint.constraints(withVisualFormat: "H:|[blurView]|",
+                                               options: [], metrics: nil, views: ["blurView": blurView]))
+
+        }
     }
     
     func setupDimmingView(withAlpha alpha: CGFloat = 0.5) {
@@ -269,10 +280,22 @@ class JellyPresentationController : UIPresentationController {
             return
         }
         
-        NSLayoutConstraint.activate([dimmingView.leftAnchor.constraint(equalTo: containerView.leftAnchor)])
-        NSLayoutConstraint.activate([dimmingView.rightAnchor.constraint(equalTo: containerView.rightAnchor)])
-        NSLayoutConstraint.activate([dimmingView.topAnchor.constraint(equalTo: containerView.topAnchor)])
-        NSLayoutConstraint.activate([dimmingView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)])
+        if #available(iOS 9.0, *) {
+            NSLayoutConstraint.activate([dimmingView.leftAnchor.constraint(equalTo: containerView.leftAnchor)])
+            NSLayoutConstraint.activate([dimmingView.rightAnchor.constraint(equalTo: containerView.rightAnchor)])
+            NSLayoutConstraint.activate([dimmingView.topAnchor.constraint(equalTo: containerView.topAnchor)])
+            NSLayoutConstraint.activate([dimmingView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)])
+        } else {
+            // Fallback on earlier versions
+            // Fallback on earlier versions
+            NSLayoutConstraint.activate(
+                NSLayoutConstraint.constraints(withVisualFormat: "V:|[dimmingView]|",
+                                               options: [], metrics: nil, views: ["dimmingView": dimmingView]))
+            NSLayoutConstraint.activate(
+                NSLayoutConstraint.constraints(withVisualFormat: "H:|[dimmingView]|",
+                                               options: [], metrics: nil, views: ["dimmingView": dimmingView]))
+        }
+
         
     }
     

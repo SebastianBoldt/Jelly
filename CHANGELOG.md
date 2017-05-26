@@ -2,6 +2,7 @@
 - Code cleanup 
 - Removed visual format language based code and replaced it using layout anchors
 - Carthage support 
+- iOS 8 support
 
 ## 1.2.2 (2017-01-21)
 - Removed .none as backgroundStyle and replaced it with .dimmed and an associated value: .dimmed(alpha: CGFloat)
