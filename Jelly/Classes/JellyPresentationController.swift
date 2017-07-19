@@ -29,8 +29,8 @@ class JellyPresentationController : UIPresentationController {
             case .blur(let effectStyle):
                 self.setupBlurView()
                 animateBlurView(effectStyle: effectStyle)
-            case .dimmed(_):
-                self.setupDimmingView()
+            case .dimmed(let alpha):
+                self.setupDimmingView(withAlpha: alpha)
                 animateDimmingView()
         }
     }
