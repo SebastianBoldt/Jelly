@@ -11,12 +11,14 @@ public struct JellyConstants {
         case left
         case right
         case center
+        case custom(x: CGFloat)
     }
     
     public enum VerticalAlignment {
         case top
         case bottom
         case center
+        case custom(y: CGFloat)
     }
     
     public enum Size {
