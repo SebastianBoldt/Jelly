@@ -1,18 +1,22 @@
 PODS:
   - Jelly (1.2.3)
-  - Nimble (7.0.0)
-  - Quick (1.1.0)
+  - Nimble (7.0.2)
+  - Quick (1.2.0)
 
 DEPENDENCIES:
-  - Jelly
+  - Jelly (from `../`)
   - Nimble
   - Quick
 
+EXTERNAL SOURCES:
+  Jelly:
+    :path: ../
+
 SPEC CHECKSUMS:
-  Jelly: 471c401b62f86845db3d66dfaca29c89ab8cdcd2
-  Nimble: 874982b605d4d752fcac6be695d13c502de84b1b
-  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
+  Jelly: a28332d1bc418990414da3c5fae8a8860a775c86
+  Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
 
-PODFILE CHECKSUM: abb95dcecdecbcb7fd711e89e7a6c4665e328179
+PODFILE CHECKSUM: fe8899be93801553ef592be5927f9afaa42b4b0b
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.4.0.beta.2
