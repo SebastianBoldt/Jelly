@@ -11,7 +11,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/Jelly.svg?style=flat)](http://cocoapods.org/pods/Jelly)
 [![Twitter](https://img.shields.io/badge/twitter-@sebastianboldt-blue.svg?style=flat)](http://twitter.com/sebastianboldt)
 [![codebeat badge](https://codebeat.co/badges/dae39b83-80b4-44a2-9400-3edc331ced70)](https://codebeat.co/projects/github-com-sebastianboldt-jelly)
-<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift3-compatible-orange.svg?style=flat" alt="Swift 3 compatible" /></a>
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift4-compatible-orange.svg?style=flat" alt="Swift 3 compatible" /></a>
 
 Jelly provides custom view controller transitions with just a few lines of code.
 No need to create your own Presentation-Controller or Animator objects.
