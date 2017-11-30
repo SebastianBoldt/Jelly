@@ -1,3 +1,8 @@
+## 1.2.4 (2017-11-30)
+- Swift 4 support
+- custom postion option is now available though horizontal and vertical alignment parameters
+- fixed dimming view alpha issue
+
 ## 1.2.3 (2017-05-26)
 - Code cleanup 
 - Removed visual format language based code and replaced it using layout anchors

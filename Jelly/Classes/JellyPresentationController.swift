@@ -219,6 +219,8 @@ class JellyPresentationController : UIPresentationController {
                     frame.origin.x = 0
                 case .right:
                     frame.origin.x = (containerView?.frame.size.width)! - frame.size.width
+                case .custom(let x):
+                    frame.origin.x = x
             }
             
             // Prepare Vertical Alignment
@@ -229,6 +231,8 @@ class JellyPresentationController : UIPresentationController {
                     frame.origin.y = 0
                 case .bottom:
                     frame.origin.y = (containerView?.frame.size.height)! - frame.size.height
+                case .custom(let y):
+                    frame.origin.y = y
             }
         } else {
             frame.origin.x = (containerView!.frame.size.width/2)-(frame.size.width/2)
