@@ -30,6 +30,8 @@ public struct JellyFadeInPresentation: JellyPresentation, AlignablePresentation,
                 duration: JellyConstants.Duration = .normal,
                 widthForViewController: JellyConstants.Size = .fullscreen,
                 heightForViewController: JellyConstants.Size = .fullscreen,
+                horizontalAlignment: JellyConstants.HorizontalAlignment = .center,
+                verticalAlignment: JellyConstants.VerticalAlignment = .center,
                 marginGuards: UIEdgeInsets = .zero,
                 corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]) {
         
@@ -40,6 +42,8 @@ public struct JellyFadeInPresentation: JellyPresentation, AlignablePresentation,
         self.duration = duration
         self.widthForViewController = widthForViewController
         self.heightForViewController = heightForViewController
+        self.horizontalAlignment = horizontalAlignment
+        self.verticalAlignemt = verticalAlignment
         self.marginGuards = marginGuards
         self.corners = corners
     }
