@@ -1,4 +1,4 @@
-#if os(OSX) || os(iOS) || os(watchOS) || os(tvOS)
+#if os(macOS) || os(iOS) || os(watchOS) || os(tvOS)
 import Foundation
 
 /**
@@ -66,7 +66,7 @@ private func testCaseClassForTestCaseWithName(_ name: String) -> AnyClass? {
 
     if let testCaseClass = bundle.classNamed(className) { return testCaseClass }
 
-    guard let moduleName = bundle.bundlePath.fileName else { return nil }
+    let moduleName = bundle.moduleName
 
     return NSClassFromString("\(moduleName).\(className)")
 }

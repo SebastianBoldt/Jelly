@@ -20,6 +20,11 @@
 
 import Foundation
 
+#if SWIFT_PACKAGE
+	import CwlCatchException
+	import CwlMachBadInstructionHandler
+#endif
+
 #if arch(x86_64)
 	
 	private enum PthreadError: Error { case code(Int32) }
@@ -116,7 +121,7 @@ import Foundation
 				
 				handledfirstException = true
 			} else {
-				// If multiple fatal errors occur, don't handle subsquent errors (let the program crash)
+				// If multiple fatal errors occur, don't handle subsequent errors (let the program crash)
 				reply.RetCode = KERN_FAILURE
 			}
 			
@@ -189,6 +194,6 @@ import Foundation
 		}
 		return result
 	}
-
+	
 #endif
 

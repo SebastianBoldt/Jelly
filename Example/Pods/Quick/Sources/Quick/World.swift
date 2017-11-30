@@ -4,13 +4,26 @@ import Foundation
     A closure that, when evaluated, returns a dictionary of key-value
     pairs that can be accessed from within a group of shared examples.
 */
-public typealias SharedExampleContext = () -> (NSDictionary)
+public typealias SharedExampleContext = () -> [String: Any]
 
 /**
     A closure that is used to define a group of shared examples. This
     closure may contain any number of example and example groups.
 */
-public typealias SharedExampleClosure = (@escaping SharedExampleContext) -> ()
+public typealias SharedExampleClosure = (@escaping SharedExampleContext) -> Void
+
+// `#if swift(>=3.2) && (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE`
+// does not work as expected.
+#if swift(>=3.2)
+    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
+    @objcMembers
+    internal class _WorldBase: NSObject {}
+    #else
+    internal class _WorldBase: NSObject {}
+    #endif
+#else
+internal class _WorldBase: NSObject {}
+#endif
 
 /**
     A collection of state Quick builds up in order to work its magic.
@@ -23,7 +36,7 @@ public typealias SharedExampleClosure = (@escaping SharedExampleContext) -> ()
     You may configure how Quick behaves by calling the -[World configure:]
     method from within an overridden +[QuickConfiguration configure:] method.
 */
-final internal class World: NSObject {
+final internal class World: _WorldBase {
     /**
         The example group that is currently being run.
         The DSL requires that this group is correctly set in order to build a
@@ -44,7 +57,7 @@ final internal class World: NSObject {
         within this test suite. This is only true within the context of Quick
         functional tests.
     */
-#if _runtime(_ObjC)
+#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
     // Convention of generating Objective-C selector has been changed on Swift 3
     @objc(isRunningAdditionalSuites)
     internal var isRunningAdditionalSuites = false
@@ -52,10 +65,11 @@ final internal class World: NSObject {
     internal var isRunningAdditionalSuites = false
 #endif
 
-    private var specs: Dictionary<String, ExampleGroup> = [:]
+    private var specs: [String: ExampleGroup] = [:]
     private var sharedExamples: [String: SharedExampleClosure] = [:]
     private let configuration = Configuration()
-    private var isConfigurationFinalized = false
+
+    internal private(set) var isConfigurationFinalized = false
 
     internal var exampleHooks: ExampleHooks {return configuration.exampleHooks }
     internal var suiteHooks: SuiteHooks { return configuration.suiteHooks }
@@ -63,6 +77,7 @@ final internal class World: NSObject {
     // MARK: Singleton Constructor
 
     private override init() {}
+
     static let sharedWorld = World()
 
     // MARK: Public Interface
@@ -143,7 +158,7 @@ final internal class World: NSObject {
         }
     }
 
-#if _runtime(_ObjC)
+#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
     @objc(examplesForSpecClass:)
     private func objc_examples(_ specClass: AnyClass) -> [Example] {
         return examples(specClass)
@@ -165,7 +180,7 @@ final internal class World: NSObject {
     internal var includedExampleCount: Int {
         return includedExamples.count
     }
-    
+
     internal var beforesCurrentlyExecuting: Bool {
         let suiteBeforesExecuting = suiteHooks.phase == .beforesExecuting
         let exampleBeforesExecuting = exampleHooks.phase == .beforesExecuting
@@ -173,10 +188,10 @@ final internal class World: NSObject {
         if let runningExampleGroup = currentExampleMetadata?.example.group {
             groupBeforesExecuting = runningExampleGroup.phase == .beforesExecuting
         }
-        
+
         return suiteBeforesExecuting || exampleBeforesExecuting || groupBeforesExecuting
     }
-    
+
     internal var aftersCurrentlyExecuting: Bool {
         let suiteAftersExecuting = suiteHooks.phase == .aftersExecuting
         let exampleAftersExecuting = exampleHooks.phase == .aftersExecuting
@@ -184,7 +199,7 @@ final internal class World: NSObject {
         if let runningExampleGroup = currentExampleMetadata?.example.group {
             groupAftersExecuting = runningExampleGroup.phase == .aftersExecuting
         }
-        
+
         return suiteAftersExecuting || exampleAftersExecuting || groupAftersExecuting
     }
 

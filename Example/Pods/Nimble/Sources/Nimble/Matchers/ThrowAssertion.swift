@@ -1,16 +1,16 @@
 import Foundation
 
-public func throwAssertion() -> MatcherFunc<Void> {
-    return MatcherFunc { actualExpression, failureMessage in
-    #if arch(x86_64) && _runtime(_ObjC) && !SWIFT_PACKAGE
+public func throwAssertion() -> Predicate<Void> {
+    return Predicate.fromDeprecatedClosure { actualExpression, failureMessage in
+    #if arch(x86_64) && (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
         failureMessage.postfixMessage = "throw an assertion"
         failureMessage.actualValue = nil
-        
+
         var succeeded = true
-        
+
         let caughtException: BadInstructionException? = catchBadInstruction {
             #if os(tvOS)
-                if (!NimbleEnvironment.activeInstance.suppressTVOSAssertionWarning) {
+                if !NimbleEnvironment.activeInstance.suppressTVOSAssertionWarning {
                     print()
                     print("[Nimble Warning]: If you're getting stuck on a debugger breakpoint for a " +
                         "fatal error while using throwAssertion(), please disable 'Debug Executable' " +
@@ -36,11 +36,11 @@ public func throwAssertion() -> MatcherFunc<Void> {
         if !succeeded {
             return false
         }
-        
+
         if caughtException == nil {
             return false
         }
-        
+
         return true
     #elseif SWIFT_PACKAGE
         fatalError("The throwAssertion Nimble matcher does not currently support Swift CLI." +
@@ -49,7 +49,8 @@ public func throwAssertion() -> MatcherFunc<Void> {
     #else
         fatalError("The throwAssertion Nimble matcher can only run on x86_64 platforms with " +
             "Objective-C (e.g. Mac, iPhone 5s or later simulators). You can silence this error " +
-            "by placing the test case inside an #if arch(x86_64) or _runtime(_ObjC) conditional statement")
+            "by placing the test case inside an #if arch(x86_64) or (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) conditional statement")
+        // swiftlint:disable:previous line_length
     #endif
     }
 }

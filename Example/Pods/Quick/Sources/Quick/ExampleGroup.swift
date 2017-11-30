@@ -8,7 +8,7 @@ import Foundation
 final public class ExampleGroup: NSObject {
     weak internal var parent: ExampleGroup?
     internal let hooks = ExampleHooks()
-    
+
     internal var phase: HooksPhase = .nothingExecuted
 
     private let internalDescription: String
@@ -32,25 +32,21 @@ final public class ExampleGroup: NSObject {
         or to any of its descendant example groups.
     */
     public var examples: [Example] {
-        var examples = childExamples
-        for group in childGroups {
-            examples.append(contentsOf: group.examples)
-        }
-        return examples
+        return childExamples + childGroups.flatMap { $0.examples }
     }
 
     internal var name: String? {
-        if let parent = parent {
-            guard let name = parent.name else { return description }
-            return "\(name), \(description)"
-        } else {
+        guard let parent = parent else {
             return isInternalRootExampleGroup ? nil : description
         }
+
+        guard let name = parent.name else { return description }
+        return "\(name), \(description)"
     }
 
     internal var filterFlags: FilterFlags {
         var aggregateFlags = flags
-        walkUp() { (group: ExampleGroup) -> () in
+        walkUp { group in
             for (key, value) in group.flags {
                 aggregateFlags[key] = value
             }
@@ -60,7 +56,7 @@ final public class ExampleGroup: NSObject {
 
     internal var befores: [BeforeExampleWithMetadataClosure] {
         var closures = Array(hooks.befores.reversed())
-        walkUp() { (group: ExampleGroup) -> () in
+        walkUp { group in
             closures.append(contentsOf: Array(group.hooks.befores.reversed()))
         }
         return Array(closures.reversed())
@@ -68,13 +64,13 @@ final public class ExampleGroup: NSObject {
 
     internal var afters: [AfterExampleWithMetadataClosure] {
         var closures = hooks.afters
-        walkUp() { (group: ExampleGroup) -> () in
+        walkUp { group in
             closures.append(contentsOf: group.hooks.afters)
         }
         return closures
     }
 
-    internal func walkDownExamples(_ callback: (_ example: Example) -> ()) {
+    internal func walkDownExamples(_ callback: (_ example: Example) -> Void) {
         for example in childExamples {
             callback(example)
         }
@@ -93,7 +89,7 @@ final public class ExampleGroup: NSObject {
         childExamples.append(example)
     }
 
-    private func walkUp(_ callback: (_ group: ExampleGroup) -> ()) {
+    private func walkUp(_ callback: (_ group: ExampleGroup) -> Void) {
         var group = self
         while let parent = group.parent {
             callback(parent)

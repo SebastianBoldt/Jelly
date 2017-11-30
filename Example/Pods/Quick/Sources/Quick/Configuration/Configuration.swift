@@ -4,7 +4,7 @@ import Foundation
     A closure that temporarily exposes a Configuration object within
     the scope of the closure.
 */
-public typealias QuickConfigurer = (_ configuration: Configuration) -> ()
+public typealias QuickConfigurer = (_ configuration: Configuration) -> Void
 
 /**
     A closure that, given metadata about an example, returns a boolean value
@@ -19,14 +19,14 @@ public typealias ExampleFilter = (_ example: Example) -> Bool
 final public class Configuration: NSObject {
     internal let exampleHooks = ExampleHooks()
     internal let suiteHooks = SuiteHooks()
-    internal var exclusionFilters: [ExampleFilter] = [{ example in
+    internal var exclusionFilters: [ExampleFilter] = [ { example in
         if let pending = example.filterFlags[Filter.pending] {
             return pending
         } else {
             return false
         }
     }]
-    internal var inclusionFilters: [ExampleFilter] = [{ example in
+    internal var inclusionFilters: [ExampleFilter] = [ { example in
         if let focused = example.filterFlags[Filter.focused] {
             return focused
         } else {
@@ -72,7 +72,7 @@ final public class Configuration: NSObject {
         provided with metadata on the example that the closure is being run
         prior to.
     */
-#if _runtime(_ObjC)
+#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
     @objc(beforeEachWithMetadata:)
     public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
         exampleHooks.appendBefore(closure)
@@ -109,7 +109,7 @@ final public class Configuration: NSObject {
         is provided with metadata on the example that the closure is being
         run after.
     */
-#if _runtime(_ObjC)
+#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
     @objc(afterEachWithMetadata:)
     public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
         exampleHooks.appendAfter(closure)
