@@ -305,7 +305,9 @@ class JellyPresentationController : UIPresentationController {
     
     @objc dynamic func handleTap(recognizer: UITapGestureRecognizer) {
         if self.presentation.isTapBackgroundToDismissEnabled {
-            presentingViewController.dismiss(animated: true)
+            let jellyAnimator = JellyAnimator(presentation:presentation)
+            jellyAnimator.prepare(viewController: presentedViewController)
+            presentedViewController.dismiss(animated: true)
         }
     }
 }
