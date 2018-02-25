@@ -4,7 +4,7 @@ platform :ios, '8.0'
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Jelly_Example' do
-    pod 'Jelly' #, :path => '../'
+    pod 'Jelly' , :path => '../'
 
   target 'Jelly_Tests' do
     inherit! :search_paths

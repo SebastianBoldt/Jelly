@@ -158,7 +158,7 @@ self.present(viewController, animated: true, completion: nil)
 
 ## ✅ Requirements
 
-Deployment target of your App is >= iOS 9.0
+Deployment target of your App is >= iOS 8.0
 
 ## 📲 Installation
 
