@@ -4,14 +4,12 @@
 
 ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/Jellyfish.png)
 
-[![CI Status](https://travis-ci.org/SebastianBoldt/Jelly.svg?branch=master)](https://travis-ci.org/SebastianBoldt/Jelly)
-[![Version](https://img.shields.io/cocoapods/v/Jelly.svg?style=flat)](http://cocoapods.org/pods/Jelly)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![License](https://img.shields.io/cocoapods/l/Jelly.svg?style=flat)](http://cocoapods.org/pods/Jelly)
-[![Platform](https://img.shields.io/cocoapods/p/Jelly.svg?style=flat)](http://cocoapods.org/pods/Jelly)
-[![Twitter](https://img.shields.io/badge/twitter-@sebastianboldt-blue.svg?style=flat)](http://twitter.com/sebastianboldt)
-[![codebeat badge](https://codebeat.co/badges/dae39b83-80b4-44a2-9400-3edc331ced70)](https://codebeat.co/projects/github-com-sebastianboldt-jelly)
-<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift4-compatible-orange.svg?style=flat" alt="Swift 3 compatible" /></a>
+<a href="https://cocoapods.org/pods/Jelly"><img src="https://img.shields.io/badge/version-1.2.4-green.svg?longCache=true&style=flat-square" alt="current version" /></a>
+<a href="http://twitter.com/sebastianboldt"><img src="https://img.shields.io/badge/twitter-@sebastianboldt-blue.svg?longCache=true&style=flat-square" alt="twitter handle" /></a>
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift4-compatible-orange.svg?longCache=true&style=flat-square" alt="Swift 4 compatible" /></a>
+<a href="https://www.apple.com/de/ios/ios-11/"><img src="https://img.shields.io/badge/platform-iOS-lightgray.svg?longCache=true&style=flat-square" alt="platform" /></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/carthage-compatible-green.svg?longCache=true&style=flat-square" alt="carthage support" /></a>
+<a href="https://en.wikipedia.org/wiki/MIT_License"><img src="https://img.shields.io/badge/license-MIT-lightgray.svg?longCache=true&style=flat-square" alt="license" /></a>
 
 Jelly provides custom view controller transitions with just a few lines of code.
 No need to create your own Presentation-Controller or Animator objects.
