@@ -35,7 +35,7 @@ class JellyPresentationController : UIPresentationController {
         }
     }
     
-    private func animateBlurView(effectStyle: UIBlurEffectStyle) {
+    private func animateBlurView(effectStyle: UIBlurEffect.Style) {
         let effect = UIBlurEffect(style: effectStyle)
 
         guard let coordinator = presentedViewController.transitionCoordinator else {
