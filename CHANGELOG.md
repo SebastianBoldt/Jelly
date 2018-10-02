@@ -1,3 +1,6 @@
+## 1.2.5 (2018-10-02)
+- Swift 4.2 support
+
 ## 1.2.4 (2017-11-30)
 - Swift 4 support
 - custom postion option is now available though horizontal and vertical alignment parameters
