@@ -29,7 +29,7 @@ public struct JellyConstants {
     
     public enum BackgroundStyle {
         case dimmed(alpha: CGFloat)
-        case blur(effectStyle: UIBlurEffectStyle)
+        case blur(effectStyle: UIBlurEffect.Style)
     }
     
     /// Will the ViewController be shown or dismissed?
@@ -105,7 +105,7 @@ public struct JellyConstants {
         case easeOut
         case linear
         
-        public func getAnimationOptionForJellyCurve() -> UIViewAnimationOptions {
+        public func getAnimationOptionForJellyCurve() -> UIView.AnimationOptions {
             switch self {
                 case .easeInEaseOut:
                     return .curveEaseInOut
