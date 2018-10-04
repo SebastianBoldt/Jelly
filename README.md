@@ -173,7 +173,7 @@ pod "Jelly"
 
 ## 🤖 Author
 
-Sebastian Boldt, http://sebastianboldt.com
+Sebastian Boldt, www.sebastianboldt.com
 
 ## 📄 License
 
