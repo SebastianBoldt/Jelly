@@ -69,20 +69,20 @@ public struct JellyConstants {
         func convertJellyness() -> Jelly {
             
             var damping = 1.0
-            var velocity = 0
+            var velocity = 0.0
             
             switch self {
             case .none:
                 ()
             case .jelly:
                 damping = 0.7
-                velocity = 2
+                velocity = 2.0
             case .jellier:
                 damping = 0.5
-                velocity = 3
+                velocity = 3.0
             case .jelliest:
                 damping = 0.2
-                velocity = 4
+                velocity = 4.0
             }
             
             return Jelly(damping:CGFloat(damping),velocity:CGFloat(velocity))
