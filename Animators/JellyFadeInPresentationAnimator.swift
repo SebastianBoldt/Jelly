@@ -14,7 +14,6 @@ final class JellyFadeInPresentationAnimator: NSObject {
         self.presentation = presentation
         super.init()
     }
-    
 }
 
 extension JellyFadeInPresentationAnimator : UIViewControllerAnimatedTransitioning {

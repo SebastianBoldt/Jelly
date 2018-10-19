@@ -6,7 +6,6 @@ import Foundation
 
 /// Datamodel Types which will be used to create a JellyPresentationObject
 public struct JellyConstants {
-    
     public enum HorizontalAlignment {
         case left
         case right
@@ -99,7 +98,6 @@ public struct JellyConstants {
     }
     
     public enum JellyCurve {
-        
         case easeInEaseOut
         case easeIn
         case easeOut
@@ -118,5 +116,4 @@ public struct JellyConstants {
             }
         }
     }
-
 }

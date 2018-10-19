@@ -9,13 +9,11 @@ import UIKit
 /// It also reacts to transtion state changes etc.
 /// We  use this controller to setup dimmingView, blurView, positioning the presented ViewController etc.
 class JellyPresentationController : UIPresentationController {
-    
     fileprivate var presentation: JellyPresentation
     fileprivate var dimmingView: UIView = UIView()
     fileprivate var blurView: UIVisualEffectView = UIVisualEffectView()
     
     init(presentedViewController: UIViewController, presentingViewController: UIViewController?, presentation: JellyPresentation) {
-        
         self.presentation = presentation
         super.init(presentedViewController: presentedViewController,
                    presenting: presentingViewController)
@@ -107,7 +105,6 @@ class JellyPresentationController : UIPresentationController {
     }
     
     override var frameOfPresentedViewInContainerView: CGRect {
-        
         if let shiftIn = self.presentation as? JellyShiftInPresentation {
             return self.getFrameForShiftInPresentation(shiftIn: shiftIn)
         }
@@ -188,7 +185,6 @@ class JellyPresentationController : UIPresentationController {
     /// - Parameters:
     ///   - frame: frame to limit
     ///   - size: size to apply
-    
     private func limit(frame: inout CGRect, withSize size: CGSize) {
         if (frame.size.height > size.height) {
             frame.origin.y = 0
@@ -200,7 +196,6 @@ class JellyPresentationController : UIPresentationController {
             frame.size.width = size.width
         }
     }
-    
     
     /// Align alignes the Frame using the alignment options specified inside the presentation object
     ///
@@ -241,11 +236,9 @@ class JellyPresentationController : UIPresentationController {
     }
     
     func setupBlurView () {
-        
         blurView.translatesAutoresizingMaskIntoConstraints = false
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
         blurView.addGestureRecognizer(recognizer)
-        
         containerView?.insertSubview(blurView, at: 0)
         
         guard let containerView = containerView else {
@@ -265,12 +258,10 @@ class JellyPresentationController : UIPresentationController {
             NSLayoutConstraint.activate(
                 NSLayoutConstraint.constraints(withVisualFormat: "H:|[blurView]|",
                                                options: [], metrics: nil, views: ["blurView": blurView]))
-
         }
     }
     
     func setupDimmingView(withAlpha alpha: CGFloat = 0.5) {
-        
         dimmingView.translatesAutoresizingMaskIntoConstraints = false
         dimmingView.alpha = 0.0
         dimmingView.backgroundColor = UIColor(white: 0.0, alpha: alpha)
@@ -291,7 +282,6 @@ class JellyPresentationController : UIPresentationController {
             NSLayoutConstraint.activate([dimmingView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)])
         } else {
             // Fallback on earlier versions
-            // Fallback on earlier versions
             NSLayoutConstraint.activate(
                 NSLayoutConstraint.constraints(withVisualFormat: "V:|[dimmingView]|",
                                                options: [], metrics: nil, views: ["dimmingView": dimmingView]))
@@ -299,8 +289,6 @@ class JellyPresentationController : UIPresentationController {
                 NSLayoutConstraint.constraints(withVisualFormat: "H:|[dimmingView]|",
                                                options: [], metrics: nil, views: ["dimmingView": dimmingView]))
         }
-
-        
     }
     
     @objc dynamic func handleTap(recognizer: UITapGestureRecognizer) {

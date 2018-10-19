@@ -5,18 +5,14 @@
 import Foundation
 
 final class JellySlideInPresentationAnimator: NSObject {
-    
-    let direction: JellyConstants.Direction
     let presentationType : JellyConstants.PresentationType
     let presentation : JellySlideInPresentation
     
-    init(direction: JellyConstants.Direction, presentationType: JellyConstants.PresentationType, presentation: JellySlideInPresentation) {
-        self.direction = direction
+    init(presentationType: JellyConstants.PresentationType, presentation: JellySlideInPresentation) {
         self.presentationType = presentationType
         self.presentation = presentation
         super.init()
     }
-    
 }
 
 extension JellySlideInPresentationAnimator : UIViewControllerAnimatedTransitioning {
@@ -36,7 +32,8 @@ extension JellySlideInPresentationAnimator : UIViewControllerAnimatedTransitioni
         }
         
         let presentedFrame = transitionContext.finalFrame(for: controllerToAnimate) // Frame the ViewController will have after animation completes
-        let dismissedFrame = calculateDismissedFrame(from: presentedFrame, usingDirection: self.direction, andContext: transitionContext) // Frame the ViewController will have when he is dismissed
+        let direction = self.presentationType == .show ? presentation.directionShow : presentation.directionDismiss
+        let dismissedFrame = calculateDismissedFrame(from: presentedFrame, usingDirection: direction, andContext: transitionContext) // Frame the ViewController will have when he is dismissed
         print(dismissedFrame)
         
         let initialFrame = isPresentation ? dismissedFrame : presentedFrame

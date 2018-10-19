@@ -35,8 +35,6 @@ public class JellyAnimator : NSObject {
 /// it will provide a custom Presentation-Controller that tells UIKit which extra Views the presentation should have
 /// it also provides the size and frame for the controller that wants to be presented
 extension JellyAnimator: UIViewControllerTransitioningDelegate {
-    
-    
     /// Gets called from UIKit if presentatioStyle is custom and transitionDelegate is set
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         
@@ -51,11 +49,11 @@ extension JellyAnimator: UIViewControllerTransitioningDelegate {
                              presenting: UIViewController,
                              source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
             if let presentation = self.presentation as? JellySlideInPresentation {
-                return JellySlideInPresentationAnimator(direction: presentation.directionShow, presentationType: .show, presentation: presentation)
+                return JellySlideInPresentationAnimator(presentationType: .show, presentation: presentation)
             } else if let presentation = self.presentation as? JellyFadeInPresentation {
                 return JellyFadeInPresentationAnimator(presentationType: .show, presentation: presentation)
             } else if let presentation = self.presentation as? JellyShiftInPresentation {
-                return JellyShiftInPresentationAnimator(direction: presentation.direction, presentationType: .show, presentation: presentation)
+                return JellyShiftInPresentationAnimator(presentationType: .show, presentation: presentation)
             } else {
                 return nil
             }
@@ -64,11 +62,11 @@ extension JellyAnimator: UIViewControllerTransitioningDelegate {
     public func animationController(forDismissed dismissed: UIViewController)
         -> UIViewControllerAnimatedTransitioning? {
             if let presentation = self.presentation as? JellySlideInPresentation {
-                return JellySlideInPresentationAnimator(direction: presentation.directionDismiss, presentationType: .dismiss, presentation: presentation)
+                return JellySlideInPresentationAnimator(presentationType: .dismiss, presentation: presentation)
             } else if let presentation = self.presentation as? JellyFadeInPresentation {
                 return JellyFadeInPresentationAnimator(presentationType: .dismiss, presentation: presentation)
             } else if let presentation = self.presentation as? JellyShiftInPresentation {
-                return JellyShiftInPresentationAnimator(direction: presentation.direction, presentationType: .dismiss, presentation: presentation)
+                return JellyShiftInPresentationAnimator(presentationType: .dismiss, presentation: presentation)
             } else {
                 return nil
             }
