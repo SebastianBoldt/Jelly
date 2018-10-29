@@ -11,28 +11,26 @@ import Nimble
 @testable import Jelly
 
 class JellyAnimatorSpec: QuickSpec {
-    
     let presentedViewController = UIViewController()
     let presentingViewController = UIViewController()
-    let defaultSlideIn = JellySlideInPresentation()
-    let defaultFadeIn = JellyFadeInPresentation()
+    let defaultSlideIn = Jelly.SlideInPresentation()
+    let defaultFadeIn = Jelly.FadeInPresentation()
     
     override func spec() {
         describe("After Configuring a JellyAnimator") {
-            
             context("with slide in presentation") {
                 it("UIViewControllerTransitioningDelegate should return right animationController for presenting") {
-                    let animator = JellyAnimator(presentation: self.defaultSlideIn)
+                    let animator = Jelly.Animator(presentation: self.defaultSlideIn)
                     let animationController = animator.animationController(forPresented: self.presentedViewController, presenting: self.presentingViewController, source: self.presentedViewController)
-                    expect(animationController is JellySlideInPresentationAnimator).to(equal(true))
+                    expect(animationController is Jelly.SlideInPresentationAnimator).to(equal(true))
                 }
             }
             
             context("with fade in presentation") {
                 it("UIViewControllerTransitioningDelegate should return right animationController for presenting") {
-                    let animator = JellyAnimator(presentation: self.defaultFadeIn)
+                    let animator = Jelly.Animator(presentation: self.defaultFadeIn)
                     let animationController = animator.animationController(forPresented: self.presentedViewController, presenting: self.presentingViewController, source: self.presentedViewController)
-                    expect(animationController is JellyFadeInPresentationAnimator).to(equal(true))
+                    expect(animationController is Jelly.FadeInPresentationAnimator).to(equal(true))
                 }
             }
         }

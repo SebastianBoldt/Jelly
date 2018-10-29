@@ -13,7 +13,7 @@
 
 Jelly provides custom view controller transitions with just a few lines of code.
 No need to create your own Presentation-Controller or Animator objects.
-A Jelly-Animator will do the heavy lifting for you.
+An Animator will do the heavy lifting for you.
 
 ## 📱 Example
 
@@ -32,8 +32,8 @@ To run the example project, clone  the repo, and run `pod install` from the Exam
 
 Jelly is super easy to use.
 
-1. Create a *JellyPresentation* Object (SlideIn, FadeIn or ShiftIn)
-2. Initialize a *JellyAnimator* using the *JellyPresentation* Object created in Step 1.
+1. Create a *Presentation* Object (SlideIn, FadeIn or ShiftIn)
+2. Initialize a *Animator* using the *Presentation* Object created in Step 1.
 3. Call the *prepare(viewController:UIViewController)* Function
 4. Finally call the native *UIViewController* presentation function.
 
@@ -60,13 +60,13 @@ hold a strong reference to the *JellyAnimator* inside the *UIViewController* you
 
 ```swift
 class CustomVC : UIViewController {
-    var jellyAnimator: JellyAnimator?
+    var animator: Jelly.Animator?
     override func viewDidLoad() {
         super.viewDidLoad()
-        var shiftInPresentation = JellyShiftInPresentation()
+        var shiftInPresentation = Jelly.ShiftInPresentation()
         shiftInPresentation.direction = .left
-        let animator = JellyAnnimator(presentation:presentation)
-        self.jellyAnimator = animator
+        let animator = Jelly.Animator(presentation:presentation)
+        self.animator = animator
     }
 }
 ```
@@ -75,33 +75,33 @@ That's it. That's lit.
 
 ## 🖌 Customize
 Jelly offers 3 types of Presentations for you:
-* **JellySlideInPresentation**
-* **JellyShiftInPresentation**
-* **JellyFadeInPresentation**
+* **SlideInPresentation**
+* **ShiftInPresentation**
+* **FadeInPresentation**
 
 Not every property is available for each animation.
 Check out the interfaces of each class to learn more about them.
 
-* **duration:** JellyConstants.Duration (default: normal)
+* **duration:** Constants.Duration (default: normal)
     * ultraSlow = 2.0
     * slow = 1.0
     * medium = 0.5
     * normal = 0.35
     * fast = 0.2
     * reallyFast = 0.1
-* **backgroundStyle:** JellyConstants.BackgroundStyle (default: .dimmed(0.5))
+* **backgroundStyle:** Constants.BackgroundStyle (default: .dimmed(0.5))
     * dimmed(alpha: CGFloat)
     * blur(effectStyle: UIBlurEffectStyle)
     * if you want a transparent background use .dimmed(alpha:0.0)
 * **cornerRadius:** Double (default: 0)
 * **corners:** UIRectCorner (default: .allCorners)
     * define which corners the radius should be applied to
-* **presentationCurve:** JellyConstants.JellyCurve (default: linear)
+* **presentationCurve:** Constants.JellyCurve (default: linear)
     * easeIn
     * easeOut
     * easeInEaseOut
     * linear
-* **dismissCurve:** JellyConstants.JellyCurve (default: linear)
+* **dismissCurve:** Constants.JellyCurve (default: linear)
     * easeIn
     * easeOut
     * easeInEaseOut
@@ -109,21 +109,21 @@ Check out the interfaces of each class to learn more about them.
 * **isTapBackgroundToDismissEnabled** (default: true)
     * tapping the background dismisses the ViewController by default
     * set it to false to prevent this behavior
-* **widthForViewController:** JellyConstants.Size (default: fullscreen)
+* **widthForViewController:** Constants.Size (default: fullscreen)
     * If the container is smaller than the provided width, Jelly will automatically resize to the containers width
     * if Margin Guards are specified they also will be applied if width is to wide for the container
-* **heightForViewController:** JellyConstants.Size (default: fullscreen)
+* **heightForViewController:** Constants.Size (default: fullscreen)
     * If the container is smaller than the provided height, Jelly will automatically resize to the containers width
     * if Margin Guards are specified they also will be applied when height is to high for the container
-* **horizontalAlignment:** JellyConstants.HorizontalAlignment (default: .center)
+* **horizontalAlignment:** Constants.HorizontalAlignment (default: .center)
     * center, left or right
-* **verticalAlignemt:** JellyConstants.VerticalAlignment (default:center)
+* **verticalAlignemt:** Constants.VerticalAlignment (default:center)
     * top, bottom, center
 * **marginGuards:** default(UIEdgeInsets.zero)
     * If the width or height is bigger than the container we are working with, marginGuards will kick in and limit the size using the specified margins
-* **directionShow:** JellyConstants.Direction (default: top)
+* **directionShow:** Constants.Direction (default: top)
     * left, top, bottom, right
-* **directionDismiss:** JellyConstants.Direction (default: top)
+* **directionDismiss:** Constants.Direction (default: top)
     * left, top, bottom, right
 * **jellyness:** (default: none)
     * none (damping = 1.0, velocity = 0.0)

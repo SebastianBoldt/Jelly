@@ -10,7 +10,7 @@ import Foundation
 import Jelly
 
 struct DataObject {
-    let presentation : JellyPresentation
+    let presentation : Jelly.Presentation
     let titleDescription : String
     let detailDescription : String
 }
@@ -19,13 +19,13 @@ struct ExampleDataProvider {
     var data : [DataObject] = {
         
         /// Default Fade in with custom size
-        var defaultFadeInPresentation = JellyFadeInPresentation(widthForViewController: .halfscreen,
+        var defaultFadeInPresentation = Jelly.FadeInPresentation(widthForViewController: .halfscreen,
                                                                heightForViewController: .halfscreen)
         defaultFadeInPresentation.isTapBackgroundToDismissEnabled = false
         let defaultFadeInObject = DataObject(presentation: defaultFadeInPresentation, titleDescription: "Default Fade in Animation", detailDescription: "default values, disabled tap to dismiss")
         
         /// Default slide in with custom size
-        let defaultSlideInPresentation = JellySlideInPresentation(widthForViewController: .halfscreen,
+        let defaultSlideInPresentation = Jelly.SlideInPresentation(widthForViewController: .halfscreen,
                                                                  heightForViewController: .halfscreen)
         
         let defaultSlideInObject = DataObject(presentation: defaultSlideInPresentation ,
@@ -34,7 +34,7 @@ struct ExampleDataProvider {
         
         
         /// Fade in with blur and custom size
-        let customBlurFadeInPresentation = JellyFadeInPresentation(backgroundStyle: .blur(effectStyle: .light),
+        let customBlurFadeInPresentation = Jelly.FadeInPresentation(backgroundStyle: .blurred(effectStyle: .light),
                                                             widthForViewController: .halfscreen,
                                                            heightForViewController: .halfscreen)
         
@@ -43,7 +43,7 @@ struct ExampleDataProvider {
                                            detailDescription: "Fade in Viewcontroller blurred  background .light")
         
         /// Custom slide in presentation with blur
-        let customSlideInPresentation = JellySlideInPresentation(backgroundStyle: .blur(effectStyle: .dark),
+        let customSlideInPresentation = Jelly.SlideInPresentation(backgroundStyle: .blurred(effectStyle: .dark),
                                                           widthForViewController: .halfscreen,
                                                          heightForViewController: .halfscreen)
         
@@ -52,9 +52,9 @@ struct ExampleDataProvider {
                                             detailDescription: "Slide in Viewcontroller with blurred background .dark")
         
         /// Corner Radius and Jellyness
-        let customCornerSlideInPresentation = JellySlideInPresentation(cornerRadius: 15,
-                                                             backgroundStyle: .blur(effectStyle: .dark),
-                                                                   jellyness: .jellier,
+        let customCornerSlideInPresentation = Jelly.SlideInPresentation(cornerRadius: 15,
+                                                             backgroundStyle: .blurred(effectStyle: .dark),
+                                                                   spring: .medium,
                                                                     duration: .medium,
                                                                directionShow: .left,
                                                             directionDismiss: .right,
@@ -66,11 +66,11 @@ struct ExampleDataProvider {
                                                  detailDescription: "Slide in Viewcontroller with custom corner radius, directions and jelliness")
         
         // Custom SlideOver
-        let slideOverPresentation = JellySlideInPresentation(dismissCurve: .linear,
+        let slideOverPresentation = Jelly.SlideInPresentation(dismissCurve: .linear,
                                                         presentationCurve: .linear,
                                                              cornerRadius: 0,
                                                              backgroundStyle: .dimmed(alpha: 0.5),
-                                                                jellyness: .none,
+                                                                spring: .none,
                                                                  duration: .normal,
                                                             directionShow: .left,
                                                          directionDismiss: .left,
@@ -84,11 +84,11 @@ struct ExampleDataProvider {
                               detailDescription: "halfscreen left side slide in menu")
         
         // Custom Alert
-        let alertPresentation = JellySlideInPresentation(dismissCurve: .linear,
+        let alertPresentation = Jelly.SlideInPresentation(dismissCurve: .linear,
                                                     presentationCurve: .linear,
                                                          cornerRadius: 15,
-                                                      backgroundStyle: .blur(effectStyle: .light),
-                                                            jellyness: .jellier,
+                                                      backgroundStyle: .blurred(effectStyle: .light),
+                                                            spring: .medium,
                                                              duration: .normal,
                                                         directionShow: .top,
                                                      directionDismiss: .top,
@@ -104,15 +104,15 @@ struct ExampleDataProvider {
         
         // ShiftInPresentation
         
-        var shiftInPresentation = JellyShiftInPresentation()
+        var shiftInPresentation = Jelly.ShiftInPresentation()
         shiftInPresentation.direction = .right
         shiftInPresentation.size = .custom(value: 300)
 
         let shiftInObject = DataObject(presentation: shiftInPresentation, titleDescription: "Shift in Dimmed", detailDescription: "dimmed, right")
         
-        var shiftInBlurred = JellyShiftInPresentation()
+        var shiftInBlurred = Jelly.ShiftInPresentation()
         shiftInBlurred.direction = .bottom
-        shiftInBlurred.backgroundStyle = .blur(effectStyle: .light)
+        shiftInBlurred.backgroundStyle = .blurred(effectStyle: .light)
         shiftInBlurred.size = .custom(value: 300)
         
         let shiftInBlurredObject = DataObject(presentation: shiftInBlurred, titleDescription: "Shift in Blurred", detailDescription: "blurred, bottom")
