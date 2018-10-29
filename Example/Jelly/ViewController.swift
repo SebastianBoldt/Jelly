@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     /// We need to keep a strong reference to the Animator because the transitiong delegate is weak
-    fileprivate var jellyAnimator: Jelly.Animator?
+    fileprivate var animator: Jelly.Animator?
     
     fileprivate func createVC() -> UIViewController? {
         return self.storyboard?.instantiateViewController(withIdentifier: "PresentMe")
@@ -33,10 +33,15 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let presentation = self.model[indexPath.row].presentation
         if let viewController = self.createVC() {
-            self.jellyAnimator = Jelly.Animator(presentation:presentation)
-            self.jellyAnimator?.prepare(viewController: viewController)
+            self.animator = Jelly.Animator(presentation:presentation)
+            self.animator?.prepare(viewController: viewController)
             self.present(viewController, animated: true, completion: nil)
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+            var presentation = Jelly.SlideInPresentation()
+            self.animator?.resizePresentedViewController(using: presentation)
+        })
     }
 }
 

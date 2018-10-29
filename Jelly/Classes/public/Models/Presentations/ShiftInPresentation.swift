@@ -1,11 +1,3 @@
-//
-//  JellyShiftInPresentation.swift
-//  Pods
-//
-//  Created by Sebastian Boldt on 11.12.16.
-//
-//
-
 import Foundation
 
 public struct ShiftInPresentation: Presentation {    

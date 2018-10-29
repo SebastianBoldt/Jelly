@@ -1,11 +1,3 @@
-//
-//  UIViewControllerAnimatedTransitioning+Extension.swift
-//  Pods
-//
-//  Created by Sebastian Boldt on 23.05.17.
-//
-//
-
 import Foundation
 
 extension UIViewControllerAnimatedTransitioning {

@@ -1,7 +1,3 @@
-//
-//  SlideInPresentationAnimator.swift
-//  Created by Sebastian Boldt on 18.11.16.
-
 import Foundation
 
 final class FadeInPresentationAnimator: NSObject {

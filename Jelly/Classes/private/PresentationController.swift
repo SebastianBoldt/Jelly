@@ -1,7 +1,3 @@
-//
-//  PresentationController.swift
-//  Created by Sebastian Boldt on 17.11.16.
-
 import UIKit
 
 /// A PresentationController tells UIKit what exactly to do with the View that should be presented
@@ -20,6 +16,14 @@ final class PresentationController : UIPresentationController {
         
         presentedViewController.view.layer.masksToBounds = true
         presentedViewController.view.roundCorners(corners: self.presentation.corners, radius: presentation.cornerRadius)
+    }
+    
+    public func resizeViewController(using presentation: Presentation) {
+        self.presentation = presentation
+        UIView.animate(withDuration: 2, animations: {
+            self.containerView?.setNeedsLayout()
+            self.containerView?.layoutIfNeeded()
+        })
     }
     
     override func presentationTransitionWillBegin() {
@@ -45,14 +49,13 @@ final class PresentationController : UIPresentationController {
         })
     }
     
-    override func containerViewWillLayoutSubviews() {
+    override func containerViewWillLayoutSubviews() {        
         presentedView?.frame = frameOfPresentedViewInContainerView
         presentedView?.roundCorners(corners: self.presentation.corners, radius: self.presentation.cornerRadius)
     }
     
     override func size(forChildContentContainer container: UIContentContainer,
                        withParentContainerSize parentSize: CGSize) -> CGSize {
-        
         guard let nonFullScreenPresentation = self.presentation as? DynamicPresentation else {
             return parentSize
         }
@@ -211,9 +214,7 @@ extension PresentationController {
     ///   - frame: frame to align
     ///   - presentation: presentation which will be used to provide the alignment options
     private func align(frame: inout CGRect, withPresentation presentation: Presentation) {
-        
         if let alignablePresentation = presentation as? AlignablePresentation {
-            
             // Prepare Horizontal Alignment
             switch alignablePresentation.horizontalAlignment {
                 case .center:

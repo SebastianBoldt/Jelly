@@ -1,7 +1,3 @@
-//
-//  SlideInPresentationAnimator.swift
-//  Created by Sebastian Boldt on 18.11.16.
-
 import Foundation
 
 final class ShiftInPresentationAnimator: NSObject {
@@ -21,7 +17,6 @@ extension ShiftInPresentationAnimator : UIViewControllerAnimatedTransitioning {
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        
         let presentedKey = getPresentedViewControllerKeyForPresentationType(type: self.presentationType)
         let underlyingKey = getUnderlyingViewControllerKeyForPresentationType(type: self.presentationType)
         
@@ -78,17 +73,19 @@ extension ShiftInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         }, completion:{ finished in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
-        
     }
-    
-    
+}
+
+extension ShiftInPresentationAnimator {
     /// Return dismissed frame depending on provides direction
     ///
     /// - Parameters:
     ///   - presentedFrame: frame the viewController will have if he is fully presented
     ///   - transitionContext: nothing to say here
     /// - Returns: the frame the view should have afer dismissing it
-    private func calculateDismissedFrame(from presentedFrame: CGRect, usingDirection direction: Constants.Direction , andContext transitionContext: UIViewControllerContextTransitioning) -> CGRect {
+    private func calculateDismissedFrame(from presentedFrame: CGRect,
+                                         usingDirection direction: Constants.Direction,
+                                         andContext transitionContext: UIViewControllerContextTransitioning) -> CGRect {
         var dismissedFrame: CGRect = presentedFrame
         switch direction {
             case .left:

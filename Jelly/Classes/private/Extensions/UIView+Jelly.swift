@@ -1,11 +1,3 @@
-//
-//  JellyHelper.swift
-//  Pods
-//
-//  Created by Sebastian Boldt on 18.12.16.
-//
-//
-
 import UIKit
 
 extension UIView {

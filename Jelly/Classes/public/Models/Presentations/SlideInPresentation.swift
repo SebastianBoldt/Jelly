@@ -1,8 +1,3 @@
-//
-//  JellySlideInPresentation.swift
-//  Created by Sebastian Boldt on 20.11.16.
-//
-
 public struct SlideInPresentation: Presentation, AlignablePresentation, DynamicPresentation {
     
     // JellyPresentation Protocol conformance

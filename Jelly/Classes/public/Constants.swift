@@ -1,7 +1,3 @@
-//
-//  Constants.swift
-//  Created by Sebastian Boldt on 17.11.16.
-
 import Foundation
 
 /// Datamodel Types which will be used to create a PresentationObject

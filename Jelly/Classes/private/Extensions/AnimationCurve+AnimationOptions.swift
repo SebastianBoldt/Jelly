@@ -1,10 +1,3 @@
-//
-//  AnimationCurve+AnimationOptions.swift
-//  Jelly
-//
-//  Created by Sebastian Boldt on 29.10.18.
-//
-
 import UIKit
 
 extension UIView.AnimationCurve {

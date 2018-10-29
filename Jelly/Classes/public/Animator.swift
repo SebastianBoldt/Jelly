@@ -1,6 +1,3 @@
-//  Animator.swift
-//  Created by Sebastian Boldt on 17.11.16.
-
 import UIKit
 
 /// # Animator
@@ -11,8 +8,9 @@ import UIKit
 /// You can use the prepare function for that
 
 public class Animator: NSObject {
-    fileprivate var presentation: Presentation
-        
+    public var presentation: Presentation
+    private var currentPresentationController: PresentationController?
+    
     /// ## designated initializer
     /// - Parameter presentation: a custom Presentation Object
     public init(presentation: Presentation) {
@@ -27,6 +25,10 @@ public class Animator: NSObject {
         viewController.modalPresentationStyle = .custom
         viewController.transitioningDelegate = self
     }
+    
+    public func resizePresentedViewController(using presentation: Presentation) {
+        currentPresentationController?.resizeViewController(using: presentation)
+    }
 }
 
 /// ## UIViewControllerTransitioningDelegate Implementation
@@ -36,9 +38,9 @@ public class Animator: NSObject {
 extension Animator: UIViewControllerTransitioningDelegate {
     /// Gets called from UIKit if presentatioStyle is custom and transitionDelegate is set
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        
-        let jellyPresentationController = PresentationController(presentedViewController: presented, presentingViewController: presenting, presentation: presentation)
-        return jellyPresentationController
+        let presentationController = PresentationController(presentedViewController: presented, presentingViewController: presenting, presentation: presentation)
+        self.currentPresentationController = presentationController
+        return presentationController
     }
     
     /// Each Presentation has two directions
