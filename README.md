@@ -42,11 +42,11 @@ override func viewDidLoad() {
     super.viewDidLoad()
     let viewController = self.storyboard.instantiateViewController(withIdentifier: "someViewController")
     //1.
-    let presentation = JellySlideInPresentation()
+    let presentation = Jelly.SlideInPresentation()
     //2.
-    self.jellyAnimator = JellyAnimator(presentation:presentation)
+    self.animator = Jelly.Animator(presentation:presentation)
     //3.
-    self.jellyAnimator?.prepare(viewController: viewController)
+    self.animator?.prepare(viewController: viewController)
     //4.
     self.present(viewController, animated: true, completion: nil)
 }
@@ -56,7 +56,7 @@ override func viewDidLoad() {
 ***DO NOT FORGET TO KEEP A STRONG 💪 REFERENCE***
 
 Because the *transitioningDelegate* of a *UIViewController* is weak, you need to
-hold a strong reference to the *JellyAnimator* inside the *UIViewController* you are presenting from or the central object that maintains your presentations.
+hold a strong reference to the *Animator* inside the *UIViewController* you are presenting from or the central object that maintains your presentations.
 
 ```swift
 class CustomVC : UIViewController {
@@ -96,12 +96,12 @@ Check out the interfaces of each class to learn more about them.
 * **cornerRadius:** Double (default: 0)
 * **corners:** UIRectCorner (default: .allCorners)
     * define which corners the radius should be applied to
-* **presentationCurve:** Constants.JellyCurve (default: linear)
+* **presentationCurve:** Constants.Curve (default: linear)
     * easeIn
     * easeOut
     * easeInEaseOut
     * linear
-* **dismissCurve:** Constants.JellyCurve (default: linear)
+* **dismissCurve:** Constants.Curve (default: linear)
     * easeIn
     * easeOut
     * easeInEaseOut
@@ -125,19 +125,19 @@ Check out the interfaces of each class to learn more about them.
     * left, top, bottom, right
 * **directionDismiss:** Constants.Direction (default: top)
     * left, top, bottom, right
-* **jellyness:** (default: none)
+* **spring:** (default: none)
     * none (damping = 1.0, velocity = 0.0)
-    * jelly (damping = 0.7, velocity = 2)
-    * jellier (damping = 0.5 , velocity = 3)
-    * jelliest (damping = 0.2, velocity = 4)
+    * tight (damping = 0.7, velocity = 2)
+    * medium (damping = 0.5 , velocity = 3)
+    * loose (damping = 0.2, velocity = 4)
 
 ```swift
 
-let customPresentation = JellySlideInPresentation(dismissCurve: .linear,
+let customPresentation = Jelly.SlideInPresentation(dismissCurve: .linear,
                                                     presentationCurve: .linear,
                                                          cornerRadius: 15,
                                                       backgroundStyle: .blur(effectStyle: .light),
-                                                            jellyness: .jellier,
+                                                               spring: .medium,
                                                              duration: .normal,
                                                         directionShow: .top,
                                                      directionDismiss: .top,
@@ -149,8 +149,8 @@ let customPresentation = JellySlideInPresentation(dismissCurve: .linear,
                                                               corners: [.topLeft,.bottomRight])
 
 
-self.jellyAnimator = JellyAnimator(presentation:customPresentation)
-self.jellyAnimator?.prepare(viewController: viewController)
+self.animator = Jelly.Animator(presentation:customPresentation)
+self.animator?.prepare(viewController: viewController)
 self.present(viewController, animated: true, completion: nil)
 ```
 
