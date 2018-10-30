@@ -15,6 +15,7 @@
 		118894DB9F20F5979822204C8AC30096 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598EE7A1FE76D77BE0FC75EDEF3299C1 /* Closures.swift */; };
 		130C69FE00D4E2207064BF7F4471451A /* UIViewControllerAnimatedTransitioning+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F021B52FAC33C033EAEBC339BCABDAE1 /* UIViewControllerAnimatedTransitioning+Extension.swift */; };
 		154F4BF22187BE5000FB16B6 /* PresentationUIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F4BF12187BE5000FB16B6 /* PresentationUIConfiguration.swift */; };
+		154F4BF521882D5600FB16B6 /* PresentationDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F4BF421882D5600FB16B6 /* PresentationDirection.swift */; };
 		19291565899B5113A5355002CF9C8F2F /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E39B4B418DFE4857270A9929DFB8AC2 /* Equal.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		1AC5D2CE6FA79327468F53B53D0A9418 /* AllPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD70D6C69732CC5E9DE6DC55873B188 /* AllPass.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		1E2AE2B6202B65E712FE05FB2699BD2C /* ExpectationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC6727EE6F37FE78F0B0879E3FC89C /* ExpectationMessage.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -183,6 +184,7 @@
 		10D81A32DD08157E729CDA25855D4178 /* QCKDSL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QCKDSL.h; path = Sources/QuickObjectiveC/DSL/QCKDSL.h; sourceTree = "<group>"; };
 		1137C10EF3B19747D48F747C8452D27D /* PresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
 		154F4BF12187BE5000FB16B6 /* PresentationUIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUIConfiguration.swift; sourceTree = "<group>"; };
+		154F4BF421882D5600FB16B6 /* PresentationDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDirection.swift; sourceTree = "<group>"; };
 		160931E5B7C58FBCE27C6F77CD31065A /* Expectation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expectation.swift; path = Sources/Nimble/Expectation.swift; sourceTree = "<group>"; };
 		1659222AD64CCA597F148530E7695E75 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		17DF03237581043F86B86780F4FC15BC /* Pods-Jelly_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jelly_Tests-umbrella.h"; sourceTree = "<group>"; };
@@ -603,6 +605,7 @@
 			children = (
 				154F4BF32187BFC200FB16B6 /* Presentations */,
 				6D989FCB0F8717EF9D68E50957380664 /* PresentationAlignment.swift */,
+				154F4BF421882D5600FB16B6 /* PresentationDirection.swift */,
 				0041E2DFD348537A608D13DE5D7C98A9 /* PresentationSize.swift */,
 				5CEEA3F60CF83897A751F3CD728EF78C /* PresentationTiming.swift */,
 				154F4BF12187BE5000FB16B6 /* PresentationUIConfiguration.swift */,
@@ -1089,6 +1092,7 @@
 				F6D9B3B77177A3B4FA26DD9577C61D72 /* ShiftInPresentation.swift in Sources */,
 				D17F8CFE705C5D6F6004E85412BE52D5 /* SlideInPresentation.swift in Sources */,
 				B6C060FAC5B224F24D9DE938D36998E9 /* UIView+Jelly.swift in Sources */,
+				154F4BF521882D5600FB16B6 /* PresentationDirection.swift in Sources */,
 				130C69FE00D4E2207064BF7F4471451A /* UIViewControllerAnimatedTransitioning+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
