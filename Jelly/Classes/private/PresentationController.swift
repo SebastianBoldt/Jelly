@@ -15,7 +15,10 @@ final class PresentationController : UIPresentationController {
                    presenting: presentingViewController)
         
         presentedViewController.view.layer.masksToBounds = true
-        presentedViewController.view.roundCorners(corners: self.presentation.corners, radius: presentation.cornerRadius)
+        if let corners = (presentation as? PresentationUIConfigurationProvider)?.presentationUIConfiguration.corners,
+           let radius = (presentation as? PresentationUIConfigurationProvider)?.presentationUIConfiguration.cornerRadius {
+            presentedViewController.view.roundCorners(corners: corners, radius: radius)
+        }
     }
     
     public func resizeViewController(using presentation: Presentation) {
@@ -27,13 +30,15 @@ final class PresentationController : UIPresentationController {
     }
     
     override func presentationTransitionWillBegin() {
-        switch self.presentation.backgroundStyle {
-            case .blurred(let effectStyle):
-                self.setupBlurView()
-                animateBlurView(effectStyle: effectStyle)
-            case .dimmed(let alpha):
-                self.setupDimmingView(withAlpha: alpha)
-                animateDimmingView()
+        if let backgroundStyle = (presentation as? PresentationUIConfigurationProvider)?.presentationUIConfiguration.backgroundStyle {
+            switch backgroundStyle {
+                case .blurred(let effectStyle):
+                    self.setupBlurView()
+                    animateBlurView(effectStyle: effectStyle)
+                case .dimmed(let alpha):
+                    self.setupDimmingView(withAlpha: alpha)
+                    animateDimmingView()
+            }
         }
     }
     
@@ -51,17 +56,20 @@ final class PresentationController : UIPresentationController {
     
     override func containerViewWillLayoutSubviews() {        
         presentedView?.frame = frameOfPresentedViewInContainerView
-        presentedView?.roundCorners(corners: self.presentation.corners, radius: self.presentation.cornerRadius)
+        if let corners = (presentation as? PresentationUIConfigurationProvider)?.presentationUIConfiguration.corners,
+            let radius = (presentation as? PresentationUIConfigurationProvider)?.presentationUIConfiguration.cornerRadius {
+            presentedView?.roundCorners(corners: corners, radius: radius)
+        }
     }
     
     override func size(forChildContentContainer container: UIContentContainer,
                        withParentContainerSize parentSize: CGSize) -> CGSize {
-        guard let nonFullScreenPresentation = self.presentation as? DynamicPresentation else {
+        guard let nonFullScreenPresentation = self.presentation as? PresentationSizeProvider else {
             return parentSize
         }
         
         var width : CGFloat = 0.0
-        switch nonFullScreenPresentation.widthForViewController {
+        switch nonFullScreenPresentation.presentationSize.width {
             case .fullscreen:
                 width = parentSize.width
             case .halfscreen:
@@ -71,7 +79,7 @@ final class PresentationController : UIPresentationController {
         }
         
         var height : CGFloat = 0.0
-        switch nonFullScreenPresentation.heightForViewController {
+        switch nonFullScreenPresentation.presentationSize.height {
             case .fullscreen:
                 height = parentSize.height
             case .halfscreen:
@@ -88,7 +96,7 @@ final class PresentationController : UIPresentationController {
             return self.getFrameForShiftInPresentation(shiftIn: shiftIn)
         }
         
-        guard let dynamicPresentation = self.presentation as? DynamicPresentation else {
+        guard let dynamicPresentation = self.presentation as? PresentationSizeProvider else {
             return CGRect(x:0,y:0,width: containerView!.bounds.size.width, height: containerView!.bounds.size.height)
         }
         
@@ -96,13 +104,17 @@ final class PresentationController : UIPresentationController {
         frame.size = size(forChildContentContainer: presentedViewController, withParentContainerSize: containerView!.bounds.size)
         limit(frame: &frame, withSize: frame.size)
         align(frame: &frame, withPresentation: self.presentation)
-        applymarginGuards(toFrame: &frame, marginGuards: dynamicPresentation.marginGuards, container: containerView!.bounds.size)
+        let marginGuards =  (dynamicPresentation as? PresentationMarginGuardsProvider)?.marginGuards ?? .zero
+        applymarginGuards(toFrame: &frame, marginGuards: marginGuards, container: containerView!.bounds.size)
         
         return frame
     }
     
     @objc dynamic func handleTap(recognizer: UITapGestureRecognizer) {
-        if self.presentation.isTapBackgroundToDismissEnabled {
+        guard let presentation  = presentation as? PresentationUIConfigurationProvider else {
+            return
+        }
+        if presentation.presentationUIConfiguration.isTapBackgroundToDismissEnabled {
             presentingViewController.dismiss(animated: true)
         }
     }
@@ -136,7 +148,7 @@ extension PresentationController {
     private func getFrameForShiftInPresentation(shiftIn: ShiftInPresentation) -> CGRect {
         var shiftFrame : CGRect = .zero
         let size = getSizeValue(fromPresentation: shiftIn)
-        switch shiftIn.direction {
+        switch shiftIn.showDirection {
             case .left:
                 shiftFrame = CGRect(x: 0, y: 0, width: size, height: containerView!.bounds.size.height)
             case .right:
@@ -151,17 +163,17 @@ extension PresentationController {
     }
     
     private func getSizeValue(fromPresentation presentation: ShiftInPresentation) -> CGFloat{
-        switch  presentation.size {
+        switch  presentation.width {
             case .custom(let value):
                 return value
             case .halfscreen:
-                if presentation.direction.orientation() == .horizontal {
+                if presentation.showDirection.orientation() == .horizontal {
                     return (self.containerView?.frame.size.width)! / 2
                 } else {
                     return (self.containerView?.frame.size.height)! / 2
                 }
             case .fullscreen:
-                if presentation.direction.orientation() == .horizontal {
+                if presentation.showDirection.orientation() == .horizontal {
                     return (self.containerView?.frame.size.width)!
                 } else {
                     return (self.containerView?.frame.size.height)!
@@ -214,9 +226,9 @@ extension PresentationController {
     ///   - frame: frame to align
     ///   - presentation: presentation which will be used to provide the alignment options
     private func align(frame: inout CGRect, withPresentation presentation: Presentation) {
-        if let alignablePresentation = presentation as? AlignablePresentation {
+        if let alignablePresentation = presentation as? PresentationAlignmentProvider {
             // Prepare Horizontal Alignment
-            switch alignablePresentation.horizontalAlignment {
+            switch alignablePresentation.presentationAlignment.horizontalAlignment {
                 case .center:
                     frame.origin.x = (containerView!.frame.size.width/2)-(frame.size.width/2)
                 case .left:
@@ -228,7 +240,7 @@ extension PresentationController {
                 }
             
             // Prepare Vertical Alignment
-            switch alignablePresentation.verticalAlignemt {
+            switch alignablePresentation.presentationAlignment.verticalAlignemt {
                 case .center:
                     frame.origin.y = (containerView!.frame.size.height/2)-(frame.size.height/2)
                 case .top:

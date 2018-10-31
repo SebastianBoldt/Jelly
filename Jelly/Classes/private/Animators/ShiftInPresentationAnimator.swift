@@ -13,7 +13,7 @@ final class ShiftInPresentationAnimator: NSObject {
 
 extension ShiftInPresentationAnimator : UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return presentation.duration.rawValue
+        return presentation.presentationTiming.duration.rawValue
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -31,11 +31,11 @@ extension ShiftInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         
         // Frames for pushed ViewController
         let presentedFrameForPresented = transitionContext.finalFrame(for: presentedViewController) // Frame the ViewController will have after animation completes
-        let dismissedFrameForPresented = calculateDismissedFrame(from: presentedFrameForPresented, usingDirection: presentation.direction, andContext: transitionContext) // Frame the ViewController will have when he is dismissed
+        let dismissedFrameForPresented = calculateDismissedFrame(from: presentedFrameForPresented, usingDirection: presentation.showDirection, andContext: transitionContext) // Frame the ViewController will have when he is dismissed
         
         var presentedFrameForUnderlying = transitionContext.containerView.frame
         
-        switch self.presentation.direction {
+        switch self.presentation.showDirection {
             case .left:
                 presentedFrameForUnderlying.origin.x = presentedFrameForPresented.origin.x + presentedFrameForPresented.size.width
             case .right:
@@ -59,7 +59,7 @@ extension ShiftInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         presentedViewController.view.frame = initialFrameForPresented
         underlyingViewController.view.frame = initialFrameForUnderlying
         
-        let animationCurve = isPresentation ? presentation.presentationCurve : presentation.dismissCurve
+        let animationCurve = isPresentation ? presentation.presentationTiming.presentationCurve : presentation.presentationTiming.presentationCurve
         UIView.animate(withDuration: animationDuration,
                        delay: 0.0,
                        usingSpringWithDamping: presentation.spring.damping,

@@ -3,6 +3,10 @@ import Foundation
 import Foundation
 import UIKit
 
+public protocol PresentationSpringProvider {
+    var spring: Constants.Spring { get set }
+}
+
 public protocol PresentationUIConfigurationProvider {
     var presentationUIConfiguration: PresentationUIConfigurationProtocol { get set }
 }
@@ -20,7 +24,7 @@ public struct PresentationUIConfiguration: PresentationUIConfigurationProtocol{
     public var isTapBackgroundToDismissEnabled: Bool
     public var corners: UIRectCorner
     
-    public init(cornerRadius: Double, backgroundStyle: Constants.BackgroundStyle, isTapBackgroundToDismissEnabled: Bool, corners: UIRectCorner) {
+    public init(cornerRadius: Double = 0.0, backgroundStyle: Constants.BackgroundStyle = .dimmed(alpha: 0.5), isTapBackgroundToDismissEnabled: Bool = true, corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]) {
         self.cornerRadius = cornerRadius
         self.backgroundStyle = backgroundStyle
         self.isTapBackgroundToDismissEnabled = isTapBackgroundToDismissEnabled

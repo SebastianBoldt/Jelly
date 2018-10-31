@@ -1,19 +1,25 @@
 import UIKit
 
-public struct FadeInPresentation: PresentationAlignmentProvider, PresentationSizeProvider, PresentationTimingInformationProvider, PresentationUIConfigurationProvider {
+public struct FadeInPresentation: Presentation,
+                                  PresentationAlignmentProvider,
+                                  PresentationSizeProvider,
+                                  PresentationMarginGuardsProvider {
+    
     public var presentationAlignment: PresentationAlignmentProtocol
     public var presentationSize: PresentationSizeProtocol
-    public var presentationTiming: PresentationTimingProtocol
     public var presentationUIConfiguration: PresentationUIConfigurationProtocol
-    
-    // TODO: Move to static default
-    public init(alignment: PresentationAlignmentProtocol = PresenstationAlignment.centerAlignment,
-                size: PresentationSizeProtocol = PresentationSize(marginGuards: .zero ,width: .fullscreen, height: .fullscreen),
+    public var marginGuards: UIEdgeInsets
+    public var presentationTiming: PresentationTimingProtocol
+
+    public init(alignment: PresentationAlignmentProtocol = PresentationAlignment.centerAlignment,
+                size: PresentationSizeProtocol = PresentationSize(width: .fullscreen, height: .fullscreen),
+                marginGuards: UIEdgeInsets = .zero,
                 timing: PresentationTimingProtocol = PresentationTiming(duration: .normal, presentationCurve: .linear, dismissCurve: .linear ),
                 ui: PresentationUIConfigurationProtocol = PresentationUIConfiguration(cornerRadius: 0.0, backgroundStyle: .dimmed(alpha: 0.5), isTapBackgroundToDismissEnabled: true, corners: [.topLeft, .topRight, .bottomLeft, .bottomRight])) {
         self.presentationAlignment = alignment
         self.presentationSize = size
         self.presentationTiming = timing
         self.presentationUIConfiguration = ui
+        self.marginGuards = marginGuards
     }
 }

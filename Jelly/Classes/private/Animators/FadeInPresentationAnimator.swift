@@ -14,7 +14,7 @@ final class FadeInPresentationAnimator: NSObject {
 
 extension FadeInPresentationAnimator : UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return presentation.duration.rawValue
+        return presentation.presentationTiming.duration.rawValue
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -37,7 +37,7 @@ extension FadeInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         controllerToAnimate.view.frame = presentedFrame
         controllerToAnimate.view.alpha = CGFloat(initialAlpha)
                 
-        let animationCurve = isPresentation ? presentation.presentationCurve : presentation.dismissCurve
+        let animationCurve = isPresentation ? presentation.presentationTiming.presentationCurve : presentation.presentationTiming.dismissCurve
 
         UIView.animate(withDuration: animationDuration,
                        delay: 0.0,

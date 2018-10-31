@@ -1,30 +1,21 @@
 import Foundation
 
-public struct ShiftInPresentation: PresentationShowDirectionProvider {
-    public  var dismissCurve: UIView.AnimationCurve = .linear
-    public  var presentationCurve: UIView.AnimationCurve = .linear
-    public  var cornerRadius: Double = 0.0
-    public  var backgroundStyle: Constants.BackgroundStyle = .dimmed(alpha:0.5)
-    public  var spring: Constants.Spring = .none
-    public  var duration : Constants.Duration = .medium // Duration the ViewController needs to kick in
-    public  var isTapBackgroundToDismissEnabled: Bool = true
-    public  var direction : Constants.Direction = .bottom
-    public  var size: Constants.Size = .halfscreen
-    public  var corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]
+public struct ShiftInPresentation: Presentation,
+                                   PresentationShowDirectionProvider,
+                                   PresentationWidthProvider {
     
-    public var presentationAlignment: PresentationAlignmentProtocol
-    public var presentationSize: PresentationSizeProtocol
     public var presentationTiming: PresentationTimingProtocol
     public var presentationUIConfiguration: PresentationUIConfigurationProtocol
+    public var showDirection: Constants.Direction
+    public  var width: Constants.Size = .halfscreen
+    public  var spring: Constants.Spring = .none
     
-    // TODO: Move to static default
-    public init(size: PresentationSizeProtocol = PresentationSize(marginGuards: .zero ,width: .fullscreen, height: .fullscreen),
-                timing: PresentationTimingProtocol = PresentationTiming(duration: .normal, presentationCurve: .linear, dismissCurve: .linear ),
-                ui: PresentationUIConfigurationProtocol = PresentationUIConfiguration(cornerRadius: 0.0, backgroundStyle: .dimmed(alpha: 0.5), isTapBackgroundToDismissEnabled: true, corners: [.topLeft, .topRight, .bottomLeft, .bottomRight])) {
-        self.presentationAlignment = alignment
-        self.presentationSize = size
+    public init(timing: PresentationTimingProtocol = PresentationTiming(duration: .medium, presentationCurve: .linear, dismissCurve: .linear),
+                uiConfiguration: PresentationUIConfigurationProtocol = PresentationUIConfiguration(cornerRadius: 0.0, backgroundStyle: .dimmed(alpha:0.5), isTapBackgroundToDismissEnabled: true, corners:  [.topLeft, .topRight, .bottomLeft, .bottomRight]), direction: Constants.Direction = .bottom, width: Constants.Size = .fullscreen, spring: Constants.Spring = .none) {
+        self.presentationUIConfiguration = uiConfiguration
         self.presentationTiming = timing
-        self.presentationUIConfiguration = ui
+        self.width = width
+        self.spring = spring
+        self.showDirection = direction
     }
-}
 }

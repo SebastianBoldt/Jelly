@@ -12,10 +12,15 @@ public protocol PresentationMarginGuardsProvider {
     var marginGuards: UIEdgeInsets { get set }
 }
 
-public protocol PresentationSizeProtocol {
+public protocol PresentationWidthProvider {
     var width: Constants.Size { get set  }
+}
+
+public protocol PresentationHeightProvider {
     var height: Constants.Size { get set }
 }
+
+public protocol PresentationSizeProtocol: PresentationWidthProvider, PresentationHeightProvider {}
 
 public struct PresentationSize: PresentationSizeProtocol {
     public var width: Constants.Size

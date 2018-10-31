@@ -9,11 +9,11 @@ public protocol PresentationAlignmentProtocol {
     var horizontalAlignment : Constants.HorizontalAlignment { get set }
 }
 
-public struct PresenstationAlignment: PresentationAlignmentProtocol {
+public struct PresentationAlignment: PresentationAlignmentProtocol {
     public var verticalAlignemt: Constants.VerticalAlignment
     public var horizontalAlignment: Constants.HorizontalAlignment
     
-    public static var centerAlignment: PresenstationAlignment {
-        return PresenstationAlignment(verticalAlignemt: .center, horizontalAlignment: .center)
+    public static var centerAlignment: PresentationAlignment {
+        return PresentationAlignment(verticalAlignemt: .center, horizontalAlignment: .center)
     }
 }

@@ -13,7 +13,7 @@ final class SlideInPresentationAnimator: NSObject {
 
 extension SlideInPresentationAnimator : UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return presentation.duration.rawValue
+        return presentation.presentationTiming.duration.rawValue
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -27,7 +27,7 @@ extension SlideInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         }
         
         let presentedFrame = transitionContext.finalFrame(for: controllerToAnimate) // Frame the ViewController will have after animation completes
-        let direction = self.presentationType == .show ? presentation.directionShow : presentation.directionDismiss
+        let direction = self.presentationType == .show ? presentation.showDirection : presentation.dismissDirection
         let dismissedFrame = calculateDismissedFrame(from: presentedFrame, usingDirection: direction, andContext: transitionContext) // Frame the ViewController will have when he is dismissed
         print(dismissedFrame)
         
@@ -38,7 +38,7 @@ extension SlideInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         let animationDuration = transitionDuration(using: transitionContext)
         controllerToAnimate.view.frame = initialFrame
         
-        let animationCurve = isPresentation ? presentation.presentationCurve : presentation.dismissCurve
+        let animationCurve = isPresentation ? presentation.presentationTiming.presentationCurve : presentation.presentationTiming.dismissCurve
         UIView.animate(withDuration: animationDuration,
                        delay: 0.0,
                        usingSpringWithDamping: self.presentation.spring.damping,

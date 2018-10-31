@@ -37,11 +37,6 @@ extension ViewController: UITableViewDelegate {
             self.animator?.prepare(viewController: viewController)
             self.present(viewController, animated: true, completion: nil)
         }
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
-            var presentation = Jelly.SlideInPresentation()
-            self.animator?.resizePresentedViewController(using: presentation)
-        })
     }
 }
 
