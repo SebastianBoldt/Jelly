@@ -4,7 +4,8 @@ public struct CoverPresentation: Presentation,
                                  PresentationMarginGuardsProvider,
                                  PresentationSizeProvider,
                                  PresentationAlignmentProvider,
-                                 PresentationSpringProvider {
+                                 PresentationSpringProvider,
+                                 InteractionConfigurationProvider {
     
     public var showDirection: Constants.Direction
     public var dismissDirection: Constants.Direction
@@ -14,7 +15,8 @@ public struct CoverPresentation: Presentation,
     public var presentationAlignment: PresentationAlignmentProtocol
     public var spring: Constants.Spring
     public var marginGuards: UIEdgeInsets
-
+    public var interactionConfiguration: InteractionConfiguration?
+    
     public init(directionShow: Constants.Direction = .bottom,
                 directionDismiss: Constants.Direction = .bottom,
                 uiConfiguration: PresentationUIConfigurationProtocol = PresentationUIConfiguration(),
@@ -22,7 +24,8 @@ public struct CoverPresentation: Presentation,
                 alignment: PresentationAlignmentProtocol = PresentationAlignment.centerAlignment,
                 marginGuards: UIEdgeInsets = .zero ,
                 timing: PresentationTimingProtocol = PresentationTiming(),
-                spring: Constants.Spring = .none) {
+                spring: Constants.Spring = .none,
+                interactionConfiguration: InteractionConfiguration? = nil) {
         
         self.dismissDirection = directionDismiss
         self.showDirection = directionShow
@@ -33,6 +36,7 @@ public struct CoverPresentation: Presentation,
         self.spring = spring
         self.marginGuards = marginGuards
         self.presentationAlignment = alignment
+        self.interactionConfiguration = interactionConfiguration
     }
 }
 

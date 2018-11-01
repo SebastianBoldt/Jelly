@@ -10,7 +10,10 @@ import UIKit
 public class Animator: NSObject {
     public var presentation: Presentation
     private var currentPresentationController: PresentationController?
-    
+    private var currentViewController: UIViewController!
+    private var showInteractionController: InteractionController?
+    private var dismissInteractionController: InteractionController?
+
     /// ## designated initializer
     /// - Parameter presentation: a custom Presentation Object
     public init(presentation: Presentation) {
@@ -22,24 +25,30 @@ public class Animator: NSObject {
     /// Call this function to prepare the viewController you want to present
     /// - Parameter viewController: viewController that should be presented in a custom way
     public func prepare(viewController: UIViewController) {
+        if let interactiveConfigurationProvider = presentation as? InteractionConfigurationProvider, let configuration = interactiveConfigurationProvider.interactionConfiguration {
+            self.showInteractionController = InteractionController(viewController: viewController, configuration: configuration, presentationType: .show)
+            self.dismissInteractionController = InteractionController(viewController: viewController, configuration: configuration, presentationType: .dismiss)
+        }
         viewController.modalPresentationStyle = .custom
         viewController.transitioningDelegate = self
+        currentViewController = viewController
     }
     
-    public func resizePresentedViewController(using presentation: Presentation) {
+    public func update(using presentation: Presentation) {
         currentPresentationController?.resizeViewController(using: presentation)
     }
 }
 
 /// ## UIViewControllerTransitioningDelegate Implementation
-/// The JellyAnimator needs to conform to the UIViewControllerTransitioningDelegate protocol
+/// The Animator needs to conform to the UIViewControllerTransitioningDelegate protocol
 /// it will provide a custom Presentation-Controller that tells UIKit which extra Views the presentation should have
 /// it also provides the size and frame for the controller that wants to be presented
+
 extension Animator: UIViewControllerTransitioningDelegate {
     /// Gets called from UIKit if presentatioStyle is custom and transitionDelegate is set
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         let presentationController = PresentationController(presentedViewController: presented, presentingViewController: presenting, presentation: presentation)
-        self.currentPresentationController = presentationController
+        currentPresentationController = presentationController
         return presentationController
     }
     
@@ -52,5 +61,16 @@ extension Animator: UIViewControllerTransitioningDelegate {
     
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return presentation.dismissAnimator
+    }
+    
+    public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        guard dismissInteractionController?.interactionInProgress == true else {
+            return nil
+        }
+        return dismissInteractionController
+    }
+    
+    public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return nil
     }
 }

@@ -16,6 +16,8 @@
 		130C69FE00D4E2207064BF7F4471451A /* UIViewControllerAnimatedTransitioning+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F021B52FAC33C033EAEBC339BCABDAE1 /* UIViewControllerAnimatedTransitioning+Extension.swift */; };
 		154783F5218A162A00BFB0A0 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154783F4218A162A00BFB0A0 /* Presentation.swift */; };
 		154783F7218AEE0900BFB0A0 /* PresentationAnimatorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154783F6218AEE0900BFB0A0 /* PresentationAnimatorProvider.swift */; };
+		154783FB218B5FE100BFB0A0 /* InteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154783FA218B5FE100BFB0A0 /* InteractionController.swift */; };
+		154783FD218B87C700BFB0A0 /* InteractionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154783FC218B87C700BFB0A0 /* InteractionConfiguration.swift */; };
 		154F4BF22187BE5000FB16B6 /* PresentationUIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F4BF12187BE5000FB16B6 /* PresentationUIConfiguration.swift */; };
 		154F4BF521882D5600FB16B6 /* PresentationDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F4BF421882D5600FB16B6 /* PresentationDirection.swift */; };
 		19291565899B5113A5355002CF9C8F2F /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E39B4B418DFE4857270A9929DFB8AC2 /* Equal.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -185,6 +187,8 @@
 		1137C10EF3B19747D48F747C8452D27D /* PresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
 		154783F4218A162A00BFB0A0 /* Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
 		154783F6218AEE0900BFB0A0 /* PresentationAnimatorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationAnimatorProvider.swift; sourceTree = "<group>"; };
+		154783FA218B5FE100BFB0A0 /* InteractionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionController.swift; sourceTree = "<group>"; };
+		154783FC218B87C700BFB0A0 /* InteractionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionConfiguration.swift; sourceTree = "<group>"; };
 		154F4BF12187BE5000FB16B6 /* PresentationUIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUIConfiguration.swift; sourceTree = "<group>"; };
 		154F4BF421882D5600FB16B6 /* PresentationDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDirection.swift; sourceTree = "<group>"; };
 		160931E5B7C58FBCE27C6F77CD31065A /* Expectation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expectation.swift; path = Sources/Nimble/Expectation.swift; sourceTree = "<group>"; };
@@ -440,6 +444,7 @@
 		154783F3218A15DB00BFB0A0 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				154783FC218B87C700BFB0A0 /* InteractionConfiguration.swift */,
 				154783F4218A162A00BFB0A0 /* Presentation.swift */,
 				6D989FCB0F8717EF9D68E50957380664 /* PresentationAlignment.swift */,
 				154F4BF421882D5600FB16B6 /* PresentationDirection.swift */,
@@ -449,6 +454,24 @@
 				154783F6218AEE0900BFB0A0 /* PresentationAnimatorProvider.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		154783F8218B5F9200BFB0A0 /* Animated Animators */ = {
+			isa = PBXGroup;
+			children = (
+				E3454BED4F76C208DB2C86AD5848D998 /* FadeAnimator.swift */,
+				204FDA49D0CA2085821EDBF9EC1FB1F6 /* SlideAnimator.swift */,
+				2D7A10765AFFC06989022950E229FE7B /* CoverAnimator.swift */,
+			);
+			path = "Animated Animators";
+			sourceTree = "<group>";
+		};
+		154783F9218B5FAD00BFB0A0 /* Interaction Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				154783FA218B5FE100BFB0A0 /* InteractionController.swift */,
+			);
+			path = "Interaction Controllers";
 			sourceTree = "<group>";
 		};
 		154F4BF32187BFC200FB16B6 /* Presentations */ = {
@@ -567,8 +590,8 @@
 			isa = PBXGroup;
 			children = (
 				4B3CFBABF2C33F06A41546BE6A27266A /* Pod */,
-				CE8C89401F7934EE78536BB7C7404928 /* private */,
 				8A05B11980BE95EB045721FE6A71ED97 /* public */,
+				CE8C89401F7934EE78536BB7C7404928 /* private */,
 				1306F90053BF123C65547BF47657D49B /* Support Files */,
 			);
 			name = Jelly;
@@ -638,9 +661,8 @@
 		BBF25A884A9A4DA872BE5BB79FB8D6F6 /* Animators */ = {
 			isa = PBXGroup;
 			children = (
-				E3454BED4F76C208DB2C86AD5848D998 /* FadeAnimator.swift */,
-				204FDA49D0CA2085821EDBF9EC1FB1F6 /* SlideAnimator.swift */,
-				2D7A10765AFFC06989022950E229FE7B /* CoverAnimator.swift */,
+				154783F9218B5FAD00BFB0A0 /* Interaction Controllers */,
+				154783F8218B5F9200BFB0A0 /* Animated Animators */,
 			);
 			path = Animators;
 			sourceTree = "<group>";
@@ -1090,6 +1112,7 @@
 				154783F7218AEE0900BFB0A0 /* PresentationAnimatorProvider.swift in Sources */,
 				FABCE7D3EE7076471190605DA0FBEBA8 /* PresentationAlignment.swift in Sources */,
 				A913B284345084985610B04381579018 /* AnimationCurve+AnimationOptions.swift in Sources */,
+				154783FD218B87C700BFB0A0 /* InteractionConfiguration.swift in Sources */,
 				C0BE5EEC28D2883C797B2C628E057463 /* Animator.swift in Sources */,
 				3C64099AF0A1822F626B2099CBA97E56 /* Constants.swift in Sources */,
 				3C7C5C12E1B118F4A4AF71BEDFD73CF8 /* PresentationSize.swift in Sources */,
@@ -1104,6 +1127,7 @@
 				F6D9B3B77177A3B4FA26DD9577C61D72 /* SlidePresentation.swift in Sources */,
 				D17F8CFE705C5D6F6004E85412BE52D5 /* CoverPresentation.swift in Sources */,
 				B6C060FAC5B224F24D9DE938D36998E9 /* UIView+Jelly.swift in Sources */,
+				154783FB218B5FE100BFB0A0 /* InteractionController.swift in Sources */,
 				154F4BF521882D5600FB16B6 /* PresentationDirection.swift in Sources */,
 				130C69FE00D4E2207064BF7F4471451A /* UIViewControllerAnimatedTransitioning+Extension.swift in Sources */,
 			);
@@ -1406,7 +1430,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Jelly/Jelly-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Jelly/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Jelly/Jelly.modulemap";
 				PRODUCT_NAME = Jelly;
@@ -1437,7 +1461,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Jelly/Jelly-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Jelly/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Jelly/Jelly.modulemap";
 				PRODUCT_NAME = Jelly;

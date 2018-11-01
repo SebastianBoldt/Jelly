@@ -97,4 +97,9 @@ public struct Constants {
         case fast = 0.2
         case reallyFast = 0.1
     }
+    
+    public enum DragMode {
+        case edge
+        case canvas
+    }
 }

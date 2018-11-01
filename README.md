@@ -81,7 +81,7 @@ Jelly is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "Jelly"
+pod 'Jelly', '~> 2.0'
 ```
 ## Mentions
 
