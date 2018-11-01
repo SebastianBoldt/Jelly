@@ -1,5 +1,6 @@
 
-# Jelly (2.0 Coming soon, including dynamic resizing and interactive transitions)
+# Jelly 
+##### (2.0 Coming soon, including dynamic resizing and interactive transitions)
 #### Create rich viewcontroller transition animations with just a few lines of code
 
 ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/Jellyfish.png)
