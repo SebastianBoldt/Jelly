@@ -1,17 +1,17 @@
 import Foundation
 
-final class SlideInPresentationAnimator: NSObject {
-    let presentationType : Constants.PresentationType
-    let presentation : SlideInPresentation
+final class CoverAnimator: NSObject {
+    private let presentationType : Constants.PresentationType
+    private let presentation : CoverPresentation
     
-    init(presentationType: Constants.PresentationType, presentation: SlideInPresentation) {
+    init(presentationType: Constants.PresentationType, presentation: CoverPresentation) {
         self.presentationType = presentationType
         self.presentation = presentation
         super.init()
     }
 }
 
-extension SlideInPresentationAnimator : UIViewControllerAnimatedTransitioning {
+extension CoverAnimator : UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return presentation.presentationTiming.duration.rawValue
     }
@@ -38,7 +38,8 @@ extension SlideInPresentationAnimator : UIViewControllerAnimatedTransitioning {
         let animationDuration = transitionDuration(using: transitionContext)
         controllerToAnimate.view.frame = initialFrame
         
-        let animationCurve = isPresentation ? presentation.presentationTiming.presentationCurve : presentation.presentationTiming.dismissCurve
+        let timing = presentation.presentationTiming
+        let animationCurve = isPresentation ? timing.presentationCurve : timing.dismissCurve
         UIView.animate(withDuration: animationDuration,
                        delay: 0.0,
                        usingSpringWithDamping: self.presentation.spring.damping,
@@ -50,7 +51,6 @@ extension SlideInPresentationAnimator : UIViewControllerAnimatedTransitioning {
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
     }
-    
     
     /// Return dismissed frame depending on provides direction
     ///

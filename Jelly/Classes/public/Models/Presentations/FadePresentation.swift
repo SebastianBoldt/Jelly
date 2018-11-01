@@ -1,6 +1,6 @@
 import UIKit
 
-public struct FadeInPresentation: Presentation,
+public struct FadePresentation: Presentation,
                                   PresentationAlignmentProvider,
                                   PresentationSizeProvider,
                                   PresentationMarginGuardsProvider {
@@ -24,12 +24,12 @@ public struct FadeInPresentation: Presentation,
     }
 }
 
-extension FadeInPresentation: PresentationAnimatorProvider {    
+extension FadePresentation: PresentationAnimatorProvider {    
     public var showAnimator: UIViewControllerAnimatedTransitioning {
-        return FadeInPresentationAnimator(presentationType: .show, presentation: self)
+        return FadeAnimator(presentationType: .show, presentation: self)
     }
     
     public var dismissAnimator: UIViewControllerAnimatedTransitioning {
-        return FadeInPresentationAnimator(presentationType: .dismiss, presentation: self)
+        return FadeAnimator(presentationType: .dismiss, presentation: self)
     }
 }

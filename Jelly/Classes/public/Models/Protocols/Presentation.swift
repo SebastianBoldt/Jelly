@@ -1,5 +1,6 @@
 import Foundation
 
-public protocol Presentation: PresentationTimingInformationProvider, PresentationUIConfigurationProvider, PresentationAnimatorProvider {
-    
+public protocol Presentation: PresentationTimingInformationProvider,
+                              PresentationUIConfigurationProvider,
+                              PresentationAnimatorProvider {
 }

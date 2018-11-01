@@ -1,17 +1,17 @@
 import Foundation
 
-final class ShiftInPresentationAnimator: NSObject {
-    let presentationType : Constants.PresentationType
-    let presentation : ShiftInPresentation
+final class SlideAnimator: NSObject {
+    private let presentationType : Constants.PresentationType
+    private let presentation : SlidePresentation
     
-    init(presentationType: Constants.PresentationType, presentation: ShiftInPresentation) {
+    init(presentationType: Constants.PresentationType, presentation: SlidePresentation) {
         self.presentationType = presentationType
         self.presentation = presentation
         super.init()
     }
 }
 
-extension ShiftInPresentationAnimator : UIViewControllerAnimatedTransitioning {
+extension SlideAnimator : UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return presentation.presentationTiming.duration.rawValue
     }
@@ -76,7 +76,7 @@ extension ShiftInPresentationAnimator : UIViewControllerAnimatedTransitioning {
     }
 }
 
-extension ShiftInPresentationAnimator {
+extension SlideAnimator {
     /// Return dismissed frame depending on provides direction
     ///
     /// - Parameters:

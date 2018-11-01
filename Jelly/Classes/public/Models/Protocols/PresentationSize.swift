@@ -6,8 +6,8 @@ public protocol PresentationSizeProvider {
 
 public protocol PresentationMarginGuardsProvider {
     /*
-     If the width or height is bigger than the container we are working in,
-     marginGuards will kick in and limit the size the specified margins
+        If the width or height is bigger than the container we are working in,
+        marginGuards will kick in and limit the size the specified margins
      */
     var marginGuards: UIEdgeInsets { get set }
 }
@@ -26,7 +26,8 @@ public struct PresentationSize: PresentationSizeProtocol {
     public var width: Constants.Size
     public var height: Constants.Size
     
-    public init(width: Constants.Size, height: Constants.Size) {
+    public init(width: Constants.Size = .fullscreen,
+                height: Constants.Size = .fullscreen) {
         self.width = width
         self.height = height
     }

@@ -66,6 +66,8 @@ final class PresentationController : UIPresentationController {
         }
         
         var width : CGFloat = 0.0
+        var height : CGFloat = 0.0
+
         switch nonFullScreenPresentation.presentationSize.width {
             case .fullscreen:
                 width = parentSize.width
@@ -75,7 +77,6 @@ final class PresentationController : UIPresentationController {
                 width = value
         }
         
-        var height : CGFloat = 0.0
         switch nonFullScreenPresentation.presentationSize.height {
             case .fullscreen:
                 height = parentSize.height
@@ -89,8 +90,8 @@ final class PresentationController : UIPresentationController {
     }
     
     override var frameOfPresentedViewInContainerView: CGRect {
-        if let shiftIn = self.presentation as? ShiftInPresentation {
-            return self.getFrameForShiftInPresentation(shiftIn: shiftIn)
+        if let shiftIn = self.presentation as? SlidePresentation {
+            return self.getFrameForSlidePresentation(shiftIn: shiftIn)
         }
         
         guard let dynamicPresentation = self.presentation as? PresentationSizeProvider else {
@@ -139,7 +140,7 @@ extension PresentationController {
         })
     }
     
-    private func getFrameForShiftInPresentation(shiftIn: ShiftInPresentation) -> CGRect {
+    private func getFrameForSlidePresentation(shiftIn: SlidePresentation) -> CGRect {
         var shiftFrame : CGRect = .zero
         let size = getSizeValue(fromPresentation: shiftIn)
         switch shiftIn.showDirection {
@@ -156,7 +157,7 @@ extension PresentationController {
         return shiftFrame
     }
     
-    private func getSizeValue(fromPresentation presentation: ShiftInPresentation) -> CGFloat{
+    private func getSizeValue(fromPresentation presentation: SlidePresentation) -> CGFloat{
         switch  presentation.width {
             case .custom(let value):
                 return value

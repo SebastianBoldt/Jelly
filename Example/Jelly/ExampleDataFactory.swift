@@ -19,12 +19,12 @@ struct ExampleDataProvider {
     var data : [DataObject] = {
         
         /// Default Fade in with custom size
-        var defaultFadeInPresentation = Jelly.FadeInPresentation(size: PresentationSize(width: .halfscreen, height: .halfscreen))
+        var defaultFadeInPresentation = Jelly.FadePresentation(size: PresentationSize(width: .halfscreen, height: .halfscreen))
         defaultFadeInPresentation.presentationUIConfiguration.isTapBackgroundToDismissEnabled = false
         let defaultFadeInObject = DataObject(presentation: defaultFadeInPresentation, titleDescription: "Default Fade in Animation", detailDescription: "default values, disabled tap to dismiss")
         
         /// Default slide in with custom size
-        let defaultSlideInPresentation = Jelly.SlideInPresentation(size: PresentationSize(width: .halfscreen, height: .halfscreen))
+        let defaultSlideInPresentation = Jelly.CoverPresentation(size: PresentationSize(width: .halfscreen, height: .halfscreen))
         
         let defaultSlideInObject = DataObject(presentation: defaultSlideInPresentation ,
                                           titleDescription: "Default Slide in Animation",
@@ -34,14 +34,14 @@ struct ExampleDataProvider {
         /// Fade in with blur and custom size
         let uiConfiguration = PresentationUIConfiguration(backgroundStyle: .blurred(effectStyle: .light))
         let presentationSize = PresentationSize(width: .halfscreen, height: .halfscreen)
-        let customBlurFadeInPresentation = Jelly.FadeInPresentation(size: presentationSize, ui: uiConfiguration)
+        let customBlurFadeInPresentation = Jelly.FadePresentation(size: presentationSize, ui: uiConfiguration)
         
         let customBlurFadeInObject = DataObject(presentation: customBlurFadeInPresentation ,
                                             titleDescription: "Blurred Fade in",
                                            detailDescription: "Fade in Viewcontroller blurred  background .light")
         
         /// Custom slide in presentation with blur
-        let customSlideInPresentation = Jelly.SlideInPresentation(uiConfiguration: uiConfiguration, size: presentationSize)
+        let customSlideInPresentation = Jelly.CoverPresentation(uiConfiguration: uiConfiguration, size: presentationSize)
         
         let customBlurSlideInObject = DataObject(presentation: customSlideInPresentation,
                                              titleDescription: "Blurred Slide in",
@@ -99,13 +99,13 @@ struct ExampleDataProvider {
         */
         // ShiftInPresentation
         
-        var shiftInPresentation = Jelly.ShiftInPresentation()
+        var shiftInPresentation = Jelly.SlidePresentation()
         shiftInPresentation.showDirection = .right
         shiftInPresentation.width = .custom(value: 300)
 
         let shiftInObject = DataObject(presentation: shiftInPresentation, titleDescription: "Shift in Dimmed", detailDescription: "dimmed, right")
         
-        var shiftInBlurred = Jelly.ShiftInPresentation()
+        var shiftInBlurred = Jelly.SlidePresentation()
         shiftInBlurred.showDirection = .bottom
         shiftInBlurred.presentationUIConfiguration.backgroundStyle = .blurred(effectStyle: .light)
         shiftInBlurred.width = .custom(value: 300)

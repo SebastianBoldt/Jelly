@@ -1,10 +1,10 @@
-public struct SlideInPresentation: Presentation,
-                                   PresentationDismissDirectionProvider,
-                                   PresentationShowDirectionProvider,
-                                   PresentationMarginGuardsProvider,
-                                   PresentationSizeProvider,
-                                   PresentationAlignmentProvider,
-                                   PresentationSpringProvider {
+public struct CoverPresentation: Presentation,
+                                 PresentationDismissDirectionProvider,
+                                 PresentationShowDirectionProvider,
+                                 PresentationMarginGuardsProvider,
+                                 PresentationSizeProvider,
+                                 PresentationAlignmentProvider,
+                                 PresentationSpringProvider {
     
     public var showDirection: Constants.Direction
     public var dismissDirection: Constants.Direction
@@ -15,13 +15,13 @@ public struct SlideInPresentation: Presentation,
     public var spring: Constants.Spring
     public var marginGuards: UIEdgeInsets
 
-    public init(directionShow: Constants.Direction = .left,
-                directionDismiss: Constants.Direction = .left,
+    public init(directionShow: Constants.Direction = .bottom,
+                directionDismiss: Constants.Direction = .bottom,
                 uiConfiguration: PresentationUIConfigurationProtocol = PresentationUIConfiguration(),
-                size: PresentationSizeProtocol = PresentationSize(width: .halfscreen, height: .halfscreen),
+                size: PresentationSizeProtocol = PresentationSize(),
                 alignment: PresentationAlignmentProtocol = PresentationAlignment.centerAlignment,
                 marginGuards: UIEdgeInsets = .zero ,
-                timing: PresentationTimingProtocol = PresentationTiming(duration: .normal, presentationCurve: .linear, dismissCurve: .linear),
+                timing: PresentationTimingProtocol = PresentationTiming(),
                 spring: Constants.Spring = .none) {
         
         self.dismissDirection = directionDismiss
@@ -36,12 +36,12 @@ public struct SlideInPresentation: Presentation,
     }
 }
 
-extension SlideInPresentation: PresentationAnimatorProvider {
+extension CoverPresentation: PresentationAnimatorProvider {
     public var showAnimator: UIViewControllerAnimatedTransitioning {
-        return SlideInPresentationAnimator(presentationType: .show, presentation: self)
+        return CoverAnimator(presentationType: .show, presentation: self)
     }
     
     public var dismissAnimator: UIViewControllerAnimatedTransitioning {
-        return SlideInPresentationAnimator(presentationType: .dismiss, presentation: self)
+        return CoverAnimator(presentationType: .dismiss, presentation: self)
     }
 }
