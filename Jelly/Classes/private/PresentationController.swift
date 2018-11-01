@@ -2,7 +2,7 @@ import UIKit
 
 /// A PresentationController tells UIKit what exactly to do with the View that should be presented
 /// It also reacts to transtion state changes etc.
-/// We  use this controller to setup dimmingView, blurView, positioning the presented ViewController etc.
+/// We  use this controller to setup dimmingView, blurView, positioning and resize the the presented ViewController etc.
 
 final class PresentationController : UIPresentationController {
     fileprivate var presentation: Presentation
@@ -15,10 +15,9 @@ final class PresentationController : UIPresentationController {
                    presenting: presentingViewController)
         
         presentedViewController.view.layer.masksToBounds = true
-        if let corners = (presentation as? PresentationUIConfigurationProvider)?.presentationUIConfiguration.corners,
-           let radius = (presentation as? PresentationUIConfigurationProvider)?.presentationUIConfiguration.cornerRadius {
-            presentedViewController.view.roundCorners(corners: corners, radius: radius)
-        }
+        let corners = presentation.presentationUIConfiguration.corners
+        let radius = presentation.presentationUIConfiguration.cornerRadius
+        presentedViewController.view.roundCorners(corners: corners, radius: radius)
     }
     
     public func resizeViewController(using presentation: Presentation) {
@@ -30,15 +29,14 @@ final class PresentationController : UIPresentationController {
     }
     
     override func presentationTransitionWillBegin() {
-        if let backgroundStyle = (presentation as? PresentationUIConfigurationProvider)?.presentationUIConfiguration.backgroundStyle {
-            switch backgroundStyle {
-                case .blurred(let effectStyle):
-                    self.setupBlurView()
-                    animateBlurView(effectStyle: effectStyle)
-                case .dimmed(let alpha):
-                    self.setupDimmingView(withAlpha: alpha)
-                    animateDimmingView()
-            }
+        let backgroundStyle = presentation.presentationUIConfiguration.backgroundStyle
+        switch backgroundStyle {
+            case .blurred(let effectStyle):
+                self.setupBlurView()
+                animateBlurView(effectStyle: effectStyle)
+            case .dimmed(let alpha):
+                self.setupDimmingView(withAlpha: alpha)
+                animateDimmingView()
         }
     }
     
@@ -56,10 +54,9 @@ final class PresentationController : UIPresentationController {
     
     override func containerViewWillLayoutSubviews() {        
         presentedView?.frame = frameOfPresentedViewInContainerView
-        if let corners = (presentation as? PresentationUIConfigurationProvider)?.presentationUIConfiguration.corners,
-            let radius = (presentation as? PresentationUIConfigurationProvider)?.presentationUIConfiguration.cornerRadius {
-            presentedView?.roundCorners(corners: corners, radius: radius)
-        }
+        let corners = presentation.presentationUIConfiguration.corners
+        let radius = presentation.presentationUIConfiguration.cornerRadius
+        presentedView?.roundCorners(corners: corners, radius: radius)
     }
     
     override func size(forChildContentContainer container: UIContentContainer,
@@ -111,9 +108,6 @@ final class PresentationController : UIPresentationController {
     }
     
     @objc dynamic func handleTap(recognizer: UITapGestureRecognizer) {
-        guard let presentation  = presentation as? PresentationUIConfigurationProvider else {
-            return
-        }
         if presentation.presentationUIConfiguration.isTapBackgroundToDismissEnabled {
             presentingViewController.dismiss(animated: true)
         }

@@ -46,30 +46,11 @@ extension Animator: UIViewControllerTransitioningDelegate {
     /// Each Presentation has two directions
     /// Inside a Presention Object you can specify some extra parameters
     /// This Parameters will be passed to a custom animator that handles the presentation animation (duration, direction etc.)
-    public func animationController(forPresented presented: UIViewController,
-                             presenting: UIViewController,
-                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-            if let presentation = self.presentation as? SlideInPresentation {
-                return SlideInPresentationAnimator(presentationType: .show, presentation: presentation)
-            } else if let presentation = self.presentation as? FadeInPresentation {
-                return FadeInPresentationAnimator(presentationType: .show, presentation: presentation)
-            } else if let presentation = self.presentation as? ShiftInPresentation {
-                return ShiftInPresentationAnimator(presentationType: .show, presentation: presentation)
-            } else {
-                return nil
-            }
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {        
+        return presentation.showAnimator
     }
     
-    public func animationController(forDismissed dismissed: UIViewController)
-        -> UIViewControllerAnimatedTransitioning? {
-            if let presentation = self.presentation as? SlideInPresentation {
-                return SlideInPresentationAnimator(presentationType: .dismiss, presentation: presentation)
-            } else if let presentation = self.presentation as? FadeInPresentation {
-                return FadeInPresentationAnimator(presentationType: .dismiss, presentation: presentation)
-            } else if let presentation = self.presentation as? ShiftInPresentation {
-                return ShiftInPresentationAnimator(presentationType: .dismiss, presentation: presentation)
-            } else {
-                return nil
-            }
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return presentation.dismissAnimator
     }
 }

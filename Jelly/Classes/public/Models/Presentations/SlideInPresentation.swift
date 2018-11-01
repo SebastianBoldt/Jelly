@@ -35,3 +35,13 @@ public struct SlideInPresentation: Presentation,
         self.presentationAlignment = alignment
     }
 }
+
+extension SlideInPresentation: PresentationAnimatorProvider {
+    public var showAnimator: UIViewControllerAnimatedTransitioning {
+        return SlideInPresentationAnimator(presentationType: .show, presentation: self)
+    }
+    
+    public var dismissAnimator: UIViewControllerAnimatedTransitioning {
+        return SlideInPresentationAnimator(presentationType: .dismiss, presentation: self)
+    }
+}

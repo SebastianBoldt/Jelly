@@ -19,3 +19,13 @@ public struct ShiftInPresentation: Presentation,
         self.showDirection = direction
     }
 }
+
+extension ShiftInPresentation: PresentationAnimatorProvider {
+    public var showAnimator: UIViewControllerAnimatedTransitioning {
+        return ShiftInPresentationAnimator(presentationType: .show, presentation: self)
+    }
+    
+    public var dismissAnimator: UIViewControllerAnimatedTransitioning {
+        return ShiftInPresentationAnimator(presentationType: .dismiss, presentation: self)
+    }
+}

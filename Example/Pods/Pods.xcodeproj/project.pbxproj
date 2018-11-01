@@ -15,6 +15,7 @@
 		118894DB9F20F5979822204C8AC30096 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598EE7A1FE76D77BE0FC75EDEF3299C1 /* Closures.swift */; };
 		130C69FE00D4E2207064BF7F4471451A /* UIViewControllerAnimatedTransitioning+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F021B52FAC33C033EAEBC339BCABDAE1 /* UIViewControllerAnimatedTransitioning+Extension.swift */; };
 		154783F5218A162A00BFB0A0 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154783F4218A162A00BFB0A0 /* Presentation.swift */; };
+		154783F7218AEE0900BFB0A0 /* PresentationAnimatorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154783F6218AEE0900BFB0A0 /* PresentationAnimatorProvider.swift */; };
 		154F4BF22187BE5000FB16B6 /* PresentationUIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F4BF12187BE5000FB16B6 /* PresentationUIConfiguration.swift */; };
 		154F4BF521882D5600FB16B6 /* PresentationDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154F4BF421882D5600FB16B6 /* PresentationDirection.swift */; };
 		19291565899B5113A5355002CF9C8F2F /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E39B4B418DFE4857270A9929DFB8AC2 /* Equal.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -185,6 +186,7 @@
 		10D81A32DD08157E729CDA25855D4178 /* QCKDSL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QCKDSL.h; path = Sources/QuickObjectiveC/DSL/QCKDSL.h; sourceTree = "<group>"; };
 		1137C10EF3B19747D48F747C8452D27D /* PresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
 		154783F4218A162A00BFB0A0 /* Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
+		154783F6218AEE0900BFB0A0 /* PresentationAnimatorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationAnimatorProvider.swift; sourceTree = "<group>"; };
 		154F4BF12187BE5000FB16B6 /* PresentationUIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUIConfiguration.swift; sourceTree = "<group>"; };
 		154F4BF421882D5600FB16B6 /* PresentationDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDirection.swift; sourceTree = "<group>"; };
 		160931E5B7C58FBCE27C6F77CD31065A /* Expectation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expectation.swift; path = Sources/Nimble/Expectation.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				0041E2DFD348537A608D13DE5D7C98A9 /* PresentationSize.swift */,
 				5CEEA3F60CF83897A751F3CD728EF78C /* PresentationTiming.swift */,
 				154F4BF12187BE5000FB16B6 /* PresentationUIConfiguration.swift */,
+				154783F6218AEE0900BFB0A0 /* PresentationAnimatorProvider.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1087,6 +1090,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				154F4BF22187BE5000FB16B6 /* PresentationUIConfiguration.swift in Sources */,
+				154783F7218AEE0900BFB0A0 /* PresentationAnimatorProvider.swift in Sources */,
 				FABCE7D3EE7076471190605DA0FBEBA8 /* PresentationAlignment.swift in Sources */,
 				A913B284345084985610B04381579018 /* AnimationCurve+AnimationOptions.swift in Sources */,
 				C0BE5EEC28D2883C797B2C628E057463 /* Animator.swift in Sources */,

@@ -23,3 +23,13 @@ public struct FadeInPresentation: Presentation,
         self.marginGuards = marginGuards
     }
 }
+
+extension FadeInPresentation: PresentationAnimatorProvider {    
+    public var showAnimator: UIViewControllerAnimatedTransitioning {
+        return FadeInPresentationAnimator(presentationType: .show, presentation: self)
+    }
+    
+    public var dismissAnimator: UIViewControllerAnimatedTransitioning {
+        return FadeInPresentationAnimator(presentationType: .dismiss, presentation: self)
+    }
+}
