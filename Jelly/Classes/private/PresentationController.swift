@@ -1,33 +1,30 @@
 import UIKit
 
+protocol PresentationControllerProtocol {
+    
+}
+
 /// A PresentationController tells UIKit what exactly to do with the View that should be presented
 /// It also reacts to transtion state changes etc.
 /// We  use this controller to setup dimmingView, blurView, positioning and resize the the presented ViewController etc.
 
 final class PresentationController : UIPresentationController {
     fileprivate var presentation: Presentation
-    var dimmingView: UIView = UIView()
-    var blurView: UIVisualEffectView = UIVisualEffectView()
+    
+    // Blur and Dimming View needs to be accessible because the Interactor attaches Gesture-Recognizer to them when
+    // using a edge pan gesture becaue it wont work other wise with non full screen viewController transitions
+    private(set) var dimmingView: UIView = UIView()
+    private(set) var blurView: UIVisualEffectView = UIVisualEffectView()
     
     init(presentedViewController: UIViewController, presentingViewController: UIViewController?, presentation: Presentation) {
         self.presentation = presentation
-        super.init(presentedViewController: presentedViewController,
-                   presenting: presentingViewController)
-        
+        super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
         presentedViewController.view.layer.masksToBounds = true
         let corners = presentation.presentationUIConfiguration.corners
         let radius = presentation.presentationUIConfiguration.cornerRadius
         presentedViewController.view.roundCorners(corners: corners, radius: radius)
     }
-    
-    public func resizeViewController(using presentation: Presentation) {
-        self.presentation = presentation
-        UIView.animate(withDuration: 2, animations: {
-            self.containerView?.setNeedsLayout()
-            self.containerView?.layoutIfNeeded()
-        })
-    }
-    
+
     override func presentationTransitionWillBegin() {
         let backgroundStyle = presentation.presentationUIConfiguration.backgroundStyle
         switch backgroundStyle {

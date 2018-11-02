@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Interactive Slide Out View Controller-->
+        <!--Cover Slide Out Menu-->
         <scene sceneID="86q-7i-21c">
             <objects>
-                <viewController id="YdR-Gv-xk2" customClass="InteractiveSlideOutViewController" customModule="Jelly_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YdR-Gv-xk2" customClass="CoverSlideOutMenu" customModule="Jelly_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9lV-2X-QAa"/>
                         <viewControllerLayoutGuide type="bottom" id="WYP-Ap-Uzq"/>
@@ -20,12 +20,37 @@
                     <view key="view" contentMode="scaleToFill" id="mHa-zF-J8v">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbJ-7U-x5H">
+                                <rect key="frame" x="154" y="312" width="67" height="43"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="26"/>
+                                <state key="normal" title="show">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressShowButton:" destination="YdR-Gv-xk2" eventType="touchUpInside" id="qzt-Xb-1eG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pan from here →  " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1E-9v-mzG">
+                                <rect key="frame" x="20" y="627" width="319" height="20"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mbJ-7U-x5H" firstAttribute="centerY" secondItem="mHa-zF-J8v" secondAttribute="centerY" id="NUp-sR-oM6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="F1E-9v-mzG" secondAttribute="trailing" constant="20" id="V43-tf-S2d"/>
+                            <constraint firstItem="F1E-9v-mzG" firstAttribute="leading" secondItem="mHa-zF-J8v" secondAttribute="leading" constant="20" id="X3D-oD-UFn"/>
+                            <constraint firstItem="WYP-Ap-Uzq" firstAttribute="top" secondItem="F1E-9v-mzG" secondAttribute="bottom" constant="20" id="c8v-qw-K5U"/>
+                            <constraint firstItem="mbJ-7U-x5H" firstAttribute="centerX" secondItem="mHa-zF-J8v" secondAttribute="centerX" id="iaQ-IH-aeK"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4G-ho-RSe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1578" y="172"/>
+            <point key="canvasLocation" x="1438" y="170"/>
         </scene>
         <!--Dismiss Me Controller-->
         <scene sceneID="yfK-oW-E0a">
@@ -40,13 +65,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tv7-Bz-hCQ">
-                                <rect key="frame" x="0.0" y="240" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="200" width="375" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnX-Mn-18d">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                         <color key="backgroundColor" red="0.92159384489059448" green="0.47323638200759888" blue="0.58572632074356079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
-                                        <state key="normal">
+                                        <state key="normal" title="Dismiss">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -56,14 +81,14 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="xnX-Mn-18d" secondAttribute="bottom" id="HCS-Tg-gIf"/>
-                                    <constraint firstAttribute="height" constant="60" id="yPY-HZ-bDK"/>
+                                    <constraint firstAttribute="height" constant="100" id="yPY-HZ-bDK"/>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6S-nW-2Tq">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="201"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXq-ab-ct1">
-                                        <rect key="frame" x="187.5" y="120.5" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="187.5" y="100.5" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="30"/>
                                         <color key="textColor" red="0.92159384489999996" green="0.47323638200000001" blue="0.58572632069999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -78,9 +103,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="XXN-2N-c5v" firstAttribute="top" secondItem="Tv7-Bz-hCQ" secondAttribute="bottom" id="GVH-Mu-KdD"/>
                             <constraint firstItem="Tv7-Bz-hCQ" firstAttribute="leading" secondItem="21K-Uo-kc6" secondAttribute="leading" id="ShI-ux-7Zf"/>
                             <constraint firstItem="xnX-Mn-18d" firstAttribute="top" secondItem="L6S-nW-2Tq" secondAttribute="bottom" constant="-1" id="V39-Ep-USw"/>
+                            <constraint firstAttribute="bottom" secondItem="Tv7-Bz-hCQ" secondAttribute="bottom" id="hP8-tJ-pV3"/>
                             <constraint firstAttribute="trailing" secondItem="L6S-nW-2Tq" secondAttribute="trailing" id="k1U-Y4-NGd"/>
                             <constraint firstAttribute="trailing" secondItem="Tv7-Bz-hCQ" secondAttribute="trailing" id="lTm-lv-rdb"/>
                             <constraint firstItem="L6S-nW-2Tq" firstAttribute="leading" secondItem="21K-Uo-kc6" secondAttribute="leading" id="mPK-G9-T5K"/>
@@ -92,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gsU-V5-cbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="729" y="687"/>
+            <point key="canvasLocation" x="-71" y="682"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QHg-Kv-0lS">
@@ -128,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BtJ-g6-0Do" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1386" y="641"/>
+            <point key="canvasLocation" x="702" y="637"/>
         </scene>
         <!--Custom Nav-->
         <scene sceneID="bQQ-if-G2Q">
@@ -172,7 +197,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="134.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Interactive Slide Out Menu" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Phh-kZ-cdO">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Interactive Slide Out Menu - Cover" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Phh-kZ-cdO">
                                                     <rect key="frame" x="16" y="0.0" width="324" height="134.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
@@ -182,7 +207,27 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="YdR-Gv-xk2" kind="presentation" id="kMz-UV-xYB"/>
+                                            <segue destination="YdR-Gv-xk2" kind="show" id="kMz-UV-xYB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="nGY-YI-YlQ" rowHeight="135" style="IBUITableViewCellStyleDefault" id="mxq-5t-Ba0">
+                                        <rect key="frame" x="0.0" y="135" width="375" height="135"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mxq-5t-Ba0" id="ZbJ-kv-yPL">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="134.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Interactive Slide Out Menu - Slide" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nGY-YI-YlQ">
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="134.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Aqh-Pq-AGb" kind="show" id="k5o-Pl-jRy"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -198,6 +243,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Su-Nf-CrA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="701.60000000000002" y="170.46476761619192"/>
+        </scene>
+        <!--Slide In Slide Menu-->
+        <scene sceneID="TMp-4A-1iD">
+            <objects>
+                <viewController id="Aqh-Pq-AGb" customClass="SlideInSlideMenu" customModule="Jelly_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n6F-29-uzX"/>
+                        <viewControllerLayoutGuide type="bottom" id="x2I-Ue-vHa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3rV-6P-wvG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbQ-k4-xpz">
+                                <rect key="frame" x="154" y="312" width="67" height="43"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="26"/>
+                                <state key="normal" title="show">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressShowButton:" destination="Aqh-Pq-AGb" eventType="touchUpInside" id="zML-HF-9bv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pan from here →" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pyc-60-WsP">
+                                <rect key="frame" x="20" y="627" width="319" height="20"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Pyc-60-WsP" secondAttribute="trailing" constant="20" id="4NB-tf-9zD"/>
+                            <constraint firstItem="wbQ-k4-xpz" firstAttribute="centerY" secondItem="3rV-6P-wvG" secondAttribute="centerY" id="MGb-8M-Ct2"/>
+                            <constraint firstItem="Pyc-60-WsP" firstAttribute="leading" secondItem="3rV-6P-wvG" secondAttribute="leading" constant="20" id="TSp-cr-BMS"/>
+                            <constraint firstItem="x2I-Ue-vHa" firstAttribute="top" secondItem="Pyc-60-WsP" secondAttribute="bottom" constant="20" id="Zoq-Eu-Ig5"/>
+                            <constraint firstItem="wbQ-k4-xpz" firstAttribute="centerX" secondItem="3rV-6P-wvG" secondAttribute="centerX" id="oYO-8m-7ve"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CjP-YE-ISi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1438" y="847"/>
         </scene>
     </scenes>
 </document>

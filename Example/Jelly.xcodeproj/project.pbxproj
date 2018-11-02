@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		150401BF218C3FB500BCBF88 /* InteractiveSlideOutMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150401BE218C3FB500BCBF88 /* InteractiveSlideOutMenuViewController.swift */; };
+		150401BF218C3FB500BCBF88 /* CoverSlideOutMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150401BE218C3FB500BCBF88 /* CoverSlideOutMenu.swift */; };
 		150401C1218C46B300BCBF88 /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150401C0218C46B300BCBF88 /* CustomNavController.swift */; };
+		1533A191218C8D7800185C31 /* SlideInSlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1533A190218C8D7800185C31 /* SlideInSlideMenu.swift */; };
 		1545094A1DF6084C0096C822 /* JellyAnimatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154509491DF6084C0096C822 /* JellyAnimatorSpec.swift */; };
 		15B3AD2D1DE1C5CB003FF7B8 /* DismissMeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -31,9 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		150401BE218C3FB500BCBF88 /* InteractiveSlideOutMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveSlideOutMenuViewController.swift; sourceTree = "<group>"; };
+		150401BE218C3FB500BCBF88 /* CoverSlideOutMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverSlideOutMenu.swift; sourceTree = "<group>"; };
 		150401C0218C46B300BCBF88 /* CustomNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
 		152009C91E26C6EA00537CD5 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
+		1533A190218C8D7800185C31 /* SlideInSlideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInSlideMenu.swift; sourceTree = "<group>"; };
 		154175841E337E4F00503A99 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		154509481DF6084B0096C822 /* Jelly_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jelly_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		154509491DF6084C0096C822 /* JellyAnimatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellyAnimatorSpec.swift; sourceTree = "<group>"; };
@@ -82,7 +84,8 @@
 		150401BB218C3DF900BCBF88 /* Interactive Slideout Menu */ = {
 			isa = PBXGroup;
 			children = (
-				150401BE218C3FB500BCBF88 /* InteractiveSlideOutMenuViewController.swift */,
+				150401BE218C3FB500BCBF88 /* CoverSlideOutMenu.swift */,
+				1533A190218C8D7800185C31 /* SlideInSlideMenu.swift */,
 			);
 			name = "Interactive Slideout Menu";
 			sourceTree = "<group>";
@@ -420,10 +423,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				15B3AD2D1DE1C5CB003FF7B8 /* DismissMeController.swift in Sources */,
-				150401BF218C3FB500BCBF88 /* InteractiveSlideOutMenuViewController.swift in Sources */,
+				150401BF218C3FB500BCBF88 /* CoverSlideOutMenu.swift in Sources */,
 				607FACD81AFB9204008FA782 /* MenuViewController.swift in Sources */,
 				150401C1218C46B300BCBF88 /* CustomNavController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				1533A191218C8D7800185C31 /* SlideInSlideMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,7 +28,7 @@ class JellyAnimatorSpec: QuickSpec {
             
             context("with slide presentation") {
                 it("UIViewControllerTransitioningDelegate should return right animationController for presenting") {
-                    let slidePresentation = Jelly.SlidePresentation()
+                    let slidePresentation = Jelly.SlidePresentation(interactionConfiguration: InteractionConfiguration(completionThreshold: 0.5, dragMode: .edge))
                     let animator = Jelly.Animator(presentation: slidePresentation)
                     let animationController = animator.animationController(forPresented: self.presentedViewController, presenting: self.presentingViewController, source: self.presentedViewController)
                     expect(animationController is Jelly.SlideAnimator).to(equal(true))

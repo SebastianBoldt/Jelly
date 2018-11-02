@@ -8,21 +8,21 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
     private weak var presentingViewController: UIViewController?
     private weak var presentationController: PresentationController?
     
-    private let presentation: (PresentationShowDirectionProvider & PresentationDismissDirectionProvider & InteractionConfigurationProvider)
+    private let presentation: (InteractionConfigurationProvider & PresentationShowDirectionProvider)
     private let presentationType: Constants.PresentationType
     
     init(presentedViewController: UIViewController,
          presentingViewController: UIViewController?,
          presentationType: Constants.PresentationType,
-         presentation: (PresentationShowDirectionProvider & PresentationDismissDirectionProvider & InteractionConfigurationProvider),
+         presentation: (InteractionConfigurationProvider & PresentationShowDirectionProvider),
          presentationController: PresentationController?) {
         self.presentedViewController = presentedViewController
         self.presentingViewController = presentingViewController
         self.presentation = presentation
         self.presentationType = presentationType
         self.presentationController = presentationController
-        
         super.init()
+        
         if presentationType == .show {
             if let view = presentingViewController?.view {
                 prepareGestureRecognizer(in: view)
@@ -39,7 +39,12 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
     }
     
     private func prepareGestureRecognizer(in view: UIView) {
-        let dragDirection = presentationType == .show ? presentation.showDirection : presentation.dismissDirection
+        var dismissDirection = presentation.showDirection
+        if let dismissProvider = presentation as? PresentationDismissDirectionProvider {
+            dismissDirection = dismissProvider.dismissDirection
+        }
+        
+        let dragDirection = presentationType == .show ? presentation.showDirection : dismissDirection
         switch presentation.interactionConfiguration.dragMode {
             case .canvas:
                 let gesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
@@ -88,7 +93,12 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
                      progress = (abs(translation.x) / width)
             }
         } else if presentationType == .dismiss {
-            switch presentation.dismissDirection {
+            var dismissDirection = presentation.showDirection
+            if let dismissProvider = presentation as? PresentationDismissDirectionProvider {
+                dismissDirection = dismissProvider.dismissDirection
+            }
+            
+            switch dismissDirection {
                 case .top:
                     let height = presentedViewController.view.frame.height
                     progress = (abs(translation.y) / height)

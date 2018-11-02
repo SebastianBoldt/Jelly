@@ -3,7 +3,8 @@ import Foundation
 final class SlideAnimator: NSObject {
     private let presentationType : Constants.PresentationType
     private let presentation : SlidePresentation
-    
+    private var propertyAnimator: UIViewPropertyAnimator!
+
     init(presentationType: Constants.PresentationType, presentation: SlidePresentation) {
         self.presentationType = presentationType
         self.presentation = presentation
@@ -17,6 +18,15 @@ extension SlideAnimator : UIViewControllerAnimatedTransitioning {
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        self.propertyAnimator = createPropertyAnimator(using: transitionContext)
+        propertyAnimator.startAnimation()
+    }
+    
+    func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
+        return createPropertyAnimator(using: transitionContext)
+    }
+    
+    func createPropertyAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewPropertyAnimator{
         let presentedKey = getPresentedViewControllerKeyForPresentationType(type: self.presentationType)
         let underlyingKey = getUnderlyingViewControllerKeyForPresentationType(type: self.presentationType)
         
@@ -36,14 +46,14 @@ extension SlideAnimator : UIViewControllerAnimatedTransitioning {
         var presentedFrameForUnderlying = transitionContext.containerView.frame
         
         switch self.presentation.showDirection {
-            case .left:
-                presentedFrameForUnderlying.origin.x = presentedFrameForPresented.origin.x + presentedFrameForPresented.size.width
-            case .right:
-                presentedFrameForUnderlying.origin.x = presentedFrameForUnderlying.origin.x - presentedFrameForPresented.size.width
-            case .top:
-                presentedFrameForUnderlying.origin.y = presentedFrameForPresented.origin.y + presentedFrameForPresented.size.height
-            case .bottom:
-                presentedFrameForUnderlying.origin.y = presentedFrameForUnderlying.origin.y - presentedFrameForPresented.size.height
+        case .left:
+            presentedFrameForUnderlying.origin.x = presentedFrameForPresented.origin.x + presentedFrameForPresented.size.width
+        case .right:
+            presentedFrameForUnderlying.origin.x = presentedFrameForUnderlying.origin.x - presentedFrameForPresented.size.width
+        case .top:
+            presentedFrameForUnderlying.origin.y = presentedFrameForPresented.origin.y + presentedFrameForPresented.size.height
+        case .bottom:
+            presentedFrameForUnderlying.origin.y = presentedFrameForUnderlying.origin.y - presentedFrameForPresented.size.height
         }
         
         let dismissedFrameForUnderLying = transitionContext.containerView.frame
@@ -60,19 +70,24 @@ extension SlideAnimator : UIViewControllerAnimatedTransitioning {
         underlyingViewController.view.frame = initialFrameForUnderlying
         
         let animationCurve = isPresentation ? presentation.presentationTiming.presentationCurve : presentation.presentationTiming.presentationCurve
-        UIView.animate(withDuration: animationDuration,
-                       delay: 0.0,
-                       usingSpringWithDamping: presentation.spring.damping,
-                       initialSpringVelocity: presentation.spring.velocity,
-                       options: animationCurve.animationOptions,
-                       animations: {
-                        
-                        presentedViewController.view.frame = finalFrameFoPresented
-                        underlyingViewController.view.frame = finalFrameForUnderlying
-                        
-        }, completion:{ finished in
+        let direction = presentation.showDirection
+        let velocityVector = direction == .bottom || direction == .top ? CGVector(dx: 0, dy: presentation.spring.velocity) : CGVector(dx: presentation.spring.velocity, dy: 0)
+        let springParameters = UISpringTimingParameters(dampingRatio: presentation.spring.damping, initialVelocity: velocityVector)
+        let cubicParameters = UICubicTimingParameters(animationCurve: animationCurve)
+        let timingCurveProvider = CombinedTimingCurveProvider(springParameters: springParameters, cubicParameters: cubicParameters)
+        
+        let propertyAnimator = UIViewPropertyAnimator(duration: animationDuration, timingParameters: timingCurveProvider)
+        
+        propertyAnimator.addAnimations {
+            presentedViewController.view.frame = finalFrameFoPresented
+            underlyingViewController.view.frame = finalFrameForUnderlying
+        }
+        
+        propertyAnimator.addCompletion { animatedPosition in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-        })
+        }
+        
+        return propertyAnimator
     }
 }
 

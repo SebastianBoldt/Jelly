@@ -70,8 +70,13 @@ extension CoverAnimator : UIViewControllerAnimatedTransitioning {
         let timing = presentation.presentationTiming
         let animationCurve = isPresentation ? timing.presentationCurve : timing.dismissCurve
         
-        let timingParameter = UICubicTimingParameters(animationCurve: animationCurve)
-        let propertyAnimator = UIViewPropertyAnimator(duration: animationDuration, timingParameters: timingParameter)
+        let velocityVector = direction == .bottom || direction == .top ? CGVector(dx: 0, dy: presentation.spring.velocity) : CGVector(dx: presentation.spring.velocity, dy: 0)
+        let springParameters = UISpringTimingParameters(dampingRatio: presentation.spring.damping, initialVelocity: velocityVector)
+        let cubicParameters = UICubicTimingParameters(animationCurve: animationCurve)
+        let timingCurveProvider = CombinedTimingCurveProvider(springParameters: springParameters, cubicParameters: cubicParameters)
+        
+        let propertyAnimator = UIViewPropertyAnimator(duration: animationDuration, timingParameters: timingCurveProvider)
+
         propertyAnimator.addAnimations {
             controllerToAnimate.view.frame = finalFrame
         }
@@ -81,5 +86,35 @@ extension CoverAnimator : UIViewControllerAnimatedTransitioning {
         }
         
         return propertyAnimator
+    }
+}
+
+
+@objc(CombinedTimingCurveProvider) class CombinedTimingCurveProvider: NSObject, UITimingCurveProvider {
+    var springTimingParameters: UISpringTimingParameters?
+    var cubicTimingParameters: UICubicTimingParameters?
+    var timingCurveType: UITimingCurveType {
+        return .composed
+    }
+        
+    init(springParameters: UISpringTimingParameters?, cubicParameters: UICubicTimingParameters?) {
+        self.springTimingParameters = springParameters
+        self.cubicTimingParameters = cubicParameters
+    }
+    
+    override init() {
+        super.init()
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init()
+    }
+    
+    public func copy(with zone: NSZone? = nil) -> Any {
+        return CombinedTimingCurveProvider(springParameters: self.springTimingParameters, cubicParameters: self.cubicTimingParameters)
+    }
+    
+    public func encode(with aCoder: NSCoder) {
+        return
     }
 }
