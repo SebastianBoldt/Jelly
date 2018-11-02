@@ -2,44 +2,123 @@ import UIKit
 
 class InteractionController: UIPercentDrivenInteractiveTransition {
     var interactionInProgress = false
-    
     private var shouldCompleteTransition = false
-    private weak var viewController: UIViewController!
-    private let configuration: InteractionConfiguration
+    
+    private weak var presentedViewController: UIViewController!
+    private weak var presentingViewController: UIViewController?
+    private weak var presentationController: PresentationController?
+    
+    private let presentation: (PresentationShowDirectionProvider & PresentationDismissDirectionProvider & InteractionConfigurationProvider)
     private let presentationType: Constants.PresentationType
     
-    init(viewController: UIViewController, configuration: InteractionConfiguration, presentationType: Constants.PresentationType) {
-        self.configuration = configuration
-        self.viewController = viewController
+    init(presentedViewController: UIViewController,
+         presentingViewController: UIViewController?,
+         presentationType: Constants.PresentationType,
+         presentation: (PresentationShowDirectionProvider & PresentationDismissDirectionProvider & InteractionConfigurationProvider),
+         presentationController: PresentationController?) {
+        self.presentedViewController = presentedViewController
+        self.presentingViewController = presentingViewController
+        self.presentation = presentation
         self.presentationType = presentationType
-        super.init()
-        prepareGestureRecognizer(in: viewController.view)
-    }
+        self.presentationController = presentationController
         
+        super.init()
+        if presentationType == .show {
+            if let view = presentingViewController?.view {
+                prepareGestureRecognizer(in: view)
+            }
+        } else {
+            // Just use the dimming or blurView on edge not on canvas
+            prepareGestureRecognizer(in: presentationController!.dimmingView)
+            prepareGestureRecognizer(in: presentationController!.blurView)
+        }
+    }
+    
+    public func setPresentationController(presentationController: PresentationController) {
+        self.presentationController = presentationController
+    }
+    
     private func prepareGestureRecognizer(in view: UIView) {
-        let dragDirection = presentationType == .show ? configuration.showDragDirection : configuration.dismissDragDirection
-        switch configuration.dragMode {
+        let dragDirection = presentationType == .show ? presentation.showDirection : presentation.dismissDirection
+        switch presentation.interactionConfiguration.dragMode {
             case .canvas:
-                let gesture = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
-                gesture.direction = try! dragDirection.panDirection()
+                let gesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
                 view.addGestureRecognizer(gesture)
             case .edge:
                 let gesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
-                gesture.edges = dragDirection
+                if presentationType == .dismiss {
+                    // THIS IS FUCKING FUGLY, clean this up .. pleaassseeee 😢
+                    switch dragDirection {
+                        case .bottom:
+                            gesture.edges = .top
+                        case .top:
+                            gesture.edges = .bottom
+                        case .left:
+                            gesture.edges = .right
+                        case .right:
+                            gesture.edges = .left
+                    }
+                } else {
+                    gesture.edges = dragDirection.rectEdges
+                }
                 view.addGestureRecognizer(gesture)
         }
     }
     
-    @objc func handleGesture(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
-        let translation = gestureRecognizer.translation(in: gestureRecognizer.view!.superview!)
-        var progress = (abs(translation.x) / viewController.view.frame.width)
+    @objc func handleGesture(_ gestureRecognizer: UIPanGestureRecognizer) {
+        guard let superView = gestureRecognizer.view?.superview else {
+            return
+        }
+        
+        let translation = gestureRecognizer.translation(in: superView)
+        var progress: CGFloat = 0.0
+        if presentationType == .show {
+            switch presentation.showDirection {
+                case .top:
+                    let height = presentedViewController.view.frame.height
+                    progress = (abs(translation.y) / height)
+                case .bottom:
+                    let height = presentedViewController.view.frame.height
+                     progress = (abs(translation.y) / height)
+                case .left:
+                    let width = presentedViewController.view.frame.width
+                     progress = (abs(translation.x) / width)
+                case .right:
+                    let width = presentedViewController.view.frame.width
+                     progress = (abs(translation.x) / width)
+            }
+        } else if presentationType == .dismiss {
+            switch presentation.dismissDirection {
+                case .top:
+                    let height = presentedViewController.view.frame.height
+                    progress = (abs(translation.y) / height)
+                case .bottom:
+                    let height = presentedViewController.view.frame.height
+                    progress = (abs(translation.y) / height)
+                case .left:
+                    let width = presentedViewController.view.frame.width
+                    progress = (abs(translation.x) / width)
+                case .right:
+                    let width = presentedViewController.view.frame.width
+                    progress = (abs(translation.x) / width)
+            }
+        }
+        
         progress = CGFloat(min(max(Float(progress), 0.0), 1.0))
-        switch gestureRecognizer.state {
+        updateTransition(with: progress, and: gestureRecognizer.state)
+    }
+    
+    func updateTransition(with progress: CGFloat, and state: UIGestureRecognizer.State) {
+        switch state {
             case .began:
                 interactionInProgress = true
-                viewController.dismiss(animated: true, completion: nil)
+                if presentationType == .show {
+                    presentingViewController?.present(presentedViewController, animated: true, completion: nil)
+                } else {
+                    presentedViewController.dismiss(animated: true, completion: nil)
+                }
             case .changed:
-                shouldCompleteTransition = progress > configuration.completionThreshold
+                shouldCompleteTransition = progress > presentation.interactionConfiguration.completionThreshold
                 update(progress)
             case .cancelled:
                 interactionInProgress = false
@@ -51,8 +130,8 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
                 } else {
                     cancel()
                 }
-        default:
-            break
+            default:
+                break
         }
     }
 }

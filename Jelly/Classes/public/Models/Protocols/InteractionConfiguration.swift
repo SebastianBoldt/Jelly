@@ -2,24 +2,20 @@ import Foundation
 
 public struct InteractionConfiguration {
     var completionThreshold: CGFloat     // How much of the transition need to be completed so it will finish
-    var showDragDirection: UIRectEdge
-    var dismissDragDirection: UIRectEdge
     var dragMode: Constants.DragMode
     
-    public init(completionThreshold: CGFloat = 0.5, showDragDirection: UIRectEdge, dismissDragDirection: UIRectEdge, dragMode: Constants.DragMode) {
+    public init(completionThreshold: CGFloat = 0.5, dragMode: Constants.DragMode) {
         self.completionThreshold = completionThreshold
-        self.showDragDirection = showDragDirection
-        self.dismissDragDirection = dismissDragDirection
         self.dragMode = dragMode
     }
 }
 
 protocol InteractionConfigurationProvider {
-    var interactionConfiguration: InteractionConfiguration? { get }
+    var interactionConfiguration: InteractionConfiguration { get }
 }
 
-extension UIRectEdge {
-    public func panDirection() throws -> UISwipeGestureRecognizer.Direction {
+extension Constants.Direction {
+    public var panDirection: UISwipeGestureRecognizer.Direction {
         switch self {
             case .top:
                 return .down
@@ -29,8 +25,19 @@ extension UIRectEdge {
                 return .up
             case .right:
                 return .right
-            default:
-                throw NSError(domain: "You can not use allEdges on a Canvas Interaction", code: 0, userInfo: nil)
+        }
+    }
+    
+    public var rectEdges: UIRectEdge {
+        switch self {
+            case .top:
+                return .top
+            case .left:
+                return .left
+            case .bottom:
+                return .bottom
+            case .right:
+                return .right
         }
     }
 }

@@ -1,27 +1,19 @@
-//
-//  CustomNavController.swift
-//  Jelly
-//
-//  Created by Sebastian Boldt on 20.11.16.
-//  Copyright © 2016 CocoaPods. All rights reserved.
-//
-
 import UIKit
+import TouchVisualizer
 
-class CustomNavController: UINavigationController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+class CustomNav: UINavigationController {
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        modalPresentationCapturesStatusBarAppearance = true
+        
+        var config = Configuration()
+        config.color = .lightGray
+        config.showsTouchRadius = true
+        config.defaultSize = CGSize(width: 100, height: 100)
+        Visualizer.start(config)
     }
 }

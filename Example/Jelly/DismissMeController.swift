@@ -8,6 +8,7 @@ class DismissMeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        modalPresentationCapturesStatusBarAppearance = true
     }
     
     override func didReceiveMemoryWarning() {

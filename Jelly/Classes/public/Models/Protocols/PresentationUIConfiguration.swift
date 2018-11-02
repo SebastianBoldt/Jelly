@@ -24,7 +24,7 @@ public struct PresentationUIConfiguration: PresentationUIConfigurationProtocol{
     public var isTapBackgroundToDismissEnabled: Bool
     public var corners: UIRectCorner
     
-    public init(cornerRadius: Double = 0.0, backgroundStyle: Constants.BackgroundStyle = .dimmed(alpha: 0.5), isTapBackgroundToDismissEnabled: Bool = true, corners: UIRectCorner = [.topLeft, .topRight, .bottomLeft, .bottomRight]) {
+    public init(cornerRadius: Double = 0.0, backgroundStyle: Constants.BackgroundStyle = .dimmed(alpha: 0.5), isTapBackgroundToDismissEnabled: Bool = true, corners: UIRectCorner = .allCorners) {
         self.cornerRadius = cornerRadius
         self.backgroundStyle = backgroundStyle
         self.isTapBackgroundToDismissEnabled = isTapBackgroundToDismissEnabled

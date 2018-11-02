@@ -14,6 +14,11 @@ public struct PresentationAlignment: PresentationAlignmentProtocol {
     public var horizontalAlignment: Constants.HorizontalAlignment
     
     public static var centerAlignment: PresentationAlignment {
-        return PresentationAlignment(verticalAlignemt: .center, horizontalAlignment: .center)
+        return PresentationAlignment(vertical: .center, horizontal: .center)
+    }
+    
+    public init(vertical: Constants.VerticalAlignment, horizontal: Constants.HorizontalAlignment) {
+        self.verticalAlignemt = vertical
+        self.horizontalAlignment = horizontal
     }
 }

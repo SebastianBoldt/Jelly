@@ -1,7 +1,7 @@
 import UIKit
 
 /// # Animator
-/// A Animator is an UIViewControllerTransitionsDelegate with some extra candy.
+/// An Animator is an UIViewControllerTransitionsDelegate with some extra candy.
 /// Basically the Animator is the main class to use when working with Jelly.
 /// You need to create an Animator and assign it as a transitionDelegate to your ViewController.
 /// After you did this you need to set the presentation style to custom so the VC asks its custom delegate.
@@ -9,8 +9,9 @@ import UIKit
 
 public class Animator: NSObject {
     public var presentation: Presentation
-    private var currentPresentationController: PresentationController?
-    private var currentViewController: UIViewController!
+    private var currentPresentationController: PresentationController!
+    private var presentedViewController: UIViewController!
+    private var presentingViewController: UIViewController?
     private var showInteractionController: InteractionController?
     private var dismissInteractionController: InteractionController?
 
@@ -24,14 +25,14 @@ public class Animator: NSObject {
     /// ## prepare
     /// Call this function to prepare the viewController you want to present
     /// - Parameter viewController: viewController that should be presented in a custom way
-    public func prepare(viewController: UIViewController) {
-        if let interactiveConfigurationProvider = presentation as? InteractionConfigurationProvider, let configuration = interactiveConfigurationProvider.interactionConfiguration {
-            self.showInteractionController = InteractionController(viewController: viewController, configuration: configuration, presentationType: .show)
-            self.dismissInteractionController = InteractionController(viewController: viewController, configuration: configuration, presentationType: .dismiss)
+    public func prepare(presentedViewController: UIViewController, presentingViewController: UIViewController) {
+        // Create InteractionController over here because it needs a reference to the PresentationController
+        if let interactiveConfigurationProvider = presentation as? (InteractionConfigurationProvider & PresentationShowDirectionProvider & PresentationDismissDirectionProvider) {
+            self.showInteractionController = InteractionController(presentedViewController: presentedViewController, presentingViewController: presentingViewController, presentationType: .show, presentation: interactiveConfigurationProvider, presentationController: nil)
         }
-        viewController.modalPresentationStyle = .custom
-        viewController.transitioningDelegate = self
-        currentViewController = viewController
+        presentedViewController.modalPresentationStyle = .custom
+        presentedViewController.transitioningDelegate = self
+        self.presentedViewController = presentedViewController
     }
     
     public func update(using presentation: Presentation) {
@@ -49,6 +50,9 @@ extension Animator: UIViewControllerTransitioningDelegate {
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         let presentationController = PresentationController(presentedViewController: presented, presentingViewController: presenting, presentation: presentation)
         currentPresentationController = presentationController
+        if let interactiveConfigurationProvider = presentation as? (InteractionConfigurationProvider & PresentationShowDirectionProvider & PresentationDismissDirectionProvider) {
+            self.dismissInteractionController = InteractionController(presentedViewController: presentedViewController, presentingViewController: presentingViewController, presentationType: .dismiss, presentation: interactiveConfigurationProvider, presentationController: currentPresentationController)
+        }
         return presentationController
     }
     
@@ -71,6 +75,9 @@ extension Animator: UIViewControllerTransitioningDelegate {
     }
     
     public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return nil
+        guard showInteractionController?.interactionInProgress == true else {
+            return nil
+        }
+        return showInteractionController
     }
 }

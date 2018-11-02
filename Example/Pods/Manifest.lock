@@ -2,21 +2,24 @@ PODS:
   - Jelly (1.2.5)
   - Nimble (7.3.1)
   - Quick (1.3.2)
+  - TouchVisualizer (3.1.0)
 
 DEPENDENCIES:
   - Jelly (from `../`)
   - Nimble
   - Quick
+  - TouchVisualizer (~> 3.1.0)
 
 EXTERNAL SOURCES:
   Jelly:
     :path: ../
 
 SPEC CHECKSUMS:
-  Jelly: b1344015a24debf7f4369f7757053089aae0ff4a
+  Jelly: 7f4cec3038ad768924677ea66c61405eed0e9dc3
   Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
   Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
+  TouchVisualizer: b97b1efb0f25d1408bb4557e6f493eae454425e7
 
-PODFILE CHECKSUM: d9462fde83474a6e879a1f65f3c8d7c0d2fd1ef3
+PODFILE CHECKSUM: 1b989e7964ae80b08173e37f930105ced6179c02
 
 COCOAPODS: 1.4.0

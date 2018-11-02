@@ -6,8 +6,8 @@ import UIKit
 
 final class PresentationController : UIPresentationController {
     fileprivate var presentation: Presentation
-    fileprivate var dimmingView: UIView = UIView()
-    fileprivate var blurView: UIVisualEffectView = UIVisualEffectView()
+    var dimmingView: UIView = UIView()
+    var blurView: UIVisualEffectView = UIVisualEffectView()
     
     init(presentedViewController: UIViewController, presentingViewController: UIViewController?, presentation: Presentation) {
         self.presentation = presentation
@@ -259,6 +259,7 @@ extension PresentationController {
         
         blurView.translatesAutoresizingMaskIntoConstraints = false
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
+        recognizer.delegate = self
         blurView.addGestureRecognizer(recognizer)
         containerView.insertSubview(blurView, at: 0)
     
@@ -305,5 +306,11 @@ extension PresentationController {
                 NSLayoutConstraint.constraints(withVisualFormat: "H:|[dimmingView]|",
                                                options: [], metrics: nil, views: ["dimmingView": dimmingView]))
         }
+    }
+}
+
+extension PresentationController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
