@@ -5,19 +5,19 @@ public protocol PresentationAlignmentProvider {
 }
 
 public protocol PresentationAlignmentProtocol {
-    var verticalAlignemt : Constants.VerticalAlignment { get set }
-    var horizontalAlignment : Constants.HorizontalAlignment { get set }
+    var verticalAlignemt : VerticalAlignment { get set }
+    var horizontalAlignment : HorizontalAlignment { get set }
 }
 
 public struct PresentationAlignment: PresentationAlignmentProtocol {
-    public var verticalAlignemt: Constants.VerticalAlignment
-    public var horizontalAlignment: Constants.HorizontalAlignment
+    public var verticalAlignemt: VerticalAlignment
+    public var horizontalAlignment: HorizontalAlignment
     
     public static var centerAlignment: PresentationAlignment {
         return PresentationAlignment(vertical: .center, horizontal: .center)
     }
     
-    public init(vertical: Constants.VerticalAlignment, horizontal: Constants.HorizontalAlignment) {
+    public init(vertical: VerticalAlignment, horizontal: HorizontalAlignment) {
         self.verticalAlignemt = vertical
         self.horizontalAlignment = horizontal
     }

@@ -1,10 +1,10 @@
 import UIKit
 
 public protocol PresentationShowDirectionProvider {
-    var showDirection: Constants.Direction { get set }
+    var showDirection: Direction { get set }
 }
 
 public protocol PresentationDismissDirectionProvider {
-    var dismissDirection: Constants.Direction { get set }
+    var dismissDirection: Direction { get set }
 }
 

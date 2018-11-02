@@ -1,10 +1,11 @@
 import Foundation
 
 final class FadeAnimator: NSObject {
-    private let presentationType : Constants.PresentationType
+    private let presentationType : PresentationType
     private let presentation : FadePresentation
-    
-    init(presentationType: Constants.PresentationType, presentation: FadePresentation) {
+    private var propertyAnimator: UIViewPropertyAnimator!
+
+    init(presentationType: PresentationType, presentation: FadePresentation) {
         self.presentationType = presentationType
         self.presentation = presentation
         super.init()
@@ -12,11 +13,19 @@ final class FadeAnimator: NSObject {
 }
 
 extension FadeAnimator : UIViewControllerAnimatedTransitioning {
+    func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
+        return createPropertyAnimator(using: transitionContext)
+    }
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return presentation.presentationTiming.duration.rawValue
+        return presentation.presentationTiming.duration.timeInterval
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        propertyAnimator = createPropertyAnimator(using: transitionContext)
+        propertyAnimator.startAnimation()
+    }
+    
+    private func createPropertyAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewPropertyAnimator {
         let key = getPresentedViewControllerKeyForPresentationType(type: self.presentationType)
         let isPresentation = key == .to
         let controllerToAnimate = transitionContext.viewController(forKey: key)!
@@ -37,11 +46,16 @@ extension FadeAnimator : UIViewControllerAnimatedTransitioning {
         
         let timing = presentation.presentationTiming
         let animationCurve = isPresentation ? timing.presentationCurve : timing.dismissCurve
-
-        UIView.animate(withDuration: animationDuration, delay: 0.0, options: animationCurve.animationOptions, animations: {
+        let timingCurveProvider = UICubicTimingParameters(animationCurve: animationCurve)
+        let propertyAnimator = UIViewPropertyAnimator(duration: animationDuration, timingParameters: timingCurveProvider)
+        
+        propertyAnimator.addAnimations {
             controllerToAnimate.view.alpha = CGFloat(finalAlpha)
-        }, completion:{ finished in
+        }
+        
+        propertyAnimator.addCompletion { animatedPosition in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-        })
+        }
+        return propertyAnimator
     }
 }

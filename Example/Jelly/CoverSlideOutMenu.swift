@@ -15,11 +15,11 @@ class CoverSlideOutMenu: UIViewController {
 
         //TODO: Corner Radius not working properly
         let uiConfiguration = PresentationUIConfiguration(cornerRadius: 20, backgroundStyle: .blurred(effectStyle: .light), isTapBackgroundToDismissEnabled: true)
-        let size = PresentationSize(width: .halfscreen, height: .fullscreen)
-        let interaction = InteractionConfiguration(completionThreshold: 0.5, dragMode: .edge)
-        let alignment = PresentationAlignment(vertical: .top, horizontal: .right)
+        let size = PresentationSize(width: .halfscreen, height: .halfscreen)
+        let interaction = InteractionConfiguration(completionThreshold: 0.5, dragMode: .canvas)
+        let alignment = PresentationAlignment(vertical: .center, horizontal: .center)
         let presentation = CoverPresentation(directionShow: .right,
-                                             directionDismiss: .right,
+                                             directionDismiss: .left,
                                              uiConfiguration: uiConfiguration,
                                              size: size,
                                              alignment: alignment,

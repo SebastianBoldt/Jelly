@@ -13,21 +13,21 @@ public protocol PresentationMarginGuardsProvider {
 }
 
 public protocol PresentationWidthProvider {
-    var width: Constants.Size { get set  }
+    var width: Size { get set  }
 }
 
 public protocol PresentationHeightProvider {
-    var height: Constants.Size { get set }
+    var height: Size { get set }
 }
 
 public protocol PresentationSizeProtocol: PresentationWidthProvider, PresentationHeightProvider {}
 
 public struct PresentationSize: PresentationSizeProtocol {
-    public var width: Constants.Size
-    public var height: Constants.Size
+    public var width: Size
+    public var height: Size
     
-    public init(width: Constants.Size = .fullscreen,
-                height: Constants.Size = .fullscreen) {
+    public init(width: Size = .fullscreen,
+                height: Size = .fullscreen) {
         self.width = width
         self.height = height
     }

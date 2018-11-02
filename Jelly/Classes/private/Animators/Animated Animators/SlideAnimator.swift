@@ -1,11 +1,11 @@
 import Foundation
 
 final class SlideAnimator: NSObject {
-    private let presentationType : Constants.PresentationType
+    private let presentationType : PresentationType
     private let presentation : SlidePresentation
     private var propertyAnimator: UIViewPropertyAnimator!
 
-    init(presentationType: Constants.PresentationType, presentation: SlidePresentation) {
+    init(presentationType: PresentationType, presentation: SlidePresentation) {
         self.presentationType = presentationType
         self.presentation = presentation
         super.init()
@@ -14,7 +14,7 @@ final class SlideAnimator: NSObject {
 
 extension SlideAnimator : UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return presentation.presentationTiming.duration.rawValue
+        return presentation.presentationTiming.duration.timeInterval
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -99,7 +99,7 @@ extension SlideAnimator {
     ///   - transitionContext: nothing to say here
     /// - Returns: the frame the view should have afer dismissing it
     private func calculateDismissedFrame(from presentedFrame: CGRect,
-                                         usingDirection direction: Constants.Direction,
+                                         usingDirection direction: Direction,
                                          andContext transitionContext: UIViewControllerContextTransitioning) -> CGRect {
         var dismissedFrame: CGRect = presentedFrame
         switch direction {

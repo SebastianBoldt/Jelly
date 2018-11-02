@@ -9,11 +9,11 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
     private weak var presentationController: PresentationController?
     
     private let presentation: (InteractionConfigurationProvider & PresentationShowDirectionProvider)
-    private let presentationType: Constants.PresentationType
+    private let presentationType: PresentationType
     
     init(presentedViewController: UIViewController,
          presentingViewController: UIViewController?,
-         presentationType: Constants.PresentationType,
+         presentationType: PresentationType,
          presentation: (InteractionConfigurationProvider & PresentationShowDirectionProvider),
          presentationController: PresentationController?) {
         self.presentedViewController = presentedViewController
@@ -23,14 +23,16 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
         self.presentationController = presentationController
         super.init()
         
-        if presentationType == .show {
-            if let view = presentingViewController?.view {
+        // BUG 1
+        switch (presentationType, presentation.interactionConfiguration.dragMode) {
+            case (.show, .canvas), (.show, .edge):
+                guard let view = presentingViewController?.view else { break }
                 prepareGestureRecognizer(in: view)
-            }
-        } else {
-            // Just use the dimming or blurView on edge not on canvas
-            prepareGestureRecognizer(in: presentationController!.dimmingView)
-            prepareGestureRecognizer(in: presentationController!.blurView)
+            case (.dismiss, .canvas):
+                prepareGestureRecognizer(in: presentedViewController.view)
+            case (.dismiss, .edge):
+                prepareGestureRecognizer(in: presentationController!.dimmingView)
+                prepareGestureRecognizer(in: presentationController!.blurView)
         }
     }
     
@@ -44,6 +46,7 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
             dismissDirection = dismissProvider.dismissDirection
         }
         
+        // BUG 2 
         let dragDirection = presentationType == .show ? presentation.showDirection : dismissDirection
         switch presentation.interactionConfiguration.dragMode {
             case .canvas:

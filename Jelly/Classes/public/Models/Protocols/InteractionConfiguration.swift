@@ -2,9 +2,9 @@ import Foundation
 
 public struct InteractionConfiguration {
     var completionThreshold: CGFloat     // How much of the transition need to be completed so it will finish
-    var dragMode: Constants.DragMode
+    var dragMode: DragMode
     
-    public init(completionThreshold: CGFloat = 0.5, dragMode: Constants.DragMode) {
+    public init(completionThreshold: CGFloat = 0.5, dragMode: DragMode) {
         self.completionThreshold = completionThreshold
         self.dragMode = dragMode
     }
@@ -14,7 +14,7 @@ protocol InteractionConfigurationProvider {
     var interactionConfiguration: InteractionConfiguration { get }
 }
 
-extension Constants.Direction {
+extension Direction {
     public var panDirection: UISwipeGestureRecognizer.Direction {
         switch self {
             case .top:

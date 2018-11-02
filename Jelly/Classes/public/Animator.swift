@@ -5,13 +5,13 @@ import UIKit
 /// Basically the Animator is the main class to use when working with Jelly.
 /// You need to create an Animator and assign it as a transitionDelegate to your ViewController.
 /// After you did this you need to set the presentation style to custom so the VC asks its custom delegate.
-/// You can use the prepare function for that
-
 public class Animator: NSObject {
     public var presentation: Presentation
     private var currentPresentationController: PresentationController!
+    
     private var presentedViewController: UIViewController!
     private var presentingViewController: UIViewController?
+    
     private var showInteractionController: InteractionController?
     private var dismissInteractionController: InteractionController?
 
@@ -40,7 +40,6 @@ public class Animator: NSObject {
 /// The Animator needs to conform to the UIViewControllerTransitioningDelegate protocol
 /// it will provide a custom Presentation-Controller that tells UIKit which extra Views the presentation should have
 /// it also provides the size and frame for the controller that wants to be presented
-
 extension Animator: UIViewControllerTransitioningDelegate {
     /// Gets called from UIKit if presentatioStyle is custom and transitionDelegate is set
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {

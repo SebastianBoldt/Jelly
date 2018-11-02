@@ -1,11 +1,11 @@
 import Foundation
 
 final class CoverAnimator: NSObject {
-    private let presentationType : Constants.PresentationType
+    private let presentationType : PresentationType
     private let presentation : CoverPresentation
     private var propertyAnimator: UIViewPropertyAnimator!
     
-    init(presentationType: Constants.PresentationType, presentation: CoverPresentation) {
+    init(presentationType: PresentationType, presentation: CoverPresentation) {
         self.presentationType = presentationType
         self.presentation = presentation
         super.init()
@@ -23,7 +23,7 @@ extension CoverAnimator : UIViewControllerAnimatedTransitioning {
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return presentation.presentationTiming.duration.rawValue
+        return presentation.presentationTiming.duration.timeInterval
     }
     
     /// Return dismissed frame depending on provides direction
@@ -32,7 +32,7 @@ extension CoverAnimator : UIViewControllerAnimatedTransitioning {
     ///   - presentedFrame: frame the viewController will have if he is fully presented
     ///   - transitionContext: nothing to say here
     /// - Returns: the frame the view should have afer dismissing it
-    private func calculateDismissedFrame(from presentedFrame: CGRect, usingDirection direction: Constants.Direction , andContext transitionContext: UIViewControllerContextTransitioning) -> CGRect {
+    private func calculateDismissedFrame(from presentedFrame: CGRect, usingDirection direction: Direction , andContext transitionContext: UIViewControllerContextTransitioning) -> CGRect {
         var dismissedFrame: CGRect = presentedFrame
         switch direction {
             case .left:
@@ -86,35 +86,5 @@ extension CoverAnimator : UIViewControllerAnimatedTransitioning {
         }
         
         return propertyAnimator
-    }
-}
-
-
-@objc(CombinedTimingCurveProvider) class CombinedTimingCurveProvider: NSObject, UITimingCurveProvider {
-    var springTimingParameters: UISpringTimingParameters?
-    var cubicTimingParameters: UICubicTimingParameters?
-    var timingCurveType: UITimingCurveType {
-        return .composed
-    }
-        
-    init(springParameters: UISpringTimingParameters?, cubicParameters: UICubicTimingParameters?) {
-        self.springTimingParameters = springParameters
-        self.cubicTimingParameters = cubicParameters
-    }
-    
-    override init() {
-        super.init()
-    }
-    
-    required convenience init?(coder aDecoder: NSCoder) {
-        self.init()
-    }
-    
-    public func copy(with zone: NSZone? = nil) -> Any {
-        return CombinedTimingCurveProvider(springParameters: self.springTimingParameters, cubicParameters: self.cubicTimingParameters)
-    }
-    
-    public func encode(with aCoder: NSCoder) {
-        return
     }
 }

@@ -1,7 +1,7 @@
 import Foundation
 
 extension UIViewControllerAnimatedTransitioning {
-    func getPresentedViewControllerKeyForPresentationType(type: Constants.PresentationType) -> UITransitionContextViewControllerKey {
+    func getPresentedViewControllerKeyForPresentationType(type: PresentationType) -> UITransitionContextViewControllerKey {
         switch type {
             case .show:
                 return .to
@@ -10,7 +10,7 @@ extension UIViewControllerAnimatedTransitioning {
         }
     }
     
-    func getUnderlyingViewControllerKeyForPresentationType(type: Constants.PresentationType) -> UITransitionContextViewControllerKey {
+    func getUnderlyingViewControllerKeyForPresentationType(type: PresentationType) -> UITransitionContextViewControllerKey {
         switch type {
             case .show:
                 return .from

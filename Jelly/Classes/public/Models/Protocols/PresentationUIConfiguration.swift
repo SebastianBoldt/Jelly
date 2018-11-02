@@ -4,7 +4,7 @@ import Foundation
 import UIKit
 
 public protocol PresentationSpringProvider {
-    var spring: Constants.Spring { get set }
+    var spring: Spring { get set }
 }
 
 public protocol PresentationUIConfigurationProvider {
@@ -13,18 +13,18 @@ public protocol PresentationUIConfigurationProvider {
 
 public protocol PresentationUIConfigurationProtocol {
     var cornerRadius: Double { get set }
-    var backgroundStyle : Constants.BackgroundStyle { get set }
+    var backgroundStyle : BackgroundStyle { get set }
     var isTapBackgroundToDismissEnabled : Bool { get set }
     var corners: UIRectCorner { get set }
 }
 
 public struct PresentationUIConfiguration: PresentationUIConfigurationProtocol{
     public var cornerRadius: Double
-    public var backgroundStyle: Constants.BackgroundStyle
+    public var backgroundStyle: BackgroundStyle
     public var isTapBackgroundToDismissEnabled: Bool
     public var corners: UIRectCorner
     
-    public init(cornerRadius: Double = 0.0, backgroundStyle: Constants.BackgroundStyle = .dimmed(alpha: 0.5), isTapBackgroundToDismissEnabled: Bool = true, corners: UIRectCorner = .allCorners) {
+    public init(cornerRadius: Double = 0.0, backgroundStyle: BackgroundStyle = .dimmed(alpha: 0.5), isTapBackgroundToDismissEnabled: Bool = true, corners: UIRectCorner = .allCorners) {
         self.cornerRadius = cornerRadius
         self.backgroundStyle = backgroundStyle
         self.isTapBackgroundToDismissEnabled = isTapBackgroundToDismissEnabled

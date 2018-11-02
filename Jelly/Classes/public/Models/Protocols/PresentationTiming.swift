@@ -6,17 +6,17 @@ public protocol PresentationTimingInformationProvider {
 }
 
 public protocol PresentationTimingProtocol {
-    var duration: Constants.Duration { get set }
+    var duration: Duration { get set }
     var presentationCurve : UIView.AnimationCurve { get set }
     var dismissCurve : UIView.AnimationCurve { get set }
 }
 
 public struct PresentationTiming: PresentationTimingProtocol {
-    public var duration: Constants.Duration
+    public var duration: Duration
     public var presentationCurve: UIView.AnimationCurve
     public var dismissCurve: UIView.AnimationCurve
     
-    public init(duration: Constants.Duration = .normal,
+    public init(duration: Duration = .normal,
                 presentationCurve: UIView.AnimationCurve = .linear,
                 dismissCurve: UIView.AnimationCurve = .linear) {
         self.duration = duration

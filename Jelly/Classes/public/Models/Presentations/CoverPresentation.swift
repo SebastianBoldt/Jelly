@@ -7,24 +7,24 @@ public struct CoverPresentation: Presentation,
                                  PresentationSpringProvider,
                                  InteractionConfigurationProvider {
     
-    public var showDirection: Constants.Direction
-    public var dismissDirection: Constants.Direction
+    public var showDirection: Direction
+    public var dismissDirection: Direction
     public var presentationTiming: PresentationTimingProtocol
     public var presentationUIConfiguration: PresentationUIConfigurationProtocol
     public var presentationSize: PresentationSizeProtocol
     public var presentationAlignment: PresentationAlignmentProtocol
-    public var spring: Constants.Spring
+    public var spring: Spring
     public var marginGuards: UIEdgeInsets
     public var interactionConfiguration: InteractionConfiguration
     
-    public init(directionShow: Constants.Direction = .bottom,
-                directionDismiss: Constants.Direction = .bottom,
+    public init(directionShow: Direction = .bottom,
+                directionDismiss: Direction = .bottom,
                 uiConfiguration: PresentationUIConfigurationProtocol = PresentationUIConfiguration(),
                 size: PresentationSizeProtocol = PresentationSize(),
                 alignment: PresentationAlignmentProtocol = PresentationAlignment.centerAlignment,
                 marginGuards: UIEdgeInsets = .zero ,
                 timing: PresentationTimingProtocol = PresentationTiming(),
-                spring: Constants.Spring = .none,
+                spring: Spring = .none,
                 interactionConfiguration: InteractionConfiguration) {
         
         self.dismissDirection = directionDismiss

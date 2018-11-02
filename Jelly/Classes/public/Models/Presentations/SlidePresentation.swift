@@ -7,16 +7,16 @@ public struct SlidePresentation: Presentation,
     
     public var presentationTiming: PresentationTimingProtocol
     public var presentationUIConfiguration: PresentationUIConfigurationProtocol
-    public var showDirection: Constants.Direction
-    public  var width: Constants.Size
-    public  var spring: Constants.Spring
+    public var showDirection: Direction
+    public  var width: Size
+    public  var spring: Spring
     public var interactionConfiguration: InteractionConfiguration
     
     public init(timing: PresentationTimingProtocol = PresentationTiming(),
                 uiConfiguration: PresentationUIConfigurationProtocol = PresentationUIConfiguration(),
-                direction: Constants.Direction = .bottom,
-                width: Constants.Size = .fullscreen,
-                spring: Constants.Spring = .none,
+                direction: Direction = .bottom,
+                width: Size = .fullscreen,
+                spring: Spring = .none,
                 interactionConfiguration: InteractionConfiguration) {
         self.presentationUIConfiguration = uiConfiguration
         self.presentationTiming = timing
