@@ -46,7 +46,7 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
             dismissDirection = dismissProvider.dismissDirection
         }
         
-        // BUG 2 
+        // BUG 2
         let dragDirection = presentationType == .show ? presentation.showDirection : dismissDirection
         switch presentation.interactionConfiguration.dragMode {
             case .canvas:
@@ -79,48 +79,38 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
         }
         
         let translation = gestureRecognizer.translation(in: superView)
-        var progress: CGFloat = 0.0
-        if presentationType == .show {
-            switch presentation.showDirection {
-                case .top:
-                    let height = presentedViewController.view.frame.height
-                    progress = (abs(translation.y) / height)
-                case .bottom:
-                    let height = presentedViewController.view.frame.height
-                     progress = (abs(translation.y) / height)
-                case .left:
-                    let width = presentedViewController.view.frame.width
-                     progress = (abs(translation.x) / width)
-                case .right:
-                    let width = presentedViewController.view.frame.width
-                     progress = (abs(translation.x) / width)
-            }
-        } else if presentationType == .dismiss {
-            var dismissDirection = presentation.showDirection
-            if let dismissProvider = presentation as? PresentationDismissDirectionProvider {
-                dismissDirection = dismissProvider.dismissDirection
-            }
-            
-            switch dismissDirection {
-                case .top:
-                    let height = presentedViewController.view.frame.height
-                    progress = (abs(translation.y) / height)
-                case .bottom:
-                    let height = presentedViewController.view.frame.height
-                    progress = (abs(translation.y) / height)
-                case .left:
-                    let width = presentedViewController.view.frame.width
-                    progress = (abs(translation.x) / width)
-                case .right:
-                    let width = presentedViewController.view.frame.width
-                    progress = (abs(translation.x) / width)
-            }
+        print(translation)
+        var direction: Direction = presentation.showDirection
+        if presentationType == .dismiss, let dismissProvider = presentation as? PresentationDismissDirectionProvider {
+            direction = dismissProvider.dismissDirection
         }
         
+        var progress = getProgress(for: direction, translation: translation)
         progress = CGFloat(min(max(Float(progress), 0.0), 1.0))
         updateTransition(with: progress, and: gestureRecognizer.state)
     }
     
+    private func getProgress(for direction: Direction, translation: CGPoint) -> CGFloat {
+        var progress: CGFloat = 0.0
+        switch direction {
+            case .top:
+                let height = presentedViewController.view.frame.height
+                progress = (abs(translation.y) / height)
+            case .bottom:
+                let height = presentedViewController.view.frame.height
+                progress = (abs(translation.y) / height)
+            case .left:
+                let width = presentedViewController.view.frame.width
+                progress = (abs(translation.x) / width)
+            case .right:
+                let width = presentedViewController.view.frame.width
+                progress = (abs(translation.x) / width)
+        }
+        return progress
+    }
+}
+
+extension InteractionController {
     func updateTransition(with progress: CGFloat, and state: UIGestureRecognizer.State) {
         switch state {
             case .began:
@@ -138,11 +128,7 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
                 cancel()
             case .ended:
                 interactionInProgress = false
-                if shouldCompleteTransition {
-                    finish()
-                } else {
-                    cancel()
-                }
+                shouldCompleteTransition ? finish() : cancel()
             default:
                 break
         }
