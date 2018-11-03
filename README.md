@@ -17,7 +17,7 @@ animator.prepare(viewController: viewController)
 present(viewController, animated: true, completion: nil)
 ```
 
-## How to
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/how%20to.png?raw=true" width="400">
 
 1. Create a *Presentation* Object 
 2. Configure an  *Animator* with the *Presentation*
@@ -44,7 +44,7 @@ Because the *transitioningDelegate* of a *UIViewController* is weak, you need to
 hold a strong reference to the *Animator* inside the *UIViewController* you are presenting from or 
 the central object that maintains your presentations.
 
-## Interactive Transitions
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/interactive-transitions.png?raw=true" width="400">
 
 Interactive transitions can be activated for the slide and the cover transitions. 
 If the transitions are to be interactive, only an interaction configuration object has to be passed to the presentation. 
@@ -62,17 +62,19 @@ let viewController = YourViewController()
 animator.prepare(presentedViewController: viewController, presentingViewController: self)
 
 ```
-## Customization
+
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/customization.png?raw=true" width="400">
 
 The presentation types can be configured with various settings. 
 These include size, direction, timing, user interface configurations and interaction configuration. 
 Each component is explained in more detail in the Jelly Wiki.  
 
-## Requirements
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/requirements.png?raw=true" width="400">
 
 Deployment target of your App is >= iOS 10.0
 
-## Installation
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/installation.png?raw=true" width="400">
+
 
 Jelly is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
@@ -80,12 +82,13 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'Jelly', '~> 2.0'
 ```
-## Mentions
+
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/mentions.png?raw=true" width="400">
 
 * Mentioned in <i>iOS Dev Weekly</i> by <a href="https://twitter.com/daveverwer">@Dave Verwer</a> - <a href="http://iosdevweekly.com/issues/279"> Issue NO. 112 </a>
 * Mentioned in <i>This Week in Swift</i> by <a href="https://twitter.com/NatashaTheRobot">@Natasha the Robot</a> - <a href="https://swiftnews.curated.co/issues/112#start"> Issue No. 279 </a>
 
-## Author
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/author.png?raw=true" width="400">
 
 Sebastian Boldt, https://www.sebastianboldt.com
 
@@ -94,6 +97,6 @@ Passionate about creating awesome user experiences, designing beautiful user int
 and writing maintainable, structured, and best-practice orientated code. 
 Continuously trying to improve skills and learn new technologies.
 
-## License
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/license.png?raw=true" width="400">
 
 Jelly is available under the MIT license. See the LICENSE file for more info.
