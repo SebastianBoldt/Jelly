@@ -14,6 +14,10 @@ class MenuViewController: UITableViewController {
         modalPresentationCapturesStatusBarAppearance = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
