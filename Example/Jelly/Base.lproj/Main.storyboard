@@ -31,26 +31,29 @@
                                     <action selector="didPressShowButton:" destination="YdR-Gv-xk2" eventType="touchUpInside" id="qzt-Xb-1eG"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pan from here →  " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1E-9v-mzG">
-                                <rect key="frame" x="20" y="627" width="319" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="← Pan from here on canvas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1E-9v-mzG">
+                                <rect key="frame" x="28" y="363" width="319" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="7zn-e8-vMp"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="F1E-9v-mzG" firstAttribute="top" secondItem="mbJ-7U-x5H" secondAttribute="bottom" constant="8" id="Ic4-dB-pcO"/>
                             <constraint firstItem="mbJ-7U-x5H" firstAttribute="centerY" secondItem="mHa-zF-J8v" secondAttribute="centerY" id="NUp-sR-oM6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="F1E-9v-mzG" secondAttribute="trailing" constant="20" id="V43-tf-S2d"/>
-                            <constraint firstItem="F1E-9v-mzG" firstAttribute="leading" secondItem="mHa-zF-J8v" secondAttribute="leading" constant="20" id="X3D-oD-UFn"/>
-                            <constraint firstItem="WYP-Ap-Uzq" firstAttribute="top" secondItem="F1E-9v-mzG" secondAttribute="bottom" constant="20" id="c8v-qw-K5U"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="F1E-9v-mzG" secondAttribute="trailing" constant="12" id="Wu4-wy-G6d"/>
                             <constraint firstItem="mbJ-7U-x5H" firstAttribute="centerX" secondItem="mHa-zF-J8v" secondAttribute="centerX" id="iaQ-IH-aeK"/>
+                            <constraint firstItem="F1E-9v-mzG" firstAttribute="leading" secondItem="mHa-zF-J8v" secondAttribute="leadingMargin" constant="12" id="mpW-3b-Qq3"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4G-ho-RSe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1438" y="170"/>
+            <point key="canvasLocation" x="1398" y="947"/>
         </scene>
         <!--Dismiss Me Controller-->
         <scene sceneID="yfK-oW-E0a">
@@ -117,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gsU-V5-cbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-71" y="682"/>
+            <point key="canvasLocation" x="702" y="-345"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QHg-Kv-0lS">
@@ -153,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BtJ-g6-0Do" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1438" y="-300"/>
+            <point key="canvasLocation" x="702" y="-643"/>
         </scene>
         <!--Custom Nav-->
         <scene sceneID="bQQ-if-G2Q">
@@ -177,7 +180,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cdk-DS-tQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-70" y="173"/>
+            <point key="canvasLocation" x="-7" y="170"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="YFx-6j-k1d">
@@ -187,11 +190,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="LQ0-uJ-lWH">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="117"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Jelly-Logo" translatesAutoresizingMaskIntoConstraints="NO" id="6IR-HU-W5n">
+                                    <rect key="frame" x="0.0" y="4" width="375" height="109"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="6IR-HU-W5n" secondAttribute="trailing" id="8ht-4i-V8G"/>
+                                <constraint firstAttribute="bottom" secondItem="6IR-HU-W5n" secondAttribute="bottom" constant="4" id="AWb-7C-m71"/>
+                                <constraint firstItem="6IR-HU-W5n" firstAttribute="leading" secondItem="LQ0-uJ-lWH" secondAttribute="leading" id="llZ-9y-v8s"/>
+                                <constraint firstItem="6IR-HU-W5n" firstAttribute="top" secondItem="LQ0-uJ-lWH" secondAttribute="top" constant="4" id="pG4-pt-zt0"/>
+                            </constraints>
+                        </view>
                         <sections>
+                            <tableViewSection headerTitle="Basic Transitions" id="ksP-oR-b5r">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="4aB-TH-U4F" rowHeight="80" style="IBUITableViewCellStyleDefault" id="ToI-aN-etu">
+                                        <rect key="frame" x="0.0" y="145" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ToI-aN-etu" id="qZb-tH-Gsf">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Basic - Slide" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4aB-TH-U4F">
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="79.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="dpe-8u-26h" kind="show" id="l2z-tD-kjz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="Interactive Transitions" id="ncc-He-wqQ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Phh-kZ-cdO" rowHeight="80" style="IBUITableViewCellStyleDefault" id="5HB-oH-eKJ">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="253" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5HB-oH-eKJ" id="Zl5-Pq-HbE">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
@@ -211,7 +254,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="nGY-YI-YlQ" rowHeight="80" style="IBUITableViewCellStyleDefault" id="mxq-5t-Ba0">
-                                        <rect key="frame" x="0.0" y="108" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="333" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mxq-5t-Ba0" id="ZbJ-kv-yPL">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
@@ -231,7 +274,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="YeQ-7p-NJS" rowHeight="80" style="IBUITableViewCellStyleDefault" id="h7a-dJ-HTg">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="413" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h7a-dJ-HTg" id="drV-vm-Pwr">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="79.5"/>
@@ -246,6 +289,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="P0g-OV-jhn" kind="show" id="emk-Al-Hcd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -283,10 +329,10 @@
                                     <action selector="didPressShowButton:" destination="Aqh-Pq-AGb" eventType="touchUpInside" id="zML-HF-9bv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pan from here →" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pyc-60-WsP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pan from screen edge →" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pyc-60-WsP">
                                 <rect key="frame" x="20" y="627" width="319" height="20"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -302,7 +348,91 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CjP-YE-ISi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1438" y="847"/>
+            <point key="canvasLocation" x="702" y="947"/>
+        </scene>
+        <!--Interactive Notification-->
+        <scene sceneID="PU2-RL-JHT">
+            <objects>
+                <viewController id="P0g-OV-jhn" customClass="InteractiveNotification" customModule="Jelly_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wWb-dM-bSC"/>
+                        <viewControllerLayoutGuide type="bottom" id="XMF-H9-U3H"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XDT-Kz-DHa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MzT-Bh-QEB">
+                                <rect key="frame" x="154" y="312" width="67" height="43"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="26"/>
+                                <state key="normal" title="show">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressShowButton:" destination="P0g-OV-jhn" eventType="touchUpInside" id="xAF-m9-0ln"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pan from here on canvas ↑" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5a-sE-bHp">
+                                <rect key="frame" x="8" y="104" width="359" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="AWs-Df-koh"/>
+                                    <constraint firstAttribute="height" constant="20" id="Qhb-ls-lBZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="i5a-sE-bHp" firstAttribute="leading" secondItem="XDT-Kz-DHa" secondAttribute="leading" constant="8" id="8jP-Nm-4oC"/>
+                            <constraint firstAttribute="trailing" secondItem="i5a-sE-bHp" secondAttribute="trailing" constant="8" id="KAz-Rb-z4F"/>
+                            <constraint firstItem="MzT-Bh-QEB" firstAttribute="centerY" secondItem="XDT-Kz-DHa" secondAttribute="centerY" id="QfV-0c-lkl"/>
+                            <constraint firstItem="i5a-sE-bHp" firstAttribute="top" secondItem="wWb-dM-bSC" secondAttribute="bottom" constant="40" id="bvg-Ox-aIX"/>
+                            <constraint firstItem="MzT-Bh-QEB" firstAttribute="centerX" secondItem="XDT-Kz-DHa" secondAttribute="centerX" id="gHV-GJ-wb0"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ilT-91-Pt9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2113" y="947"/>
+        </scene>
+        <!--Most Basic Transition-->
+        <scene sceneID="JOJ-4X-CRg">
+            <objects>
+                <viewController id="dpe-8u-26h" customClass="MostBasicTransition" customModule="Jelly_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N0z-H9-PBd"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Wx-IW-dO0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YFH-gF-p5b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Yo-Uc-BDd">
+                                <rect key="frame" x="154" y="312" width="67" height="43"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="26"/>
+                                <state key="normal" title="show">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressShowButton:" destination="dpe-8u-26h" eventType="touchUpInside" id="9I5-W9-vtE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3Yo-Uc-BDd" firstAttribute="centerY" secondItem="YFH-gF-p5b" secondAttribute="centerY" id="9AA-hO-o50"/>
+                            <constraint firstItem="3Yo-Uc-BDd" firstAttribute="centerX" secondItem="YFH-gF-p5b" secondAttribute="centerX" id="QwO-fJ-GlB"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GGS-mi-BuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1398" y="170"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Jelly-Logo" width="2000" height="600"/>
+    </resources>
 </document>

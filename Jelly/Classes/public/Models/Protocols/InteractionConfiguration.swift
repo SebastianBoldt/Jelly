@@ -11,7 +11,7 @@ public struct InteractionConfiguration {
 }
 
 protocol InteractionConfigurationProvider {
-    var interactionConfiguration: InteractionConfiguration { get }
+    var interactionConfiguration: InteractionConfiguration? { get }
 }
 
 extension Direction {

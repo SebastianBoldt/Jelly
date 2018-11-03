@@ -11,8 +11,10 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
     
     private let presentation: (InteractionConfigurationProvider & PresentationShowDirectionProvider)
     private let presentationType: PresentationType
+    private let configuration: InteractionConfiguration
     
-    init(presentedViewController: UIViewController,
+    init(configuration: InteractionConfiguration,
+         presentedViewController: UIViewController,
          presentingViewController: UIViewController?,
          presentationType: PresentationType,
          presentation: (InteractionConfigurationProvider & PresentationShowDirectionProvider),
@@ -22,6 +24,8 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
         self.presentation = presentation
         self.presentationType = presentationType
         self.presentationController = presentationController
+        self.configuration = configuration
+        
         super.init()
         prepareGestureRecognizers()
     }
@@ -31,7 +35,7 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
     }
     
     private func prepareGestureRecognizers() {
-        switch (presentationType, presentation.interactionConfiguration.dragMode) {
+        switch (presentationType, configuration.dragMode) {
             case (.show, .canvas), (.show, .edge):
                 guard let view = presentingViewController?.view else { break }
                 addInteractionGestureRecognizer(to: view)
@@ -119,7 +123,7 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
         }
         
         let dragDirection = presentationType == .show ? presentation.showDirection : dismissDirection
-        switch presentation.interactionConfiguration.dragMode {
+        switch configuration.dragMode {
             case .canvas:
                 let gesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
                 view.addGestureRecognizer(gesture)
@@ -169,7 +173,7 @@ extension InteractionController {
                 interactionInProgress = true
                 performTransition(for: presentationType)
             case .changed:
-                shouldCompleteTransition = progress > presentation.interactionConfiguration.completionThreshold
+                shouldCompleteTransition = progress > configuration.completionThreshold
                 update(progress)
             case .cancelled:
                 interactionInProgress = false

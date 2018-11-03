@@ -27,8 +27,9 @@ public class Animator: NSObject {
     /// - Parameter viewController: viewController that should be presented in a custom way
     public func prepare(presentedViewController: UIViewController, presentingViewController: UIViewController) {
         // Create InteractionController over here because it needs a reference to the PresentationController
-        if let interactiveConfigurationProvider = presentation as? (InteractionConfigurationProvider & PresentationShowDirectionProvider) {
-            self.showInteractionController = InteractionController(presentedViewController: presentedViewController, presentingViewController: presentingViewController, presentationType: .show, presentation: interactiveConfigurationProvider, presentationController: nil)
+        if let interactivePresentation = presentation as? (PresentationShowDirectionProvider & InteractionConfigurationProvider),
+            let configuration = interactivePresentation.interactionConfiguration {
+            self.showInteractionController = InteractionController(configuration: configuration, presentedViewController: presentedViewController, presentingViewController: presentingViewController, presentationType: .show, presentation: interactivePresentation, presentationController: nil)
         }
         presentedViewController.modalPresentationStyle = .custom
         presentedViewController.transitioningDelegate = self
@@ -45,8 +46,9 @@ extension Animator: UIViewControllerTransitioningDelegate {
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         let presentationController = PresentationController(presentedViewController: presented, presentingViewController: presenting, presentation: presentation)
         currentPresentationController = presentationController
-        if let interactiveConfigurationProvider = presentation as? (InteractionConfigurationProvider & PresentationShowDirectionProvider) {
-            self.dismissInteractionController = InteractionController(presentedViewController: presentedViewController, presentingViewController: presentingViewController, presentationType: .dismiss, presentation: interactiveConfigurationProvider, presentationController: currentPresentationController)
+        if let interactivePresentation = presentation as? (InteractionConfigurationProvider & PresentationShowDirectionProvider),
+            let configuration = interactivePresentation.interactionConfiguration {
+            self.dismissInteractionController = InteractionController(configuration: configuration, presentedViewController: presentedViewController, presentingViewController: presentingViewController, presentationType: .dismiss, presentation: interactivePresentation, presentationController: currentPresentationController)
         }
         return presentationController
     }

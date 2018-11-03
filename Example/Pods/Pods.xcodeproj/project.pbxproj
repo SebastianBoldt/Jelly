@@ -862,8 +862,8 @@
 		FD8C1E3F8836D106149D07CA8BDB0CBF /* Presentations */ = {
 			isa = PBXGroup;
 			children = (
-				8A59EDC78515A86CA56437D245DDB6D4 /* CoverPresentation.swift */,
 				86975B5B6F1C6102D79CB02E8B55A358 /* FadePresentation.swift */,
+				8A59EDC78515A86CA56437D245DDB6D4 /* CoverPresentation.swift */,
 				12D12D0C93359FE300EC3EE423CA836C /* SlidePresentation.swift */,
 			);
 			path = Presentations;

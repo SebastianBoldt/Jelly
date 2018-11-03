@@ -16,7 +16,7 @@ public struct PresentationTiming: PresentationTimingProtocol {
     public var presentationCurve: UIView.AnimationCurve
     public var dismissCurve: UIView.AnimationCurve
     
-    public init(duration: Duration = .normal,
+    public init(duration: Duration = .medium,
                 presentationCurve: UIView.AnimationCurve = .linear,
                 dismissCurve: UIView.AnimationCurve = .linear) {
         self.duration = duration

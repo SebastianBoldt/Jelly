@@ -15,7 +15,7 @@ public struct CoverPresentation: Presentation,
     public var presentationAlignment: PresentationAlignmentProtocol
     public var spring: Spring
     public var marginGuards: UIEdgeInsets
-    public var interactionConfiguration: InteractionConfiguration
+    public var interactionConfiguration: InteractionConfiguration?
     
     public init(directionShow: Direction = .bottom,
                 directionDismiss: Direction = .bottom,
@@ -25,7 +25,7 @@ public struct CoverPresentation: Presentation,
                 marginGuards: UIEdgeInsets = .zero ,
                 timing: PresentationTimingProtocol = PresentationTiming(),
                 spring: Spring = .none,
-                interactionConfiguration: InteractionConfiguration) {
+                interactionConfiguration: InteractionConfiguration? = nil) {
         
         self.dismissDirection = directionDismiss
         self.showDirection = directionShow

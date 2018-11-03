@@ -13,23 +13,20 @@ class CoverSlideOutMenu: UIViewController {
         super.viewDidLoad()
         modalPresentationCapturesStatusBarAppearance = true
 
-        //TODO: Corner Radius not working properly
         let uiConfiguration = PresentationUIConfiguration(cornerRadius: 20, backgroundStyle: .blurred(effectStyle: .light), isTapBackgroundToDismissEnabled: true)
         let size = PresentationSize(width: .halfscreen, height: .halfscreen)
         let interaction = InteractionConfiguration(completionThreshold: 0.5, dragMode: .canvas)
         let alignment = PresentationAlignment(vertical: .center, horizontal: .center)
         let presentation = CoverPresentation(directionShow: .left,
-                                             directionDismiss: .right,
+                                             directionDismiss: .left,
                                              uiConfiguration: uiConfiguration,
                                              size: size,
                                              alignment: alignment,
-                                             marginGuards: UIEdgeInsets(top: 40, left: 8, bottom: 40, right: 8),
                                              interactionConfiguration: interaction)
         let animator = Animator(presentation: presentation)
         viewControllerToPresent = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PresentMe")
         animator.prepare(presentedViewController: viewControllerToPresent!, presentingViewController: self)
         self.animator = animator
-        self.view.isUserInteractionEnabled = true
     }
     
     override var prefersStatusBarHidden: Bool {

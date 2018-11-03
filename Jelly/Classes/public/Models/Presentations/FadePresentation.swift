@@ -10,7 +10,7 @@ public struct FadePresentation: Presentation,
     public var presentationUIConfiguration: PresentationUIConfigurationProtocol
     public var marginGuards: UIEdgeInsets
     public var presentationTiming: PresentationTimingProtocol
-
+    
     public init(alignment: PresentationAlignmentProtocol = PresentationAlignment.centerAlignment,
                 size: PresentationSizeProtocol = PresentationSize(width: .fullscreen, height: .fullscreen),
                 marginGuards: UIEdgeInsets = .zero,
