@@ -18,8 +18,8 @@ class CoverSlideOutMenu: UIViewController {
         let size = PresentationSize(width: .halfscreen, height: .halfscreen)
         let interaction = InteractionConfiguration(completionThreshold: 0.5, dragMode: .canvas)
         let alignment = PresentationAlignment(vertical: .center, horizontal: .center)
-        let presentation = CoverPresentation(directionShow: .right,
-                                             directionDismiss: .left,
+        let presentation = CoverPresentation(directionShow: .left,
+                                             directionDismiss: .right,
                                              uiConfiguration: uiConfiguration,
                                              size: size,
                                              alignment: alignment,

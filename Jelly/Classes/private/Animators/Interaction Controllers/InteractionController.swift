@@ -1,5 +1,6 @@
 import UIKit
 
+// This Beast 🧟‍♂️ needs some documentation
 class InteractionController: UIPercentDrivenInteractiveTransition {
     var interactionInProgress = false
     private var shouldCompleteTransition = false
@@ -22,31 +23,101 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
         self.presentationType = presentationType
         self.presentationController = presentationController
         super.init()
-        
-        // BUG 1
-        switch (presentationType, presentation.interactionConfiguration.dragMode) {
-            case (.show, .canvas), (.show, .edge):
-                guard let view = presentingViewController?.view else { break }
-                prepareGestureRecognizer(in: view)
-            case (.dismiss, .canvas):
-                prepareGestureRecognizer(in: presentedViewController.view)
-            case (.dismiss, .edge):
-                prepareGestureRecognizer(in: presentationController!.dimmingView)
-                prepareGestureRecognizer(in: presentationController!.blurView)
-        }
+        prepareGestureRecognizers()
     }
     
     public func setPresentationController(presentationController: PresentationController) {
         self.presentationController = presentationController
     }
     
-    private func prepareGestureRecognizer(in view: UIView) {
+    private func prepareGestureRecognizers() {
+        switch (presentationType, presentation.interactionConfiguration.dragMode) {
+            case (.show, .canvas), (.show, .edge):
+                guard let view = presentingViewController?.view else { break }
+                addInteractionGestureRecognizer(to: view)
+            case (.dismiss, .canvas):
+                addInteractionGestureRecognizer(to: presentedViewController.view)
+            case (.dismiss, .edge):
+                prepareSpecialWorkAroundForDismissGestureRecognizers()
+        }
+    }
+    
+    /*
+         if orientation is vertical
+            if height is >= than screen
+                we should add it to the presntedViewController
+            else if
+                we add it to the dimming and blurView
+         else if orientation is horizontal
+            if width is >= than screen
+                we should add it to the presntedViewController
+            else if
+                we add it to the dimming and blurView
+     */
+    //TODO: try to refactor this
+    private func prepareSpecialWorkAroundForDismissGestureRecognizers() {
+        var size: Size?
+        if presentation.showDirection.orientation() == .vertical {
+            if let sizeProvider = presentation as? PresentationSizeProvider {
+                size = sizeProvider.presentationSize.height
+            } else if let heightProvider = presentation as? PresentationHeightProvider {
+                size = heightProvider.height
+            }
+            
+            guard let size = size else {
+                return
+            }
+            
+            switch size {
+                case .fullscreen:
+                    addInteractionGestureRecognizer(to: presentedViewController.view)
+                case .custom(let height):
+                    if height >= UIScreen.main.bounds.height {
+                        addInteractionGestureRecognizer(to: presentedViewController.view)
+                    } else {
+                        addInteractionGestureRecognizer(to: presentationController!.dimmingView)
+                        addInteractionGestureRecognizer(to: presentationController!.blurView)
+                    }
+                case .halfscreen:
+                    addInteractionGestureRecognizer(to: presentationController!.dimmingView)
+                    addInteractionGestureRecognizer(to: presentationController!.blurView)
+                
+            }
+            
+        } else if presentation.showDirection.orientation() == .horizontal {
+            if let sizeProvider = presentation as? PresentationSizeProvider {
+                size = sizeProvider.presentationSize.width
+            } else if let heightProvider = presentation as? PresentationWidthProvider {
+                size = heightProvider.width
+            }
+            
+            guard let size = size else {
+                return
+            }
+            
+            switch size {
+                case .fullscreen:
+                    addInteractionGestureRecognizer(to: presentedViewController.view)
+                case .custom(let width):
+                    if width >= UIScreen.main.bounds.width {
+                        addInteractionGestureRecognizer(to: presentedViewController.view)
+                    } else {
+                        addInteractionGestureRecognizer(to: presentationController!.dimmingView)
+                        addInteractionGestureRecognizer(to: presentationController!.blurView)
+                    }
+                case .halfscreen:
+                    addInteractionGestureRecognizer(to: presentationController!.dimmingView)
+                    addInteractionGestureRecognizer(to: presentationController!.blurView)
+            }
+        }
+    }
+        
+    private func addInteractionGestureRecognizer(to view: UIView) {
         var dismissDirection = presentation.showDirection
         if let dismissProvider = presentation as? PresentationDismissDirectionProvider {
             dismissDirection = dismissProvider.dismissDirection
         }
         
-        // BUG 2
         let dragDirection = presentationType == .show ? presentation.showDirection : dismissDirection
         switch presentation.interactionConfiguration.dragMode {
             case .canvas:
@@ -54,21 +125,7 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
                 view.addGestureRecognizer(gesture)
             case .edge:
                 let gesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
-                if presentationType == .dismiss {
-                    // THIS IS FUCKING FUGLY, clean this up .. pleaassseeee 😢
-                    switch dragDirection {
-                        case .bottom:
-                            gesture.edges = .top
-                        case .top:
-                            gesture.edges = .bottom
-                        case .left:
-                            gesture.edges = .right
-                        case .right:
-                            gesture.edges = .left
-                    }
-                } else {
-                    gesture.edges = dragDirection.rectEdges
-                }
+                gesture.edges = presentationType == .dismiss ? dragDirection.dismissRectEdges : dragDirection.showRectEdges
                 view.addGestureRecognizer(gesture)
         }
     }
@@ -78,35 +135,30 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
             return
         }
         
-        let translation = gestureRecognizer.translation(in: superView)
-        print(translation)
         var direction: Direction = presentation.showDirection
         if presentationType == .dismiss, let dismissProvider = presentation as? PresentationDismissDirectionProvider {
             direction = dismissProvider.dismissDirection
         }
         
+        let translation = gestureRecognizer.translation(in: superView)
         var progress = getProgress(for: direction, translation: translation)
         progress = CGFloat(min(max(Float(progress), 0.0), 1.0))
         updateTransition(with: progress, and: gestureRecognizer.state)
     }
     
     private func getProgress(for direction: Direction, translation: CGPoint) -> CGFloat {
-        var progress: CGFloat = 0.0
-        switch direction {
-            case .top:
-                let height = presentedViewController.view.frame.height
-                progress = (abs(translation.y) / height)
-            case .bottom:
-                let height = presentedViewController.view.frame.height
-                progress = (abs(translation.y) / height)
-            case .left:
-                let width = presentedViewController.view.frame.width
-                progress = (abs(translation.x) / width)
-            case .right:
-                let width = presentedViewController.view.frame.width
-                progress = (abs(translation.x) / width)
+        let height = presentedViewController.view.frame.height
+        let width = presentedViewController.view.frame.width
+        switch (direction, presentationType) {
+            case (.top, .show), (.bottom, .dismiss):
+                return (abs(max(0,translation.y)) / height)
+            case (.top, .dismiss), (.bottom, .show):
+                return (abs(min(0,translation.y)) / height)
+            case (.left, .show), (.right, .dismiss):
+                return (abs(max(0,translation.x)) / width)
+            case (.right, .show),(.left, .dismiss):
+                return (abs(min(0,translation.x)) / width)
         }
-        return progress
     }
 }
 
@@ -115,11 +167,7 @@ extension InteractionController {
         switch state {
             case .began:
                 interactionInProgress = true
-                if presentationType == .show {
-                    presentingViewController?.present(presentedViewController, animated: true, completion: nil)
-                } else {
-                    presentedViewController.dismiss(animated: true, completion: nil)
-                }
+                performTransition(for: presentationType)
             case .changed:
                 shouldCompleteTransition = progress > presentation.interactionConfiguration.completionThreshold
                 update(progress)
@@ -131,6 +179,16 @@ extension InteractionController {
                 shouldCompleteTransition ? finish() : cancel()
             default:
                 break
+        }
+    }
+    
+    private func performTransition(for type: PresentationType) {
+        switch presentationType {
+            case .show:
+                presentingViewController?.present(presentedViewController, animated: true, completion: nil)
+            case .dismiss:
+                presentedViewController.dismiss(animated: true, completion: nil)
+
         }
     }
 }

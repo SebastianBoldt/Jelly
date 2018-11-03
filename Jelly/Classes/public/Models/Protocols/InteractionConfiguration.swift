@@ -28,7 +28,7 @@ extension Direction {
         }
     }
     
-    public var rectEdges: UIRectEdge {
+    public var showRectEdges: UIRectEdge {
         switch self {
             case .top:
                 return .top
@@ -38,6 +38,19 @@ extension Direction {
                 return .bottom
             case .right:
                 return .right
+        }
+    }
+    
+    public var dismissRectEdges: UIRectEdge {
+        switch self {
+            case .top:
+                return .bottom
+            case .bottom:
+                return .top
+            case .left:
+                return .right
+            case .right:
+                return .left
         }
     }
 }

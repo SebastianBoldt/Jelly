@@ -8,8 +8,8 @@ public struct SlidePresentation: Presentation,
     public var presentationTiming: PresentationTimingProtocol
     public var presentationUIConfiguration: PresentationUIConfigurationProtocol
     public var showDirection: Direction
-    public  var width: Size
-    public  var spring: Spring
+    public var width: Size
+    public var spring: Spring
     public var interactionConfiguration: InteractionConfiguration
     
     public init(timing: PresentationTimingProtocol = PresentationTiming(),
