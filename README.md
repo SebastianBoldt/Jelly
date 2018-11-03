@@ -19,10 +19,10 @@ present(viewController, animated: true, completion: nil)
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/how%20to.png?raw=true" width="400">
 
-1. Create a *Presentation* Object 
-2. Configure an  *Animator* with the *Presentation*
-3. Call the *prepare* Function
-4. Use the native *UIViewController* presentation function.
+1. Create a `Presentation` Object 
+2. Configure an  `Animator` with the *Presentation*
+3. Call the `prepare` Function
+4. Use the native `UIViewController` presentation function.
 
 ```swift
 class ViewController : UIViewController {
@@ -40,23 +40,24 @@ class ViewController : UIViewController {
 
 ***DO NOT FORGET TO KEEP A STRONG 💪 REFERENCE***
 
-Because the *transitioningDelegate* of a *UIViewController* is weak, you need to
-hold a strong reference to the *Animator* inside the *UIViewController* you are presenting from or 
+Because the `transitioningDelegate*` of a `UIViewController` is weak, you need to
+hold a strong reference to the `Animator` inside the `UIViewController` you are presenting from or 
 the central object that maintains your presentations.
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/interactive-transitions.png?raw=true" width="400">
 
 Interactive transitions can be activated for the slide and the cover transitions. 
 If the transitions are to be interactive, only an interaction configuration object has to be passed to the presentation. 
-Here 2 parameters play an important role. First, the completion threshold, which determines the percentage of the animation that is automatically completed as soon as the user finishes the interaction. 
-The second parameter is the type of interaction, Jelly offers the Edge and the Canvas Type. 
+
+Here 2 parameters play an important role. First, the `completionThreshold`, which determines the percentage of the animation that is automatically completed as soon as the user finishes the interaction. 
+The second parameter is the type of interaction, Jelly offers the `.edge` and the `.canvas` type. 
 In an edge transition, the user must execute the gesture from the edge of the screen. 
-When using the Canvas Type, Gesture Recognizers are configured so that direct interaction with the presenting and presented view leads to the transition.
+When using the canvas type, gesture recognizers are configured so that direct interaction with the presenting and presented view leads to the transition.
 
 ```swift
 
 let interaction = InteractionConfiguration(completionThreshold: 0.5, dragMode: .edge)
-let presentation = SlidePresentation(direction: .right, width: .halfscreen)
+let presentation = SlidePresentation(direction: .right, width: .halfscreen, interactionConfiguration: interaction)
 let animator = Animator(presentation: presentation)
 let viewController = YourViewController()
 animator.prepare(presentedViewController: viewController, presentingViewController: self)
