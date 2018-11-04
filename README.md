@@ -8,7 +8,6 @@
 <a href="https://en.wikipedia.org/wiki/MIT_License"><img src="https://img.shields.io/badge/license-MIT-lightgray.svg?longCache=true&style=flat-square" alt="license" /></a>
 
 Jelly is a library for animated, non-interactive & interactive viewcontroller 
-
 transitions with the focus on a simple and yet flexible API. 
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/gifs/cover-left.gif?raw=true" width="100" style="display: block;
