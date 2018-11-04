@@ -94,6 +94,8 @@ pod 'Jelly', '~> 2.0'
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/author.png?raw=true" width="400">
 
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/emoji.png?raw=true" width="200">
+
 Sebastian Boldt, https://www.sebastianboldt.com
 
 I am a mobile software architect and developer specializing in iOS. 
