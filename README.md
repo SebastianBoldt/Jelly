@@ -72,6 +72,22 @@ let animator = Animator(presentation: presentation)
 animator.prepare(presentedViewController: viewController)
 
 ```
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/update.png?raw=true" width="400">
+
+Jelly 2.0 also provides a new feature called live update. 
+It is now also possible to update the alignment, size and margin guards when the viewController is already visible.
+Some of them will throw an exception if used and a wrong presentationType. For example: a width update can not be performed on slide transitions because 
+it always has full width. I tried to be expressive when it comes to the exception names. 
+
+These are the new live update functions provider by the Animator Object. 
+
+* `updateAlignment(alignment: PresentationAlignment, duration: Duration)` - Cover & Fade
+* `updateVerticalAlignment(alignment: VerticalAlignment)` - Cover & Fade
+* `updateHorizontalAlignment(alignment: HorizontalAlignment)` - Cover & Fade
+* `updateSize(presentationSize: PresentationSize, duration: Duration)` - Cover & Fade
+* `updateWidth(width: Size, duration: Duration)` - Cover, Fade and horizontal Slide
+* `updateHeight(height: Size, duration: Duration)` - Cover, Fade and vertical Slide
+* `updateMarginGuards(marginGuards: UIEdgeInsets, duration: Duration)` - Cover & Fade
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/customization.png?raw=true" width="400">
 
