@@ -78,6 +78,7 @@ animator.prepare(presentedViewController: viewController)
 The presentation types can be configured with various settings. 
 
 * `size`
+* `margin guards`
 * `direction` 
 * `horizontal & vertical alignment` 
 * `dimmed and blurred backgroundStyle`
