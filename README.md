@@ -7,7 +7,9 @@
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/carthage-compatible-green.svg?longCache=true&style=flat-square" alt="carthage support" /></a>
 <a href="https://en.wikipedia.org/wiki/MIT_License"><img src="https://img.shields.io/badge/license-MIT-lightgray.svg?longCache=true&style=flat-square" alt="license" /></a>
 
-Jelly is a library for animated, non-interactive & interactive viewcontroller transitions with the focus on a simple and yet flexible API. 
+Jelly is a library for animated, non-interactive & interactive viewcontroller 
+
+transitions with the focus on a simple and yet flexible API. 
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/gifs/cover-left.gif?raw=true" width="100" style="display: block;
   float: left">
@@ -39,7 +41,7 @@ class ViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let viewController = YourViewController()
-        let presentation = SlidePresentation()
+        let presentation = SlidePresentation(direction: .left)
         animator = Animator(presentation:presentation)
         animator?.prepare(viewController: viewController)
         present(viewController, animated: true, completion: nil)
@@ -64,11 +66,10 @@ In an edge transition, the user must execute the gesture from the edge of the sc
 When using the canvas type, gesture recognizers are configured so that direct interaction with the presenting and presented view leads to the transition.
 
 ```swift
-
-let interaction = InteractionConfiguration(completionThreshold: 0.5, dragMode: .edge)
-let presentation = SlidePresentation(direction: .right, width: .halfscreen, interactionConfiguration: interaction)
-let animator = Animator(presentation: presentation)
 let viewController = YourViewController()
+let interaction = InteractionConfiguration(completionThreshold: 0.5, dragMode: .edge)
+let presentation = SlidePresentation(direction: .right, interactionConfiguration: interaction)
+let animator = Animator(presentation: presentation)
 animator.prepare(presentedViewController: viewController, presentingViewController: self)
 
 ```
