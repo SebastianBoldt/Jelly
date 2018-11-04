@@ -12,16 +12,17 @@ class CoverSlideOutMenu: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         modalPresentationCapturesStatusBarAppearance = true
-
-        let uiConfiguration = PresentationUIConfiguration(cornerRadius: 20, backgroundStyle: .blurred(effectStyle: .light), isTapBackgroundToDismissEnabled: true)
-        let size = PresentationSize(width: .halfscreen, height: .halfscreen)
+        self.navigationController?.isNavigationBarHidden = true
+        let uiConfiguration = PresentationUIConfiguration(cornerRadius: 20, backgroundStyle: .blurred(effectStyle: .dark), isTapBackgroundToDismissEnabled: true)
+        let size = PresentationSize(width: .fullscreen, height: .halfscreen)
         let interaction = InteractionConfiguration(completionThreshold: 0.5, dragMode: .canvas)
-        let alignment = PresentationAlignment(vertical: .center, horizontal: .center)
-        let presentation = CoverPresentation(directionShow: .left,
-                                             directionDismiss: .left,
+        let alignment = PresentationAlignment(vertical: .top, horizontal: .center)
+        let presentation = CoverPresentation(directionShow: .top,
+                                             directionDismiss: .top,
                                              uiConfiguration: uiConfiguration,
                                              size: size,
                                              alignment: alignment,
+                                             marginGuards: UIEdgeInsets(top: 60, left: 16, bottom: 120, right: 16),
                                              interactionConfiguration: interaction)
         let animator = Animator(presentation: presentation)
         viewControllerToPresent = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PresentMe")

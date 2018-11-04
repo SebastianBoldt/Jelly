@@ -22,9 +22,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbJ-7U-x5H">
-                                <rect key="frame" x="154" y="312" width="67" height="43"/>
+                                <rect key="frame" x="172.5" y="312" width="30" height="43"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="26"/>
-                                <state key="normal" title="show">
+                                <state key="normal">
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -49,6 +49,11 @@
                             <constraint firstItem="mbJ-7U-x5H" firstAttribute="centerX" secondItem="mHa-zF-J8v" secondAttribute="centerX" id="iaQ-IH-aeK"/>
                             <constraint firstItem="F1E-9v-mzG" firstAttribute="leading" secondItem="mHa-zF-J8v" secondAttribute="leadingMargin" constant="12" id="mpW-3b-Qq3"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="F1E-9v-mzG"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4G-ho-RSe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -72,9 +77,9 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnX-Mn-18d">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
-                                        <color key="backgroundColor" red="0.92159384489059448" green="0.47323638200759888" blue="0.58572632074356079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.25001037120000003" green="0.55983084439999997" blue="0.81328362229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
-                                        <state key="normal" title="Dismiss">
+                                        <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -97,7 +102,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.25001037120000003" green="0.55983084439999997" blue="0.81328362229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="QXq-ab-ct1" firstAttribute="centerY" secondItem="L6S-nW-2Tq" secondAttribute="centerY" id="KAU-Gx-oPV"/>
                                     <constraint firstItem="QXq-ab-ct1" firstAttribute="centerX" secondItem="L6S-nW-2Tq" secondAttribute="centerX" id="gDc-Ay-XhA"/>
@@ -323,9 +328,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbQ-k4-xpz">
-                                <rect key="frame" x="154" y="312" width="67" height="43"/>
+                                <rect key="frame" x="172.5" y="312" width="30" height="43"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="26"/>
-                                <state key="normal" title="show">
+                                <state key="normal">
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -347,6 +352,11 @@
                             <constraint firstItem="x2I-Ue-vHa" firstAttribute="top" secondItem="Pyc-60-WsP" secondAttribute="bottom" constant="20" id="Zoq-Eu-Ig5"/>
                             <constraint firstItem="wbQ-k4-xpz" firstAttribute="centerX" secondItem="3rV-6P-wvG" secondAttribute="centerX" id="oYO-8m-7ve"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Pyc-60-WsP"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CjP-YE-ISi" userLabel="First Responder" sceneMemberID="firstResponder"/>
