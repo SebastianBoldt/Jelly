@@ -7,7 +7,7 @@
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/carthage-compatible-green.svg?longCache=true&style=flat-square" alt="carthage support" /></a>
 <a href="https://en.wikipedia.org/wiki/MIT_License"><img src="https://img.shields.io/badge/license-MIT-lightgray.svg?longCache=true&style=flat-square" alt="license" /></a>
 
-Jelly is a library for animated, non-interactive & interactive viewcontroller 
+Jelly is a library for animated, non-interactive & interactive viewcontroller <br/>
 transitions with the focus on a simple and yet flexible API. 
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/gifs/cover-left.gif?raw=true" width="100" style="display: block;
@@ -76,7 +76,19 @@ animator.prepare(presentedViewController: viewController)
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/customization.png?raw=true" width="400">
 
 The presentation types can be configured with various settings. 
-These include `size`, `direction`, `alignment`, `backgroundStyle` `timing`, `corner radius`, `interaction configuration` and more
+
+* `size`
+* `direction` 
+* `horizontal & vertical alignment` 
+* `dimmed and blurred backgroundStyle`
+* `duration`
+* `presentation and dismiss curve`
+* `spring damping & velocity` 
+* `corner specification` & `corner radius`
+* `completion threshold`
+* `interactive drag mode` 
+
+and more
 
 Each component is explained in more detail in the <a href="https://github.com/SebastianBoldt/Jelly/wiki/Customization
 ">Jelly Wiki</a>.  
