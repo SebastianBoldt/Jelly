@@ -4,7 +4,7 @@ import UIKit
 /// An Animator is an UIViewControllerTransitionsDelegate with some extra candy.
 /// Basically the Animator is the main class to use when working with Jelly.
 public class Animator: NSObject {
-    public var presentation: Presentation
+    private var presentation: Presentation
     
     private var currentPresentationController: PresentationController!
     private weak var presentedViewController: UIViewController!
@@ -73,5 +73,47 @@ extension Animator: UIViewControllerTransitioningDelegate {
             return nil
         }
         return showInteractionController
+    }
+}
+
+extension Animator {
+    public func updateAlignment(alignment: PresentationAlignmentProtocol, duration: Duration) throws {
+        guard !(presentation is SlidePresentation) else {
+            throw LiveUpdateError.notSupportedOnSlide
+        }
+        
+        if var presentation = presentation as? CoverPresentation {
+            presentation.presentationAlignment = alignment
+            self.presentation = presentation
+            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        } else if var presentation = presentation as? FadePresentation {
+            presentation.presentationAlignment = alignment
+            self.presentation = presentation
+            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        }
+    }
+    
+    public func updateVerticalAlignment(alignment: VerticalAlignment, duration: Duration){
+        
+    }
+    
+    public func updateHorizontalAlignment(alignment: HorizontalAlignment, duration: Duration){
+        
+    }
+    
+    public func updateSize(presentationSize: PresentationSize, duration: Duration){
+        
+    }
+    
+    public func updateWidth(width: Size, duration: Duration){
+        
+    }
+    
+    public func updateHeight(height: Size, duration: Duration){
+        
+    }
+    
+    public func updateMarginGuards(marginGuards: UIEdgeInsets, duration: Duration){
+        
     }
 }

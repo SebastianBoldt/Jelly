@@ -82,8 +82,8 @@ it always has full width. I tried to be as expressive as i can be when it comes 
 These are the new live update functions provided by the Animator. 
 
 * `updateAlignment(alignment: PresentationAlignment, duration: Duration)` - Cover & Fade
-* `updateVerticalAlignment(alignment: VerticalAlignment)` - Cover & Fade
-* `updateHorizontalAlignment(alignment: HorizontalAlignment)` - Cover & Fade
+* `updateVerticalAlignment(alignment: VerticalAlignment, duration: Duration)` - Cover & Fade
+* `updateHorizontalAlignment(alignment: HorizontalAlignment, duration: Duration)` - Cover & Fade
 * `updateSize(presentationSize: PresentationSize, duration: Duration)` - Cover & Fade
 * `updateWidth(width: Size, duration: Duration)` - Cover, Fade and horizontal Slide
 * `updateHeight(height: Size, duration: Duration)` - Cover, Fade and vertical Slide

@@ -35,6 +35,7 @@
 		1510AAC3218F60F500468AC3 /* PresentationTimingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1510AAC2218F60F500468AC3 /* PresentationTimingProtocol.swift */; };
 		1510AAC5218F611300468AC3 /* PresentationUIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1510AAC4218F611300468AC3 /* PresentationUIConfiguration.swift */; };
 		1510AAC7218F613F00468AC3 /* PresentationSpringProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1510AAC6218F613F00468AC3 /* PresentationSpringProvider.swift */; };
+		1510AACE218F6EF200468AC3 /* LiveUpdateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1510AACD218F6EF200468AC3 /* LiveUpdateError.swift */; };
 		1533A193218CC2B000185C31 /* CombinedTimingCurveProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1533A192218CC2B000185C31 /* CombinedTimingCurveProvider.swift */; };
 		1533A197218CC98500185C31 /* VerticalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1533A196218CC98500185C31 /* VerticalAlignment.swift */; };
 		1533A199218CC9B100185C31 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1533A198218CC9B100185C31 /* Size.swift */; };
@@ -242,6 +243,7 @@
 		1510AAC2218F60F500468AC3 /* PresentationTimingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationTimingProtocol.swift; sourceTree = "<group>"; };
 		1510AAC4218F611300468AC3 /* PresentationUIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUIConfiguration.swift; sourceTree = "<group>"; };
 		1510AAC6218F613F00468AC3 /* PresentationSpringProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationSpringProvider.swift; sourceTree = "<group>"; };
+		1510AACD218F6EF200468AC3 /* LiveUpdateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveUpdateError.swift; sourceTree = "<group>"; };
 		1533A192218CC2B000185C31 /* CombinedTimingCurveProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedTimingCurveProvider.swift; sourceTree = "<group>"; };
 		1533A196218CC98500185C31 /* VerticalAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalAlignment.swift; sourceTree = "<group>"; };
 		1533A198218CC9B100185C31 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
@@ -647,6 +649,7 @@
 			children = (
 				1510AAA6218F06D600468AC3 /* Constants.swift */,
 				C947C874BB9FEF95D56A62E37378BF98 /* Animator.swift */,
+				1510AACD218F6EF200468AC3 /* LiveUpdateError.swift */,
 				771BF5C12A4405E4FF5DB31FE0D1E134 /* Models */,
 			);
 			name = public;
@@ -1332,6 +1335,7 @@
 				B574BA7729D170D54166DF511736E10E /* CoverPresentation.swift in Sources */,
 				D22F0040038000CB2ED1F05A4DA54365 /* FadeAnimator.swift in Sources */,
 				1510AABF218F60B900468AC3 /* PresentationHeightProvider.swift in Sources */,
+				1510AACE218F6EF200468AC3 /* LiveUpdateError.swift in Sources */,
 				1510AAA7218F06D600468AC3 /* Constants.swift in Sources */,
 				1533A19F218CC9ED00185C31 /* Direction.swift in Sources */,
 				73BCE195AD1A04A1EFA4885090874087 /* FadePresentation.swift in Sources */,

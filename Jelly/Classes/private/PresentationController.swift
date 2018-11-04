@@ -1,14 +1,16 @@
 import UIKit
 
 protocol PresentationControllerProtocol {
-    
+    func updatePresentation(presentation: Presentation, duration: Duration)
+    var dimmingView: UIView { get }
+    var blurView: UIVisualEffectView { get }
 }
 
 /// A PresentationController tells UIKit what exactly to do with the View that should be presented
 /// It also reacts to transtion state changes etc.
 /// We  use this controller to setup dimmingView, blurView, positioning and resize the the presented ViewController etc.
 
-final class PresentationController : UIPresentationController {
+final class PresentationController: UIPresentationController, PresentationControllerProtocol {
     fileprivate var presentation: Presentation
     
     // Blur and Dimming View needs to be accessible because the Interactor attaches Gesture-Recognizer to them when
@@ -25,6 +27,14 @@ final class PresentationController : UIPresentationController {
         presentedViewController.view.roundCorners(corners: corners, radius: radius)
     }
 
+    func updatePresentation(presentation: Presentation, duration: Duration) {
+        self.presentation = presentation
+        self.containerView?.setNeedsLayout()
+        UIView.animate(withDuration: duration.timeInterval) {
+            self.containerView?.layoutIfNeeded()
+        }
+    }
+    
     override func presentationTransitionWillBegin() {
         let backgroundStyle = presentation.presentationUIConfiguration.backgroundStyle
         switch backgroundStyle {
@@ -98,10 +108,9 @@ final class PresentationController : UIPresentationController {
         var frame: CGRect = .zero
         frame.size = size(forChildContentContainer: presentedViewController, withParentContainerSize: containerView!.bounds.size)
         limit(frame: &frame, withSize: frame.size)
-        align(frame: &frame, withPresentation: self.presentation)
         let marginGuards =  (dynamicPresentation as? PresentationMarginGuardsProvider)?.marginGuards ?? .zero
+        align(frame: &frame, withPresentation: self.presentation)
         applymarginGuards(toFrame: &frame, marginGuards: marginGuards, container: containerView!.bounds.size)
-        
         return frame
     }
     
@@ -174,24 +183,32 @@ extension PresentationController {
     }
     
     private func applymarginGuards(toFrame frame: inout CGRect, marginGuards: UIEdgeInsets, container: CGSize){
-        // Apply horizontal marginGuards
-        if (frame.origin.x <= 0) {
+        // Apply Width
+        if frame.width > container.width - (marginGuards.left + marginGuards.right) {
+            let width = frame.width - (marginGuards.left + marginGuards.right)
+            frame.size = CGSize(width: width, height: frame.height)
+        }
+        
+        if frame.origin.x < marginGuards.left {
             frame.origin.x = marginGuards.left
         }
         
-        if((frame.origin.x + frame.width) >= (container.width - marginGuards.right)) {
-            let delta =  (frame.origin.x + frame.width) - container.width
-            frame.size = CGSize(width: frame.width - delta - marginGuards.right , height: frame.height)
+        if (frame.origin.x + frame.size.width) >= container.width {
+            frame.origin.x = frame.origin.x - marginGuards.right
         }
         
-        // Apply vertical marginGuards
-        if (frame.origin.y <= marginGuards.top) {
+        // Apply Height
+        if frame.height > container.height - (marginGuards.top + marginGuards.bottom) {
+            let height = frame.height - (marginGuards.left + marginGuards.right)
+            frame.size = CGSize(width: frame.width, height: height)
+        }
+        
+        if frame.origin.y < marginGuards.top {
             frame.origin.y = marginGuards.top
         }
         
-        if((frame.origin.y + frame.height) >= (container.height - marginGuards.bottom)) {
-            let delta =  (frame.origin.y + frame.height) - container.height
-            frame.size = CGSize(width: frame.width , height: frame.height - delta - marginGuards.bottom)
+        if (frame.origin.y + frame.size.height) >= container.height {
+            frame.origin.y = frame.origin.y - marginGuards.bottom
         }
     }
     

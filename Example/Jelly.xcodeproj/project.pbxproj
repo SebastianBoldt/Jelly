@@ -11,6 +11,7 @@
 		150401C1218C46B300BCBF88 /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150401C0218C46B300BCBF88 /* CustomNavController.swift */; };
 		1510AAA3218DF9F100468AC3 /* InteractiveNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1510AAA2218DF9F100468AC3 /* InteractiveNotification.swift */; };
 		1510AAA5218DFDE000468AC3 /* MostBasicTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1510AAA4218DFDE000468AC3 /* MostBasicTransition.swift */; };
+		1510AACC218F6E8E00468AC3 /* LiveupdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1510AACB218F6E8E00468AC3 /* LiveupdateViewController.swift */; };
 		1533A191218C8D7800185C31 /* SlideInSlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1533A190218C8D7800185C31 /* SlideInSlideMenu.swift */; };
 		1545094A1DF6084C0096C822 /* JellyAnimatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154509491DF6084C0096C822 /* JellyAnimatorSpec.swift */; };
 		15B3AD2D1DE1C5CB003FF7B8 /* DismissMeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */; };
@@ -38,6 +39,7 @@
 		150401C0218C46B300BCBF88 /* CustomNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
 		1510AAA2218DF9F100468AC3 /* InteractiveNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveNotification.swift; sourceTree = "<group>"; };
 		1510AAA4218DFDE000468AC3 /* MostBasicTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostBasicTransition.swift; sourceTree = "<group>"; };
+		1510AACB218F6E8E00468AC3 /* LiveupdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveupdateViewController.swift; sourceTree = "<group>"; };
 		152009C91E26C6EA00537CD5 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		1533A190218C8D7800185C31 /* SlideInSlideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInSlideMenu.swift; sourceTree = "<group>"; };
 		154175841E337E4F00503A99 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */,
 				150401C0218C46B300BCBF88 /* CustomNavController.swift */,
 				1510AAA1218DF6F800468AC3 /* Non Interactive */,
+				1510AACA218F6D6D00468AC3 /* Live Update */,
 				150401BB218C3DF900BCBF88 /* Interactive */,
 			);
 			name = Sources;
@@ -124,6 +127,14 @@
 				1510AAA4218DFDE000468AC3 /* MostBasicTransition.swift */,
 			);
 			name = "Non Interactive";
+			sourceTree = "<group>";
+		};
+		1510AACA218F6D6D00468AC3 /* Live Update */ = {
+			isa = PBXGroup;
+			children = (
+				1510AACB218F6E8E00468AC3 /* LiveupdateViewController.swift */,
+			);
+			name = "Live Update";
 			sourceTree = "<group>";
 		};
 		39CE1241BD68C0D6255E3163 /* Frameworks */ = {
@@ -438,6 +449,7 @@
 			files = (
 				15B3AD2D1DE1C5CB003FF7B8 /* DismissMeController.swift in Sources */,
 				150401BF218C3FB500BCBF88 /* CoverSlideOutMenu.swift in Sources */,
+				1510AACC218F6E8E00468AC3 /* LiveupdateViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* MenuViewController.swift in Sources */,
 				1510AAA3218DF9F100468AC3 /* InteractiveNotification.swift in Sources */,
 				1510AAA5218DFDE000468AC3 /* MostBasicTransition.swift in Sources */,
