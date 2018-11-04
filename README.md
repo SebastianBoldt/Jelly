@@ -68,6 +68,7 @@ animator.prepare(presentedViewController: viewController, presentingViewControll
 
 The presentation types can be configured with various settings. 
 These include `size`, `direction`, `timing`, `user interface configurations` and `interaction configuration`. 
+
 Each component is explained in more detail in the <a href="https://github.com/SebastianBoldt/Jelly/wiki/Customization
 ">Jelly Wiki</a>.  
 
