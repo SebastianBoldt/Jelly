@@ -7,7 +7,16 @@
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/carthage-compatible-green.svg?longCache=true&style=flat-square" alt="carthage support" /></a>
 <a href="https://en.wikipedia.org/wiki/MIT_License"><img src="https://img.shields.io/badge/license-MIT-lightgray.svg?longCache=true&style=flat-square" alt="license" /></a>
 
-Jelly is a library for animated, interactive viewcontroller transitions with the focus on a simple and yet flexible API. 
+Jelly is a library for animated, non-interactive & interactive viewcontroller transitions with the focus on a simple and yet flexible API. 
+
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/gifs/cover-left.gif?raw=true" width="100" style="display: block;
+  float: left">
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/gifs/drag-bottom.gif?raw=true" width="100" style="display: block;
+  float: left">
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/gifs/left-right.gif?raw=true" width="100" style="display: block;
+  float: left">
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/gifs/like-push.gif?raw=true" width="100" style="display: block;
+  float: left">
 
 ```swift
 
