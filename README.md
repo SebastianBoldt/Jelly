@@ -40,7 +40,7 @@ class ViewController : UIViewController {
 
 ***DO NOT FORGET TO KEEP A STRONG 💪 REFERENCE***
 
-Because the `transitioningDelegate*` of a `UIViewController` is weak, you need to
+Because the `transitioningDelegate` of a `UIViewController` is weak, you need to
 hold a strong reference to the `Animator` inside the `UIViewController` you are presenting from or 
 the central object that maintains your presentations.
 

@@ -2,10 +2,10 @@
 - interactive transitions are now possible
 - renamed FadeIn, ShiftIn, and SlideIn to Fade, Slide & Cover
 - the animator is now capable of resizing already presented viewControllers
-- presentations will be configured using new models
+- presentations will be configured using new dedicated models for size, alignment etc.
 - removed the Jelly Prefix from all classes
 - extended example app with interactive examples like slide out menu etc.
-- minimum deployment target is iOS 10 because we are using UIViewPropertyAnimator
+- minimum deployment target is iOS 10 now, because of UIViewPropertyAnimator
 - new Logo and overall design of Jelly related icons and ui
 
 ## 1.2.5 (2018-10-02)
