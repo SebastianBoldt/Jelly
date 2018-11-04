@@ -3,14 +3,11 @@ import UIKit
 /// # Animator
 /// An Animator is an UIViewControllerTransitionsDelegate with some extra candy.
 /// Basically the Animator is the main class to use when working with Jelly.
-/// You need to create an Animator and assign it as a transitionDelegate to your ViewController.
-/// After you did this you need to set the presentation style to custom so the VC asks its custom delegate.
 public class Animator: NSObject {
     public var presentation: Presentation
-    private var currentPresentationController: PresentationController!
     
-    private var presentedViewController: UIViewController!
-    private var presentingViewController: UIViewController?
+    private var currentPresentationController: PresentationController!
+    private weak var presentedViewController: UIViewController!
     
     private var showInteractionController: InteractionController?
     private var dismissInteractionController: InteractionController?
@@ -24,11 +21,11 @@ public class Animator: NSObject {
     
     /// ## prepare
     /// Call this function to prepare the viewController you want to present
-    /// - Parameter viewController: viewController that should be presented in a custom way
-    public func prepare(presentedViewController: UIViewController, presentingViewController: UIViewController) {
+    /// - Parameter viewController: presentedViewController that should be presented in a custom way
+    public func prepare(presentedViewController: UIViewController) {
         // Create InteractionController over here because it needs a reference to the PresentationController
         if let interactivePresentation = presentation as? (PresentationShowDirectionProvider & InteractionConfigurationProvider),
-            let configuration = interactivePresentation.interactionConfiguration {
+            let configuration = interactivePresentation.interactionConfiguration, let presentingViewController = configuration.presentingViewController {
             self.showInteractionController = InteractionController(configuration: configuration, presentedViewController: presentedViewController, presentingViewController: presentingViewController, presentationType: .show, presentation: interactivePresentation, presentationController: nil)
         }
         presentedViewController.modalPresentationStyle = .custom
@@ -40,14 +37,14 @@ public class Animator: NSObject {
 /// ## UIViewControllerTransitioningDelegate Implementation
 /// The Animator needs to conform to the UIViewControllerTransitioningDelegate protocol
 /// it will provide a custom Presentation-Controller that tells UIKit which extra Views the presentation should have
-/// it also provides the size and frame for the controller that wants to be presented
+/// it also returns the interaction controllers for interaction with via gesuture recognizers
 extension Animator: UIViewControllerTransitioningDelegate {
     /// Gets called from UIKit if presentatioStyle is custom and transitionDelegate is set
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         let presentationController = PresentationController(presentedViewController: presented, presentingViewController: presenting, presentation: presentation)
         currentPresentationController = presentationController
         if let interactivePresentation = presentation as? (InteractionConfigurationProvider & PresentationShowDirectionProvider),
-            let configuration = interactivePresentation.interactionConfiguration {
+            let configuration = interactivePresentation.interactionConfiguration, let presentingViewController = configuration.presentingViewController {
             self.dismissInteractionController = InteractionController(configuration: configuration, presentedViewController: presentedViewController, presentingViewController: presentingViewController, presentationType: .dismiss, presentation: interactivePresentation, presentationController: currentPresentationController)
         }
         return presentationController

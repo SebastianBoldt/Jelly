@@ -15,7 +15,7 @@ class CoverSlideOutMenu: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         let uiConfiguration = PresentationUIConfiguration(cornerRadius: 20, backgroundStyle: .blurred(effectStyle: .dark), isTapBackgroundToDismissEnabled: true)
         let size = PresentationSize(width: .fullscreen, height: .halfscreen)
-        let interaction = InteractionConfiguration(completionThreshold: 0.5, dragMode: .canvas)
+        let interaction = InteractionConfiguration(presentingViewController: self, completionThreshold: 0.5, dragMode: .canvas)
         let alignment = PresentationAlignment(vertical: .top, horizontal: .center)
         let presentation = CoverPresentation(directionShow: .top,
                                              directionDismiss: .top,
@@ -26,7 +26,7 @@ class CoverSlideOutMenu: UIViewController {
                                              interactionConfiguration: interaction)
         let animator = Animator(presentation: presentation)
         viewControllerToPresent = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PresentMe")
-        animator.prepare(presentedViewController: viewControllerToPresent!, presentingViewController: self)
+        animator.prepare(presentedViewController: viewControllerToPresent!)
         self.animator = animator
     }
     

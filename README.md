@@ -42,7 +42,7 @@ class ViewController : UIViewController {
         let viewController = YourViewController()
         let presentation = SlidePresentation(direction: .left)
         animator = Animator(presentation:presentation)
-        animator?.prepare(viewController: viewController)
+        animator?.prepare(presentedViewController: viewController)
         present(viewController, animated: true, completion: nil)
     }
 }
@@ -66,17 +66,17 @@ When using the canvas type, gesture recognizers are configured so that direct in
 
 ```swift
 let viewController = YourViewController()
-let interaction = InteractionConfiguration(completionThreshold: 0.5, dragMode: .edge)
+let interaction = InteractionConfiguration(presentingViewController: self, completionThreshold: 0.5, dragMode: .edge)
 let presentation = SlidePresentation(direction: .right, interactionConfiguration: interaction)
 let animator = Animator(presentation: presentation)
-animator.prepare(presentedViewController: viewController, presentingViewController: self)
+animator.prepare(presentedViewController: viewController)
 
 ```
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/customization.png?raw=true" width="400">
 
 The presentation types can be configured with various settings. 
-These include `size`, `direction`, `timing`, `user interface configurations` and `interaction configuration`. 
+These include `size`, `direction`, `alignment`, `backgroundStyle` `timing`, `corner radius`, `interaction configuration` and more
 
 Each component is explained in more detail in the <a href="https://github.com/SebastianBoldt/Jelly/wiki/Customization
 ">Jelly Wiki</a>.  

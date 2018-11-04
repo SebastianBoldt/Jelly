@@ -14,7 +14,7 @@ class InteractiveNotification: UIViewController {
         modalPresentationCapturesStatusBarAppearance = true
         
         let uiConfiguration = PresentationUIConfiguration(cornerRadius: 20, backgroundStyle: .blurred(effectStyle: .light))
-        let interactionConfig = InteractionConfiguration(completionThreshold: 0.5, dragMode: .canvas)
+        let interactionConfig = InteractionConfiguration(presentingViewController: self, completionThreshold: 0.5, dragMode: .canvas)
         let size = PresentationSize(width: .fullscreen, height: .custom(value: 300))
         let alignment = PresentationAlignment(vertical: .top, horizontal: .center)
         let margin = UIEdgeInsets(top: 40, left: 16, bottom: 0, right: 16)
@@ -22,7 +22,7 @@ class InteractiveNotification: UIViewController {
         
         let animator = Animator(presentation: presentation)
         viewControllerToPresent = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PresentMe")
-        animator.prepare(presentedViewController: viewControllerToPresent!, presentingViewController: self)
+        animator.prepare(presentedViewController: viewControllerToPresent!)
         self.animator = animator
         self.view.isUserInteractionEnabled = true
     }

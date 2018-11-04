@@ -1,6 +1,5 @@
 import UIKit
 
-// This Beast 🧟‍♂️ needs some documentation
 class InteractionController: UIPercentDrivenInteractiveTransition {
     var interactionInProgress = false
     private var shouldCompleteTransition = false

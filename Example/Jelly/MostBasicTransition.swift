@@ -9,7 +9,7 @@ class MostBasicTransition: UIViewController {
         let viewControllerToPresent = storyboard.instantiateViewController(withIdentifier: "PresentMe")
         let presentation = SlidePresentation(direction: .right, width: .halfscreen)
         let animator = Animator(presentation: presentation)
-        animator.prepare(presentedViewController: viewControllerToPresent, presentingViewController: self)
+        animator.prepare(presentedViewController: viewControllerToPresent)
         self.animator = animator
         
         present(viewControllerToPresent, animated: true, completion: nil)

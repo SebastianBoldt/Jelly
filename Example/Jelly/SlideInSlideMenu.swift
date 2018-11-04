@@ -14,11 +14,11 @@ class SlideInSlideMenu: UIViewController {
         modalPresentationCapturesStatusBarAppearance = true
         navigationController?.isNavigationBarHidden = true
         let uiConfiguration = PresentationUIConfiguration(cornerRadius: 20, backgroundStyle: .blurred(effectStyle: .light), isTapBackgroundToDismissEnabled: true)
-        let interaction = InteractionConfiguration(completionThreshold: 0.5, dragMode: .canvas)
+        let interaction = InteractionConfiguration(presentingViewController: self, completionThreshold: 0.5, dragMode: .canvas)
         let presentation = SlidePresentation(uiConfiguration: uiConfiguration, direction: .bottom, width: .halfscreen, spring: .none, interactionConfiguration: interaction)
         let animator = Animator(presentation: presentation)
         viewControllerToPresent = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PresentMe")
-        animator.prepare(presentedViewController: viewControllerToPresent!, presentingViewController: self)
+        animator.prepare(presentedViewController: viewControllerToPresent!)
         self.animator = animator
     }
     

@@ -1,16 +1,5 @@
 import Foundation
 
-import Foundation
-import UIKit
-
-public protocol PresentationSpringProvider {
-    var spring: Spring { get set }
-}
-
-public protocol PresentationUIConfigurationProvider {
-    var presentationUIConfiguration: PresentationUIConfigurationProtocol { get set }
-}
-
 public protocol PresentationUIConfigurationProtocol {
     var cornerRadius: Double { get set }
     var backgroundStyle : BackgroundStyle { get set }
