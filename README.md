@@ -75,7 +75,7 @@ animator.prepare(presentedViewController: viewController)
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/customization.png?raw=true" width="400">
 
-The presentation types can be configured with various settings. 
+The presentation types can be configured with various settings: 
 
 * `size`
 * `margin guards`
@@ -88,8 +88,6 @@ The presentation types can be configured with various settings.
 * `corner specification` & `corner radius`
 * `completion threshold`
 * `interactive drag mode` 
-
-and more
 
 Each component is explained in more detail in the <a href="https://github.com/SebastianBoldt/Jelly/wiki/Customization
 ">Jelly Wiki</a>.  
