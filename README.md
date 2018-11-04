@@ -50,7 +50,7 @@ Interactive transitions can be activated for the slide and the cover transitions
 If the transitions are to be interactive, only an interaction configuration object has to be passed to the presentation. 
 
 Here 2 parameters play an important role. First, the `completionThreshold`, which determines the percentage of the animation that is automatically completed as soon as the user finishes the interaction. 
-The second parameter is the type of interaction, Jelly offers the `.edge` and the `.canvas` type. 
+The second parameter is the actual type of interaction. Jelly offers the `.edge` and the `.canvas` type. 
 In an edge transition, the user must execute the gesture from the edge of the screen. 
 When using the canvas type, gesture recognizers are configured so that direct interaction with the presenting and presented view leads to the transition.
 
@@ -67,8 +67,10 @@ animator.prepare(presentedViewController: viewController, presentingViewControll
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/customization.png?raw=true" width="400">
 
 The presentation types can be configured with various settings. 
-These include size, direction, timing, user interface configurations and interaction configuration. 
-Each component is explained in more detail in the Jelly Wiki.  
+These include `size`, `direction`, `timing`, `user interface configurations` and `interaction configuration`. 
+Each component is explained in more detail in the <a href="https://github.com/SebastianBoldt/Jelly/wiki/Customization
+">Jelly Wiki</a>.  
+
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/requirements.png?raw=true" width="400">
 
