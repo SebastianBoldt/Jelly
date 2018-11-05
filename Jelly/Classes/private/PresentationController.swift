@@ -164,7 +164,7 @@ extension PresentationController {
     }
     
     private func getSizeValue(fromPresentation presentation: SlidePresentation) -> CGFloat{
-        switch  presentation.width {
+        switch  presentation.size {
             case .custom(let value):
                 return value
             case .halfscreen:
@@ -199,7 +199,7 @@ extension PresentationController {
         
         // Apply Height
         if frame.height > container.height - (marginGuards.top + marginGuards.bottom) {
-            let height = frame.height - (marginGuards.left + marginGuards.right)
+            let height = frame.height - (marginGuards.top + marginGuards.bottom)
             frame.size = CGSize(width: frame.width, height: height)
         }
         

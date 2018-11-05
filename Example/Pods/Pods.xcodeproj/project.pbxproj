@@ -46,6 +46,7 @@
 		1533A1A3218CCA1700185C31 /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1533A1A2218CCA1700185C31 /* Spring.swift */; };
 		1533A1A5218CCA3800185C31 /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1533A1A4218CCA3800185C31 /* Duration.swift */; };
 		1533A1A9218CCA6900185C31 /* DragMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1533A1A8218CCA6900185C31 /* DragMode.swift */; };
+		158574102190CE5A007B2E4B /* PresentationSingleSizeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1585740F2190CE5A007B2E4B /* PresentationSingleSizeProvider.swift */; };
 		19291565899B5113A5355002CF9C8F2F /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF719D8E22FDE4224BB3A07CAA27139C /* Equal.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		1AC5D2CE6FA79327468F53B53D0A9418 /* AllPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB0432FE5912A44538CF0F7360FA8B /* AllPass.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		1E2AE2B6202B65E712FE05FB2699BD2C /* ExpectationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31184022E189DD64414E2576456FDED8 /* ExpectationMessage.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -255,6 +256,7 @@
 		1533A1A4218CCA3800185C31 /* Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		1533A1A8218CCA6900185C31 /* DragMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragMode.swift; sourceTree = "<group>"; };
 		157D741AE0729C5DBC91FC32AC9F5110 /* SatisfyAllOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SatisfyAllOf.swift; path = Sources/Nimble/Matchers/SatisfyAllOf.swift; sourceTree = "<group>"; };
+		1585740F2190CE5A007B2E4B /* PresentationSingleSizeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationSingleSizeProvider.swift; sourceTree = "<group>"; };
 		16058921B2D948B462510589BA13898E /* Pods_Jelly_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jelly_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1659222AD64CCA597F148530E7695E75 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		17DF03237581043F86B86780F4FC15BC /* Pods-Jelly_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Jelly_Tests-umbrella.h"; sourceTree = "<group>"; };
@@ -606,6 +608,7 @@
 				1510AABC218F60A000468AC3 /* PresentationWidthProvider.swift */,
 				1510AABE218F60B900468AC3 /* PresentationHeightProvider.swift */,
 				1510AAC6218F613F00468AC3 /* PresentationSpringProvider.swift */,
+				1585740F2190CE5A007B2E4B /* PresentationSingleSizeProvider.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1340,6 +1343,7 @@
 				1533A19F218CC9ED00185C31 /* Direction.swift in Sources */,
 				73BCE195AD1A04A1EFA4885090874087 /* FadePresentation.swift in Sources */,
 				1510AABB218F608800468AC3 /* PresentationMarginGuardsProvider.swift in Sources */,
+				158574102190CE5A007B2E4B /* PresentationSingleSizeProvider.swift in Sources */,
 				1510AAA9218F5EAF00468AC3 /* HorizontalAlignment.swift in Sources */,
 				BF77467207E87156C0B23CAACD832039 /* InteractionConfigurationProvider.swift in Sources */,
 				1510AAB5218F600000468AC3 /* PresentationSize.swift in Sources */,

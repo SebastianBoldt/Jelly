@@ -19,7 +19,7 @@ class LiveupdateViewController: UIViewController {
         present(viewControllerToPresent!, animated: true, completion: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
             //self.animator?.updateHeight(height: .fullscreen, duration: .medium)
-            try! self.animator?.updateAlignment(alignment: PresentationAlignment(vertical: .bottom, horizontal: .center), duration: .medium)
+            try! self.animator?.updateSize(presentationSize: PresentationSize(width: .fullscreen, height: .fullscreen), duration: .medium)
         })
     }
     
@@ -27,15 +27,15 @@ class LiveupdateViewController: UIViewController {
         super.viewDidLoad()
         modalPresentationCapturesStatusBarAppearance = true
         let uiConfiguration = PresentationUIConfiguration(cornerRadius: 20, backgroundStyle: .blurred(effectStyle: .dark), isTapBackgroundToDismissEnabled: true)
-        let size = PresentationSize(width: .fullscreen, height: .custom(value: 300))
+        let size = PresentationSize(width: .halfscreen, height: .halfscreen)
         let interaction = InteractionConfiguration(presentingViewController: self, completionThreshold: 0.5, dragMode: .canvas)
-        let alignment = PresentationAlignment(vertical: .top, horizontal: .center)
+        let alignment = PresentationAlignment(vertical: .top, horizontal: .left)
         let presentation = CoverPresentation(directionShow: .top,
                                              directionDismiss: .top,
                                              uiConfiguration: uiConfiguration,
                                              size: size,
                                              alignment: alignment,
-                                             marginGuards: UIEdgeInsets(top: 120, left: 16, bottom: 120, right: 16),
+                                             marginGuards: UIEdgeInsets(top: 60, left: 16, bottom: 40, right: 16),
                                              interactionConfiguration: interaction)
         let animator = Animator(presentation: presentation)
         viewControllerToPresent = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PresentMe")

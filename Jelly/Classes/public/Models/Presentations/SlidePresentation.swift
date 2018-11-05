@@ -2,24 +2,24 @@ import Foundation
 
 public struct SlidePresentation: Presentation,
                                    PresentationShowDirectionProvider,
-                                   PresentationWidthProvider,
+                                   PresentationSingleSizeProvider,
                                    InteractionConfigurationProvider {
     public var presentationTiming: PresentationTimingProtocol
     public var presentationUIConfiguration: PresentationUIConfigurationProtocol
     public var showDirection: Direction
-    public var width: Size
+    public var size: Size
     public var spring: Spring
     public var interactionConfiguration: InteractionConfiguration?
     
     public init(timing: PresentationTimingProtocol = PresentationTiming(),
                 uiConfiguration: PresentationUIConfigurationProtocol = PresentationUIConfiguration(),
                 direction: Direction = .bottom,
-                width: Size = .fullscreen,
+                size: Size = .fullscreen,
                 spring: Spring = .none,
                 interactionConfiguration: InteractionConfiguration? = nil) {
         self.presentationUIConfiguration = uiConfiguration
         self.presentationTiming = timing
-        self.width = width
+        self.size = size
         self.spring = spring
         self.showDirection = direction
         self.interactionConfiguration = interactionConfiguration

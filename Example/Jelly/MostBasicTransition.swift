@@ -7,7 +7,7 @@ class MostBasicTransition: UIViewController {
     @IBAction func didPressShowButton(_ sender: Any) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let viewControllerToPresent = storyboard.instantiateViewController(withIdentifier: "PresentMe")
-        let presentation = SlidePresentation(direction: .right, width: .halfscreen)
+        let presentation = SlidePresentation(direction: .right, size: .halfscreen)
         let animator = Animator(presentation: presentation)
         animator.prepare(presentedViewController: viewControllerToPresent)
         self.animator = animator

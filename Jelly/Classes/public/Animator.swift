@@ -1,5 +1,17 @@
 import UIKit
 
+public protocol AnimatorProtocol {
+    init(presentation: Presentation)
+    func prepare(presentedViewController: UIViewController)
+    func updateAlignment(alignment: PresentationAlignmentProtocol, duration: Duration) throws
+    func updateVerticalAlignment(alignment: VerticalAlignment, duration: Duration) throws
+    func updateHorizontalAlignment(alignment: HorizontalAlignment, duration: Duration) throws
+    func updateSize(presentationSize: PresentationSize, duration: Duration) throws
+    func updateWidth(width: Size, duration: Duration) throws
+    func updateHeight(height: Size, duration: Duration) throws
+    func updateMarginGuards(marginGuards: UIEdgeInsets, duration: Duration) throws
+}
+
 /// # Animator
 /// An Animator is an UIViewControllerTransitionsDelegate with some extra candy.
 /// Basically the Animator is the main class to use when working with Jelly.
@@ -93,27 +105,99 @@ extension Animator {
         }
     }
     
-    public func updateVerticalAlignment(alignment: VerticalAlignment, duration: Duration){
+    public func updateVerticalAlignment(alignment: VerticalAlignment, duration: Duration) throws {
+        guard !(presentation is SlidePresentation) else {
+            throw LiveUpdateError.notSupportedOnSlide
+        }
         
+        if var presentation = presentation as? CoverPresentation {
+            presentation.presentationAlignment = PresentationAlignment(vertical: alignment, horizontal: presentation.presentationAlignment.horizontalAlignment)
+            self.presentation = presentation
+            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        } else if var presentation = presentation as? FadePresentation {
+            presentation.presentationAlignment = PresentationAlignment(vertical: alignment, horizontal: presentation.presentationAlignment.horizontalAlignment)
+            self.presentation = presentation
+            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        }
     }
     
-    public func updateHorizontalAlignment(alignment: HorizontalAlignment, duration: Duration){
+    public func updateHorizontalAlignment(alignment: HorizontalAlignment, duration: Duration) throws {
+        guard !(presentation is SlidePresentation) else {
+            throw LiveUpdateError.notSupportedOnSlide
+        }
         
+        if var presentation = presentation as? CoverPresentation {
+            presentation.presentationAlignment = PresentationAlignment(vertical: presentation.presentationAlignment.verticalAlignemt, horizontal: alignment)
+            self.presentation = presentation
+            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        } else if var presentation = presentation as? FadePresentation {
+            presentation.presentationAlignment = PresentationAlignment(vertical: presentation.presentationAlignment.verticalAlignemt, horizontal: alignment)
+            self.presentation = presentation
+            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        }
     }
     
-    public func updateSize(presentationSize: PresentationSize, duration: Duration){
+    public func updateSize(presentationSize: PresentationSize, duration: Duration) throws {
+        guard !(presentation is SlidePresentation) else {
+            throw LiveUpdateError.notSupportedOnSlide
+        }
         
+        if var presentation = presentation as? CoverPresentation {
+            presentation.presentationSize = presentationSize
+            self.presentation = presentation
+            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        } else if var presentation = presentation as? FadePresentation {
+            presentation.presentationSize = presentationSize
+            self.presentation = presentation
+            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        }
     }
     
-    public func updateWidth(width: Size, duration: Duration){
-        
+    public func updateWidth(width: Size, duration: Duration) throws {
+        if var presentation = presentation as? SlidePresentation {
+            guard presentation.showDirection.orientation() == .horizontal else {
+                throw LiveUpdateError.notSupportedOnVerticalSlide
+            }
+            
+            presentation.size = width
+            self.presentation = presentation
+            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        } else if var presentation = presentation as? FadePresentation {
+            presentation.presentationSize = PresentationSize(width: width, height: presentation.presentationSize.height)
+            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        } else if var presentation = presentation as? CoverPresentation {
+            presentation.presentationSize = PresentationSize(width: width, height: presentation.presentationSize.height)
+            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        }
     }
     
-    public func updateHeight(height: Size, duration: Duration){
-        
+    public func updateHeight(height: Size, duration: Duration) throws {
+        if var presentation = presentation as? SlidePresentation {
+            guard presentation.showDirection.orientation() == .vertical else {
+                throw LiveUpdateError.notSupportedOnHorizontalSlide
+            }
+            
+            presentation.size = height
+            self.presentation = presentation
+            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        } else if var presentation = presentation as? FadePresentation {
+            presentation.presentationSize = PresentationSize(width: presentation.presentationSize.height, height: height)
+            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        } else if var presentation = presentation as? CoverPresentation {
+            presentation.presentationSize = PresentationSize(width: presentation.presentationSize.height, height: height)
+            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        }
     }
     
-    public func updateMarginGuards(marginGuards: UIEdgeInsets, duration: Duration){
+    public func updateMarginGuards(marginGuards: UIEdgeInsets, duration: Duration) throws {
+        guard !(presentation is SlidePresentation) else {
+            throw LiveUpdateError.notSupportedOnSlide
+        }
         
+        if var presentation = presentation as? (Presentation & PresentationMarginGuardsProvider) {
+            presentation.marginGuards = marginGuards
+            self.presentation = presentation
+            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        }
     }
 }
