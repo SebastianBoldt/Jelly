@@ -15,7 +15,7 @@ public struct FadePresentation: Presentation,
                 size: PresentationSizeProtocol = PresentationSize(width: .fullscreen, height: .fullscreen),
                 marginGuards: UIEdgeInsets = .zero,
                 timing: PresentationTimingProtocol = PresentationTiming(duration: .normal, presentationCurve: .linear, dismissCurve: .linear ),
-                ui: PresentationUIConfigurationProtocol = PresentationUIConfiguration(cornerRadius: 0.0, backgroundStyle: .dimmed(alpha: 0.5), isTapBackgroundToDismissEnabled: true, corners: [.topLeft, .topRight, .bottomLeft, .bottomRight])) {
+                ui: PresentationUIConfigurationProtocol = PresentationUIConfiguration(cornerRadius: 0.0, backgroundStyle: .dimmed(alpha: 0.5), isTapBackgroundToDismissEnabled: true, corners: [.layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner])) {
         self.presentationAlignment = alignment
         self.presentationSize = size
         self.presentationTiming = timing

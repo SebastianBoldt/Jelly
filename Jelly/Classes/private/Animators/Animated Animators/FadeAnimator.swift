@@ -3,7 +3,6 @@ import Foundation
 final class FadeAnimator: NSObject {
     private let presentationType : PresentationType
     private let presentation : FadePresentation
-    private var propertyAnimator: UIViewPropertyAnimator!
 
     init(presentationType: PresentationType, presentation: FadePresentation) {
         self.presentationType = presentationType
@@ -21,7 +20,7 @@ extension FadeAnimator : UIViewControllerAnimatedTransitioning {
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        propertyAnimator = createPropertyAnimator(using: transitionContext)
+        let propertyAnimator = createPropertyAnimator(using: transitionContext)
         propertyAnimator.startAnimation()
     }
     

@@ -43,20 +43,18 @@ final class PresentationController: UIPresentationController, PresentationContro
                 animateBlurView(effectStyle: effectStyle)
             case .dimmed(let alpha):
                 self.setupDimmingView(withAlpha: alpha)
-                animateDimmingView()
+                animateDimmingView(alpha: alpha)
         }
     }
     
     override func dismissalTransitionWillBegin() {
-        guard let coordinator = presentedViewController.transitionCoordinator else {
-            dimmingView.alpha = 0.0
-            return
+        let backgroundStyle = presentation.presentationUIConfiguration.backgroundStyle
+        switch backgroundStyle {
+            case .blurred:
+                animateBlurView(effectStyle: nil)
+            case .dimmed(let alpha):
+                animateDimmingView(alpha: alpha)
         }
-        
-        coordinator.animate(alongsideTransition: { _ in
-            self.dimmingView.alpha = 0.0
-            self.blurView.effect = nil
-        })
     }
     
     override func containerViewWillLayoutSubviews() {        
@@ -122,9 +120,8 @@ final class PresentationController: UIPresentationController, PresentationContro
 }
 
 extension PresentationController {
-    private func animateBlurView(effectStyle: UIBlurEffect.Style) {
-        let effect = UIBlurEffect(style: effectStyle)
-        
+    private func animateBlurView(effectStyle: UIBlurEffect.Style?) {
+        let effect: UIBlurEffect? = (effectStyle != nil) ? UIBlurEffect(style: effectStyle!) : nil
         guard let coordinator = presentedViewController.transitionCoordinator else {
             self.blurView.effect = effect
             return
@@ -135,14 +132,14 @@ extension PresentationController {
         })
     }
     
-    private func animateDimmingView() {
+    private func animateDimmingView(alpha: CGFloat) {
         guard let coordinator = presentedViewController.transitionCoordinator else {
-            dimmingView.alpha = 1.0
+            dimmingView.alpha = alpha
             return
         }
         
         coordinator.animate(alongsideTransition: { _ in
-            self.dimmingView.alpha = 1.0
+            self.dimmingView.alpha = alpha
         })
     }
     

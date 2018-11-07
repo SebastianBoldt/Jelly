@@ -31,6 +31,12 @@
                                     <action selector="didPressShowButton:" destination="YdR-Gv-xk2" eventType="touchUpInside" id="qzt-Xb-1eG"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="blur" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DH9-zh-G2R">
+                                <rect key="frame" x="172.5" y="617" width="30" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="← Pan from here on canvas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1E-9v-mzG">
                                 <rect key="frame" x="28" y="363" width="319" height="20"/>
                                 <constraints>
@@ -45,9 +51,11 @@
                         <constraints>
                             <constraint firstItem="F1E-9v-mzG" firstAttribute="top" secondItem="mbJ-7U-x5H" secondAttribute="bottom" constant="8" id="Ic4-dB-pcO"/>
                             <constraint firstItem="mbJ-7U-x5H" firstAttribute="centerY" secondItem="mHa-zF-J8v" secondAttribute="centerY" id="NUp-sR-oM6"/>
+                            <constraint firstItem="DH9-zh-G2R" firstAttribute="centerX" secondItem="mHa-zF-J8v" secondAttribute="centerX" id="S8x-3g-4HG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F1E-9v-mzG" secondAttribute="trailing" constant="12" id="Wu4-wy-G6d"/>
                             <constraint firstItem="mbJ-7U-x5H" firstAttribute="centerX" secondItem="mHa-zF-J8v" secondAttribute="centerX" id="iaQ-IH-aeK"/>
                             <constraint firstItem="F1E-9v-mzG" firstAttribute="leading" secondItem="mHa-zF-J8v" secondAttribute="leadingMargin" constant="12" id="mpW-3b-Qq3"/>
+                            <constraint firstItem="WYP-Ap-Uzq" firstAttribute="top" secondItem="DH9-zh-G2R" secondAttribute="bottom" constant="29" id="r7w-yj-OkC"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">

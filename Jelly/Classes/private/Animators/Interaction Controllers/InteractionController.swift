@@ -18,6 +18,7 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
          presentationType: PresentationType,
          presentation: (InteractionConfigurationProvider & PresentationShowDirectionProvider),
          presentationController: PresentationController?) {
+        
         self.presentedViewController = presentedViewController
         self.presentingViewController = presentingViewController
         self.presentation = presentation

@@ -3,7 +3,6 @@ import Foundation
 final class CoverAnimator: NSObject {
     private let presentationType : PresentationType
     private let presentation : CoverPresentation
-    private var propertyAnimator: UIViewPropertyAnimator!
     
     init(presentationType: PresentationType, presentation: CoverPresentation) {
         self.presentationType = presentationType
@@ -14,7 +13,7 @@ final class CoverAnimator: NSObject {
 
 extension CoverAnimator : UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        propertyAnimator = createPropertyAnimator(using: transitionContext)
+        let propertyAnimator = createPropertyAnimator(using: transitionContext)
         propertyAnimator.startAnimation()
     }
     

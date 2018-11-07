@@ -111,7 +111,7 @@ Each component is explained in more detail in the <a href="https://github.com/Se
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/requirements.png?raw=true" width="400">
 
-Deployment target of your App is >= iOS 10.0
+Deployment target of your App is >= iOS 11.0
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/installation.png?raw=true" width="400">
 

@@ -26,7 +26,7 @@ class LiveupdateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         modalPresentationCapturesStatusBarAppearance = true
-        let uiConfiguration = PresentationUIConfiguration(cornerRadius: 20, backgroundStyle: .blurred(effectStyle: .dark), isTapBackgroundToDismissEnabled: true)
+        let uiConfiguration = PresentationUIConfiguration(cornerRadius: 30, backgroundStyle: .dimmed(alpha: 0.5), isTapBackgroundToDismissEnabled: true)
         let size = PresentationSize(width: .halfscreen, height: .halfscreen)
         let interaction = InteractionConfiguration(presentingViewController: self, completionThreshold: 0.5, dragMode: .canvas)
         let alignment = PresentationAlignment(vertical: .top, horizontal: .left)
