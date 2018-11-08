@@ -10,8 +10,8 @@
 Jelly is a library for animated, non-interactive & interactive viewcontroller <br/>
 transitions with the focus on a simple and yet flexible API. 
 
-Using just a few lines of source code, interactive viewController transitions  <br/>
-and custom resizable viewController presenations can be created, <br/>
+With a few lines of source code, interactive UIViewController transitions <br/>
+and custom resizable UIViewController presentations can be created, <br/>
 without the use of the cumbersome UIKit Transitioning API. 
 
 ```swift
