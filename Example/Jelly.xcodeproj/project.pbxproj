@@ -45,6 +45,10 @@
 		154175841E337E4F00503A99 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		154509481DF6084B0096C822 /* Jelly_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jelly_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		154509491DF6084C0096C822 /* JellyAnimatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellyAnimatorSpec.swift; sourceTree = "<group>"; };
+		158575E121949581007B2E4B /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
+		158575E221949581007B2E4B /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; name = ".swift-version"; path = "../.swift-version"; sourceTree = "<group>"; };
+		158575E321949581007B2E4B /* .git */ = {isa = PBXFileReference; lastKnownFileType = folder; name = .git; path = ../.git; sourceTree = "<group>"; };
+		158575E421949581007B2E4B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		15B1CF991DEB7299003B4107 /* Github */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Github; path = ../Github; sourceTree = "<group>"; };
 		15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissMeController.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Jelly_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jelly_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,15 +153,19 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				154175841E337E4F00503A99 /* README.md */,
-				152009C91E26C6EA00537CD5 /* CHANGELOG.md */,
-				15B1CF991DEB7299003B4107 /* Github */,
-				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for Jelly */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				A30E2D426D45D2832CB99640 /* Pods */,
 				39CE1241BD68C0D6255E3163 /* Frameworks */,
+				158575E321949581007B2E4B /* .git */,
+				15B1CF991DEB7299003B4107 /* Github */,
+				607FACF51AFB993E008FA782 /* Podspec Metadata */,
+				158575E421949581007B2E4B /* .gitignore */,
+				158575E221949581007B2E4B /* .swift-version */,
+				158575E121949581007B2E4B /* .travis.yml */,
+				154175841E337E4F00503A99 /* README.md */,
+				152009C91E26C6EA00537CD5 /* CHANGELOG.md */,
 			);
 			sourceTree = "<group>";
 		};

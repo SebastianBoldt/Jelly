@@ -1,7 +1,7 @@
 ## 2.0.0 
 - interactive transitions are now possible
 - renamed FadeIn, ShiftIn, and SlideIn to Fade, Slide & Cover
-- the animator is now capable of resizing already presented viewControllers
+- the animator is now capable of resizing and realigning already presented viewControllers
 - presentations will be configured using new dedicated models for size, alignment etc.
 - removed the Jelly Prefix from all classes
 - extended example app with interactive examples like slide out menu etc.
