@@ -1,6 +1,6 @@
 import Foundation
 
-public enum PresentationType {
+enum PresentationType {
     case show
     case dismiss
 }

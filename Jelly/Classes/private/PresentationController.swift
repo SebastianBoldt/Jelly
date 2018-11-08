@@ -52,8 +52,8 @@ final class PresentationController: UIPresentationController, PresentationContro
         switch backgroundStyle {
             case .blurred:
                 animateBlurView(effectStyle: nil)
-            case .dimmed(let alpha):
-                animateDimmingView(alpha: alpha)
+            case .dimmed:
+                animateDimmingView(alpha: 0.0)
         }
     }
     
@@ -95,18 +95,18 @@ final class PresentationController: UIPresentationController, PresentationContro
     }
     
     override var frameOfPresentedViewInContainerView: CGRect {
-        if let shiftIn = self.presentation as? SlidePresentation {
-            return self.getFrameForSlidePresentation(shiftIn: shiftIn)
+        if let slideIn = self.presentation as? SlidePresentation {
+            return self.getFrameForSlidePresentation(presentation: slideIn)
         }
         
-        guard let dynamicPresentation = self.presentation as? PresentationSizeProvider else {
+        guard let sizeProvider = self.presentation as? PresentationSizeProvider else {
             return CGRect(x:0,y:0,width: containerView!.bounds.size.width, height: containerView!.bounds.size.height)
         }
         
         var frame: CGRect = .zero
         frame.size = size(forChildContentContainer: presentedViewController, withParentContainerSize: containerView!.bounds.size)
         limit(frame: &frame, withSize: frame.size)
-        let marginGuards =  (dynamicPresentation as? PresentationMarginGuardsProvider)?.marginGuards ?? .zero
+        let marginGuards =  (sizeProvider as? PresentationMarginGuardsProvider)?.marginGuards ?? .zero
         align(frame: &frame, withPresentation: self.presentation)
         applymarginGuards(toFrame: &frame, marginGuards: marginGuards, container: containerView!.bounds.size)
         return frame
@@ -143,21 +143,21 @@ extension PresentationController {
         })
     }
     
-    private func getFrameForSlidePresentation(shiftIn: SlidePresentation) -> CGRect {
-        var shiftFrame : CGRect = .zero
-        let size = getSizeValue(fromPresentation: shiftIn)
-        switch shiftIn.showDirection {
+    private func getFrameForSlidePresentation(presentation: SlidePresentation) -> CGRect {
+        var slideInFrame : CGRect = .zero
+        let size = getSizeValue(fromPresentation: presentation)
+        switch presentation.showDirection {
             case .left:
-                shiftFrame = CGRect(x: 0, y: 0, width: size, height: containerView!.bounds.size.height)
+                slideInFrame = CGRect(x: 0, y: 0, width: size, height: containerView!.bounds.size.height)
             case .right:
-                shiftFrame = CGRect(x: containerView!.bounds.size.width - size, y: 0, width: size, height: containerView!.bounds.size.height)
+                slideInFrame = CGRect(x: containerView!.bounds.size.width - size, y: 0, width: size, height: containerView!.bounds.size.height)
             case .top:
-                shiftFrame =  CGRect(x: 0, y: 0, width: containerView!.bounds.size.width, height: size)
+                slideInFrame =  CGRect(x: 0, y: 0, width: containerView!.bounds.size.width, height: size)
             case .bottom:
-                shiftFrame = CGRect(x: 0, y: containerView!.bounds.size.height - size , width: containerView!.bounds.size.width, height: size)
+                slideInFrame = CGRect(x: 0, y: containerView!.bounds.size.height - size , width: containerView!.bounds.size.width, height: size)
         }
-        limit(frame: &shiftFrame, withSize: containerView!.bounds.size)
-        return shiftFrame
+        limit(frame: &slideInFrame, withSize: containerView!.bounds.size)
+        return slideInFrame
     }
     
     private func getSizeValue(fromPresentation presentation: SlidePresentation) -> CGFloat{

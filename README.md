@@ -10,14 +10,9 @@
 Jelly is a library for animated, non-interactive & interactive viewcontroller <br/>
 transitions with the focus on a simple and yet flexible API. 
 
-<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/gifs/cover-left.gif?raw=true" width="100" style="display: block;
-  float: left">
-<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/gifs/drag-bottom.gif?raw=true" width="100" style="display: block;
-  float: left">
-<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/gifs/left-right.gif?raw=true" width="100" style="display: block;
-  float: left">
-<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/gifs/like-push.gif?raw=true" width="100" style="display: block;
-  float: left">
+Using just a few lines of source code, interactive viewController transitions  <br/>
+and custom resizable viewController presenations can be created, <br/>
+without the use of the cumbersome UIKit Transitioning API. 
 
 ```swift
 
@@ -56,13 +51,13 @@ the central object that maintains your presentations.
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/interactive-transitions.png?raw=true" width="400">
 
-Interactive transitions can be activated for the slide and the cover transitions. 
-If the transitions are to be interactive, only an interaction configuration object has to be passed to the presentation. 
+Interactive transitions can be activated for the *slide* and the *cover* transitions. 
+If the transitions are to be interactive, only an `InteractionConfiguration` object has to be passed to the presentation. 
 
 Here 2 parameters play an important role. First, the `completionThreshold`, which determines the percentage of the animation that is automatically completed as soon as the user finishes the interaction. 
 The second parameter is the actual type of interaction. Jelly offers the `.edge` and the `.canvas` type. 
-In an edge transition, the user must execute the gesture from the edge of the screen. 
-When using the canvas type, gesture recognizers are configured so that direct interaction with the presenting and presented view leads to the transition.
+In an `.edge` transition, the user must execute the gesture from the edge of the screen. 
+When using the `.canvas` type, gesture recognizers are configured so that direct interaction with the presenting and presented view leads to the transition.
 
 ```swift
 let viewController = YourViewController()
@@ -74,10 +69,8 @@ animator.prepare(presentedViewController: viewController)
 ```
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/update.png?raw=true" width="400">
 
-Jelly 2.0 also provides a new feature called live update. 
-It is now possible to update the alignment, size and margin guards when the viewcontroller is already visible.
-Some of them will throw an exception if used on a wrong presentationType. For example: a width update can not be performed on slide transitions because 
-it always has full width. I tried to be as expressive as i can be when it comes to the exception names. 
+Jelly 2.0 also provides a new feature called *LIVE UPDATE*. 
+Using Jellys  new `Live Update API` it is now possible to update the alignment, size and margin guards when the viewcontroller is already visible.
 
 These are the new live update functions provided by the Animator. 
 
@@ -88,6 +81,9 @@ These are the new live update functions provided by the Animator.
 * `updateWidth(width: Size, duration: Duration)` - Cover, Fade and horizontal Slide
 * `updateHeight(height: Size, duration: Duration)` - Cover, Fade and vertical Slide
 * `updateMarginGuards(marginGuards: UIEdgeInsets, duration: Duration)` - Cover & Fade
+
+Some of them will throw an exception if used on a wrong presentationType. <br/>
+For example: a width update can not be performed on vertical slide transitions because it always has full width or height depending on the direction type. 
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/customization.png?raw=true" width="400">
 

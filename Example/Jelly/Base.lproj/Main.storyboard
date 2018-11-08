@@ -94,10 +94,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="XXN-2N-c5v" firstAttribute="top" secondItem="xnX-Mn-18d" secondAttribute="bottom" id="2hd-RM-G5e"/>
+                            <constraint firstAttribute="bottom" secondItem="xnX-Mn-18d" secondAttribute="bottom" id="2hd-RM-G5e"/>
                             <constraint firstItem="xnX-Mn-18d" firstAttribute="leading" secondItem="21K-Uo-kc6" secondAttribute="leading" id="hP0-Qo-kCo"/>
                             <constraint firstAttribute="trailing" secondItem="xnX-Mn-18d" secondAttribute="trailing" id="uLk-JI-8XW"/>
-                            <constraint firstItem="xnX-Mn-18d" firstAttribute="top" secondItem="wJD-6e-3Qt" secondAttribute="bottom" id="yk9-te-qMb"/>
+                            <constraint firstItem="xnX-Mn-18d" firstAttribute="top" secondItem="21K-Uo-kc6" secondAttribute="top" id="yk9-te-qMb"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
