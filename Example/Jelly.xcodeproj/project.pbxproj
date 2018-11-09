@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		150401BF218C3FB500BCBF88 /* CoverSlideOutMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150401BE218C3FB500BCBF88 /* CoverSlideOutMenu.swift */; };
 		150401C1218C46B300BCBF88 /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150401C0218C46B300BCBF88 /* CustomNavController.swift */; };
-		1510AAA3218DF9F100468AC3 /* InteractiveNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1510AAA2218DF9F100468AC3 /* InteractiveNotification.swift */; };
-		1510AAA5218DFDE000468AC3 /* MostBasicTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1510AAA4218DFDE000468AC3 /* MostBasicTransition.swift */; };
-		1510AACC218F6E8E00468AC3 /* LiveupdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1510AACB218F6E8E00468AC3 /* LiveupdateViewController.swift */; };
-		1533A191218C8D7800185C31 /* SlideInSlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1533A190218C8D7800185C31 /* SlideInSlideMenu.swift */; };
+		1510AAA5218DFDE000468AC3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1510AAA4218DFDE000468AC3 /* MainViewController.swift */; };
 		1545094A1DF6084C0096C822 /* JellyAnimatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154509491DF6084C0096C822 /* JellyAnimatorSpec.swift */; };
 		15B3AD2D1DE1C5CB003FF7B8 /* DismissMeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */; };
+		15DBFCDC21958B0E00E5176E /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DBFCDB21958B0E00E5176E /* RoundedView.swift */; };
+		15DBFCDF219592C800E5176E /* ExampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DBFCDE219592C800E5176E /* ExampleType.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* MenuViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -35,13 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		150401BE218C3FB500BCBF88 /* CoverSlideOutMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverSlideOutMenu.swift; sourceTree = "<group>"; };
 		150401C0218C46B300BCBF88 /* CustomNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
-		1510AAA2218DF9F100468AC3 /* InteractiveNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveNotification.swift; sourceTree = "<group>"; };
-		1510AAA4218DFDE000468AC3 /* MostBasicTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostBasicTransition.swift; sourceTree = "<group>"; };
-		1510AACB218F6E8E00468AC3 /* LiveupdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveupdateViewController.swift; sourceTree = "<group>"; };
+		1510AAA4218DFDE000468AC3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		152009C91E26C6EA00537CD5 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
-		1533A190218C8D7800185C31 /* SlideInSlideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInSlideMenu.swift; sourceTree = "<group>"; };
 		154175841E337E4F00503A99 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		154509481DF6084B0096C822 /* Jelly_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jelly_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		154509491DF6084C0096C822 /* JellyAnimatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JellyAnimatorSpec.swift; sourceTree = "<group>"; };
@@ -51,6 +45,9 @@
 		158575E421949581007B2E4B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		15B1CF991DEB7299003B4107 /* Github */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Github; path = ../Github; sourceTree = "<group>"; };
 		15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissMeController.swift; sourceTree = "<group>"; };
+		15DBFCDB21958B0E00E5176E /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		15DBFCDE219592C800E5176E /* ExampleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleType.swift; sourceTree = "<group>"; };
+		15DBFCE02195C2B700E5176E /* Future-Features.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = "Future-Features.md"; path = "../Future-Features.md"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Jelly_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jelly_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,16 +88,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		150401BB218C3DF900BCBF88 /* Interactive */ = {
-			isa = PBXGroup;
-			children = (
-				150401BE218C3FB500BCBF88 /* CoverSlideOutMenu.swift */,
-				1533A190218C8D7800185C31 /* SlideInSlideMenu.swift */,
-				1510AAA2218DF9F100468AC3 /* InteractiveNotification.swift */,
-			);
-			name = Interactive;
-			sourceTree = "<group>";
-		};
 		150401BC218C3E3800BCBF88 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,31 +101,31 @@
 		150401BD218C3E4400BCBF88 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				15DBFCDD21958FEC00E5176E /* Enums */,
+				15DBFCDA21958AF400E5176E /* Views */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* MenuViewController.swift */,
 				15B3AD2C1DE1C5CB003FF7B8 /* DismissMeController.swift */,
 				150401C0218C46B300BCBF88 /* CustomNavController.swift */,
-				1510AAA1218DF6F800468AC3 /* Non Interactive */,
-				1510AACA218F6D6D00468AC3 /* Live Update */,
-				150401BB218C3DF900BCBF88 /* Interactive */,
+				1510AAA4218DFDE000468AC3 /* MainViewController.swift */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
 		};
-		1510AAA1218DF6F800468AC3 /* Non Interactive */ = {
+		15DBFCDA21958AF400E5176E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1510AAA4218DFDE000468AC3 /* MostBasicTransition.swift */,
+				15DBFCDB21958B0E00E5176E /* RoundedView.swift */,
 			);
-			name = "Non Interactive";
+			name = Views;
 			sourceTree = "<group>";
 		};
-		1510AACA218F6D6D00468AC3 /* Live Update */ = {
+		15DBFCDD21958FEC00E5176E /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				1510AACB218F6E8E00468AC3 /* LiveupdateViewController.swift */,
+				15DBFCDE219592C800E5176E /* ExampleType.swift */,
 			);
-			name = "Live Update";
+			name = Enums;
 			sourceTree = "<group>";
 		};
 		39CE1241BD68C0D6255E3163 /* Frameworks */ = {
@@ -166,6 +153,7 @@
 				158575E121949581007B2E4B /* .travis.yml */,
 				154175841E337E4F00503A99 /* README.md */,
 				152009C91E26C6EA00537CD5 /* CHANGELOG.md */,
+				15DBFCE02195C2B700E5176E /* Future-Features.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -455,15 +443,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15DBFCDF219592C800E5176E /* ExampleType.swift in Sources */,
 				15B3AD2D1DE1C5CB003FF7B8 /* DismissMeController.swift in Sources */,
-				150401BF218C3FB500BCBF88 /* CoverSlideOutMenu.swift in Sources */,
-				1510AACC218F6E8E00468AC3 /* LiveupdateViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* MenuViewController.swift in Sources */,
-				1510AAA3218DF9F100468AC3 /* InteractiveNotification.swift in Sources */,
-				1510AAA5218DFDE000468AC3 /* MostBasicTransition.swift in Sources */,
+				1510AAA5218DFDE000468AC3 /* MainViewController.swift in Sources */,
 				150401C1218C46B300BCBF88 /* CustomNavController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				1533A191218C8D7800185C31 /* SlideInSlideMenu.swift in Sources */,
+				15DBFCDC21958B0E00E5176E /* RoundedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

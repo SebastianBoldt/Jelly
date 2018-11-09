@@ -11,7 +11,7 @@ class CustomNav: UINavigationController {
         modalPresentationCapturesStatusBarAppearance = true
         
         var config = Configuration()
-        config.color = .lightGray
+        config.color = .darkGray
         config.showsTouchRadius = true
         config.defaultSize = CGSize(width: 100, height: 100)
         Visualizer.start(config)

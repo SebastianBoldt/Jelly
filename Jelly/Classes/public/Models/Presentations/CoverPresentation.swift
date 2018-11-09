@@ -17,8 +17,8 @@ public struct CoverPresentation: Presentation,
     public var marginGuards: UIEdgeInsets
     public var interactionConfiguration: InteractionConfiguration?
     
-    public init(directionShow: Direction = .bottom,
-                directionDismiss: Direction = .bottom,
+    public init(directionShow: Direction,
+                directionDismiss: Direction,
                 uiConfiguration: PresentationUIConfigurationProtocol = PresentationUIConfiguration(),
                 size: PresentationSizeProtocol = PresentationSize(),
                 alignment: PresentationAlignmentProtocol = PresentationAlignment.centerAlignment,

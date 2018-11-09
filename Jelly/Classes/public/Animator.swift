@@ -2,6 +2,9 @@ import UIKit
 
 public protocol AnimatorProtocol {
     init(presentation: Presentation)
+}
+
+public protocol LiveUpdatable {
     func prepare(presentedViewController: UIViewController)
     func updateAlignment(alignment: PresentationAlignmentProtocol, duration: Duration) throws
     func updateVerticalAlignment(alignment: VerticalAlignment, duration: Duration) throws
@@ -10,6 +13,7 @@ public protocol AnimatorProtocol {
     func updateWidth(width: Size, duration: Duration) throws
     func updateHeight(height: Size, duration: Duration) throws
     func updateMarginGuards(marginGuards: UIEdgeInsets, duration: Duration) throws
+    func updateCorners(radius: CGFloat, corners: CACornerMask, duration: Duration)
 }
 
 /// # Animator
@@ -88,7 +92,7 @@ extension Animator: UIViewControllerTransitioningDelegate {
     }
 }
 
-extension Animator {
+extension Animator: LiveUpdatable {
     public func updateAlignment(alignment: PresentationAlignmentProtocol, duration: Duration) throws {
         guard !(presentation is SlidePresentation), var presentation = presentation as? (Presentation & PresentationAlignmentProvider) else {
             throw LiveUpdateError.notSupportedOnSlide
@@ -130,37 +134,33 @@ extension Animator {
     }
     
     public func updateWidth(width: Size, duration: Duration) throws {
-        if var presentation = presentation as? SlidePresentation {
-            guard presentation.showDirection.orientation() == .horizontal else {
-                throw LiveUpdateError.notSupportedOnVerticalSlide
-            }
-            
-            presentation.size = width
-            self.presentation = presentation
-            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
-        } else if var presentation = presentation as? FadePresentation {
+        guard !(presentation is SlidePresentation) else {
+            throw LiveUpdateError.notSupportedOnSlide
+        }
+        
+        if var presentation = presentation as? FadePresentation {
             presentation.presentationSize = PresentationSize(width: width, height: presentation.presentationSize.height)
+            self.presentation = presentation
             currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
         } else if var presentation = presentation as? CoverPresentation {
             presentation.presentationSize = PresentationSize(width: width, height: presentation.presentationSize.height)
+            self.presentation = presentation
             currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
         }
     }
     
     public func updateHeight(height: Size, duration: Duration) throws {
-        if var presentation = presentation as? SlidePresentation {
-            guard presentation.showDirection.orientation() == .vertical else {
-                throw LiveUpdateError.notSupportedOnHorizontalSlide
-            }
-            
-            presentation.size = height
-            self.presentation = presentation
-            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
-        } else if var presentation = presentation as? FadePresentation {
+        guard !(presentation is SlidePresentation) else {
+            throw LiveUpdateError.notSupportedOnSlide
+        }
+
+        if var presentation = presentation as? FadePresentation {
             presentation.presentationSize = PresentationSize(width: presentation.presentationSize.height, height: height)
+            self.presentation = presentation
             currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
         } else if var presentation = presentation as? CoverPresentation {
             presentation.presentationSize = PresentationSize(width: presentation.presentationSize.height, height: height)
+            self.presentation = presentation
             currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
         }
     }
@@ -174,4 +174,13 @@ extension Animator {
         self.presentation = presentation
         currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
     }
+    
+    public func updateCorners(radius: CGFloat, corners: CACornerMask, duration: Duration) {
+        var presentation = self.presentation
+        presentation.presentationUIConfiguration.cornerRadius = radius
+        presentation.presentationUIConfiguration.corners = corners
+        self.presentation = presentation
+        currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+    }
+
 }

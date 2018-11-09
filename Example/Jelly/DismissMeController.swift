@@ -5,19 +5,18 @@
 import UIKit
 
 class DismissMeController: UIViewController {
-    
+    var interactionAction: (() -> ())?
     override func viewDidLoad() {
         super.viewDidLoad()
         modalPresentationCapturesStatusBarAppearance = true
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func dismissMe(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func actionButtonPressed(_ sender: Any) {
+        if let interactionAction = interactionAction {
+            interactionAction()
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     override var prefersStatusBarHidden: Bool {

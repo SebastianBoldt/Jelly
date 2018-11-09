@@ -64,8 +64,8 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
         if presentation.showDirection.orientation() == .vertical {
             if let sizeProvider = presentation as? PresentationSizeProvider {
                 size = sizeProvider.presentationSize.height
-            } else if let heightProvider = presentation as? PresentationHeightProvider {
-                size = heightProvider.height
+            } else if let sizeProvider = presentation as? PresentationSingleSizeProvider {
+                size = sizeProvider.size
             }
             
             guard let size = size else {
@@ -91,8 +91,8 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
         } else if presentation.showDirection.orientation() == .horizontal {
             if let sizeProvider = presentation as? PresentationSizeProvider {
                 size = sizeProvider.presentationSize.width
-            } else if let heightProvider = presentation as? PresentationWidthProvider {
-                size = heightProvider.width
+            } else if let singleSizeProvider = presentation as? PresentationSingleSizeProvider {
+                size = singleSizeProvider.size
             }
             
             guard let size = size else {
