@@ -1,5 +1,5 @@
 PODS:
-  - Jelly (1.2.5)
+  - Jelly (2.0.0)
   - Nimble (7.3.1)
   - Quick (1.3.2)
   - TouchVisualizer (3.1.0)
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Jelly: a6f48f175497c91cbfe1443b94fe93ffd4a8750f
+  Jelly: a07d630c825837fd7e18a62c04c720816dd89539
   Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
   Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
   TouchVisualizer: b97b1efb0f25d1408bb4557e6f493eae454425e7
