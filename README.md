@@ -129,12 +129,14 @@ pod 'Jelly', '~> 2.0'
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/emoji.png?raw=true" width="200">
 
-Sebastian Boldt, https://www.sebastianboldt.com
+Sebastian Boldt, https://www.sebastianboldt.com 
 
 I am a mobile software architect and developer specializing in iOS. 
 Passionate about creating awesome user experiences, designing beautiful user interfaces, 
 and writing maintainable, structured, and best-practice orientated code. 
 Continuously trying to improve skills and learn new technologies.
+
+<a href="https://paypal.me/boldtsebastian"><img src="https://img.shields.io/badge/paypal-donate-blue.svg?longCache=true&style=flat-square" alt="current version" /></a>
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/license.png?raw=true" width="400">
 
