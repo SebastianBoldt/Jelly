@@ -1,181 +1,175 @@
+![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/Jellyfish.png?raw=true)
 
-# Jelly 
-##### (2.0 Coming soon, including dynamic resizing and interactive transitions)
-#### Create rich viewcontroller transition animations with just a few lines of code
-
-![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/Jellyfish.png)
-
-<a href="https://cocoapods.org/pods/Jelly"><img src="https://img.shields.io/badge/version-1.2.5-green.svg?longCache=true&style=flat-square" alt="current version" /></a>
+<a href="https://paypal.me/boldtsebastian"><img src="https://img.shields.io/badge/paypal-donate-blue.svg?longCache=true&style=flat-square" alt="current version" /></a>
+<a href="https://cocoapods.org/pods/Jelly"><img src="https://img.shields.io/badge/version-2.0.0-green.svg?longCache=true&style=flat-square" alt="current version" /></a>
 <a href="http://twitter.com/sebastianboldt"><img src="https://img.shields.io/badge/twitter-@sebastianboldt-blue.svg?longCache=true&style=flat-square" alt="twitter handle" /></a>
 <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift4.2-compatible-orange.svg?longCache=true&style=flat-square" alt="Swift 4.2 compatible" /></a>
-<a href="https://www.apple.com/de/ios/ios-11/"><img src="https://img.shields.io/badge/platform-iOS-lightgray.svg?longCache=true&style=flat-square" alt="platform" /></a>
+<a href="https://www.apple.com/de/ios/ios-12/"><img src="https://img.shields.io/badge/platform-iOS-lightgray.svg?longCache=true&style=flat-square" alt="platform" /></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/carthage-compatible-green.svg?longCache=true&style=flat-square" alt="carthage support" /></a>
 <a href="https://en.wikipedia.org/wiki/MIT_License"><img src="https://img.shields.io/badge/license-MIT-lightgray.svg?longCache=true&style=flat-square" alt="license" /></a>
 
-Jelly provides custom view controller transitions with just a few lines of code.
-No need to create your own Presentation-Controller or Animator objects.
-A Jelly-Animator will do the heavy lifting for you.
+Jelly is a library for animated, non-interactive & interactive viewcontroller <br/>
+transitions and presentations with the focus on a simple and yet flexible API. 
 
-## 📱 Example
-
-You can use Jelly to build your own Alertviews or Slidein-Menus using ViewControllers designed by yourself.
-
-![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/notification.gif?raw=true)   ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/slideover.gif?raw=true)
-
-![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/shiftindimmed.gif?raw=true)  ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/shiftinblurred.gif?raw=true)
-
-![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/fadin.gif?raw=true)  ![Jelly-Animators: Elegant Viewcontroller Animations in Swift](https://github.com/SebastianBoldt/Jelly/blob/master/Github/blurredslidein.gif?raw=true)
-
-
-To run the example project, clone  the repo, and run `pod install` from the Example directory first.
-
-## 🔧How to use
-
-Jelly is super easy to use.
-
-1. Create a *JellyPresentation* Object (SlideIn, FadeIn or ShiftIn)
-2. Initialize a *JellyAnimator* using the *JellyPresentation* Object created in Step 1.
-3. Call the *prepare(viewController:UIViewController)* Function
-4. Finally call the native *UIViewController* presentation function.
+<img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0240.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0242.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0244.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0246.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
+<img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0248.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0250.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left; margin-right: 32px">
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0252.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
+<img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0254.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
+  
+With a few lines of source code, interactive UIViewController transitions <br/>
+and custom resizable UIViewController presentations can be created, <br/>
+without the use of the cumbersome UIKit Transitioning API. 
 
 ```swift
-override func viewDidLoad() {
-    super.viewDidLoad()
-    let viewController = self.storyboard.instantiateViewController(withIdentifier: "someViewController")
-    //1.
-    let presentation = JellySlideInPresentation()
-    //2.
-    self.jellyAnimator = JellyAnimator(presentation:presentation)
-    //3.
-    self.jellyAnimator?.prepare(viewController: viewController)
-    //4.
-    self.present(viewController, animated: true, completion: nil)
-}
 
+var slidePresentation = SlidePresentation(direction: .left)
+let animator = Animator(presentation: slidePresentation)
+animator.prepare(viewController: viewController)
+present(viewController, animated: true, completion: nil)
 ```
 
-***DO NOT FORGET TO KEEP A STRONG 💪 REFERENCE***
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/how%20to.png?raw=true" width="400">
 
-Because the *transitioningDelegate* of a *UIViewController* is weak, you need to
-hold a strong reference to the *JellyAnimator* inside the *UIViewController* you are presenting from or the central object that maintains your presentations.
+1. Create a `Presentation` Object 
+2. Configure an  `Animator` with the *Presentation*
+3. Call the `prepare` Function
+4. Use the native `UIViewController` presentation function.
 
 ```swift
-class CustomVC : UIViewController {
-    var jellyAnimator: JellyAnimator?
+class ViewController : UIViewController {
+    var animator: Jelly.Animator?
     override func viewDidLoad() {
         super.viewDidLoad()
-        var shiftInPresentation = JellyShiftInPresentation()
-        shiftInPresentation.direction = .left
-        let animator = JellyAnnimator(presentation:presentation)
-        self.jellyAnimator = animator
+        let viewController = YourViewController()
+        let presentation = SlidePresentation(direction: .left)
+        animator = Animator(presentation:presentation)
+        animator?.prepare(presentedViewController: viewController)
+        present(viewController, animated: true, completion: nil)
     }
 }
 ```
 
-That's it. That's lit.
+***DO NOT FORGET TO KEEP A STRONG 💪 REFERENCE***
 
-## 🖌 Customize
-Jelly offers 3 types of Presentations for you:
-* **JellySlideInPresentation**
-* **JellyShiftInPresentation**
-* **JellyFadeInPresentation**
+Because the `transitioningDelegate` of a `UIViewController` is weak, you need to
+hold a strong reference to the `Animator` inside the `UIViewController` you are presenting from or 
+the central object that maintains your presentations.
 
-Not every property is available for each animation.
-Check out the interfaces of each class to learn more about them.
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/interactive-transitions.png?raw=true" width="400">
 
-* **duration:** JellyConstants.Duration (default: normal)
-    * ultraSlow = 2.0
-    * slow = 1.0
-    * medium = 0.5
-    * normal = 0.35
-    * fast = 0.2
-    * reallyFast = 0.1
-* **backgroundStyle:** JellyConstants.BackgroundStyle (default: .dimmed(0.5))
-    * dimmed(alpha: CGFloat)
-    * blur(effectStyle: UIBlurEffectStyle)
-    * if you want a transparent background use .dimmed(alpha:0.0)
-* **cornerRadius:** Double (default: 0)
-* **corners:** UIRectCorner (default: .allCorners)
-    * define which corners the radius should be applied to
-* **presentationCurve:** JellyConstants.JellyCurve (default: linear)
-    * easeIn
-    * easeOut
-    * easeInEaseOut
-    * linear
-* **dismissCurve:** JellyConstants.JellyCurve (default: linear)
-    * easeIn
-    * easeOut
-    * easeInEaseOut
-    * linear
-* **isTapBackgroundToDismissEnabled** (default: true)
-    * tapping the background dismisses the ViewController by default
-    * set it to false to prevent this behavior
-* **widthForViewController:** JellyConstants.Size (default: fullscreen)
-    * If the container is smaller than the provided width, Jelly will automatically resize to the containers width
-    * if Margin Guards are specified they also will be applied if width is to wide for the container
-* **heightForViewController:** JellyConstants.Size (default: fullscreen)
-    * If the container is smaller than the provided height, Jelly will automatically resize to the containers width
-    * if Margin Guards are specified they also will be applied when height is to high for the container
-* **horizontalAlignment:** JellyConstants.HorizontalAlignment (default: .center)
-    * center, left or right
-* **verticalAlignemt:** JellyConstants.VerticalAlignment (default:center)
-    * top, bottom, center
-* **marginGuards:** default(UIEdgeInsets.zero)
-    * If the width or height is bigger than the container we are working with, marginGuards will kick in and limit the size using the specified margins
-* **directionShow:** JellyConstants.Direction (default: top)
-    * left, top, bottom, right
-* **directionDismiss:** JellyConstants.Direction (default: top)
-    * left, top, bottom, right
-* **jellyness:** (default: none)
-    * none (damping = 1.0, velocity = 0.0)
-    * jelly (damping = 0.7, velocity = 2)
-    * jellier (damping = 0.5 , velocity = 3)
-    * jelliest (damping = 0.2, velocity = 4)
+Interactive transitions can be activated for the *slide* and the *cover* transitions. 
+If the transitions are to be interactive, only an `InteractionConfiguration` object has to be passed to the presentation. 
+
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0244.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0246.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0248.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0250.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left; margin-right: 32px">
+
+Here 2 parameters play an important role. First, the `completionThreshold`, which determines the percentage of the animation that is automatically completed as soon as the user finishes the interaction. 
+The second parameter is the actual type of interaction. Jelly offers the `.edge` and the `.canvas` type. 
+In an `.edge` transition, the user must execute the gesture from the edge of the screen. 
+When using the `.canvas` type, gesture recognizers are configured so that direct interaction with the presenting and presented view leads to the transition.
 
 ```swift
+let viewController = YourViewController()
+let interaction = InteractionConfiguration(presentingViewController: self, completionThreshold: 0.5, dragMode: .edge)
+let presentation = SlidePresentation(direction: .right, interactionConfiguration: interaction)
+let animator = Animator(presentation: presentation)
+animator.prepare(presentedViewController: viewController)
 
-let customPresentation = JellySlideInPresentation(dismissCurve: .linear,
-                                                    presentationCurve: .linear,
-                                                         cornerRadius: 15,
-                                                      backgroundStyle: .blur(effectStyle: .light),
-                                                            jellyness: .jellier,
-                                                             duration: .normal,
-                                                        directionShow: .top,
-                                                     directionDismiss: .top,
-                                               widthForViewController: .fullscreen,
-                                              heightForViewController: .custom(value:200) ,
-                                                  horizontalAlignment: .center,
-                                                    verticalAlignment: .top,
-                                                         marginGuards: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10),
-                                                              corners: [.topLeft,.bottomRight])
-
-
-self.jellyAnimator = JellyAnimator(presentation:customPresentation)
-self.jellyAnimator?.prepare(viewController: viewController)
-self.present(viewController, animated: true, completion: nil)
 ```
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/update.png?raw=true" width="400">
 
-## ✅ Requirements
+Jelly 2.0 also provides a new feature called *LIVE UPDATE*. 
+Using Jellys  new `Live Update API` it is now possible to update the alignment, size and margin guards when the viewcontroller is already visible.
 
-Deployment target of your App is >= iOS 8.0
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0252.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0254.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
 
-## 📲 Installation
+These are the new live update functions provided by the Animator. 
+
+* `updateAlignment(alignment: PresentationAlignment, duration: Duration)` - Cover & Fade
+* `updateVerticalAlignment(alignment: VerticalAlignment, duration: Duration)` - Cover & Fade
+* `updateHorizontalAlignment(alignment: HorizontalAlignment, duration: Duration)` - Cover & Fade
+* `updateSize(presentationSize: PresentationSize, duration: Duration)` - Cover & Fade
+* `updateWidth(width: Size, duration: Duration)` - Cover, Fade and horizontal Slide
+* `updateHeight(height: Size, duration: Duration)` - Cover, Fade and vertical Slide
+* `updateMarginGuards(marginGuards: UIEdgeInsets, duration: Duration)` - Cover & Fade
+* `updateCorners(radius: CGFloat, corners: CACornerMask, duration: Duration)` - Cover & Fade & Slide
+
+Some of them will throw an exception if used on a wrong presentationType. <br/>
+For example: a width update can not be performed on vertical slide transitions because it always has full width or height depending on the direction type. 
+
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/customization.png?raw=true" width="400">
+
+The presentation types can be configured with various settings: 
+
+* `size`
+* `margin guards`
+* `direction` 
+* `horizontal & vertical alignment` 
+* `dimmed and blurred backgroundStyle`
+* `duration`
+* `presentation and dismiss curve`
+* `spring damping & velocity` 
+* `corner specification` & `corner radius`
+* `completion threshold`
+* `interactive drag mode` 
+
+Each component is explained in more detail in the <a href="https://github.com/SebastianBoldt/Jelly/wiki/Customization
+">Jelly Wiki</a>.  
+
+
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/requirements.png?raw=true" width="400">
+
+Deployment target of your App is >= iOS 11.0
+
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/installation.png?raw=true" width="400">
+
 
 Jelly is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "Jelly"
+pod 'Jelly', '~> 2.0'
 ```
-## 🗣 Mentions
+
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/mentions.png?raw=true" width="400">
 
 * Mentioned in <i>iOS Dev Weekly</i> by <a href="https://twitter.com/daveverwer">@Dave Verwer</a> - <a href="http://iosdevweekly.com/issues/279"> Issue NO. 112 </a>
 * Mentioned in <i>This Week in Swift</i> by <a href="https://twitter.com/NatashaTheRobot">@Natasha the Robot</a> - <a href="https://swiftnews.curated.co/issues/112#start"> Issue No. 279 </a>
 
-## 🤖 Author
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/author.png?raw=true" width="400">
 
-Sebastian Boldt, www.sebastianboldt.com
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/emoji.png?raw=true" width="200">
 
-## 📄 License
+Sebastian Boldt, https://www.sebastianboldt.com 
+
+I am a mobile software architect and developer specializing in iOS. 
+Passionate about creating awesome user experiences, designing beautiful user interfaces, 
+and writing maintainable, structured, and best-practice orientated code. 
+Continuously trying to improve skills and learn new technologies.
+
+<a href="https://paypal.me/boldtsebastian"><img src="https://img.shields.io/badge/paypal-donate-blue.svg?longCache=true&style=flat-square" alt="current version" /></a>
+
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/license.png?raw=true" width="400">
 
 Jelly is available under the MIT license. See the LICENSE file for more info.

@@ -6,7 +6,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'Jelly'
-    s.version          = '1.2.5'
+    s.version          = '2.0.0'
     s.summary          = 'Jelly provides custom view controller animations with just a few lines of code'
 
     s.description      = <<-DESC
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
     s.source           = { :git => 'https://github.com/SebastianBoldt/Jelly.git', :tag => s.version.to_s }
     s.social_media_url = 'https://twitter.com/sebastianboldt'
 
-    s.ios.deployment_target = '8.0'
+    s.ios.deployment_target = '11.0'
     s.source_files = 'Jelly/Classes/**/*'
     s.frameworks = 'UIKit'
 end

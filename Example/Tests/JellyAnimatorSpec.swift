@@ -1,38 +1,37 @@
-//
-//  JellyAnimatorSpec.swift
-//  Jelly
-//
-//  Created by Sebastian Boldt on 05.12.16.
-//  Copyright © 2016 CocoaPods. All rights reserved.
-//
-
+@testable import Jelly
 import Quick
 import Nimble
-@testable import Jelly
 
 class JellyAnimatorSpec: QuickSpec {
-    
     let presentedViewController = UIViewController()
     let presentingViewController = UIViewController()
-    let defaultSlideIn = JellySlideInPresentation()
-    let defaultFadeIn = JellyFadeInPresentation()
     
     override func spec() {
         describe("After Configuring a JellyAnimator") {
-            
-            context("with slide in presentation") {
+            context("with cover presentation") {
                 it("UIViewControllerTransitioningDelegate should return right animationController for presenting") {
-                    let animator = JellyAnimator(presentation: self.defaultSlideIn)
+                    let coverPresentation = Jelly.CoverPresentation(directionShow: .left, directionDismiss: .left, interactionConfiguration: InteractionConfiguration(presentingViewController: self.presentingViewController, completionThreshold: 0.5, dragMode: .edge))
+                    let animator = Jelly.Animator(presentation: coverPresentation)
                     let animationController = animator.animationController(forPresented: self.presentedViewController, presenting: self.presentingViewController, source: self.presentedViewController)
-                    expect(animationController is JellySlideInPresentationAnimator).to(equal(true))
+                    expect(animationController is Jelly.CoverAnimator).to(equal(true))
                 }
             }
             
-            context("with fade in presentation") {
+            context("with fade presentation") {
                 it("UIViewControllerTransitioningDelegate should return right animationController for presenting") {
-                    let animator = JellyAnimator(presentation: self.defaultFadeIn)
+                    let fadePresentation = Jelly.FadePresentation()
+                    let animator = Jelly.Animator(presentation: fadePresentation)
                     let animationController = animator.animationController(forPresented: self.presentedViewController, presenting: self.presentingViewController, source: self.presentedViewController)
-                    expect(animationController is JellyFadeInPresentationAnimator).to(equal(true))
+                    expect(animationController is Jelly.FadeAnimator).to(equal(true))
+                }
+            }
+            
+            context("with slide presentation") {
+                it("UIViewControllerTransitioningDelegate should return right animationController for presenting") {
+                    let slidePresentation = Jelly.SlidePresentation(interactionConfiguration: InteractionConfiguration(presentingViewController: self.presentingViewController, completionThreshold: 0.5, dragMode: .edge))
+                    let animator = Jelly.Animator(presentation: slidePresentation)
+                    let animationController = animator.animationController(forPresented: self.presentedViewController, presenting: self.presentingViewController, source: self.presentedViewController)
+                    expect(animationController is Jelly.SlideAnimator).to(equal(true))
                 }
             }
         }
