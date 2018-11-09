@@ -11,21 +11,21 @@
 Jelly is a library for animated, non-interactive & interactive viewcontroller <br/>
 transitions and presentations with the focus on a simple and yet flexible API. 
 
-<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0240.TRIM.gif?raw=true" width="80" style="display: block;
+<img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0240.TRIM.gif?raw=true" width="80" style="display: block;
   float: left">
-  <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0242.TRIM.gif?raw=true" width="80" style="display: block;
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0242.TRIM.gif?raw=true" width="80" style="display: block;
   float: left">
-  <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0244.TRIM.gif?raw=true" width="80" style="display: block;
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0244.TRIM.gif?raw=true" width="80" style="display: block;
   float: left">
-  <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0246.TRIM.gif?raw=true" width="80" style="display: block;
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0246.TRIM.gif?raw=true" width="80" style="display: block;
   float: left">
-<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0248.TRIM.gif?raw=true" width="80" style="display: block;
+<img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0248.TRIM.gif?raw=true" width="80" style="display: block;
   float: left">
-  <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0250.TRIM.gif?raw=true" width="80" style="display: block;
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0250.TRIM.gif?raw=true" width="80" style="display: block;
   float: left; margin-right: 32px">
-  <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0252.TRIM.gif?raw=true" width="80" style="display: block;
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0252.TRIM.gif?raw=true" width="80" style="display: block;
   float: left">
-<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0254.TRIM.gif?raw=true" width="80" style="display: block;
+<img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0254.TRIM.gif?raw=true" width="80" style="display: block;
   float: left">
   
 With a few lines of source code, interactive UIViewController transitions <br/>
