@@ -72,6 +72,15 @@ the central object that maintains your presentations.
 Interactive transitions can be activated for the *slide* and the *cover* transitions. 
 If the transitions are to be interactive, only an `InteractionConfiguration` object has to be passed to the presentation. 
 
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0244.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0246.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0248.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0250.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left; margin-right: 32px">
+
 Here 2 parameters play an important role. First, the `completionThreshold`, which determines the percentage of the animation that is automatically completed as soon as the user finishes the interaction. 
 The second parameter is the actual type of interaction. Jelly offers the `.edge` and the `.canvas` type. 
 In an `.edge` transition, the user must execute the gesture from the edge of the screen. 
@@ -90,6 +99,11 @@ animator.prepare(presentedViewController: viewController)
 Jelly 2.0 also provides a new feature called *LIVE UPDATE*. 
 Using Jellys  new `Live Update API` it is now possible to update the alignment, size and margin guards when the viewcontroller is already visible.
 
+  <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0252.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
+<img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0254.TRIM.gif?raw=true" width="80" style="display: block;
+  float: left">
+
 These are the new live update functions provided by the Animator. 
 
 * `updateAlignment(alignment: PresentationAlignment, duration: Duration)` - Cover & Fade
@@ -99,6 +113,7 @@ These are the new live update functions provided by the Animator.
 * `updateWidth(width: Size, duration: Duration)` - Cover, Fade and horizontal Slide
 * `updateHeight(height: Size, duration: Duration)` - Cover, Fade and vertical Slide
 * `updateMarginGuards(marginGuards: UIEdgeInsets, duration: Duration)` - Cover & Fade
+* `updateCorners(radius: CGFloat, corners: CACornerMask, duration: Duration)` - Cover & Fade & Slide
 
 Some of them will throw an exception if used on a wrong presentationType. <br/>
 For example: a width update can not be performed on vertical slide transitions because it always has full width or height depending on the direction type. 
