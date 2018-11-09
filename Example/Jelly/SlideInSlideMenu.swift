@@ -12,7 +12,6 @@ class SlideInSlideMenu: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         modalPresentationCapturesStatusBarAppearance = true
-        navigationController?.isNavigationBarHidden = true
         let uiConfiguration = PresentationUIConfiguration(cornerRadius: 20, backgroundStyle: .blurred(effectStyle: .light), isTapBackgroundToDismissEnabled: true)
         let interaction = InteractionConfiguration(presentingViewController: self, completionThreshold: 0.5, dragMode: .canvas)
         let presentation = SlidePresentation(uiConfiguration: uiConfiguration, direction: .bottom, size: .halfscreen, spring: .none, interactionConfiguration: interaction)
