@@ -97,7 +97,7 @@ animator.prepare(presentedViewController: viewController)
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/update.png?raw=true" width="400">
 
 Jelly 2.0 also provides a new feature called *LIVE UPDATE*. 
-Using Jellys  new `Live Update API` it is now possible to update the alignment, size and margin guards when the viewcontroller is already visible.
+Using Jellys  new `Live Update API` it is now possible to update the `alignment`, `size`, `margin-guards` and `corner radius` when the viewcontroller is already visible.
 
   <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/IMG_0252.TRIM.gif?raw=true" width="80" style="display: block;
   float: left">
@@ -115,8 +115,8 @@ These are the new live update functions provided by the Animator.
 * `updateMarginGuards(marginGuards: UIEdgeInsets, duration: Duration)` - Cover & Fade
 * `updateCorners(radius: CGFloat, corners: CACornerMask, duration: Duration)` - Cover & Fade & Slide
 
-Some of them will throw an exception if used on a wrong presentationType. <br/>
-For example: a width update can not be performed on vertical slide transitions because it always has full width or height depending on the direction type. 
+Some of them will throw an exception if used on a not supported presentationType. <br/>
+For example: It is currently not possible to update the size on a Slide-Presentation. 
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/feature/2.0.0/Github/customization.png?raw=true" width="400">
 
