@@ -153,7 +153,9 @@ pod 'Jelly', '~> 2.0'
 ```
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/mentions.png?raw=true" width="400">
+
 * Mentioned in <i>iOS Dev Weekly</i> by <a href="https://twitter.com/daveverwer">@Dave Verwer</a> - <a href="http://iosdevweekly.com/issues/279"> Issue NO. 112 </a>
+
 * Mentioned in <i>This Week in Swift</i> by <a href="https://twitter.com/NatashaTheRobot">@Natasha the Robot</a> - <a href="https://swiftnews.curated.co/issues/112#start"> Issue No. 279 </a>
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/author.png?raw=true" width="400">
