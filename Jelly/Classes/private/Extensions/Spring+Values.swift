@@ -3,6 +3,8 @@ import Foundation
 extension Spring {
     var damping: CGFloat {
         switch self {
+            case .custom(_ ,let damping):
+                return damping
             case .none:
                 return 1.0
             case .tight:
@@ -16,6 +18,8 @@ extension Spring {
     
     var velocity: CGFloat {
         switch self {
+            case .custom(let velocity , _):
+                return velocity
             case .none:
                 return 0
             case .tight:
