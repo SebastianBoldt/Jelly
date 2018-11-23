@@ -25,27 +25,6 @@ extension CoverAnimator : UIViewControllerAnimatedTransitioning {
         return presentation.presentationTiming.duration.timeInterval
     }
     
-    /// Return dismissed frame depending on provides direction
-    ///
-    /// - Parameters:
-    ///   - presentedFrame: frame the viewController will have if he is fully presented
-    ///   - transitionContext: nothing to say here
-    /// - Returns: the frame the view should have afer dismissing it
-    private func calculateDismissedFrame(from presentedFrame: CGRect, usingDirection direction: Direction , andContext transitionContext: UIViewControllerContextTransitioning) -> CGRect {
-        var dismissedFrame: CGRect = presentedFrame
-        switch direction {
-            case .left:
-                dismissedFrame.origin.x = -presentedFrame.width
-            case .right:
-                dismissedFrame.origin.x = transitionContext.containerView.frame.size.width
-            case .top:
-                dismissedFrame.origin.y = -presentedFrame.height
-            case .bottom:
-                dismissedFrame.origin.y = transitionContext.containerView.frame.size.height
-        }
-        return dismissedFrame
-    }
-    
     func createPropertyAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewPropertyAnimator {
         let key = getPresentedViewControllerKeyForPresentationType(type: self.presentationType)
         let isPresentation = key == .to
@@ -85,5 +64,30 @@ extension CoverAnimator : UIViewControllerAnimatedTransitioning {
         }
         
         return propertyAnimator
+    }
+}
+
+extension CoverAnimator {
+    /// Return dismissed frame depending on provides direction
+    ///
+    /// - Parameters:
+    ///   - presentedFrame: frame the viewController will have if he is fully presented
+    ///   - transitionContext: nothing to say here
+    /// - Returns: the frame the view should have afer dismissing it
+    private func calculateDismissedFrame(from presentedFrame: CGRect,
+                                         usingDirection direction: Direction ,
+                                         andContext transitionContext: UIViewControllerContextTransitioning) -> CGRect {
+        var dismissedFrame: CGRect = presentedFrame
+        switch direction {
+            case .left:
+                dismissedFrame.origin.x = -presentedFrame.width
+            case .right:
+                dismissedFrame.origin.x = transitionContext.containerView.frame.size.width
+            case .top:
+                dismissedFrame.origin.y = -presentedFrame.height
+            case .bottom:
+                dismissedFrame.origin.y = transitionContext.containerView.frame.size.height
+        }
+        return dismissedFrame
     }
 }

@@ -15,6 +15,7 @@ extension FadeAnimator : UIViewControllerAnimatedTransitioning {
     func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
         return createPropertyAnimator(using: transitionContext)
     }
+    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return presentation.presentationTiming.duration.timeInterval
     }

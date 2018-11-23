@@ -1,13 +1,23 @@
 import Foundation
 
-class ViewControllerSizeCalculator {
+protocol ViewControllerSizeCalulatorProtocol {
+    func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize, presentation: Presentation) -> CGSize
+    func getFrameOfPresentedViewInContainerView(containerView: UIView, presentation: Presentation, presentedViewController: UIViewController) -> CGRect
+    func getFrameForSlidePresentation(presentation: SlidePresentation, containerView: UIView) -> CGRect
+    func getFrameForFadeOrCoverPresentation(presentation: Presentation, containerView: UIView, presentedViewController: UIViewController) -> CGRect
+    func getSizeValue(fromPresentation presentation: SlidePresentation, containerView: UIView) -> CGFloat
+    func applymarginGuards(toFrame frame: inout CGRect, marginGuards: UIEdgeInsets, container: CGSize)
+    func limit(frame: inout CGRect, withSize size: CGSize)
+    func align(frame: inout CGRect, withPresentation presentation: Presentation, containerView: UIView)
+}
+
+class ViewControllerSizeCalculator: ViewControllerSizeCalulatorProtocol {    
     func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize, presentation: Presentation) -> CGSize {
+        var width : CGFloat = 0.0
+        var height : CGFloat = 0.0
         guard let nonFullScreenPresentation = presentation as? PresentationSizeProvider else {
             return parentSize
         }
-        
-        var width : CGFloat = 0.0
-        var height : CGFloat = 0.0
         
         switch nonFullScreenPresentation.presentationSize.width {
             case .fullscreen:
@@ -32,11 +42,15 @@ class ViewControllerSizeCalculator {
     
     func getFrameOfPresentedViewInContainerView(containerView: UIView, presentation: Presentation, presentedViewController: UIViewController) -> CGRect {
         if let slideIn = presentation as? SlidePresentation {
-            return self.getFrameForSlidePresentation(presentation: slideIn, containerView: containerView)
+            return getFrameForSlidePresentation(presentation: slideIn, containerView: containerView)
+        } else {
+            return getFrameForFadeOrCoverPresentation(presentation: presentation, containerView: containerView, presentedViewController: presentedViewController)
         }
-        
+    }
+    
+    func getFrameForFadeOrCoverPresentation(presentation: Presentation, containerView: UIView, presentedViewController: UIViewController) -> CGRect {
         guard let sizeProvider = presentation as? PresentationSizeProvider else {
-            return CGRect(x:0,y:0,width: containerView.bounds.size.width, height: containerView.bounds.size.height)
+            return CGRect(x: 0,y: 0,width: containerView.bounds.size.width, height: containerView.bounds.size.height)
         }
         
         var frame: CGRect = .zero
@@ -48,7 +62,7 @@ class ViewControllerSizeCalculator {
         return frame
     }
     
-    private func getFrameForSlidePresentation(presentation: SlidePresentation, containerView: UIView) -> CGRect {
+    func getFrameForSlidePresentation(presentation: SlidePresentation, containerView: UIView) -> CGRect {
         var slideInFrame : CGRect = .zero
         let size = getSizeValue(fromPresentation: presentation, containerView: containerView)
         switch presentation.showDirection {
