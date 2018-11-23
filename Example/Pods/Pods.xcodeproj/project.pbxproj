@@ -17,6 +17,7 @@
 		0D74DB80E4766C505062F32B6C5A70AD /* BeAnInstanceOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62E41EDC1D1F0A50CD6F238DE5DA52A /* BeAnInstanceOf.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		10BF18C5EC2F2C79BD25F09F56100B77 /* PresentationSpringProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF89C3F00812A2CD77EE52D3F73A86FB /* PresentationSpringProvider.swift */; };
 		118894DB9F20F5979822204C8AC30096 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4FEDE8A834E0FEB9971CE9F7C6B6C /* Closures.swift */; };
+		152AFF7521A8B70200E73660 /* ViewControllerSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AFF7421A8B70200E73660 /* ViewControllerSizeCalculator.swift */; };
 		15842EC0219E0CBA00D6D52C /* Deprecation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15842EBF219E0CBA00D6D52C /* Deprecation.swift */; };
 		178D335802CD200B689E8B456E417DA5 /* BackgroundStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EB96877C5119273BFD64D93DE99DC6 /* BackgroundStyle.swift */; };
 		19291565899B5113A5355002CF9C8F2F /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF719D8E22FDE4224BB3A07CAA27139C /* Equal.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -232,6 +233,7 @@
 		1160831F489A83F2E71F3237380508D4 /* CwlMachBadInstructionHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CwlMachBadInstructionHandler.h; path = Carthage/Checkouts/CwlPreconditionTesting/Sources/CwlMachBadInstructionHandler/include/CwlMachBadInstructionHandler.h; sourceTree = "<group>"; };
 		12877A6C39454B09A71B6432428EF643 /* Nimble-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Nimble-dummy.m"; sourceTree = "<group>"; };
 		13B0483C2FE51C1DA7E45625C2D7EE45 /* DSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DSL.swift; path = Sources/Quick/DSL/DSL.swift; sourceTree = "<group>"; };
+		152AFF7421A8B70200E73660 /* ViewControllerSizeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSizeCalculator.swift; sourceTree = "<group>"; };
 		157D741AE0729C5DBC91FC32AC9F5110 /* SatisfyAllOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SatisfyAllOf.swift; path = Sources/Nimble/Matchers/SatisfyAllOf.swift; sourceTree = "<group>"; };
 		15842EBF219E0CBA00D6D52C /* Deprecation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deprecation.swift; sourceTree = "<group>"; };
 		16058921B2D948B462510589BA13898E /* Pods_Jelly_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jelly_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -810,6 +812,7 @@
 			isa = PBXGroup;
 			children = (
 				A174B11A8CDEDF11FA2758F7AC37A372 /* PresentationController.swift */,
+				152AFF7421A8B70200E73660 /* ViewControllerSizeCalculator.swift */,
 				080B44D2EEC0EB6900A94E869115E01F /* Animators */,
 				A3EBC59FAC3AE8DD87C79DD8B8C9A722 /* Extensions */,
 				18374BAA4C35FB88111276392F9ED95A /* Models */,
@@ -1303,6 +1306,7 @@
 				440D74B1049C698F588B700AEFA8D5F2 /* Orientation.swift in Sources */,
 				9A3BD9B26C2ACBCE6EE7D18550254C7B /* Presentation.swift in Sources */,
 				4EA6E1C17F11C38C85A1765B59DD1C62 /* PresentationAlignment.swift in Sources */,
+				152AFF7521A8B70200E73660 /* ViewControllerSizeCalculator.swift in Sources */,
 				C825352204A89543F8B4C8BCE8E8D0B6 /* PresentationAlignmentProvider.swift in Sources */,
 				D3BD7C7DBE343CB1556FEB27C5E9AC86 /* PresentationAnimatorProvider.swift in Sources */,
 				E26DE2707229F79E4BE6030A030EC426 /* PresentationController.swift in Sources */,

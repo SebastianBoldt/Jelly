@@ -7,14 +7,14 @@
 Pod::Spec.new do |s|
     s.name             = 'Jelly'
     s.version          = '2.0.0'
-    s.summary          = 'Jelly provides custom view controller animations with just a few lines of code'
+    s.summary          = 'Jelly is a library for animated, non-interactive & interactive viewcontroller transitions and presentations with the focus on a simple and yet flexible API.'
 
     s.description      = <<-DESC
-    Jelly is a simple to use Animation-Library
-    It helps you to add rich animations to your app without writing boiler code over and over
+        Jelly is a library for animated, non-interactive & interactive viewcontroller
+        transitions and presentations with the focus on a simple and yet flexible API.
     DESC
 
-    s.homepage         = 'https://github.com/SebastianBoldt/Jelly'
+    s.homepage         = 'https://www.sebastianboldt.com'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.author           = { 'Sebastian Boldt' => 'self.dealloc@googlemail.com' }
     s.social_media_url = 'http://twitter.com/sebastianboldt'

@@ -126,16 +126,12 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
         switch configuration.dragMode {
             case .canvas:
                 let gesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
-                if #available(iOS 11.0, *) {
-                    gesture.name = Constants.gestureRecognizerIdentifier
-                }
+                gesture.name = Constants.gestureRecognizerIdentifier
                 view.addGestureRecognizer(gesture)
             case .edge:
                 let gesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
                 gesture.edges = presentationType == .dismiss ? dragDirection.dismissRectEdges : dragDirection.showRectEdges
-                if #available(iOS 11.0, *) {
-                    gesture.name = Constants.gestureRecognizerIdentifier
-                }
+                gesture.name = Constants.gestureRecognizerIdentifier
                 view.addGestureRecognizer(gesture)
         }
     }
