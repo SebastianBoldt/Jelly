@@ -81,14 +81,15 @@ If the transitions are to be interactive, only an `InteractionConfiguration` obj
   <img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/IMG_0250.TRIM.gif?raw=true" width="80" style="display: block;
   float: left; margin-right: 32px">
 
-Here 2 parameters play an important role. First, the `completionThreshold`, which determines the percentage of the animation that is automatically completed as soon as the user finishes the interaction. 
+Here 3 parameters play an important role. First, the `completionThreshold`, which determines the percentage of the animation that is automatically completed as soon as the user finishes the interaction. 
 The second parameter is the actual type of interaction. Jelly offers the `.edge` and the `.canvas` type. 
 In an `.edge` transition, the user must execute the gesture from the edge of the screen. 
 When using the `.canvas` type, gesture recognizers are configured so that direct interaction with the presenting and presented view leads to the transition.
+The last parameter is called `mode`. Using the mode you can limit the interaction to presentation or dismiss interaction (default = `.both`).
 
 ```swift
 let viewController = YourViewController()
-let interaction = InteractionConfiguration(presentingViewController: self, completionThreshold: 0.5, dragMode: .edge)
+let interaction = InteractionConfiguration(presentingViewController: self, completionThreshold: 0.5, dragMode: .edge, mode: .both)
 let presentation = SlidePresentation(direction: .right, interactionConfiguration: interaction)
 let animator = Animator(presentation: presentation)
 animator.prepare(presentedViewController: viewController)
