@@ -45,14 +45,14 @@ extension SlideAnimator : UIViewControllerAnimatedTransitioning {
         var presentedFrameForUnderlying = transitionContext.containerView.frame
         
         switch self.presentation.showDirection {
-        case .left:
-            presentedFrameForUnderlying.origin.x = presentedFrameForPresented.origin.x + presentedFrameForPresented.size.width
-        case .right:
-            presentedFrameForUnderlying.origin.x = presentedFrameForUnderlying.origin.x - presentedFrameForPresented.size.width
-        case .top:
-            presentedFrameForUnderlying.origin.y = presentedFrameForPresented.origin.y + presentedFrameForPresented.size.height
-        case .bottom:
-            presentedFrameForUnderlying.origin.y = presentedFrameForUnderlying.origin.y - presentedFrameForPresented.size.height
+            case .left:
+                presentedFrameForUnderlying.origin.x = presentedFrameForPresented.origin.x + (presentedFrameForPresented.size.width * presentation.parallax)
+            case .right:
+                presentedFrameForUnderlying.origin.x = presentedFrameForUnderlying.origin.x - (presentedFrameForPresented.size.width * presentation.parallax)
+            case .top:
+                presentedFrameForUnderlying.origin.y = presentedFrameForPresented.origin.y + (presentedFrameForPresented.size.height * presentation.parallax)
+            case .bottom:
+                presentedFrameForUnderlying.origin.y = presentedFrameForUnderlying.origin.y - (presentedFrameForPresented.size.height * presentation.parallax)
         }
         
         let dismissedFrameForUnderLying = transitionContext.containerView.frame

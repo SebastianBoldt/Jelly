@@ -46,7 +46,7 @@ class MainViewController: UIViewController {
                         showButtonLogic = {
                             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
                             let viewControllerToPresent = storyboard.instantiateViewController(withIdentifier: "PresentMe")
-                            let presentation = SlidePresentation(direction: .right, size: .halfscreen)
+                            let presentation = SlidePresentation(direction: .bottom, size: .halfscreen, parallax: 0.5)
                             let animator = Animator(presentation: presentation)
                             animator.prepare(presentedViewController: viewControllerToPresent)
                             self.animator = animator

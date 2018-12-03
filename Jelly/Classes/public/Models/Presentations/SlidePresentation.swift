@@ -10,12 +10,14 @@ public struct SlidePresentation: Presentation,
     public var size: Size
     public var spring: Spring
     public var interactionConfiguration: InteractionConfiguration?
+    public var parallax: CGFloat
     
     public init(timing: PresentationTimingProtocol = PresentationTiming(),
                 uiConfiguration: PresentationUIConfigurationProtocol = PresentationUIConfiguration(),
                 direction: Direction = .bottom,
                 size: Size = .fullscreen,
                 spring: Spring = .none,
+                parallax: CGFloat = 1.0,
                 interactionConfiguration: InteractionConfiguration? = nil) {
         self.presentationUIConfiguration = uiConfiguration
         self.presentationTiming = timing
@@ -23,6 +25,7 @@ public struct SlidePresentation: Presentation,
         self.spring = spring
         self.showDirection = direction
         self.interactionConfiguration = interactionConfiguration
+        self.parallax = parallax
     }
 }
 

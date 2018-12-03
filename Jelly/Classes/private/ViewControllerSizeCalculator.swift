@@ -11,6 +11,8 @@ protocol ViewControllerSizeCalulatorProtocol {
     func align(frame: inout CGRect, withPresentation presentation: Presentation, containerView: UIView)
 }
 
+/// A ViewControllerSizeCalculator is responsible for all the fancy size and frame calculation that needs to be done because
+/// a PresentationController ist not capable of using autolayout for this purpose
 class ViewControllerSizeCalculator: ViewControllerSizeCalulatorProtocol {    
     func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize, presentation: Presentation) -> CGSize {
         var width : CGFloat = 0.0

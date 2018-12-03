@@ -14,7 +14,7 @@ final class PresentationController: UIPresentationController, PresentationContro
     private let sizeCalulator: ViewControllerSizeCalculator = ViewControllerSizeCalculator()
     
     // Blur and Dimming View needs to be accessible because the Interactor attaches Gesture-Recognizer to them when
-    // using a edge pan gesture becaue it wont work other wise with non full screen viewController transitions
+    // using an edge pan gesture. This must be done, because it wont work other wise with non full screen viewController transitions
     private(set) var dimmingView: UIView = UIView()
     private(set) var blurView: UIVisualEffectView = UIVisualEffectView()
     
