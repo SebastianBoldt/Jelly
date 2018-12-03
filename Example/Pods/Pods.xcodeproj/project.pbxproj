@@ -19,6 +19,7 @@
 		118894DB9F20F5979822204C8AC30096 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4FEDE8A834E0FEB9971CE9F7C6B6C /* Closures.swift */; };
 		152AFF7521A8B70200E73660 /* ViewControllerSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AFF7421A8B70200E73660 /* ViewControllerSizeCalculator.swift */; };
 		15842EC0219E0CBA00D6D52C /* Deprecation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15842EBF219E0CBA00D6D52C /* Deprecation.swift */; };
+		15A0F3E621B5BDE500730ADE /* InteractionMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A0F3E521B5BDE500730ADE /* InteractionMode.swift */; };
 		178D335802CD200B689E8B456E417DA5 /* BackgroundStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EB96877C5119273BFD64D93DE99DC6 /* BackgroundStyle.swift */; };
 		19291565899B5113A5355002CF9C8F2F /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF719D8E22FDE4224BB3A07CAA27139C /* Equal.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		1AC5D2CE6FA79327468F53B53D0A9418 /* AllPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB0432FE5912A44538CF0F7360FA8B /* AllPass.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
@@ -236,6 +237,7 @@
 		152AFF7421A8B70200E73660 /* ViewControllerSizeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSizeCalculator.swift; sourceTree = "<group>"; };
 		157D741AE0729C5DBC91FC32AC9F5110 /* SatisfyAllOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SatisfyAllOf.swift; path = Sources/Nimble/Matchers/SatisfyAllOf.swift; sourceTree = "<group>"; };
 		15842EBF219E0CBA00D6D52C /* Deprecation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deprecation.swift; sourceTree = "<group>"; };
+		15A0F3E521B5BDE500730ADE /* InteractionMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionMode.swift; sourceTree = "<group>"; };
 		16058921B2D948B462510589BA13898E /* Pods_Jelly_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jelly_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1659222AD64CCA597F148530E7695E75 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		17DED76AA5A94F85DC50F6BD455B79BF /* Direction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
@@ -610,6 +612,7 @@
 				E718B72B3A4C792A682C43A35D9968A3 /* PresentationSize.swift */,
 				625B26AA59DCCA991D52BEF7196378C4 /* PresentationTiming.swift */,
 				1C2D59C58087D18ACC3E5AB791CC0484 /* PresentationUIConfiguration.swift */,
+				15A0F3E521B5BDE500730ADE /* InteractionMode.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -1290,6 +1293,7 @@
 				AE8DEFD225997857F08F6B1127F6473B /* Constants.swift in Sources */,
 				B4A5391D08A413DFDB77272A80094CCA /* CoverAnimator.swift in Sources */,
 				B1A7F7EE1A038950627A70298AA74D9C /* CoverPresentation.swift in Sources */,
+				15A0F3E621B5BDE500730ADE /* InteractionMode.swift in Sources */,
 				039B6DF6277B90CE3E78AD37333752B3 /* Direction+EdgeHelper.swift in Sources */,
 				9AFADEAD60F22CAD938F3DC856D84449 /* Direction+Orientation.swift in Sources */,
 				B7183AAA4DB9E86D1CC6A304F780F662 /* Direction.swift in Sources */,

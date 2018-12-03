@@ -37,12 +37,18 @@ class InteractionController: UIPercentDrivenInteractiveTransition {
     private func prepareGestureRecognizers() {
         switch (presentationType, configuration.dragMode) {
             case (.show, .canvas), (.show, .edge):
-                guard let view = presentingViewController?.view else { break }
-                addInteractionGestureRecognizer(to: view)
+                if configuration.mode.contains(.presentation){
+                    guard let view = presentingViewController?.view else { break }
+                    addInteractionGestureRecognizer(to: view)
+                }
             case (.dismiss, .canvas):
-                addInteractionGestureRecognizer(to: presentedViewController.view)
+                if configuration.mode.contains(.dismiss){
+                    addInteractionGestureRecognizer(to: presentedViewController.view)
+                }
             case (.dismiss, .edge):
-                prepareSpecialWorkAroundForDismissGestureRecognizers()
+                if configuration.mode.contains(.dismiss){
+                    prepareSpecialWorkAroundForDismissGestureRecognizers()
+                }
         }
     }
     
