@@ -132,7 +132,9 @@ The presentation types can be configured with various settings:
 * `spring damping & velocity` 
 * `corner specification` & `corner radius`
 * `completion threshold`
-* `interactive drag mode` 
+* `interactive drag mode` (edge or pan) 
+* `interaction mode` (present, dismiss)
+* `parallax` 
 
 Each component is explained in more detail in the <a href="https://github.com/SebastianBoldt/Jelly/wiki/Customization
 ">Jelly Wiki</a>.  
