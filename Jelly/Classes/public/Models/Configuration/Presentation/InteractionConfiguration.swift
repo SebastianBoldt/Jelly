@@ -8,7 +8,7 @@ public struct InteractionConfiguration {
     
     weak var presentingViewController: UIViewController!
     
-    public init(presentingViewController: UIViewController, completionThreshold: CGFloat = 0.5, dragMode: DragMode, mode: InteractionMode = .both) {
+    public init(presentingViewController: UIViewController, completionThreshold: CGFloat = 0.5, dragMode: DragMode, mode: InteractionMode = [.dismiss, .present] ) {
         self.completionThreshold = completionThreshold
         self.dragMode = dragMode
         self.presentingViewController = presentingViewController

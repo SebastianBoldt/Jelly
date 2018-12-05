@@ -85,11 +85,11 @@ Here 3 parameters play an important role. First, the `completionThreshold`, whic
 The second parameter is the actual type of interaction. Jelly offers the `.edge` and the `.canvas` type. 
 In an `.edge` transition, the user must execute the gesture from the edge of the screen. 
 When using the `.canvas` type, gesture recognizers are configured so that direct interaction with the presenting and presented view leads to the transition.
-The last parameter is called `mode`. Using the mode you can limit the interaction to presentation or dismiss interaction (default = `.both`).
+The last parameter is called `mode`. Using the mode you can limit the interaction to presentation or dismiss interaction (default = `[.present,.dismiss]`).
 
 ```swift
 let viewController = YourViewController()
-let interaction = InteractionConfiguration(presentingViewController: self, completionThreshold: 0.5, dragMode: .edge, mode: .both)
+let interaction = InteractionConfiguration(presentingViewController: self, completionThreshold: 0.5, dragMode: .edge, mode: .dismiss)
 let presentation = SlidePresentation(direction: .right, interactionConfiguration: interaction)
 let animator = Animator(presentation: presentation)
 animator.prepare(presentedViewController: viewController)
@@ -135,7 +135,7 @@ The presentation types can be configured with various settings:
 * `completion threshold`
 * `interactive drag mode` (edge or pan) 
 * `interaction mode` (present, dismiss)
-* `parallax` 
+* `parallax`  (Just available on slide Presentations)
 
 Each component is explained in more detail in the <a href="https://github.com/SebastianBoldt/Jelly/wiki/Customization
 ">Jelly Wiki</a>.  

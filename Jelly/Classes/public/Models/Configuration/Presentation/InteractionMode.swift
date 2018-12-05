@@ -7,8 +7,6 @@ public struct InteractionMode: OptionSet {
         self.rawValue = rawValue
     }
     
-    public static let presentation = InteractionMode(rawValue: 1 << 0)
+    public static let present = InteractionMode(rawValue: 1 << 0)
     public static let dismiss  = InteractionMode(rawValue: 1 << 1)
-    
-    public static let both: InteractionMode = [.presentation, .dismiss]
 }

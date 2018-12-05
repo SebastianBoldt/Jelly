@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
                     case .coverMenuFromRightCanvas:()
                         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
                         let viewControllerToPresent = storyboard.instantiateViewController(withIdentifier: "PresentMe")
-                        let interactionConfiguration = InteractionConfiguration(presentingViewController: self, completionThreshold: 0.5, dragMode: .canvas, mode: .dismiss)
+                        let interactionConfiguration = InteractionConfiguration(presentingViewController: self, completionThreshold: 0.5, dragMode: .canvas)
                         let uiConfiguration = PresentationUIConfiguration(backgroundStyle: .blurred(effectStyle: .light))
                         let size = PresentationSize(width: .halfscreen, height: .fullscreen)
                         let alignment = PresentationAlignment(vertical: .center, horizontal: .left)
