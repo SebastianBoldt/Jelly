@@ -1,3 +1,7 @@
+## 2.0.1 (2018-12-5)
+- new parallax option on slide presentations
+- interaction configuration can now be constrained by mode (.dismiss, .present)
+
 ## 2.0.0 (2018-11-12)
 - interactive transitions are now possible
 - renamed FadeIn, ShiftIn, and SlideIn to Fade, Slide & Cover
