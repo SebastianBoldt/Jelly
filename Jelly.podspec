@@ -6,7 +6,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'Jelly'
-    s.version          = '2.0.0'
+    s.version          = '2.1.0'
     s.summary          = 'Jelly is a library for animated, non-interactive & interactive viewcontroller transitions and presentations with the focus on a simple and yet flexible API.'
 
     s.description      = <<-DESC
