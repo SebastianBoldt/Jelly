@@ -1,4 +1,7 @@
-## 2.0.1 (2018-12-5)
+## 2.1.1 (2018-12-1)
+- flashing blur effect bugfix
+
+## 2.1.0 (2018-12-5)
 - new parallax option on slide presentations
 - interaction configuration can now be constrained by mode (.dismiss, .present)
 
