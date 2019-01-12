@@ -105,6 +105,16 @@ extension PresentationController {
             self.dimmingView.alpha = alpha
         })
     }
+    
+    public func cancelAnimationEffect() {
+        let backgroundStyle = presentation.presentationUIConfiguration.backgroundStyle
+        switch backgroundStyle {
+        case .blurred(let style):
+            blurView.effect = UIBlurEffect(style: style)
+        case .dimmed(let alpha):
+            dimmingView.alpha = alpha
+        }
+    }
 }
 extension PresentationController {
     private func setupBlurView () {

@@ -188,6 +188,9 @@ extension InteractionController {
                 cancel()
             case .ended:
                 interactionInProgress = false
+                if (!shouldCompleteTransition && progress == 0) {
+                    presentationController?.cancelAnimationEffect()
+                }
                 shouldCompleteTransition ? finish() : cancel()
             default:
                 break
