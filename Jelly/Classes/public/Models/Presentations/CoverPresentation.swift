@@ -15,6 +15,7 @@ public struct CoverPresentation: Presentation,
     public var presentationAlignment: PresentationAlignmentProtocol
     public var spring: Spring
     public var marginGuards: UIEdgeInsets
+    public var depthScale: CGFloat
     public var interactionConfiguration: InteractionConfiguration?
     
     public init(directionShow: Direction,
@@ -23,6 +24,7 @@ public struct CoverPresentation: Presentation,
                 size: PresentationSizeProtocol = PresentationSize(),
                 alignment: PresentationAlignmentProtocol = PresentationAlignment.centerAlignment,
                 marginGuards: UIEdgeInsets = .zero ,
+                depthScale: CGFloat = 1.0,
                 timing: PresentationTimingProtocol = PresentationTiming(),
                 spring: Spring = .none,
                 interactionConfiguration: InteractionConfiguration? = nil) {
@@ -35,6 +37,7 @@ public struct CoverPresentation: Presentation,
         self.presentationAlignment = alignment
         self.spring = spring
         self.marginGuards = marginGuards
+        self.depthScale = depthScale
         self.presentationAlignment = alignment
         self.interactionConfiguration = interactionConfiguration
     }

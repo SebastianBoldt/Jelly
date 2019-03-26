@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
                             let uiConfiguration = PresentationUIConfiguration(cornerRadius: 10, backgroundStyle: .dimmed(alpha: 0.5), isTapBackgroundToDismissEnabled: true, corners: [.layerMaxXMaxYCorner,.layerMaxXMinYCorner,.layerMinXMaxYCorner,.layerMinXMinYCorner])
                             let size = PresentationSize(width: .fullscreen, height: .halfscreen)
                             let alignment = PresentationAlignment(vertical: .bottom, horizontal: .center)
-                            let presentation = CoverPresentation(directionShow: .bottom, directionDismiss: .bottom, uiConfiguration: uiConfiguration, size: size, alignment: alignment, marginGuards: marginGuards)
+                            let presentation = CoverPresentation(directionShow: .bottom, directionDismiss: .bottom, uiConfiguration: uiConfiguration, size: size, alignment: alignment, marginGuards: marginGuards, depthScale: 0.80)
                             let animator = Animator(presentation: presentation)
                             animator.prepare(presentedViewController: viewControllerToPresent)
                             self.animator = animator

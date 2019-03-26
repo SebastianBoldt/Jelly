@@ -3,6 +3,7 @@ import Foundation
 final class CoverAnimator: NSObject {
     private let presentationType : PresentationType
     private let presentation : CoverPresentation
+    private var screenshot: UIView?
     
     init(presentationType: PresentationType, presentation: CoverPresentation) {
         self.presentationType = presentationType
@@ -56,6 +57,19 @@ extension CoverAnimator : UIViewControllerAnimatedTransitioning {
         let propertyAnimator = UIViewPropertyAnimator(duration: animationDuration, timingParameters: timingCurveProvider)
 
         propertyAnimator.addAnimations {
+            if isPresentation {
+                if let presentingViewController = transitionContext.viewController(forKey: .from) {
+                    presentingViewController.view.transform = CGAffineTransform(scaleX: self.presentation.depthScale,
+                                                                                y: self.presentation.depthScale)
+                    if UIApplication.shared.delegate?.window??.safeAreaInsets.top ?? 0 > 20 {
+                        let maskLayer = CAShapeLayer()
+                        maskLayer.path = UIBezierPath(roundedRect: presentingViewController.view.bounds, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 38.5, height: 38.5)).cgPath
+                        presentingViewController.view.layer.mask = maskLayer
+                    }
+                }
+            } else {
+                transitionContext.viewController(forKey: .to)!.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            }
             controllerToAnimate.view.frame = finalFrame
         }
         

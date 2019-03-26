@@ -4,6 +4,7 @@ protocol PresentationControllerProtocol {
     func updatePresentation(presentation: Presentation, duration: Duration)
     var dimmingView: UIView { get }
     var blurView: UIVisualEffectView { get }
+    var screenshot: UIView { get }
 }
 
 /// A PresentationController tells UIKit what exactly to do with the View that should be presented
@@ -17,6 +18,7 @@ final class PresentationController: UIPresentationController, PresentationContro
     // using an edge pan gesture. This must be done, because it wont work other wise with non full screen viewController transitions
     private(set) var dimmingView: UIView = UIView()
     private(set) var blurView: UIVisualEffectView = UIVisualEffectView()
+    private(set) var screenshot: UIView = UIView()
     
     init(presentedViewController: UIViewController, presentingViewController: UIViewController?, presentation: Presentation) {
         self.presentation = presentation
@@ -45,6 +47,8 @@ final class PresentationController: UIPresentationController, PresentationContro
                 self.setupDimmingView(withAlpha: alpha)
                 animateDimmingView(alpha: alpha)
         }
+        screenshot = presentingViewController.view.snapshotView(afterScreenUpdates: false)!
+        presentingViewController.view!.addSubview(screenshot)
     }
     
     override func dismissalTransitionWillBegin() {
@@ -55,6 +59,7 @@ final class PresentationController: UIPresentationController, PresentationContro
             case .dimmed:
                 animateDimmingView(alpha: 0.0)
         }
+        screenshot.removeFromSuperview()
     }
     
     override func containerViewWillLayoutSubviews() {        
