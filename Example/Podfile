@@ -7,7 +7,7 @@ target 'Jelly_Example' do
     pod 'Jelly' , :path => '../'
     pod "TouchVisualizer", '~>3.1.0'
 
-  target 'Jelly_Tests' do
+  target 'UnitTests' do
     inherit! :search_paths
 
     pod 'Quick'
