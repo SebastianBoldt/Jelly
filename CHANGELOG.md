@@ -1,3 +1,6 @@
+## 2.2.0 (2019-13-4)
+- Swift 5.0 adaptions
+
 ## 2.1.1 (2018-12-1)
 - flashing blur effect bugfix
 
