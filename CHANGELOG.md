@@ -1,3 +1,6 @@
+## 2.2.1 (2019-5-6)
+- decreased minimum deployment target to iOS10
+
 ## 2.2.0 (2019-13-4)
 - Swift 5.0 adaptions
 
