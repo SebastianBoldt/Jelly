@@ -24,7 +24,7 @@ final class PresentationController: UIPresentationController, PresentationContro
         presentedViewController.view.layer.masksToBounds = true
         let corners = presentation.presentationUIConfiguration.corners
         let radius = presentation.presentationUIConfiguration.cornerRadius
-        presentedViewController.view.roundCorners(corners: corners, radius: radius)
+        presentedViewController.view.roundCorners(corners, radius: radius)
     }
 
     func updatePresentation(presentation: Presentation, duration: Duration) {
@@ -61,7 +61,7 @@ final class PresentationController: UIPresentationController, PresentationContro
         presentedView?.frame = frameOfPresentedViewInContainerView
         let corners = presentation.presentationUIConfiguration.corners
         let radius = presentation.presentationUIConfiguration.cornerRadius
-        presentedView?.roundCorners(corners: corners, radius: radius)
+        presentedView?.roundCorners(corners, radius: radius)
     }
     
     override func size(forChildContentContainer container: UIContentContainer,
