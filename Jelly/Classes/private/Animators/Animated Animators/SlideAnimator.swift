@@ -3,6 +3,7 @@ import Foundation
 final class SlideAnimator: NSObject {
     private let presentationType : PresentationType
     private let presentation : SlidePresentation
+    private var currentPropertyAnimator: UIViewPropertyAnimator?
 
     init(presentationType: PresentationType, presentation: SlidePresentation) {
         self.presentationType = presentationType
@@ -18,11 +19,12 @@ extension SlideAnimator : UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let propertyAnimator = createPropertyAnimator(using: transitionContext)
+        currentPropertyAnimator = propertyAnimator
         propertyAnimator.startAnimation()
     }
     
     func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
-        return createPropertyAnimator(using: transitionContext)
+        return currentPropertyAnimator ?? createPropertyAnimator(using: transitionContext)
     }
     
     func createPropertyAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewPropertyAnimator{

@@ -3,6 +3,7 @@ import Foundation
 final class FadeAnimator: NSObject {
     private let presentationType : PresentationType
     private let presentation : FadePresentation
+    private var currentPropertyAnimator: UIViewPropertyAnimator?
 
     init(presentationType: PresentationType, presentation: FadePresentation) {
         self.presentationType = presentationType
@@ -13,7 +14,7 @@ final class FadeAnimator: NSObject {
 
 extension FadeAnimator : UIViewControllerAnimatedTransitioning {
     func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
-        return createPropertyAnimator(using: transitionContext)
+        return currentPropertyAnimator ?? createPropertyAnimator(using: transitionContext)
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -22,6 +23,7 @@ extension FadeAnimator : UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let propertyAnimator = createPropertyAnimator(using: transitionContext)
+        currentPropertyAnimator = propertyAnimator
         propertyAnimator.startAnimation()
     }
     

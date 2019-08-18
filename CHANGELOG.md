@@ -1,3 +1,6 @@
+## 2.2.2 (2019-5-8)
+- fixed iOS13 issues
+
 ## 2.2.1 (2019-5-6)
 - decreased minimum deployment target to iOS10
 
