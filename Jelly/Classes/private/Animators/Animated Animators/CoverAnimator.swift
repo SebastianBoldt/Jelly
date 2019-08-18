@@ -3,6 +3,7 @@ import Foundation
 final class CoverAnimator: NSObject {
     private let presentationType : PresentationType
     private let presentation : CoverPresentation
+    private var currentPropertyAnimator: UIViewPropertyAnimator?
     
     init(presentationType: PresentationType, presentation: CoverPresentation) {
         self.presentationType = presentationType
@@ -14,11 +15,15 @@ final class CoverAnimator: NSObject {
 extension CoverAnimator : UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let propertyAnimator = createPropertyAnimator(using: transitionContext)
+        currentPropertyAnimator = propertyAnimator
         propertyAnimator.startAnimation()
     }
     
     func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
-        return createPropertyAnimator(using: transitionContext)
+        // According to Apple's document:
+        // "You must return the same animator object for the duration of the transition."
+        // https://developer.apple.com/documentation/uikit/uiviewcontrolleranimatedtransitioning/1829434-interruptibleanimator
+        return currentPropertyAnimator ?? createPropertyAnimator(using: transitionContext)
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
