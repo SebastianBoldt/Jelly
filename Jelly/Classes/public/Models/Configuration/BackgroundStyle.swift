@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 public enum BackgroundStyle {
     case dimmed(alpha: CGFloat)
