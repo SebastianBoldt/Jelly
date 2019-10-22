@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 public struct PresentationTiming: PresentationTimingProtocol {
     public var duration: Duration

@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 public enum VerticalAlignment {
     case top
@@ -6,4 +6,3 @@ public enum VerticalAlignment {
     case center
     case custom(y: CGFloat)
 }
-
