@@ -1,12 +1,13 @@
+import UIKit
+
 public struct CoverPresentation: Presentation,
-                                 PresentationDismissDirectionProvider,
-                                 PresentationShowDirectionProvider,
-                                 PresentationMarginGuardsProvider,
-                                 PresentationSizeProvider,
-                                 PresentationAlignmentProvider,
-                                 PresentationSpringProvider,
-                                 InteractionConfigurationProvider {
-    
+    PresentationDismissDirectionProvider,
+    PresentationShowDirectionProvider,
+    PresentationMarginGuardsProvider,
+    PresentationSizeProvider,
+    PresentationAlignmentProvider,
+    PresentationSpringProvider,
+    InteractionConfigurationProvider {
     public var showDirection: Direction
     public var dismissDirection: Direction
     public var presentationTiming: PresentationTimingProtocol
@@ -16,26 +17,25 @@ public struct CoverPresentation: Presentation,
     public var spring: Spring
     public var marginGuards: UIEdgeInsets
     public var interactionConfiguration: InteractionConfiguration?
-    
+
     public init(directionShow: Direction,
                 directionDismiss: Direction,
                 uiConfiguration: PresentationUIConfigurationProtocol = PresentationUIConfiguration(),
                 size: PresentationSizeProtocol = PresentationSize(),
                 alignment: PresentationAlignmentProtocol = PresentationAlignment.centerAlignment,
-                marginGuards: UIEdgeInsets = .zero ,
+                marginGuards: UIEdgeInsets = .zero,
                 timing: PresentationTimingProtocol = PresentationTiming(),
                 spring: Spring = .none,
                 interactionConfiguration: InteractionConfiguration? = nil) {
-        
-        self.dismissDirection = directionDismiss
-        self.showDirection = directionShow
-        self.presentationTiming = timing
-        self.presentationUIConfiguration = uiConfiguration
-        self.presentationSize = size
-        self.presentationAlignment = alignment
+        dismissDirection = directionDismiss
+        showDirection = directionShow
+        presentationTiming = timing
+        presentationUIConfiguration = uiConfiguration
+        presentationSize = size
+        presentationAlignment = alignment
         self.spring = spring
         self.marginGuards = marginGuards
-        self.presentationAlignment = alignment
+        presentationAlignment = alignment
         self.interactionConfiguration = interactionConfiguration
     }
 }
@@ -44,7 +44,7 @@ extension CoverPresentation: PresentationAnimatorProvider {
     public var showAnimator: UIViewControllerAnimatedTransitioning {
         return CoverAnimator(presentationType: .show, presentation: self)
     }
-    
+
     public var dismissAnimator: UIViewControllerAnimatedTransitioning {
         return CoverAnimator(presentationType: .dismiss, presentation: self)
     }
