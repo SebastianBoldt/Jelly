@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 final class CoverAnimator: NSObject {
     private let presentationType : PresentationType

@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 final class FadeAnimator: NSObject {
     private let presentationType : PresentationType

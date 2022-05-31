@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 public enum Spring {
     case custom(velocity: CGFloat, damping: CGFloat)
