@@ -1,3 +1,7 @@
+## 2.3.0 (2022-4-31)
+- Xcode 13 support 
+- SPM support 
+
 ## 2.2.2 (2019-5-8)
 - fixed iOS13 issues
 

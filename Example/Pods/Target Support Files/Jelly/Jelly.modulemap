@@ -1,6 +1,0 @@
-framework module Jelly {
-  umbrella header "Jelly-umbrella.h"
-
-  export *
-  module * { export * }
-}

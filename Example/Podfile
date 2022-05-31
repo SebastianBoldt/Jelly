@@ -5,7 +5,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Jelly_Example' do
     pod 'Jelly' , :path => '../'
-    pod "TouchVisualizer", '~>3.1.0'
+    pod "TouchVisualizer", '~> 4.0.0'
 
   target 'UnitTests' do
     inherit! :search_paths

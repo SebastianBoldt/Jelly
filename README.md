@@ -5,6 +5,7 @@
 <a href="http://twitter.com/sebastianboldt"><img src="https://img.shields.io/badge/twitter-@sebastianboldt-blue.svg?longCache=true&style=flat-square" alt="twitter handle" /></a>
 <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift5.0-compatible-orange.svg?longCache=true&style=flat-square" alt="Swift 4.2 compatible" /></a>
 <a href="https://www.apple.com/de/ios/ios-12/"><img src="https://img.shields.io/badge/platform-iOS-lightgray.svg?longCache=true&style=flat-square" alt="platform" /></a>
+<a href="https://www.swift.org/package-manager/"><img src="https://img.shields.io/badge/SPM-compatible-orange.svg?longCache=true&style=flat-square" alt="SPM-Compatible" /></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/carthage-compatible-green.svg?longCache=true&style=flat-square" alt="carthage support" /></a>
 <a href="https://en.wikipedia.org/wiki/MIT_License"><img src="https://img.shields.io/badge/license-MIT-lightgray.svg?longCache=true&style=flat-square" alt="license" /></a>
 

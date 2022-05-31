@@ -6,7 +6,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'Jelly'
-    s.version          = '2.2.2'
+    s.version          = '2.3.0'
     s.summary          = 'Jelly is a library for animated, non-interactive & interactive viewcontroller transitions and presentations with the focus on a simple and yet flexible API.'
 
     s.description      = <<-DESC
@@ -24,5 +24,6 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '10.0'
     s.source_files = 'Jelly/Classes/**/*'
     s.frameworks = 'UIKit'
+    s.swift_version = '4.2'
 end
 
