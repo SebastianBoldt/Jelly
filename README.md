@@ -152,7 +152,7 @@ Jelly is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Jelly', '~> 2.0'
+pod 'Jelly', '~> 2.2.2'
 ```
 
 <img src="https://github.com/SebastianBoldt/Jelly/blob/master/Github/mentions.png?raw=true" width="400">
