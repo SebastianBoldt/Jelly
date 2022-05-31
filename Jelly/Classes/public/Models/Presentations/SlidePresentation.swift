@@ -1,9 +1,9 @@
-import Foundation
+import UIKit
 
 public struct SlidePresentation: Presentation,
-                                   PresentationShowDirectionProvider,
-                                   PresentationSingleSizeProvider,
-                                   InteractionConfigurationProvider {
+    PresentationShowDirectionProvider,
+    PresentationSingleSizeProvider,
+    InteractionConfigurationProvider {
     public var presentationTiming: PresentationTimingProtocol
     public var presentationUIConfiguration: PresentationUIConfigurationProtocol
     public var showDirection: Direction
@@ -11,7 +11,7 @@ public struct SlidePresentation: Presentation,
     public var spring: Spring
     public var interactionConfiguration: InteractionConfiguration?
     public var parallax: CGFloat
-    
+
     public init(timing: PresentationTimingProtocol = PresentationTiming(),
                 uiConfiguration: PresentationUIConfigurationProtocol = PresentationUIConfiguration(),
                 direction: Direction = .bottom,
@@ -19,11 +19,11 @@ public struct SlidePresentation: Presentation,
                 spring: Spring = .none,
                 parallax: CGFloat = 1.0,
                 interactionConfiguration: InteractionConfiguration? = nil) {
-        self.presentationUIConfiguration = uiConfiguration
-        self.presentationTiming = timing
+        presentationUIConfiguration = uiConfiguration
+        presentationTiming = timing
         self.size = size
         self.spring = spring
-        self.showDirection = direction
+        showDirection = direction
         self.interactionConfiguration = interactionConfiguration
         self.parallax = parallax
     }
@@ -33,7 +33,7 @@ extension SlidePresentation: PresentationAnimatorProvider {
     public var showAnimator: UIViewControllerAnimatedTransitioning {
         return SlideAnimator(presentationType: .show, presentation: self)
     }
-    
+
     public var dismissAnimator: UIViewControllerAnimatedTransitioning {
         return SlideAnimator(presentationType: .dismiss, presentation: self)
     }
