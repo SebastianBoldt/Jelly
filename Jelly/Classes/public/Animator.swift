@@ -155,11 +155,11 @@ extension Animator: LiveUpdatable {
         }
 
         if var presentation = presentation as? FadePresentation {
-            presentation.presentationSize = PresentationSize(width: presentation.presentationSize.height, height: height)
+            presentation.presentationSize = PresentationSize(width: presentation.presentationSize.width, height: height)
             self.presentation = presentation
             currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
         } else if var presentation = presentation as? CoverPresentation {
-            presentation.presentationSize = PresentationSize(width: presentation.presentationSize.height, height: height)
+            presentation.presentationSize = PresentationSize(width: presentation.presentationSize.width, height: height)
             self.presentation = presentation
             currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
         }
